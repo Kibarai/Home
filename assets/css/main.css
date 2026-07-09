@@ -176,14 +176,14 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;
 }
 .info-col { text-align: center; padding: 1.5rem 1rem; }
-.info-col .info-icon {
+.info-icon {
   width: 90px; height: 90px; border-radius: 50%;
   margin: 0 auto 1.5rem;
   background: var(--bg-accent);
   display: flex; align-items: center; justify-content: center;
   color: var(--primary);
 }
-.info-col .info-icon svg { width: 42px; height: 42px; }
+.info-icon svg { width: 42px; height: 42px; }
 .info-col h3 { font-size: 1.25rem; margin-bottom: .8rem; }
 .info-col p { max-width: 32ch; margin: 0 auto 1.5rem; font-size: .95rem; }
 
