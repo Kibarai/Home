@@ -4,6 +4,7 @@ subtitle: Voz sintética, comprensión de intención, integración con CRM. En 2
 date: 2026-07-02
 author: Equipo Kibarai
 tags: [IA, voz, automatización]
+cover: /assets/img/covers/centralitas-ia.svg
 ---
 
 Durante años, la centralita automática fue sinónimo de árbol de opciones y "pulse uno para hablar con un operador". En 2026 la conversación con una IA por teléfono ya es indistinguible de una humana en la mayoría de escenarios de primera línea. Y en muchos casos, mejor.

@@ -1,0 +1,59 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nodos de modelo distribuido">
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a2145"/>
+      <stop offset="100%" stop-color="#2d3663"/>
+    </linearGradient>
+    <radialGradient id="glowB" cx="60%" cy="45%">
+      <stop offset="0%" stop-color="#6e92ff" stop-opacity=".4"/>
+      <stop offset="100%" stop-color="#6e92ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bgB)"/>
+  <ellipse cx="960" cy="405" rx="640" ry="420" fill="url(#glowB)"/>
+  <!-- connecting lines -->
+  <g stroke="#6e92ff" stroke-width="1.5" opacity=".45" fill="none">
+    <line x1="480" y1="240" x2="800" y2="450"/>
+    <line x1="480" y1="240" x2="800" y2="670"/>
+    <line x1="480" y1="450" x2="800" y2="450"/>
+    <line x1="480" y1="660" x2="800" y2="450"/>
+    <line x1="800" y1="450" x2="1120" y2="240"/>
+    <line x1="800" y1="450" x2="1120" y2="450"/>
+    <line x1="800" y1="450" x2="1120" y2="660"/>
+    <line x1="800" y1="670" x2="1120" y2="660"/>
+    <line x1="800" y1="670" x2="1120" y2="450"/>
+    <line x1="1120" y1="240" x2="1120" y2="450"/>
+    <line x1="1120" y1="450" x2="1120" y2="660"/>
+  </g>
+  <g stroke="#6e92ff" stroke-width="1" opacity=".2" fill="none" stroke-dasharray="4 5">
+    <line x1="480" y1="240" x2="1120" y2="240"/>
+    <line x1="480" y1="660" x2="1120" y2="660"/>
+    <line x1="480" y1="240" x2="480" y2="660"/>
+  </g>
+  <!-- nodes -->
+  <g>
+    <circle cx="480" cy="240" r="42" fill="#2d3663" stroke="#6e92ff" stroke-width="2"/>
+    <circle cx="480" cy="240" r="14" fill="#6e92ff"/>
+    <circle cx="480" cy="450" r="42" fill="#2d3663" stroke="#6e92ff" stroke-width="2"/>
+    <circle cx="480" cy="450" r="14" fill="#b3c6ff"/>
+    <circle cx="480" cy="660" r="42" fill="#2d3663" stroke="#6e92ff" stroke-width="2"/>
+    <circle cx="480" cy="660" r="14" fill="#6e92ff"/>
+    <!-- central node bigger -->
+    <circle cx="800" cy="450" r="90" fill="#1a2145" stroke="#6e92ff" stroke-width="2.5"/>
+    <circle cx="800" cy="450" r="60" fill="#2d3663" stroke="#b3c6ff" stroke-width="1.5"/>
+    <circle cx="800" cy="450" r="24" fill="#b3c6ff"/>
+    <circle cx="800" cy="670" r="42" fill="#2d3663" stroke="#6e92ff" stroke-width="2"/>
+    <circle cx="800" cy="670" r="14" fill="#b3c6ff"/>
+    <circle cx="1120" cy="240" r="42" fill="#2d3663" stroke="#6e92ff" stroke-width="2"/>
+    <circle cx="1120" cy="240" r="14" fill="#6e92ff"/>
+    <circle cx="1120" cy="450" r="42" fill="#2d3663" stroke="#6e92ff" stroke-width="2"/>
+    <circle cx="1120" cy="450" r="14" fill="#b3c6ff"/>
+    <circle cx="1120" cy="660" r="42" fill="#2d3663" stroke="#6e92ff" stroke-width="2"/>
+    <circle cx="1120" cy="660" r="14" fill="#6e92ff"/>
+  </g>
+  <!-- floating dots -->
+  <circle cx="200" cy="180" r="6" fill="#6e92ff" opacity=".5"/>
+  <circle cx="260" cy="720" r="8" fill="#b3c6ff" opacity=".4"/>
+  <circle cx="1400" cy="220" r="5" fill="#6e92ff" opacity=".55"/>
+  <circle cx="1360" cy="720" r="10" fill="#6e92ff" opacity=".35"/>
+</svg>

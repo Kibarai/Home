@@ -4,6 +4,7 @@ subtitle: Claude Code, Cursor, Codex, Aider. El mercado ha madurado y la elecci�
 date: 2026-06-05
 author: Equipo Kibarai
 tags: [desarrollo, IA, herramientas]
+cover: /assets/img/covers/agentes-programacion.svg
 ---
 
 En 2024 los asistentes de código eran una novedad. Hoy son parte del stack. Y la elección del agente influye en la productividad de tu equipo más de lo que la mayoría de directores técnicos calcula cuando firma la factura.

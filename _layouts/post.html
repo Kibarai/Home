@@ -16,7 +16,7 @@ layout: default
 
   <div class="post-cover-band">
     {% if page.cover %}
-      <img src="{{ page.cover | relative_url }}" alt="" style="border-radius:20px;box-shadow:0 30px 60px -30px rgba(45,54,99,.4)">
+      <div class="cover-panel" style="background:url({{ page.cover | relative_url }}) center/cover no-repeat"></div>
     {% else %}
       <div class="cover-panel"></div>
     {% endif %}

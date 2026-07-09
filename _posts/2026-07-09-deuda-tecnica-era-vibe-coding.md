@@ -4,6 +4,7 @@ subtitle: Los agentes de programación producen código a una velocidad nueva. L
 date: 2026-07-09
 author: Equipo Kibarai
 tags: [consultoría, ingeniería, decisiones]
+cover: /assets/img/covers/deuda-tecnica.svg
 ---
 
 En 2026 hay equipos que producen tres veces más código que hace dos años con la misma plantilla. Los agentes de programación se han convertido en un multiplicador real de la capacidad de entrega. Y con ese multiplicador ha llegado un efecto secundario que muchos responsables técnicos están empezando a ver reflejado en el coste de mantenimiento.

@@ -82,7 +82,11 @@ title: Kibarai — Consultoría, software a medida y desarrollos con IA
     {% if featured %}
       <div class="featured-post" style="margin-bottom:3rem">
         <a href="{{ featured.url | relative_url }}" style="text-decoration:none">
-          <div class="featured-image"><span>{{ featured.title }}</span></div>
+          {% if featured.cover %}
+            <div class="featured-image" style="background:url({{ featured.cover | relative_url }}) center/cover no-repeat"></div>
+          {% else %}
+            <div class="featured-image"><span>{{ featured.title }}</span></div>
+          {% endif %}
         </a>
         <div>
           <p class="meta"><time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%-d %b %Y" }}</time> · {{ s.blog_section.featured_label }}</p>
@@ -107,7 +111,11 @@ title: Kibarai — Consultoría, software a medida y desarrollos con IA
             {% else %}{% assign v = 6 %}
           {% endcase %}
           <a class="blog-card" href="{{ post.url | relative_url }}">
-            <div class="card-image variant-{{ v }}"><span>{{ post.title }}</span></div>
+            {% if post.cover %}
+              <div class="card-image" style="background:url({{ post.cover | relative_url }}) center/cover no-repeat"></div>
+            {% else %}
+              <div class="card-image variant-{{ v }}"><span>{{ post.title }}</span></div>
+            {% endif %}
             <div class="card-body">
               <p class="card-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time></p>
               <h3>{{ post.title }}</h3>

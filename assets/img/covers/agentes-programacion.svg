@@ -1,0 +1,44 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terminal con código">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d3663"/>
+      <stop offset="100%" stop-color="#00398f"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#6e92ff" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#6e92ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bgA)"/>
+  <ellipse cx="800" cy="450" rx="700" ry="450" fill="url(#glowA)"/>
+  <circle cx="230" cy="180" r="8" fill="#6e92ff" opacity=".5"/>
+  <circle cx="1380" cy="720" r="12" fill="#6e92ff" opacity=".4"/>
+  <circle cx="1440" cy="170" r="6" fill="#b3c6ff" opacity=".6"/>
+  <!-- terminal window -->
+  <g transform="translate(360 190)">
+    <rect width="880" height="520" rx="18" fill="#1a2145"/>
+    <rect width="880" height="52" rx="18" fill="#0f1830"/>
+    <rect y="46" width="880" height="6" fill="#0f1830"/>
+    <circle cx="34" cy="26" r="8" fill="#ff5f56"/>
+    <circle cx="62" cy="26" r="8" fill="#ffbd2e"/>
+    <circle cx="90" cy="26" r="8" fill="#27c93f"/>
+    <!-- prompt line -->
+    <rect x="40" y="100" width="12" height="12" rx="2" fill="#27c93f"/>
+    <rect x="62" y="102" width="220" height="8" rx="4" fill="#6e92ff"/>
+    <!-- code lines -->
+    <rect x="40" y="140" width="640" height="10" rx="5" fill="#b3c6ff" opacity=".85"/>
+    <rect x="40" y="164" width="480" height="10" rx="5" fill="#6e92ff" opacity=".65"/>
+    <rect x="90" y="194" width="520" height="10" rx="5" fill="#b3c6ff" opacity=".55"/>
+    <rect x="90" y="218" width="380" height="10" rx="5" fill="#b3c6ff" opacity=".5"/>
+    <rect x="90" y="242" width="610" height="10" rx="5" fill="#6e92ff" opacity=".45"/>
+    <rect x="140" y="272" width="440" height="10" rx="5" fill="#b3c6ff" opacity=".45"/>
+    <rect x="140" y="296" width="500" height="10" rx="5" fill="#b3c6ff" opacity=".4"/>
+    <rect x="40" y="326" width="360" height="10" rx="5" fill="#6e92ff" opacity=".6"/>
+    <rect x="40" y="356" width="640" height="10" rx="5" fill="#b3c6ff" opacity=".55"/>
+    <rect x="40" y="380" width="320" height="10" rx="5" fill="#6e92ff" opacity=".65"/>
+    <!-- last line + cursor -->
+    <rect x="40" y="420" width="12" height="12" rx="2" fill="#27c93f"/>
+    <rect x="62" y="422" width="180" height="8" rx="4" fill="#6e92ff"/>
+    <rect x="256" y="418" width="14" height="16" fill="#6e92ff"/>
+  </g>
+</svg>

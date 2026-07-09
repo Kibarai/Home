@@ -4,6 +4,7 @@ subtitle: Llama 4, DeepSeek, Qwen y Kimi han cerrado el hueco. La decisión de c
 date: 2026-06-19
 author: Equipo Kibarai
 tags: [IA, arquitectura, decisiones]
+cover: /assets/img/covers/modelos-open-source.svg
 ---
 
 En 2025 el debate era si los modelos abiertos aguantaban a los propietarios. En 2026 el debate ya está en si compensa el cambio para tu caso concreto. Y la respuesta rara vez es blanco o negro.
