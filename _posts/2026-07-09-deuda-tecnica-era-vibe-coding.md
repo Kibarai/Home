@@ -1,7 +1,7 @@
 ---
 title: "Deuda técnica en la era del vibe coding"
 subtitle: Los agentes de programación producen código a una velocidad nueva. La deuda técnica también.
-date: 2026-07-14
+date: 2026-07-09
 author: Equipo Kibarai
 tags: [consultoría, ingeniería, decisiones]
 ---

@@ -1,7 +1,7 @@
 ---
 title: Por qué apostamos por escribir menos código
 subtitle: Cada línea que no escribes es una línea que no tienes que mantener.
-date: 2026-07-15
+date: 2026-07-01
 author: Equipo Kibarai
 tags: [ingenieria, filosofia]
 ---
