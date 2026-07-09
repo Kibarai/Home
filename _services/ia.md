@@ -1,10 +1,12 @@
 ---
 title: Aplicaciones con IA
-summary: Integramos modelos de lenguaje en tu producto. Y cuando la solución adecuada es tener el modelo bajo tu control, entrenamos uno específico que corre en tu servidor con coste, latencia y datos bajo tu dominio.
+summary: Integramos modelos de lenguaje en tu producto. Y cuando la solución
+  adecuada es tener el modelo bajo tu control, entrenamos uno específico que
+  corre en tu servidor con coste, latencia y datos bajo tu dominio.
 order: 3
+lang: es
 ---
-
-La IA generativa está en boca de todos. Nosotros llevamos años aplicándola en producción y hemos aprendido dos cosas.
+La IA generativa está en boca de todos. Nosotros llevamos tiempo aplicándola y hemos aprendido dos cosas.
 
 La primera: casi todos los problemas de negocio se resuelven mejor integrando un modelo de lenguaje bien apuntado que reinventando la rueda. La segunda: existen escenarios donde tener el modelo en tu infraestructura ofrece mejor control sobre coste, latencia y datos que depender de un proveedor externo. Elegir bien entre las dos opciones es donde nos ganamos el sueldo.
 
