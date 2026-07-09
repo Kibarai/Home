@@ -57,7 +57,7 @@ bundle install
 bundle exec jekyll serve --future
 ```
 
-Open <http://localhost:4000/home/>.
+Open <http://localhost:4000/Home/>.
 
 The `--future` flag is needed while any post has a date in the future.
 
@@ -65,7 +65,7 @@ The `--future` flag is needed while any post has a date in the future.
 
 GitHub Pages is configured to deploy from `main` / root. Any push (or PagesCMS save) triggers a rebuild.
 
-Currently served at **<https://kibarai.github.io/home/>**.
+Currently served at **<https://kibarai.github.io/Home/>**.
 
 To switch to the custom domain `kibarai.tech` later:
 
