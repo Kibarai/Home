@@ -297,13 +297,13 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
 
 /* Page (services list, generic pages) */
 .page { padding: clamp(3rem, 6vw, 5rem) 0; }
-.page-header { text-align: left; margin: 0 auto 2.5rem; max-width: var(--measure); }
+.page-header { text-align: left; margin: 0 0 2.5rem; }
 .page-header h1 { margin-bottom: .8rem; max-width: 22ch; }
 .page-header:has(.lede) h1 { max-width: none; }
-.page-header .lede { font-size: 1.15rem; color: var(--ink-soft); font-weight: 300; }
+.page-header .lede { font-size: 1.15rem; color: var(--ink-soft); font-weight: 300; max-width: var(--measure); }
 
 /* Prose */
-.prose { max-width: var(--measure); margin: 0 auto; font-size: 1.05rem; color: var(--ink); }
+.prose { max-width: var(--measure); font-size: 1.05rem; color: var(--ink); }
 .prose > * + * { margin-top: 1em; }
 .prose h2 { margin-top: 2.4em; font-size: 1.7rem; }
 .prose h3 { margin-top: 1.8em; font-size: 1.25rem; }
@@ -348,8 +348,8 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
 
 /* Contact page — icon cards */
 .contact-methods {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem; max-width: 720px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 .contact-card {
   display: flex; flex-direction: column; align-items: center; text-align: center;

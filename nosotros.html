@@ -10,16 +10,14 @@ permalink: /nosotros/
     <p class="lede">{{ s.pages.nosotros.subtitle }}</p>
   </header>
 
-  <div class="container-narrow" style="padding:0">
-    <h2 style="text-align:center;margin-bottom:2.5rem">{{ s.pages.nosotros.values_title }}</h2>
-    <div class="info-3col">
-      {% for v in s.pages.nosotros.values %}
-        <div class="info-col">
-          <h3>{{ v.title }}</h3>
-          <p>{{ v.body }}</p>
-        </div>
-      {% endfor %}
-    </div>
+  <h2 style="margin-bottom:2rem">{{ s.pages.nosotros.values_title }}</h2>
+  <div class="info-3col">
+    {% for v in s.pages.nosotros.values %}
+      <div class="info-col">
+        <h3>{{ v.title }}</h3>
+        <p>{{ v.body }}</p>
+      </div>
+    {% endfor %}
   </div>
 </div>
 
