@@ -4,6 +4,7 @@ subtitle: Cada línea que no escribes es una línea que no tienes que mantener.
 date: 2026-07-01
 author: Equipo Kibarai
 tags: [ingenieria, filosofia]
+cover: /assets/img/covers/menos-codigo.svg
 ---
 
 En Kibarai defendemos una idea sencilla: la mejor solución técnica suele ser la que introduce menos complejidad. Menos código, menos dependencias, menos abstracciones especulativas.
