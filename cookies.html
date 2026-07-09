@@ -1,0 +1,48 @@
+---
+layout: default
+title: Política de cookies
+permalink: /cookies/
+---
+{% assign L = site.data.site.legal %}
+{% assign B = site.data.site.brand %}
+{% assign C = site.data.site.contact %}
+<div class="container page">
+  <header class="page-header">
+    <h1>Política de cookies</h1>
+    <p class="lede">Qué cookies utiliza este sitio web y cómo gestionarlas.</p>
+  </header>
+
+  <div class="prose" style="margin:0 auto">
+    <h2>Qué son las cookies</h2>
+    <p>Una cookie es un pequeño archivo de texto que un sitio web almacena en el navegador del usuario al visitarlo. Las cookies permiten reconocer al usuario en visitas posteriores y recordar preferencias, así como recopilar información estadística sobre el uso del sitio.</p>
+
+    <h2>Cookies que utilizamos</h2>
+    {% if L.analytics %}
+      <p>Este sitio web utiliza las siguientes cookies:</p>
+      <h3>Cookies técnicas</h3>
+      <p>Son necesarias para el correcto funcionamiento del sitio web y no requieren consentimiento del usuario.</p>
+      <h3>Cookies analíticas ({{ L.analytics_name }})</h3>
+      <p>Utilizamos {{ L.analytics_name }} para conocer de forma agregada cómo los usuarios interactúan con el sitio web y mejorar así su experiencia. Estas cookies requieren el consentimiento del usuario, que puede otorgarlo o denegarlo desde el aviso de cookies.</p>
+      <p>Puedes consultar la política de privacidad del proveedor para más información.</p>
+    {% else %}
+      <p>Este sitio web <strong>únicamente utiliza cookies técnicas</strong> estrictamente necesarias para su funcionamiento. No utilizamos cookies analíticas, publicitarias ni de personalización que requieran el consentimiento del usuario conforme al artículo 22.2 de la Ley 34/2002 (LSSI-CE).</p>
+      <p>El alojamiento del sitio ({{ L.hosting_provider }}) puede establecer cookies técnicas propias necesarias para servir las páginas. Estas cookies son estrictamente necesarias y no recogen datos con fines de perfilado.</p>
+    {% endif %}
+
+    <h2>Cómo gestionar las cookies</h2>
+    <p>El usuario puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador. A continuación se facilitan enlaces a las instrucciones oficiales de los principales navegadores:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac">Safari</a></li>
+      <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09">Microsoft Edge</a></li>
+    </ul>
+
+    <h2>Cambios en la política de cookies</h2>
+    <p>{{ B.name }} puede modificar esta política de cookies en función de exigencias legislativas o con la finalidad de adaptar dicha política a las instrucciones dictadas por la Agencia Española de Protección de Datos. Se recomienda revisar esta política cada vez que se acceda al sitio web.</p>
+
+    <p>Para cualquier duda sobre esta política puedes escribirnos a <a href="mailto:{{ C.email }}">{{ C.email }}</a>.</p>
+
+    <p class="muted" style="margin-top:3rem">Última actualización: {{ L.last_updated }}</p>
+  </div>
+</div>

@@ -1,0 +1,205 @@
+# PagesCMS config — https://pagescms.org
+# Editar en https://app.pagescms.org tras conectar el repo.
+
+media: assets/uploads
+
+content:
+  - name: site
+    label: Ajustes del sitio
+    type: file
+    path: _data/site.yml
+    format: yaml
+    fields:
+      - name: brand
+        label: Marca
+        type: object
+        fields:
+          - { name: name, label: Nombre, type: string }
+          - { name: tagline, label: Tagline, type: string }
+
+      - name: nav
+        label: Navegación
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Etiqueta, type: string }
+          - { name: url, label: URL, type: string }
+          - { name: primary, label: Botón destacado, type: boolean, default: false }
+
+      - name: hero
+        label: Portada — Hero
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: subtitle, label: Subtítulo, type: text }
+          - { name: cta_label, label: Botón principal — texto, type: string }
+          - { name: cta_url, label: Botón principal — URL, type: string }
+          - { name: secondary_cta_label, label: Botón secundario — texto, type: string }
+          - { name: secondary_cta_url, label: Botón secundario — URL, type: string }
+
+      - name: home_intro
+        label: Portada — Sección servicios
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: body, label: Cuerpo, type: text }
+          - { name: card_link_label, label: Enlace de card, type: string }
+
+      - name: process
+        label: Portada — Proceso
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: subtitle, label: Subtítulo, type: text }
+          - name: steps
+            label: Pasos
+            type: object
+            list: true
+            fields:
+              - { name: icon, label: Icono, type: select, options: { values: [search, build, grow, compass, code, spark] } }
+              - { name: title, label: Título, type: string }
+              - { name: body, label: Descripción, type: text }
+
+      - name: blog_section
+        label: Portada — Sección blog
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: featured_label, label: Etiqueta "destacado", type: string }
+          - { name: read_label, label: Botón "leer artículo", type: string }
+
+      - name: cta
+        label: CTA global
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: body, label: Cuerpo, type: text }
+          - { name: button_label, label: Botón — texto, type: string }
+          - { name: button_url, label: Botón — URL, type: string }
+
+      - name: pages
+        label: Textos por página
+        type: object
+        fields:
+          - name: blog
+            label: Página Blog
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+          - name: servicios
+            label: Página Servicios
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - { name: cta_title, label: CTA — Título, type: string }
+              - { name: cta_body, label: CTA — Cuerpo, type: text }
+              - { name: cta_button_label, label: CTA — Botón texto, type: string }
+              - { name: cta_button_url, label: CTA — Botón URL, type: string }
+          - name: nosotros
+            label: Página Nosotros
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - { name: values_title, label: Título de valores, type: string }
+              - name: values
+                label: Valores
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Título, type: string }
+                  - { name: body, label: Descripción, type: text }
+          - name: contacto
+            label: Página Contacto
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - { name: body, label: Texto extra, type: text }
+
+      - name: contact
+        label: Datos de contacto
+        type: object
+        fields:
+          - { name: email, label: Email, type: string }
+          - { name: linkedin, label: LinkedIn URL, type: string }
+          - { name: city, label: Ubicación, type: string }
+
+      - name: footer
+        label: Pie de página
+        type: object
+        fields:
+          - { name: about, label: Texto "sobre", type: text }
+          - name: columns
+            label: Columnas
+            type: object
+            list: true
+            fields:
+              - { name: heading, label: Título de columna, type: string }
+              - name: links
+                label: Enlaces
+                type: object
+                list: true
+                fields:
+                  - { name: label, label: Etiqueta, type: string }
+                  - { name: url, label: URL, type: string }
+          - { name: legal_heading, label: Título columna legal, type: string }
+          - name: legal_links
+            label: Enlaces legales
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Etiqueta, type: string }
+              - { name: url, label: URL, type: string }
+          - { name: copyright, label: Texto de copyright, type: string }
+
+      - name: legal
+        label: Datos legales (RGPD / LSSI)
+        type: object
+        fields:
+          - { name: owner_name, label: Titular (nombre o razón social), type: string }
+          - { name: owner_type, label: Tipo, type: select, options: { values: [empresa, autónomo] } }
+          - { name: nif, label: NIF / CIF, type: string }
+          - { name: address, label: Domicilio postal, type: text }
+          - { name: activity, label: Actividad, type: string }
+          - { name: registry, label: Datos registrales (solo empresas), type: text }
+          - { name: phone, label: Teléfono, type: string }
+          - { name: hosting_provider, label: Proveedor de alojamiento, type: text }
+          - { name: analytics, label: ¿Usa analytics de terceros?, type: boolean, default: false }
+          - { name: analytics_name, label: Nombre del analytics, type: string }
+          - { name: last_updated, label: Última actualización, type: date }
+
+  - name: services
+    label: Servicios
+    type: collection
+    path: _services
+    filename: '{primary}.md'
+    view:
+      fields: [title, order]
+      sort: [order]
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: summary, label: Resumen, type: text }
+      - { name: order, label: Orden, type: number }
+      - { name: lang, label: Idioma, type: select, options: { values: [es, en] }, default: es }
+      - { name: body, label: Contenido, type: rich-text }
+
+  - name: posts
+    label: Blog
+    type: collection
+    path: _posts
+    filename: '{year}-{month}-{day}-{primary}.md'
+    view:
+      fields: [title, date]
+      sort: [-date]
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: subtitle, label: Subtítulo, type: string }
+      - { name: date, label: Fecha, type: date, required: true }
+      - { name: author, label: Autor, type: string }
+      - { name: cover, label: Imagen destacada, type: image }
+      - { name: tags, label: Etiquetas, type: string, list: true }
+      - { name: lang, label: Idioma, type: select, options: { values: [es, en] }, default: es }
+      - { name: body, label: Contenido, type: rich-text }

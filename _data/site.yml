@@ -1,0 +1,107 @@
+# Contenido editable desde PagesCMS.
+# Todo el texto visible del sitio vive aquí (excepto contenido de posts/servicios/páginas markdown).
+
+brand:
+  name: Kibarai
+  tagline: Software y soluciones de IA a medida.
+
+nav:
+  - { label: Servicios, url: /servicios/ }
+  - { label: Nosotros, url: /nosotros/ }
+  - { label: Blog, url: /blog/ }
+  - { label: Contacto, url: /contacto/, primary: true }
+
+hero:
+  title: Software y soluciones de IA a medida
+  subtitle: Ayudamos a empresas a diseñar, construir y desplegar producto digital que resuelve problemas reales.
+  cta_label: Habla con nosotros
+  cta_url: /contacto/
+  secondary_cta_label: Ver servicios
+  secondary_cta_url: /servicios/
+
+home_intro:
+  title: Qué hacemos
+  body: Combinamos consultoría estratégica con desarrollo de software y aplicaciones de IA generativa para acelerar el impacto de negocio.
+  card_link_label: Descubrir más
+
+process:
+  title: Un proceso claro, sin sorpresas
+  subtitle: Ciclos cortos, entregas frecuentes y decisiones tomadas con datos, no con opiniones.
+  steps:
+    - { icon: search, title: Descubrir, body: Entendemos tu negocio, tu equipo y las restricciones reales antes de escribir una línea. }
+    - { icon: build,  title: Construir, body: Entregamos software funcional cada semana, con calidad de producción desde la primera iteración. }
+    - { icon: grow,   title: Evolucionar, body: Medimos, aprendemos y ajustamos. La solución final se parece poco a la del día uno, y es mejor. }
+
+blog_section:
+  title: Últimas noticias
+  featured_label: Destacado
+  read_label: Leer artículo
+
+cta:
+  title: Empieza tu proyecto con nosotros
+  body: Cuéntanos en qué estás trabajando. Respondemos en menos de 48 horas con un plan concreto.
+  button_label: Contactar
+  button_url: /contacto/
+
+pages:
+  blog:
+    title: Noticias
+    subtitle: Artículos sobre software, IA y decisiones técnicas. Sin relleno.
+  servicios:
+    title: Cómo podemos ayudarte
+    subtitle: Tres formas de trabajar con nosotros, adaptadas a la madurez de tu producto.
+    cta_title: ¿No estás seguro de qué encaja mejor?
+    cta_body: Escríbenos con un poco de contexto sobre tu proyecto. Te decimos por dónde empezar sin compromiso.
+    cta_button_label: Hablar con nosotros
+    cta_button_url: /contacto/
+  nosotros:
+    title: Sobre Kibarai
+    subtitle: Somos una consultora tecnológica independiente. Ayudamos a empresas a tomar mejores decisiones sobre su software y a construir producto que funciona.
+    values_title: Cómo pensamos
+    values:
+      - { title: Menos es más, body: El mejor código es el que no hay que escribir. }
+      - { title: Entregas cortas, body: Preferimos iterar sobre algo real que discutir sobre algo hipotético. }
+      - { title: Honestidad técnica, body: Si algo no tiene sentido para tu negocio, te lo decimos. }
+  contacto:
+    title: Contacto
+    subtitle: Cuéntanos en qué estás trabajando. Respondemos en menos de 48 horas.
+    body: |
+      Si prefieres, escríbenos con un poco de contexto sobre tu proyecto: en qué fase estás, qué necesitas y en qué plazo.
+
+contact:
+  email: hola@kibarai.tech
+  linkedin: https://www.linkedin.com/company/kibarai
+  city: España
+
+footer:
+  about: Kibarai es una consultora tecnológica española. Software a medida y aplicaciones de IA para empresas que necesitan software que funcione.
+  columns:
+    - heading: Empresa
+      links:
+        - { label: Servicios, url: /servicios/ }
+        - { label: Nosotros, url: /nosotros/ }
+        - { label: Blog, url: /blog/ }
+    - heading: Recursos
+      links:
+        - { label: Contacto, url: /contacto/ }
+        - { label: RSS, url: /feed.xml }
+  legal_heading: Legal
+  legal_links:
+    - { label: Aviso legal, url: /aviso-legal/ }
+    - { label: Privacidad, url: /privacidad/ }
+    - { label: Cookies, url: /cookies/ }
+  copyright: Todos los derechos reservados
+
+# Datos legales — rellena estos campos y aparecerán en las páginas de Aviso Legal, Privacidad y Cookies.
+legal:
+  owner_name: ""            # Nombre / razón social (p.ej. "Kibarai S.L." o "Nombre Apellidos")
+  owner_type: ""            # "empresa" o "autónomo"
+  nif: ""                   # NIF o CIF
+  address: ""               # Domicilio postal completo
+  activity: "consultoría tecnológica, desarrollo de software y aplicaciones de IA"
+  registry: ""              # Datos registrales (solo si es empresa: "Registro Mercantil de X, tomo Y, folio Z...")
+  phone: ""                 # Teléfono (opcional)
+  hosting_provider: "GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, EE. UU.)"
+  analytics: false          # true si usas Google Analytics u otro analytics de terceros
+  analytics_name: ""        # p.ej. "Google Analytics 4"
+  last_updated: "2026-07-09"

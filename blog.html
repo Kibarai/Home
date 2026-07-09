@@ -1,0 +1,55 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+{% assign s = site.data.site %}
+<div class="container page">
+  <header class="page-header">
+    <h1>{{ s.pages.blog.title }}</h1>
+    <p class="lede">{{ s.pages.blog.subtitle }}</p>
+  </header>
+
+  {% assign featured = site.posts | first %}
+  {% if featured %}
+    <div class="featured-post" style="margin-bottom:3rem">
+      <a href="{{ featured.url | relative_url }}" style="text-decoration:none">
+        <div class="featured-image"><span>{{ featured.title }}</span></div>
+      </a>
+      <div>
+        <p class="meta"><time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%-d %b %Y" }}</time> · {{ s.blog_section.featured_label }}</p>
+        <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+        {% if featured.subtitle %}<p>{{ featured.subtitle }}</p>{% else %}<p>{{ featured.excerpt | strip_html | truncate: 180 }}</p>{% endif %}
+        <a class="btn btn-outline btn-arrow" href="{{ featured.url | relative_url }}" style="margin-top:.5rem">{{ s.blog_section.read_label }}</a>
+      </div>
+    </div>
+  {% endif %}
+
+  {% assign rest = site.posts | slice: 1, 20 %}
+  {% if rest.size > 0 %}
+    <div class="blog-grid">
+      {% for post in rest %}
+        {% assign vhash = post.title | md5 | slice: 0, 1 %}
+        {% case vhash %}
+          {% when '0','1','2' %}{% assign v = 1 %}
+          {% when '3','4' %}{% assign v = 2 %}
+          {% when '5','6' %}{% assign v = 3 %}
+          {% when '7','8' %}{% assign v = 4 %}
+          {% when '9','a','b' %}{% assign v = 5 %}
+          {% else %}{% assign v = 6 %}
+        {% endcase %}
+        <a class="blog-card" href="{{ post.url | relative_url }}">
+          <div class="card-image variant-{{ v }}"><span>{{ post.title }}</span></div>
+          <div class="card-body">
+            <p class="card-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time></p>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt | strip_html | truncate: 130 }}</p>
+            {% if post.tags.size > 0 %}
+              <div class="card-tags">{% for t in post.tags %}<span>{{ t }}</span>{% endfor %}</div>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

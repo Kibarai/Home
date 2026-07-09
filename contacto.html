@@ -1,0 +1,20 @@
+---
+layout: default
+title: Contacto
+permalink: /contacto/
+---
+{% assign s = site.data.site %}
+<div class="container page">
+  <header class="page-header">
+    <h1>{{ s.pages.contacto.title }}</h1>
+    <p class="lede">{{ s.pages.contacto.subtitle }}</p>
+  </header>
+
+  <div class="prose" style="text-align:center">
+    <p><strong>Email:</strong> <a href="mailto:{{ s.contact.email }}?subject=Contacto%20desde%20kibarai.tech">{{ s.contact.email }}</a></p>
+    {% if s.contact.linkedin %}<p><strong>LinkedIn:</strong> <a href="{{ s.contact.linkedin }}">{{ s.contact.linkedin | remove: 'https://www.' }}</a></p>{% endif %}
+    {% if s.contact.city %}<p><strong>Ubicación:</strong> {{ s.contact.city }}</p>{% endif %}
+    <hr>
+    <p>{{ s.pages.contacto.body }}</p>
+  </div>
+</div>

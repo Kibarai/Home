@@ -1,0 +1,26 @@
+{% assign s = site.data.site %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="{{ '/assets/img/logo-dark.svg' | relative_url }}" alt="{{ s.brand.name }}" height="44" style="margin-bottom:1rem">
+        <p>{{ s.footer.about }}</p>
+      </div>
+      {% for col in s.footer.columns %}
+        <div>
+          <p class="footer-heading">{{ col.heading }}</p>
+          {% for link in col.links %}
+            <p><a href="{{ link.url | relative_url }}">{{ link.label }}</a></p>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <div>
+        <p class="footer-heading">{{ s.footer.legal_heading }}</p>
+        {% for link in s.footer.legal_links %}
+          <p><a href="{{ link.url | relative_url }}">{{ link.label }}</a></p>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="copyright">© {{ 'now' | date: '%Y' }} {{ s.brand.name }} · {{ s.footer.copyright }}</div>
+  </div>
+</footer>
