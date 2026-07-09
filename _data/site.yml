@@ -39,7 +39,7 @@ blog_section:
 
 cta:
   title: Empieza tu proyecto con nosotros
-  body: Cuéntanos en qué estás trabajando. Respondemos en menos de 48 horas con un plan concreto.
+  body: Cuéntanos en qué estás trabajando y nos pondremos en contacto contigo.
   button_label: Contactar
   button_url: /contacto/
 
@@ -64,14 +64,15 @@ pages:
       - { title: Honestidad técnica, body: Si algo no tiene sentido para tu negocio, te lo decimos. }
   contacto:
     title: Contacto
-    subtitle: Cuéntanos en qué estás trabajando. Respondemos en menos de 48 horas.
+    subtitle: Cuéntanos en qué estás trabajando y nos pondremos en contacto contigo.
+    email_label: Email
+    linkedin_label: LinkedIn
     body: |
       Si prefieres, escríbenos con un poco de contexto sobre tu proyecto: en qué fase estás, qué necesitas y en qué plazo.
 
 contact:
-  email: hola@kibarai.tech
+  email: contacto@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
-  city: España
 
 footer:
   about: Kibarai es una consultora tecnológica española. Software a medida y aplicaciones de IA para empresas que necesitan software que funcione.

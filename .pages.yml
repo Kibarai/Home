@@ -117,6 +117,8 @@ content:
             fields:
               - { name: title, label: Título, type: string }
               - { name: subtitle, label: Subtítulo, type: text }
+              - { name: email_label, label: Etiqueta card Email, type: string }
+              - { name: linkedin_label, label: Etiqueta card LinkedIn, type: string }
               - { name: body, label: Texto extra, type: text }
 
       - name: contact
@@ -125,7 +127,6 @@ content:
         fields:
           - { name: email, label: Email, type: string }
           - { name: linkedin, label: LinkedIn URL, type: string }
-          - { name: city, label: Ubicación, type: string }
 
       - name: footer
         label: Pie de página
