@@ -137,7 +137,7 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
 }
 .section-heading h2 { margin: 0; }
 .section-heading .lede {
-  font-size: 1.1rem; color: var(--ink-soft); margin-top: 1rem; font-weight: 300;
+  font-size: 1.1rem; color: var(--ink-soft); margin-top: 1rem; font-weight: 300; text-align: left;
 }
 
 /* Icon module — "Why Us" style (heading left, cards right with icon + text) */
@@ -185,7 +185,7 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
 }
 .info-icon svg { width: 42px; height: 42px; }
 .info-col h3 { font-size: 1.25rem; margin-bottom: .8rem; }
-.info-col p { max-width: 32ch; margin: 0 auto 1.5rem; font-size: .95rem; }
+.info-col p { max-width: 32ch; margin: 0 auto 1.5rem; font-size: .95rem; text-align: left; }
 
 /* Featured blog post */
 .featured-post {
@@ -288,7 +288,7 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
 }
 .cta-banner > * { position: relative; z-index: 1; }
 .cta-banner h2 { color: #fff; margin: 0 0 1rem; }
-.cta-banner p { color: rgba(255,255,255,.85); max-width: 46ch; margin: 0 auto 2rem; font-size: 1.05rem; }
+.cta-banner p { color: rgba(255,255,255,.85); max-width: 46ch; margin: 0 auto 2rem; font-size: 1.05rem; text-align: left; }
 .cta-banner .btn-primary { background: #fff; color: var(--primary); }
 .cta-banner .btn-primary:hover { background: var(--bg-accent); color: var(--primary); }
 
@@ -297,7 +297,7 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
 .page-header { text-align: center; margin: 0 auto 3rem; max-width: 60ch; }
 .page-header .caption { justify-content: center; }
 .page-header h1 { margin-bottom: .8rem; }
-.page-header .lede { font-size: 1.15rem; color: var(--ink-soft); font-weight: 300; }
+.page-header .lede { font-size: 1.15rem; color: var(--ink-soft); font-weight: 300; text-align: left; }
 
 /* Prose */
 .prose { max-width: 68ch; margin: 0 auto; font-size: 1.05rem; color: var(--ink); }
