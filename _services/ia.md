@@ -1,22 +1,22 @@
 ---
 title: Aplicaciones con IA
-summary: Integramos modelos de lenguaje en tu producto. Y cuando los modelos genéricos no bastan, entrenamos uno específico para tu caso — en tu servidor, sin suscripciones ni facturas por token.
+summary: Integramos modelos de lenguaje en tu producto. Y cuando la solución adecuada es tener el modelo bajo tu control, entrenamos uno específico que corre en tu servidor con coste, latencia y datos bajo tu dominio.
 order: 3
 ---
 
-La IA generativa está de moda. Nosotros llevamos años haciéndola.
+La IA generativa está en boca de todos. Nosotros llevamos años aplicándola en producción y hemos aprendido dos cosas.
 
-Hemos aprendido dos cosas. La primera, que casi todos los problemas de negocio se resuelven mejor integrando un modelo de lenguaje bien apuntado que reinventando la rueda. La segunda, que pagar cinco cifras al mes en tokens de un proveedor externo no siempre es la respuesta.
+La primera: casi todos los problemas de negocio se resuelven mejor integrando un modelo de lenguaje bien apuntado que reinventando la rueda. La segunda: existen escenarios donde tener el modelo en tu infraestructura ofrece mejor control sobre coste, latencia y datos que depender de un proveedor externo. Elegir bien entre las dos opciones es donde nos ganamos el sueldo.
 
 ## Qué hacemos
 
-- **Integramos LLMs en tus procesos.** Asistentes internos sobre tu documentación corporativa, agentes que automatizan flujos, extractores que sacan información útil de documentos que hoy nadie lee.
-- **Entrenamos modelos propios cuando toca.** Si tu tarea es concreta y repetitiva, podemos entrenar un modelo específico que corre en tu servidor. Sin API keys, sin límites de uso, sin sorpresas en la factura a fin de mes.
-- **Centralitas telefónicas con IA.** Voz sintética, comprensión de lenguaje natural, integración con tu CRM. Todo funcionando en producción, no en una demo bonita.
-- **Cualquier otra cosa razonable.** Si se te ocurre algo que la IA generativa podría hacer por tu negocio, cuéntanoslo. Probablemente se pueda. Y si no, te lo diremos también.
+- **Integramos LLMs en tus procesos.** Asistentes internos sobre tu documentación corporativa, agentes que automatizan flujos y extractores que sacan información útil de documentos que hoy nadie tiene tiempo de leer.
+- **Entrenamos modelos propios cuando toca.** Si tu tarea es concreta y repetitiva, entrenamos un modelo específico que corre en tu infraestructura. Coste conocido, límites bajo tu control y datos que permanecen dentro de tu organización.
+- **Centralitas telefónicas con IA.** Voz sintética, comprensión de lenguaje natural e integración con tu CRM. Todo funcionando en producción y con métricas que puedes enseñar en la próxima revisión.
+- **Cualquier otra cosa razonable.** Si se te ocurre algo que la IA generativa podría hacer por tu negocio, cuéntanoslo. Estudiamos si tiene sentido, te decimos qué esperar de forma realista y te ayudamos a decidir si merece la pena arrancar.
 
 ## Cómo empezamos
 
-Con un piloto pequeño. Semanas, no meses. Si aporta valor medible, lo escalamos. Si no, lo paramos.
+Con un piloto pequeño. Semanas, no meses. Si aporta valor medible, lo escalamos. Si el resultado se queda corto, cerramos el piloto con aprendizaje aplicable a la siguiente decisión.
 
-Ni tú ni nosotros tenemos tiempo para proyectos que se comen el presupuesto y no devuelven nada a cambio.
+Un enfoque que te permite decidir con datos si merece la pena escalar, en lugar de tener que apostar con expectativas.

@@ -4,7 +4,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="{{ '/assets/img/logo-dark.svg' | relative_url }}" alt="{{ s.brand.name }}" height="44" style="margin-bottom:1rem">
-        <p>{{ s.footer.about | escape | newline_to_br }}</p>
+        <p>{{ s.footer.about }}</p>
       </div>
       {% for col in s.footer.columns %}
         <div>

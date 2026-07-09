@@ -12,11 +12,8 @@ nav:
   - { label: Contacto, url: /contacto/, primary: true }
 
 hero:
-  title: Software que funciona. IA que aporta. Sin humo.
-  subtitle: |
-    Somos Kibarai. Una consultora tecnológica pequeña, con ganas de resolver problemas reales.
-    Hacemos software a medida, integramos IA generativa y ayudamos a decidir antes de escribir una sola línea de código.
-    Cuando terminamos, el código es tuyo.
+  title: Software que funciona. IA que aporta. Decisiones que aguantan.
+  subtitle: Trabajamos con quienes se juegan la próxima elección tecnológica de su empresa. Hacemos software a medida, integramos IA generativa y ayudamos a decidir con criterio antes de comprometer presupuesto. Contigo cada semana, con entregas que puedes enseñar a tu equipo y a tu dirección, y con el código en tus manos desde el primer día.
   cta_label: Cuéntanos tu proyecto
   cta_url: /contacto/
   secondary_cta_label: Ver servicios
@@ -24,21 +21,16 @@ hero:
 
 home_intro:
   title: Tres cosas hacemos aquí
-  body: |
-    Consultoría, software a medida y aplicaciones con IA. Las tres, con equipos pequeños y ciclos cortos.
-    Ni PowerPoints eternos, ni facturas por trabajo que nunca ves, ni tecnología por moda.
-    Elige por dónde empezar.
+  body: Consultoría tecnológica, software a medida y aplicaciones con IA. Las tres, con equipos pequeños, ciclos cortos y decisiones tomadas contigo. Elige por dónde empezar.
   card_link_label: Descubrir más
 
 process:
-  title: Un proceso claro. Sin sorpresas.
-  subtitle: |
-    No hay magia. Hay ciclos cortos, reuniones semanales y decisiones que se toman con datos, no con opiniones.
-    Lo verás avanzar cada semana.
+  title: Un proceso claro y trazable
+  subtitle: Ciclos cortos, reuniones semanales y decisiones basadas en datos. Verás avanzar tu proyecto cada semana y podrás enseñárselo a tu equipo con la tranquilidad de que ya funciona.
   steps:
-    - { icon: search, title: Descubrir, body: 'Antes de escribir código, entendemos tu negocio. Tu equipo, tus restricciones, tu punto de dolor real. Si podemos resolverlo con menos, te lo decimos.' }
-    - { icon: build,  title: Construir, body: 'Trabajamos en ciclos semanales. Cada semana ves un avance funcional. Si algo no encaja, cambia. Sin peleas de alcance.' }
-    - { icon: grow,   title: Evolucionar, body: 'El software que entregamos vive contigo. Medimos, aprendemos y ajustamos. Lo que funciona se queda. Lo que no, se elimina.' }
+    - { icon: search, title: Descubrir, body: 'Antes de escribir código, entendemos tu negocio, tu equipo y las restricciones reales. Si hay un camino más corto para llegar a tu objetivo, te lo proponemos con datos delante.' }
+    - { icon: build,  title: Construir, body: 'Trabajamos en ciclos semanales. Cada semana ves un avance funcional que puedes probar y enseñar internamente. El alcance evoluciona con lo que descubres.' }
+    - { icon: grow,   title: Evolucionar, body: 'El software que entregamos vive contigo. Medimos, aprendemos y ajustamos con datos de uso real. Lo que aporta se consolida y lo que sobra se retira.' }
 
 blog_section:
   title: Últimas noticias
@@ -47,53 +39,42 @@ blog_section:
 
 cta:
   title: ¿Hablamos de tu proyecto?
-  body: |
-    Cuéntanos en qué estás trabajando. Sin compromiso. Nos pondremos en contacto contigo con una primera lectura y, si tiene sentido, con un plan concreto.
+  body: Cuéntanos en qué estás trabajando. Te responderemos con una primera lectura del reto y, si tiene sentido, con un plan concreto para avanzar contigo.
   button_label: Escríbenos
   button_url: /contacto/
 
 pages:
   blog:
     title: Noticias
-    subtitle: Notas técnicas del equipo. Cosas que aprendemos por el camino, casos reales y opiniones sin filtro. Sin relleno.
+    subtitle: Notas técnicas del equipo. Aprendizajes del día a día, casos reales y decisiones que hemos tomado por el camino.
   servicios:
     title: En qué te podemos ayudar
-    subtitle: |
-      Tres formas de trabajar con nosotros. La que necesites, la que encaje mejor con dónde está tu producto ahora.
-      Si no lo tienes claro, te decimos por dónde empezar sin compromiso.
-    cta_title: ¿No sabes cuál encaja mejor?
-    cta_body: Cuéntanos dónde estás y qué necesitas. Te decimos por dónde empezar y qué tiene sentido. Aunque no seamos nosotros los que lo hagamos.
+    subtitle: Tres formas de trabajar con nosotros, pensadas para donde está tu producto ahora. Si quieres una recomendación antes de decidir, escríbenos y te decimos por dónde empezar.
+    cta_title: ¿Prefieres una recomendación antes de empezar?
+    cta_body: Cuéntanos dónde estás y qué necesitas. Te diremos por dónde empezar y qué tiene sentido para ti, incluso cuando el proveedor adecuado para una parte sea otro.
     cta_button_label: Escríbenos
     cta_button_url: /contacto/
   nosotros:
     title: Somos Kibarai
-    subtitle: |
-      Una consultora tecnológica pequeña e independiente. No queremos ser la agencia de mil personas. Queremos ser el equipo al que llamas cuando algo importa.
-      Ayudamos a empresas a tomar mejores decisiones sobre su software y a construir producto que funciona de verdad.
+    subtitle: Una consultora tecnológica pequeña e independiente. Trabajamos con quienes se juegan la reputación al elegir tecnología: CTOs, directores de producto, founders y responsables de IT que necesitan que la próxima decisión salga bien. Nuestro trabajo es que puedas defenderla con datos.
     values_title: Cómo pensamos
     values:
-      - { title: Menos es más, body: 'El mejor código es el que no hay que escribir. Y el segundo mejor, el que se puede borrar sin miedo.' }
-      - { title: Entregas cortas, body: 'Preferimos enseñarte algo que funciona el viernes que discutir cómo debería funcionar durante un mes.' }
-      - { title: Honestidad técnica, body: 'Si tu problema no necesita el software que crees que necesita, te lo decimos. Y si otro proveedor lo resuelve mejor, también.' }
+      - { title: Menos es más, body: 'El mejor código es el que resuelve tu problema con la menor complejidad posible. Menos superficie que mantener significa menos riesgo para ti y para tu equipo.' }
+      - { title: Entregas cortas, body: 'Cada semana verás algo funcional. Te llevarás demos y avances concretos que puedes enseñar a tu equipo o a tu dirección con confianza.' }
+      - { title: Honestidad técnica, body: 'Te contamos qué encaja con tu negocio y qué queda mejor con otro proveedor. La confianza se gana diciendo lo que conviene, aunque no sea lo que más nos convenga a nosotros.' }
   contacto:
     title: Hablemos
-    subtitle: |
-      Cuéntanos en qué estás trabajando. En qué fase estás, qué necesitas, qué plazo manejas.
-      Cuanto más concreto seas, mejor podremos ayudarte. Nos pondremos en contacto contigo.
+    subtitle: Cuéntanos en qué estás trabajando. En qué fase estás, qué necesitas y qué plazo manejas. Cuanto más concreto seas, mejor podremos ayudarte. Te responderemos con una primera lectura.
     email_label: Email
     linkedin_label: LinkedIn
-    body: |
-      No te vamos a pasar un formulario de veinte campos ni te vamos a llamar cada dos días.
-      Un correo bien escrito nos vale.
+    body: Un correo bien escrito nos vale. Preferimos hablar de lo que necesitas y proponer con criterio antes de llenar tu bandeja de entrada.
 
 contact:
   email: contacto@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
 
 footer:
-  about: |
-    Consultora tecnológica pequeña, independiente y con base en España.
-    Hacemos software a medida y aplicaciones con IA para empresas que necesitan que las cosas funcionen.
+  about: Consultora tecnológica pequeña, independiente y con base en España. Acompañamos a empresas que necesitan software y aplicaciones con IA en las que puedan confiar.
   columns:
     - heading: Empresa
       links:
