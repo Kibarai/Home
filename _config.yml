@@ -28,4 +28,4 @@ plugins:
   - jekyll-sitemap
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor, .pages.yml]
-permalink: /blog/:year/:month/:slug/
+permalink: /noticias/:year/:month/:slug/
