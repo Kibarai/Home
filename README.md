@@ -1,78 +1,92 @@
-# kibarai.tech
+# Kibarai
 
-Sitio corporativo de Kibarai. Jekyll + GitHub Pages + PagesCMS.
+Corporate website for **Kibarai**, a technology consultancy. Built with Jekyll, deployed via GitHub Pages, and content-editable through PagesCMS.
 
-## Puesta en marcha
+Design inspired by the [CloudCannon Dante](https://github.com/CloudCannon/dante-jekyll-bookshop-template) template: navy + light-blue palette, Inter + Poppins typography, editorial home structure (hero + service cards + 3-step process + featured blog + CTA banner).
 
-### 1. Repositorio en GitHub
+## Stack
 
-```bash
-git init
-git add .
-git commit -m "chore: bootstrap kibarai.tech"
-git branch -M main
-git remote add origin git@github.com:<usuario-u-org>/kibarai-web.git
-git push -u origin main
-```
+- **Static site**: Jekyll 4
+- **Fonts**: Inter (body) + Poppins (headings) from Google Fonts
+- **Hosting**: GitHub Pages
+- **CMS**: [PagesCMS](https://pagescms.org) — all visible copy lives in `_data/site.yml` and is editable from the browser
+- **Plugins**: `jekyll-feed`, `jekyll-seo-tag`, `jekyll-sitemap`
 
-### 2. Activar GitHub Pages
-
-En `Settings → Pages` del repo:
-- **Source:** Deploy from a branch
-- **Branch:** `main` / `/ (root)`
-
-El dominio ya está configurado con el archivo `CNAME` (`kibarai.tech`). En tu DNS, apunta `kibarai.tech`:
-- **A records** a `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
-- **CNAME** `www` a `<usuario>.github.io`.
-
-Marca "Enforce HTTPS" cuando GitHub emita el certificado.
-
-### 3. Conectar PagesCMS
-
-1. Ve a https://app.pagescms.org y autoriza el repo.
-2. PagesCMS detectará el archivo `.pages.yml` automáticamente.
-3. Edita contenido desde la interfaz web; cada guardado hace commit al repo y GitHub Pages redepliega.
-
-## Estructura
+## Structure
 
 ```
-├── _config.yml           # Config Jekyll
-├── _data/site.yml        # Textos globales editables desde CMS
+├── _config.yml           # Jekyll config
+├── _data/site.yml        # All editable copy (nav, hero, sections, footer, legal…)
 ├── _layouts/             # default, page, post
-├── _includes/            # header, footer
-├── _services/            # Colección Servicios
-├── _team/                # Colección Equipo
-├── _posts/               # Blog
-├── assets/               # css, img, uploads (CMS)
-├── .pages.yml            # Config PagesCMS
+├── _includes/            # header, footer, icon SVGs, hero illustration
+├── _services/            # Services collection
+├── _posts/               # Blog posts
+├── assets/
+│   ├── css/main.css      # Full stylesheet (design tokens as CSS custom properties)
+│   ├── img/              # logo.svg, logo-dark.svg, favicon.svg
+│   └── uploads/          # PagesCMS media
+├── .pages.yml            # PagesCMS field schema
 ├── index.html            # Home
-├── servicios.html
-├── nosotros.md
-├── contacto.md
-├── blog.html
-└── CNAME
+├── servicios.html        # Services
+├── nosotros.html         # About
+├── contacto.html         # Contact
+├── blog.html             # Blog index
+├── aviso-legal.html      # Legal notice
+├── privacidad.html       # Privacy policy
+└── cookies.html          # Cookie policy
 ```
 
-## Desarrollo local (opcional)
+## Editing content
+
+Connect the repo to [app.pagescms.org](https://app.pagescms.org). PagesCMS reads `.pages.yml` and exposes an admin UI for:
+
+- **Site settings** (`_data/site.yml`): brand, nav, hero, section headings, process steps, CTA, per-page copy, footer columns, legal data
+- **Services** (`_services/`)
+- **Blog posts** (`_posts/`)
+
+Every save is a commit on `main` and triggers a redeploy.
+
+Legal pages (`aviso-legal.html`, `privacidad.html`, `cookies.html`) render dynamically from `site.data.site.legal`. Fill in the legal block from the CMS and the three pages update at once.
+
+## Local development
+
+Requires Ruby 3.x and Bundler.
 
 ```bash
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll serve --future
 ```
 
-Abre http://localhost:4000.
+Open <http://localhost:4000/home/>.
 
-## Añadir idiomas
+The `--future` flag is needed while any post has a date in the future.
 
-Cada archivo de contenido lleva un campo `lang: es`. Para añadir inglés:
+## Deployment
 
-1. Instala `jekyll-polyglot` (fuera de GH Pages nativo — requeriría GitHub Actions).
-2. Duplica los archivos con `lang: en` y crea layouts con selector de idioma.
+GitHub Pages is configured to deploy from `main` / root. Any push (or PagesCMS save) triggers a rebuild.
 
-Mientras tanto, el modelo de datos ya soporta el campo `lang` desde el CMS.
+Currently served at **<https://kibarai.github.io/home/>**.
 
-## Roadmap corto
+To switch to the custom domain `kibarai.tech` later:
 
-- Reemplazar logo y favicon en `assets/img/`.
-- Añadir foto real del equipo en `_team/`.
-- Cuando toque, descomentar el bloque `cases` en `.pages.yml` y crear `_cases/`.
+1. Add a `CNAME` file at the repo root containing `kibarai.tech`
+2. In `_config.yml` set `url: https://kibarai.tech` and remove `baseurl`
+3. Point `kibarai.tech` DNS to GitHub Pages (four `A` records + `CNAME www → kibarai.github.io`)
+4. In GitHub → Settings → Pages, enter the custom domain and enable "Enforce HTTPS"
+
+## Design tokens
+
+Colors and typography live as CSS custom properties at the top of `assets/css/main.css`:
+
+```css
+--primary:    #2d3663;   /* navy — headings, footer bg */
+--secondary:  #6e92ff;   /* light blue — accents, links on hover */
+--tertiary:   #00398f;   /* deep blue — link color */
+--bg-accent:  #e6eefa;   /* very light blue — soft backgrounds */
+--serif-heading: "Poppins", …;
+--sans:          "Inter", …;
+```
+
+## License
+
+Content © Kibarai. Code released under the MIT License unless otherwise noted.

@@ -1,7 +1,8 @@
 title: Kibarai
 tagline: Consultoría, software a medida y desarrollos con IA
 description: Kibarai es una consultora tecnológica especializada en software a medida y soluciones con inteligencia artificial.
-url: https://kibarai.tech
+url: https://kibarai.github.io
+baseurl: /home
 email: hola@kibarai.tech
 lang: es
 
