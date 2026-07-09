@@ -128,6 +128,16 @@ content:
           - { name: email, label: Email, type: string }
           - { name: linkedin, label: LinkedIn URL, type: string }
 
+      - name: cookies_banner
+        label: Banner de cookies
+        type: object
+        fields:
+          - { name: enabled, label: Mostrar banner, type: boolean, default: true }
+          - { name: message, label: Mensaje, type: text }
+          - { name: accept_label, label: Texto botón aceptar, type: string }
+          - { name: learn_more_label, label: Texto enlace, type: string }
+          - { name: learn_more_url, label: URL enlace, type: string }
+
       - name: footer
         label: Pie de página
         type: object

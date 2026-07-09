@@ -1,0 +1,25 @@
+{%- assign cb = site.data.site.cookies_banner -%}
+{%- if cb.enabled -%}
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="cookie-banner__inner">
+    <p>{{ cb.message }}</p>
+    <div class="cookie-banner__actions">
+      <a href="{{ cb.learn_more_url | relative_url }}">{{ cb.learn_more_label }}</a>
+      <button type="button" class="btn btn-primary" data-cookie-accept>{{ cb.accept_label }}</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'kibarai_cookies_ok';
+  try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+  var el = document.getElementById('cookie-banner');
+  if (!el) return;
+  el.hidden = false;
+  el.querySelector('[data-cookie-accept]').addEventListener('click', function () {
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    el.hidden = true;
+  });
+})();
+</script>
+{%- endif -%}

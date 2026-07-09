@@ -110,6 +110,13 @@ pages:
 contact:
   email: contacto@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
+
+cookies_banner:
+  enabled: true
+  message: Utilizamos cookies técnicas necesarias para el funcionamiento del sitio. No usamos cookies analíticas ni de publicidad.
+  accept_label: Entendido
+  learn_more_label: Política de cookies
+  learn_more_url: /cookies/
 footer:
   about: Consultora tecnológica independiente y con base en España. Acompañamos a
     empresas que necesitan software y aplicaciones con IA en las que puedan
