@@ -1,6 +1,6 @@
 ---
 title: Software a medida
-summary: Construimos software hecho para tu negocio con demostraciones periódicas, flexibilidad para cambiar de rumbo y una regla clara: el código es tuyo desde el primer día.
+summary: Construimos software hecho para tu negocio con demostraciones periódicas, flexibilidad para cambiar de rumbo y una regla clara — el código es tuyo desde el primer día.
 order: 2
 ---
 

@@ -56,7 +56,7 @@ pages:
     cta_button_url: /contacto/
   nosotros:
     title: Somos Kibarai
-    subtitle: Una consultora tecnológica pequeña e independiente. Trabajamos con quienes se juegan la reputación al elegir tecnología: CTOs, directores de producto, founders y responsables de IT que necesitan que la próxima decisión salga bien. Nuestro trabajo es que puedas defenderla con datos.
+    subtitle: Una consultora tecnológica pequeña e independiente. Trabajamos con quienes se juegan la reputación al elegir tecnología — CTOs, directores de producto, founders y responsables de IT que necesitan que la próxima decisión salga bien. Nuestro trabajo es que puedas defenderla con datos.
     values_title: Cómo pensamos
     values:
       - { title: Menos es más, body: 'El mejor código es el que resuelve tu problema con la menor complejidad posible. Menos superficie que mantener significa menos riesgo para ti y para tu equipo.' }
