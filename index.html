@@ -10,7 +10,7 @@ title: Kibarai — Consultoría, software a medida y desarrollos con IA
     <div class="hero-grid">
       <div class="hero-content">
         <h1>{{ s.hero.title }}</h1>
-        <p class="lede">{{ s.hero.subtitle }}</p>
+        <p class="lede">{{ s.hero.subtitle | escape | newline_to_br }}</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{{ s.hero.cta_url | relative_url }}">{{ s.hero.cta_label }}</a>
           {% if s.hero.secondary_cta_label %}<a class="btn btn-outline btn-arrow" href="{{ s.hero.secondary_cta_url | relative_url }}">{{ s.hero.secondary_cta_label }}</a>{% endif %}
@@ -29,7 +29,7 @@ title: Kibarai — Consultoría, software a medida y desarrollos con IA
     <div class="icon-module">
       <div class="heading-side">
         <h2>{{ s.home_intro.title }}</h2>
-        <p>{{ s.home_intro.body }}</p>
+        <p>{{ s.home_intro.body | escape | newline_to_br }}</p>
       </div>
       <div class="cards-side">
         {% assign services = site.services | sort: 'order' %}
@@ -56,7 +56,7 @@ title: Kibarai — Consultoría, software a medida y desarrollos con IA
   <div class="container">
     <div class="section-heading" style="text-align:center;margin-left:auto;margin-right:auto">
       <h2>{{ s.process.title }}</h2>
-      <p class="lede">{{ s.process.subtitle }}</p>
+      <p class="lede">{{ s.process.subtitle | escape | newline_to_br }}</p>
     </div>
     <div class="info-3col">
       {% for step in s.process.steps %}
@@ -128,7 +128,7 @@ title: Kibarai — Consultoría, software a medida y desarrollos con IA
   <div class="container">
     <div class="cta-banner">
       <h2>{{ s.cta.title }}</h2>
-      <p>{{ s.cta.body }}</p>
+      <p>{{ s.cta.body | escape | newline_to_br }}</p>
       <a class="btn btn-primary" href="{{ s.cta.button_url | relative_url }}">{{ s.cta.button_label }}</a>
     </div>
   </div>

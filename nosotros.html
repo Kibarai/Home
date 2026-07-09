@@ -7,7 +7,7 @@ permalink: /nosotros/
 <div class="container page">
   <header class="page-header">
     <h1>{{ s.pages.nosotros.title }}</h1>
-    <p class="lede">{{ s.pages.nosotros.subtitle }}</p>
+    <p class="lede">{{ s.pages.nosotros.subtitle | escape | newline_to_br }}</p>
   </header>
 
   <div class="container-narrow" style="padding:0">
@@ -27,7 +27,7 @@ permalink: /nosotros/
   <div class="container">
     <div class="cta-banner">
       <h2>{{ s.cta.title }}</h2>
-      <p>{{ s.cta.body }}</p>
+      <p>{{ s.cta.body | escape | newline_to_br }}</p>
       <a class="btn btn-primary" href="{{ s.cta.button_url | relative_url }}">{{ s.cta.button_label }}</a>
     </div>
   </div>

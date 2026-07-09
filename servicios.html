@@ -7,7 +7,7 @@ permalink: /servicios/
 <div class="container page">
   <header class="page-header">
     <h1>{{ s.pages.servicios.title }}</h1>
-    <p class="lede">{{ s.pages.servicios.subtitle }}</p>
+    <p class="lede">{{ s.pages.servicios.subtitle | escape | newline_to_br }}</p>
   </header>
 
   <div class="info-3col">
@@ -30,7 +30,7 @@ permalink: /servicios/
   <div class="container">
     <div class="cta-banner">
       <h2>{{ s.pages.servicios.cta_title }}</h2>
-      <p>{{ s.pages.servicios.cta_body }}</p>
+      <p>{{ s.pages.servicios.cta_body | escape | newline_to_br }}</p>
       <a class="btn btn-primary" href="{{ s.pages.servicios.cta_button_url | relative_url }}">{{ s.pages.servicios.cta_button_label }}</a>
     </div>
   </div>

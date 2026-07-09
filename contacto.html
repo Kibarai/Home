@@ -7,7 +7,7 @@ permalink: /contacto/
 <div class="container page">
   <header class="page-header">
     <h1>{{ s.pages.contacto.title }}</h1>
-    <p class="lede">{{ s.pages.contacto.subtitle }}</p>
+    <p class="lede">{{ s.pages.contacto.subtitle | escape | newline_to_br }}</p>
   </header>
 
   <div class="contact-methods">
@@ -26,6 +26,6 @@ permalink: /contacto/
   </div>
 
   <div class="prose" style="text-align:center;margin-top:3rem">
-    <p>{{ s.pages.contacto.body }}</p>
+    <p>{{ s.pages.contacto.body | escape | newline_to_br }}</p>
   </div>
 </div>
