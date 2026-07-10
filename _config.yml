@@ -1,31 +1,29 @@
 title: Kibarai
 tagline: Consultoría, software a medida y desarrollos con IA
-description: Kibarai es una consultora tecnológica especializada en software a medida y soluciones con inteligencia artificial.
+description: Kibarai — consultora tecnológica, software a medida y soluciones con inteligencia artificial.
 url: https://kibarai.github.io
 baseurl: /Home
 email: contacto@kibarai.tech
-lang: es
 
-# ponytail: single-lang site. Adding EN later = duplicar contenido con lang:en + jekyll-polyglot.
-languages_available: [es]
+fallback_lang: en
 
 collections:
   services:
     output: true
-    permalink: /servicios/:name/
+  pages_i18n:
+    output: false
 
 defaults:
   - scope: { path: "", type: "posts" }
-    values: { layout: post, lang: es }
+    values: { layout: post }
   - scope: { path: "", type: "services" }
-    values: { layout: page, lang: es }
+    values: { layout: page }
   - scope: { path: "" }
-    values: { layout: page, lang: es }
+    values: { layout: page }
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-exclude: [README.md, Gemfile, Gemfile.lock, vendor, .pages.yml]
-permalink: /noticias/:year/:month/:slug/
+exclude: [README.md, Gemfile, Gemfile.lock, vendor, .pages.yml, .github]

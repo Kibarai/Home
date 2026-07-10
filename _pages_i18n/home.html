@@ -1,0 +1,137 @@
+---
+layout: default
+translation_key: home
+title: Kibarai
+---
+{% assign t = site.data.i18n[page.lang] %}
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1>{{ t.hero.title }}</h1>
+        <p class="lede">{{ t.hero.subtitle }}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="{{ t.hero.cta_url | relative_url }}">{{ t.hero.cta_label }}</a>
+          {% if t.hero.secondary_cta_label %}<a class="btn btn-outline btn-arrow" href="{{ t.hero.secondary_cta_url | relative_url }}">{{ t.hero.secondary_cta_label }}</a>{% endif %}
+        </div>
+      </div>
+      <div class="hero-illustration">
+        {% include hero-illustration.html %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="icon-module">
+      <div class="heading-side">
+        <h2>{{ t.home_intro.title }}</h2>
+        <p>{{ t.home_intro.body }}</p>
+      </div>
+      <div class="cards-side">
+        {% assign services = site.services | where: 'lang', page.lang | sort: 'order' %}
+        {% assign icons = "compass,code,spark" | split: "," %}
+        {% for svc in services %}
+          {% assign i = forloop.index0 | modulo: 3 %}
+          {% assign icon_name = icons[i] %}
+          <a class="icon-row" href="{{ svc.url | relative_url }}">
+            <div class="icon-badge">{% include icon.html name=icon_name %}</div>
+            <div>
+              <h4>{{ svc.title }}</h4>
+              <p>{{ svc.summary }}</p>
+              <span class="row-link">{{ t.home_intro.card_link_label }}</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-heading" style="margin-left:auto;margin-right:auto">
+      <h2>{{ t.process.title }}</h2>
+      <p class="lede">{{ t.process.subtitle }}</p>
+    </div>
+    <div class="info-3col">
+      {% for step in t.process.steps %}
+        <div class="info-col">
+          <div class="info-icon">{% include icon.html name=step.icon %}</div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% assign lang_posts = site.posts | where: 'lang', page.lang %}
+{% if lang_posts.size > 0 %}
+<section class="section-alt">
+  <div class="container">
+    <div class="section-heading"><h2>{{ t.blog_section.title }}</h2></div>
+
+    {% assign featured = lang_posts | first %}
+    <div class="featured-post" style="margin-bottom:3rem">
+      <a href="{{ featured.url | relative_url }}" style="text-decoration:none">
+        {% if featured.cover %}
+          <div class="featured-image" style="background:url({{ featured.cover | relative_url }}) center/cover no-repeat"></div>
+        {% else %}
+          <div class="featured-image"><span>{{ featured.title }}</span></div>
+        {% endif %}
+      </a>
+      <div>
+        <p class="meta"><time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%-d %b %Y" }}</time> · {{ t.blog_section.featured_label }}</p>
+        <h2><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+        {% if featured.subtitle %}<p>{{ featured.subtitle }}</p>{% else %}<p>{{ featured.excerpt | strip_html | truncate: 160 }}</p>{% endif %}
+        <a class="btn btn-outline btn-arrow" href="{{ featured.url | relative_url }}" style="margin-top:.5rem">{{ t.blog_section.read_label }}</a>
+      </div>
+    </div>
+
+    {% assign rest = lang_posts | slice: 1, 3 %}
+    {% if rest.size > 0 %}
+      <div class="blog-grid">
+        {% for post in rest %}
+          {% assign vhash = post.title | md5 | slice: 0, 1 %}
+          {% case vhash %}
+            {% when '0','1','2' %}{% assign v = 1 %}
+            {% when '3','4' %}{% assign v = 2 %}
+            {% when '5','6' %}{% assign v = 3 %}
+            {% when '7','8' %}{% assign v = 4 %}
+            {% when '9','a','b' %}{% assign v = 5 %}
+            {% else %}{% assign v = 6 %}
+          {% endcase %}
+          <a class="blog-card" href="{{ post.url | relative_url }}">
+            {% if post.cover %}
+              <div class="card-image" style="background:url({{ post.cover | relative_url }}) center/cover no-repeat"></div>
+            {% else %}
+              <div class="card-image variant-{{ v }}"><span>{{ post.title }}</span></div>
+            {% endif %}
+            <div class="card-body">
+              <p class="card-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time></p>
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+              {% if post.tags.size > 0 %}
+                <div class="card-tags">{% for tag in post.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="container">
+    <div class="cta-banner">
+      <h2>{{ t.cta.title }}</h2>
+      <p>{{ t.cta.body }}</p>
+      <a class="btn btn-primary" href="{{ t.cta.button_url | relative_url }}">{{ t.cta.button_label }}</a>
+    </div>
+  </div>
+</section>

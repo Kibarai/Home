@@ -1,12 +1,12 @@
-{% assign s = site.data.site %}
+{% assign t = site.data.i18n[page.lang] %}
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="{{ '/assets/img/logo-dark.svg' | relative_url }}" alt="{{ s.brand.name }}" height="44" style="margin-bottom:1rem">
-        <p>{{ s.footer.about }}</p>
+        <img src="{{ '/assets/img/logo-dark.svg' | relative_url }}" alt="{{ t.brand.name }}" height="44" style="margin-bottom:1rem">
+        <p>{{ t.footer.about }}</p>
       </div>
-      {% for col in s.footer.columns %}
+      {% for col in t.footer.columns %}
         <div>
           <p class="footer-heading">{{ col.heading }}</p>
           {% for link in col.links %}
@@ -15,12 +15,12 @@
         </div>
       {% endfor %}
       <div>
-        <p class="footer-heading">{{ s.footer.legal_heading }}</p>
-        {% for link in s.footer.legal_links %}
+        <p class="footer-heading">{{ t.footer.legal_heading }}</p>
+        {% for link in t.footer.legal_links %}
           <p><a href="{{ link.url | relative_url }}">{{ link.label }}</a></p>
         {% endfor %}
       </div>
     </div>
-    <div class="copyright">© {{ 'now' | date: '%Y' }} {{ s.brand.name }} · {{ s.footer.copyright }}</div>
+    <div class="copyright">© {{ 'now' | date: '%Y' }} {{ t.brand.name }} · {{ t.footer.copyright }}</div>
   </div>
 </footer>

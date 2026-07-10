@@ -1,15 +1,43 @@
 # PagesCMS config — https://pagescms.org
 # Editar en https://app.pagescms.org tras conectar el repo.
+#
+# Adding a new language from the CMS: create a new file inside "Idiomas del sitio"
+# collection using the existing es/en as reference. Nothing else needs to change.
 
 media: assets/uploads
 
 content:
-  - name: site
-    label: Ajustes del sitio
-    type: file
-    path: _data/site.yml
+  - name: i18n
+    label: Idiomas del sitio
+    type: collection
+    path: _data/i18n
+    filename: '{primary}.yml'
     format: yaml
+    view:
+      fields: [meta.self_name]
     fields:
+      - name: meta
+        label: Idioma — ajustes
+        type: object
+        fields:
+          - { name: self_name, label: Nombre del idioma (auto-referencial), type: string, required: true }
+          - { name: html_lang, label: Código HTML lang (ISO 639-1), type: string, required: true }
+          - { name: browser_codes, label: Códigos que detecta el navegador (para redirect autom.), type: string, list: true }
+
+      - name: urls
+        label: URLs por página (deben empezar por /<idioma>/)
+        type: object
+        fields:
+          - { name: home, label: Home, type: string, required: true }
+          - { name: services, label: Servicios (índice), type: string, required: true }
+          - { name: about, label: Nosotros, type: string, required: true }
+          - { name: contact, label: Contacto, type: string, required: true }
+          - { name: news, label: Noticias (índice), type: string, required: true }
+          - { name: news_prefix, label: Prefijo de posts (sin trailing slash), type: string, required: true }
+          - { name: legal_notice, label: Aviso legal, type: string, required: true }
+          - { name: privacy, label: Privacidad, type: string, required: true }
+          - { name: cookies, label: Política de cookies, type: string, required: true }
+
       - name: brand
         label: Marca
         type: object
@@ -67,6 +95,7 @@ content:
           - { name: title, label: Título, type: string }
           - { name: featured_label, label: Etiqueta "destacado", type: string }
           - { name: read_label, label: Botón "leer artículo", type: string }
+          - { name: empty_message, label: Texto si no hay entradas, type: string }
 
       - name: cta
         label: CTA global
@@ -166,26 +195,84 @@ content:
               - { name: url, label: URL, type: string }
           - { name: copyright, label: Texto de copyright, type: string }
 
-      - name: legal
+      - name: legal_data
         label: Datos legales (RGPD / LSSI)
         type: object
         fields:
-          - { name: owner_name, label: Titular (nombre o razón social), type: string }
-          - { name: owner_type, label: Tipo, type: select, options: { values: [empresa, autónomo] } }
+          - { name: owner_name, label: Titular, type: string }
+          - { name: owner_type, label: Tipo, type: select, options: { values: [empresa, autónomo, company, individual] } }
           - { name: nif, label: NIF / CIF, type: string }
           - { name: address, label: Domicilio postal, type: text }
           - { name: activity, label: Actividad, type: string }
-          - { name: registry, label: Datos registrales (solo empresas), type: text }
+          - { name: registry, label: Datos registrales, type: text }
           - { name: phone, label: Teléfono, type: string }
           - { name: hosting_provider, label: Proveedor de alojamiento, type: text }
-          - { name: analytics, label: ¿Usa analytics de terceros?, type: boolean, default: false }
+          - { name: analytics, label: ¿Usa analytics?, type: boolean, default: false }
           - { name: analytics_name, label: Nombre del analytics, type: string }
           - { name: last_updated, label: Última actualización, type: date }
+
+      - name: legal_pages
+        label: Páginas legales
+        type: object
+        fields:
+          - name: legal_notice
+            label: Aviso legal
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: lede, label: Introducción, type: text }
+              - name: sections
+                label: Secciones
+                type: object
+                list: true
+                fields:
+                  - { name: heading, label: Encabezado, type: string }
+                  - { name: body, label: Cuerpo (Markdown), type: text }
+          - name: privacy
+            label: Privacidad
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: lede, label: Introducción, type: text }
+              - name: sections
+                label: Secciones
+                type: object
+                list: true
+                fields:
+                  - { name: heading, label: Encabezado, type: string }
+                  - { name: body, label: Cuerpo (Markdown), type: text }
+          - name: cookies
+            label: Cookies
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: lede, label: Introducción, type: text }
+              - name: sections
+                label: Secciones
+                type: object
+                list: true
+                fields:
+                  - { name: heading, label: Encabezado, type: string }
+                  - { name: body, label: Cuerpo (Markdown), type: text }
+
+      - name: i18n
+        label: Textos de interfaz
+        type: object
+        fields:
+          - { name: back_label, label: "Volver", type: string }
+          - { name: last_updated_label, label: "Última actualización", type: string }
+          - { name: skip_link, label: "Ir al contenido", type: string }
+          - { name: nav_aria, label: "aria-label del nav", type: string }
+          - { name: open_menu, label: "Abrir menú", type: string }
+          - { name: close_menu, label: "Cerrar menú", type: string }
+          - { name: lang_dropdown_label, label: "Etiqueta selector idioma", type: string }
+          - { name: empty_posts_lead, label: "Mensaje sin posts", type: string }
 
   - name: services
     label: Servicios
     type: collection
     path: _services
+    subfolders: true
     filename: '{primary}.md'
     view:
       fields: [title, order]
@@ -194,13 +281,13 @@ content:
       - { name: title, label: Título, type: string, required: true }
       - { name: summary, label: Resumen, type: text }
       - { name: order, label: Orden, type: number }
-      - { name: lang, label: Idioma, type: select, options: { values: [es, en] }, default: es }
       - { name: body, label: Contenido, type: rich-text }
 
   - name: posts
     label: Blog
     type: collection
     path: _posts
+    subfolders: true
     filename: '{year}-{month}-{day}-{primary}.md'
     view:
       fields: [title, date]
@@ -212,5 +299,4 @@ content:
       - { name: author, label: Autor, type: string }
       - { name: cover, label: Imagen destacada, type: image }
       - { name: tags, label: Etiquetas, type: string, list: true }
-      - { name: lang, label: Idioma, type: select, options: { values: [es, en] }, default: es }
       - { name: body, label: Contenido, type: rich-text }

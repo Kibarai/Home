@@ -82,6 +82,39 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 .nav-main a:hover { color: var(--secondary); }
 .nav-cta { color: #fff; }
+
+/* Language picker */
+.lang-picker { position: relative; }
+.lang-toggle {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: transparent; border: 1px solid var(--rule);
+  color: var(--muted); padding: .35rem .7rem;
+  border-radius: 999px; cursor: pointer;
+  font-family: var(--sans); font-size: .82rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .1em;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.lang-toggle:hover { color: var(--primary); border-color: var(--secondary); background: var(--bg-soft); }
+.lang-toggle[aria-expanded="true"] .lang-toggle-caret { transform: rotate(180deg); }
+.lang-toggle-caret { transition: transform .15s; }
+.lang-menu {
+  position: absolute; top: calc(100% + .4rem); right: 0;
+  min-width: 140px; margin: 0; padding: .4rem 0;
+  list-style: none; background: var(--bg);
+  border: 1px solid var(--rule); border-radius: 12px;
+  box-shadow: 0 15px 40px -18px rgba(45,54,99,.25);
+  z-index: 30;
+}
+.lang-menu li { margin: 0; }
+.lang-menu a {
+  display: block; padding: .55rem 1rem;
+  color: var(--ink); font-size: .92rem; text-decoration: none;
+}
+.lang-menu a:hover { background: var(--bg-soft); color: var(--primary); }
+.lang-menu li[aria-selected="true"] a { color: var(--primary); font-weight: 600; }
+.lang-menu li[aria-selected="true"] a::after { content: " ✓"; color: var(--secondary); }
+.nav-main-langs { display: none; }
+
 .nav-toggle {
   display: none;
   width: 44px; height: 44px; padding: 0;
@@ -459,6 +492,24 @@ section { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
   .nav-right { gap: .75rem; }
   .nav-toggle { display: flex; }
   .nav-cta { padding: .6rem 1.1rem; font-size: .88rem; }
+  .lang-picker { display: none; }
+  .nav-main-langs {
+    display: flex; flex-wrap: wrap; gap: .5rem;
+    padding: .75rem 0 .25rem;
+    border-top: 1px solid var(--rule);
+    margin-top: .35rem;
+  }
+  .nav-main-langs a {
+    padding: .45rem .85rem !important;
+    border: 1px solid var(--rule) !important;
+    border-radius: 999px;
+    font-size: .85rem !important;
+    text-transform: uppercase; letter-spacing: .1em;
+    color: var(--muted);
+  }
+  .nav-main-langs a[aria-current="true"] {
+    background: var(--primary); color: #fff; border-color: var(--primary) !important;
+  }
   .site-header { position: sticky; }
   .nav-main {
     position: absolute; left: 0; right: 0; top: 100%;

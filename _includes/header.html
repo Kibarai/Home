@@ -1,16 +1,49 @@
-{% assign s = site.data.site %}
-<a class="skip-link" href="#main">Ir al contenido</a>
+{% assign t = site.data.i18n[page.lang] %}
+{% for lang in site.languages %}
+  {% assign l = site.data.i18n[lang] %}
+  {% unless lang == page.lang %}
+    <link rel="alternate" hreflang="{{ l.meta.html_lang }}" href="{{ l.urls.home | relative_url }}">
+  {% endunless %}
+{% endfor %}
+<a class="skip-link" href="#main">{{ t.i18n.skip_link }}</a>
 <header class="site-header">
   <div class="container nav">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ s.brand.name }}">
-      <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="{{ s.brand.name }}" height="48">
+    <a class="brand" href="{{ t.urls.home | relative_url }}" aria-label="{{ t.brand.name }}">
+      <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="{{ t.brand.name }}" height="48">
     </a>
     <div class="nav-right">
-      <nav class="nav-main" id="nav-main" aria-label="Principal">
-        {% for item in s.nav %}{% unless item.primary %}<a href="{{ item.url | relative_url }}">{{ item.label }}</a>{% endunless %}{% endfor %}
+      <nav class="nav-main" id="nav-main" aria-label="{{ t.i18n.nav_aria }}">
+        {% for item in t.nav %}{% unless item.primary %}<a href="{{ item.url | relative_url }}">{{ item.label }}</a>{% endunless %}{% endfor %}
+        {% if site.languages.size > 1 %}
+          <div class="nav-main-langs" aria-label="{{ t.i18n.lang_dropdown_label }}">
+            {% for lang in site.languages %}
+              {% assign l = site.data.i18n[lang] %}
+              <a href="{{ l.urls.home | relative_url }}" data-lang="{{ lang }}" lang="{{ lang }}" hreflang="{{ lang }}"{% if lang == page.lang %} aria-current="true"{% endif %}>{{ l.meta.self_name }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
       </nav>
-      {% for item in s.nav %}{% if item.primary %}<a class="btn btn-primary nav-cta" href="{{ item.url | relative_url }}">{{ item.label }}</a>{% endif %}{% endfor %}
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-main" aria-label="Abrir menú">
+      {% if site.languages.size > 1 %}
+        <div class="lang-picker">
+          <button type="button" class="lang-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="{{ t.i18n.lang_dropdown_label }}">
+            <span class="lang-toggle-text">{{ t.meta.self_name }}</span>
+            <svg class="lang-toggle-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-menu" role="listbox" hidden>
+            {% for lang in site.languages %}
+              {% assign l = site.data.i18n[lang] %}
+              <li role="option" aria-selected="{% if lang == page.lang %}true{% else %}false{% endif %}">
+                <a href="{{ l.urls.home | relative_url }}" data-lang="{{ lang }}" lang="{{ lang }}" hreflang="{{ lang }}">{{ l.meta.self_name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      {% for item in t.nav %}{% if item.primary %}<a class="btn btn-primary nav-cta" href="{{ item.url | relative_url }}">{{ item.label }}</a>{% endif %}{% endfor %}
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-main"
+              aria-label="{{ t.i18n.open_menu }}"
+              data-open-label="{{ t.i18n.open_menu }}"
+              data-close-label="{{ t.i18n.close_menu }}">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -18,13 +51,51 @@
 </header>
 <script>
 (function () {
+  // Persist current language selection on every non-root page.
+  var currentLang = {{ page.lang | jsonify }};
+  if (currentLang) {
+    try { localStorage.setItem('kibarai_lang', currentLang); } catch (e) {}
+  }
+
+  // Language dropdown.
+  var picker = document.querySelector('.lang-picker');
+  if (picker) {
+    var toggle = picker.querySelector('.lang-toggle');
+    var menu = picker.querySelector('.lang-menu');
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      menu.hidden = open;
+    });
+    document.addEventListener('click', function (e) {
+      if (!picker.contains(e.target)) {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+      }
+    });
+    menu.addEventListener('click', function (e) {
+      var link = e.target.closest('a[data-lang]');
+      if (!link) return;
+      try { localStorage.setItem('kibarai_lang', link.dataset.lang); } catch (e) {}
+    });
+  }
+  // Same persistence for the mobile-only lang list inside the burger menu.
+  document.querySelectorAll('.nav-main-langs a[data-lang]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      try { localStorage.setItem('kibarai_lang', a.dataset.lang); } catch (e) {}
+    });
+  });
+
+  // Mobile hamburger.
   var btn = document.querySelector('.nav-toggle');
-  var menu = document.getElementById('nav-main');
-  if (!btn || !menu) return;
+  var mmenu = document.getElementById('nav-main');
+  if (!btn || !mmenu) return;
+  var openLabel = btn.getAttribute('data-open-label');
+  var closeLabel = btn.getAttribute('data-close-label');
   btn.addEventListener('click', function () {
     var open = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-    btn.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+    btn.setAttribute('aria-label', open ? openLabel : closeLabel);
   });
 })();
 </script>

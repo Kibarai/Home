@@ -1,0 +1,37 @@
+---
+layout: default
+translation_key: services
+title: Services
+---
+{% assign t = site.data.i18n[page.lang] %}
+<div class="container page">
+  <header class="page-header">
+    <h1>{{ t.pages.servicios.title }}</h1>
+    <p class="lede">{{ t.pages.servicios.subtitle }}</p>
+  </header>
+
+  <div class="info-3col">
+    {% assign services = site.services | where: 'lang', page.lang | sort: 'order' %}
+    {% assign icons = "compass,code,spark" | split: "," %}
+    {% for svc in services %}
+      {% assign i = forloop.index0 | modulo: 3 %}
+      {% assign icon_name = icons[i] %}
+      <div class="info-col">
+        <div class="info-icon">{% include icon.html name=icon_name %}</div>
+        <h3>{{ svc.title }}</h3>
+        <p>{{ svc.summary }}</p>
+        <a class="btn btn-outline btn-arrow" href="{{ svc.url | relative_url }}">{{ t.home_intro.card_link_label }}</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="cta-banner">
+      <h2>{{ t.pages.servicios.cta_title }}</h2>
+      <p>{{ t.pages.servicios.cta_body }}</p>
+      <a class="btn btn-primary" href="{{ t.pages.servicios.cta_button_url | relative_url }}">{{ t.pages.servicios.cta_button_label }}</a>
+    </div>
+  </div>
+</section>

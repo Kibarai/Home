@@ -1,0 +1,18 @@
+{% assign t = site.data.i18n[page.lang] %}
+{% assign legal = t.legal_pages[page.legal_page_key] %}
+<div class="container page">
+  <header class="page-header">
+    <h1>{{ legal.title }}</h1>
+    {% if legal.lede %}<p class="lede">{{ legal.lede }}</p>{% endif %}
+  </header>
+
+  <div class="prose" style="margin:0 auto">
+    {% for section in legal.sections %}
+      <h2>{{ section.heading }}</h2>
+      {{ section.body | markdownify }}
+    {% endfor %}
+    {% if t.legal_data.last_updated %}
+      <p class="muted" style="margin-top:3rem">{{ t.i18n.last_updated_label }}: {{ t.legal_data.last_updated }}</p>
+    {% endif %}
+  </div>
+</div>

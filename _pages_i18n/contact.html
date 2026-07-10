@@ -1,0 +1,31 @@
+---
+layout: default
+translation_key: contact
+title: Contact
+---
+{% assign t = site.data.i18n[page.lang] %}
+<div class="container page">
+  <header class="page-header">
+    <h1>{{ t.pages.contacto.title }}</h1>
+    <p class="lede">{{ t.pages.contacto.subtitle }}</p>
+  </header>
+
+  <div class="contact-methods">
+    <a class="contact-card" href="mailto:{{ t.contact.email }}?subject=Kibarai">
+      <div class="info-icon">{% include icon.html name='mail' %}</div>
+      <h3>{{ t.pages.contacto.email_label }}</h3>
+      <p>{{ t.contact.email }}</p>
+    </a>
+    {% if t.contact.linkedin %}
+      <a class="contact-card" href="{{ t.contact.linkedin }}" rel="noopener">
+        <div class="info-icon">{% include icon.html name='linkedin' %}</div>
+        <h3>{{ t.pages.contacto.linkedin_label }}</h3>
+        <p>{{ t.contact.linkedin | remove: 'https://www.' | remove: 'https://' }}</p>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="prose" style="margin-top:3rem;max-width:52ch">
+    <p>{{ t.pages.contacto.body }}</p>
+  </div>
+</div>

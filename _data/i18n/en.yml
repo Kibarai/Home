@@ -1,0 +1,351 @@
+meta:
+  self_name: English
+  html_lang: en
+  browser_codes: [en]
+
+urls:
+  home: /en/
+  services: /en/services/
+  about: /en/about/
+  contact: /en/contact/
+  news: /en/news/
+  news_prefix: /en/news
+  legal_notice: /en/legal-notice/
+  privacy: /en/privacy/
+  cookies: /en/cookies/
+
+brand:
+  name: Kibarai
+  tagline: Custom software and AI solutions.
+
+nav:
+  - { label: Services, url: /en/services/, primary: false }
+  - { label: About, url: /en/about/, primary: false }
+  - { label: News, url: /en/news/, primary: false }
+  - { label: Contact, url: /en/contact/, primary: true }
+
+hero:
+  title: Software that works. AI that adds value. Decisions that hold up.
+  subtitle: We work with people whose next technology decision matters. We build
+    custom software, integrate generative AI and help you decide with judgment
+    before you commit budget. Weekly cadence, deliveries you can show your team
+    and your leadership, and the code in your hands from day one.
+  cta_label: Tell us about your project
+  cta_url: /en/contact/
+  secondary_cta_label: See services
+  secondary_cta_url: /en/services/
+
+home_intro:
+  title: Three things we do here
+  body: Technology consulting, custom software and AI applications. All three
+    with small teams, short cycles and decisions made together with you. Pick
+    where to start.
+  card_link_label: Learn more
+
+process:
+  title: A clear, traceable process
+  subtitle: Short cycles, weekly meetings and data-driven decisions. You will
+    see your project move forward every week and you will be able to show it
+    to your team knowing it already works.
+  steps:
+    - icon: search
+      title: Discover
+      body: Before writing code we understand your business, your team and
+        your real constraints. If there is a shorter path to your goal we
+        propose it with data on the table.
+    - icon: build
+      title: Build
+      body: We work in weekly cycles. Each week you see a working increment
+        you can try and share internally. Scope evolves with what you learn.
+    - icon: grow
+      title: Evolve
+      body: The software we deliver lives with you. We measure, learn and
+        adjust with real usage data. What adds value stays; what does not,
+        goes.
+
+blog_section:
+  title: Latest news
+  featured_label: Featured
+  read_label: Read article
+  empty_message: No posts in this language yet.
+
+cta:
+  title: Want to talk about your project?
+  body: Tell us what you are working on. We will come back with a first read
+    of the challenge and, if it makes sense, a concrete plan to move forward
+    with you.
+  button_label: Get in touch
+  button_url: /en/contact/
+
+pages:
+  blog:
+    title: News
+    subtitle: Technical notes from the team. Day-to-day learnings, real cases
+      and decisions we have made along the way.
+  servicios:
+    title: How we can help
+    subtitle: Three ways to work with us, matched to where your product is
+      today. If you want a recommendation before deciding, write to us and
+      we will tell you where to start.
+    cta_title: Would you rather get a recommendation first?
+    cta_body: Tell us where you are and what you need. We will tell you where
+      to start and what makes sense for you, even when the right partner for
+      a part is someone else.
+    cta_button_label: Get in touch
+    cta_button_url: /en/contact/
+  nosotros:
+    title: We are Kibarai
+    subtitle: A small, independent tech consultancy. We work with people whose
+      reputation is on the line when they choose technology — CTOs, product
+      leads, founders and IT leaders who need the next decision to land well.
+      Our job is that you can defend it with data.
+    values_title: How we think
+    values:
+      - title: Less is more
+        body: The best code is the one that solves your problem with the
+          least possible complexity. Less surface to maintain means less risk
+          for you and for your team.
+      - title: Short deliveries
+        body: Every week you will see something working. You will take home
+          concrete demos and progress you can share with your team or your
+          leadership with confidence.
+      - title: Technical honesty
+        body: We tell you what fits your business and what fits better with
+          someone else. Trust is earned by saying what suits you, even when
+          it does not suit us.
+  contacto:
+    title: Let's talk
+    subtitle: Tell us what you are working on. What stage you are in, what
+      you need and what timeline you have. The more concrete the better. We
+      will come back with a first read.
+    email_label: Email
+    linkedin_label: LinkedIn
+    body: A well-written email works. We prefer to hear what you need and
+      propose with judgment before filling your inbox.
+
+contact:
+  email: contacto@kibarai.tech
+  linkedin: https://www.linkedin.com/company/kibarai
+
+cookies_banner:
+  enabled: true
+  message: We only use technical cookies required for the site to work. No
+    analytics or advertising cookies.
+  accept_label: Got it
+  learn_more_label: Cookie policy
+  learn_more_url: /en/cookies/
+
+footer:
+  about: Independent tech consultancy based in Spain. We work with companies
+    that need software and AI applications they can trust.
+  columns:
+    - heading: Company
+      links:
+        - { label: Services, url: /en/services/ }
+        - { label: About, url: /en/about/ }
+        - { label: News, url: /en/news/ }
+    - heading: Resources
+      links:
+        - { label: Contact, url: /en/contact/ }
+        - { label: RSS, url: /feed.xml }
+  legal_heading: Legal
+  legal_links:
+    - { label: Legal notice, url: /en/legal-notice/ }
+    - { label: Privacy, url: /en/privacy/ }
+    - { label: Cookies, url: /en/cookies/ }
+  copyright: All rights reserved
+
+legal_data:
+  owner_name: KIBARAI TECH S.L.U.
+  owner_type: company
+  nif: B25981762
+  address: Paseo de Juan Antonio Vallejo-Nájera Botas 29A 3ºA, 28005 Madrid,
+    Spain
+  activity: technology consulting, custom software development and AI
+    applications
+  registry: S 8, H M 874314, I/A 1 (7.01.26).
+  phone: "+34 619802580"
+  hosting_provider: GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street,
+    San Francisco, CA 94107, USA)
+  analytics: false
+  analytics_name: ""
+  last_updated: 2026-07-09
+
+legal_pages:
+  legal_notice:
+    title: Legal notice
+    lede: Legal information about the site owner and the terms of use of this
+      website.
+    sections:
+      - heading: Site owner
+        body: |
+          In compliance with article 10 of Spanish Law 34/2002 (LSSI-CE), the
+          following identifying information about the owner of this website is
+          provided:
+
+          - **Owner:** KIBARAI TECH S.L.U.
+          - **Tax ID:** B25981762
+          - **Registered address:** Paseo de Juan Antonio Vallejo-Nájera Botas 29A 3ºA, 28005 Madrid, Spain
+          - **Activity:** technology consulting, custom software development and AI applications
+          - **Contact email:** [contacto@kibarai.tech](mailto:contacto@kibarai.tech)
+          - **Phone:** +34 619802580
+          - **Registry:** S 8, H M 874314, I/A 1 (7.01.26).
+      - heading: Purpose
+        body: |
+          This legal notice governs the use of the website
+          [kibarai.github.io](https://kibarai.github.io/), owned by KIBARAI
+          TECH S.L.U. Browsing the site grants the condition of user and
+          implies full and unreserved acceptance of these terms.
+      - heading: Terms of use
+        body: |
+          The user agrees to make appropriate use of the content and services
+          and not to use them to:
+
+          - Carry out unlawful activities or activities against good faith and
+            public order.
+          - Distribute racist, xenophobic, pornographic, terrorism-supporting
+            or human-rights-violating content.
+          - Cause damage to physical or logical systems of Kibarai, its
+            providers or third parties.
+          - Access or use email accounts of other users and modify or
+            manipulate their messages.
+      - heading: Intellectual property
+        body: |
+          All content on the website (text, photographs, graphics, images,
+          icons, technology, software, as well as graphic design and source
+          code) is the intellectual property of KIBARAI TECH S.L.U. or of
+          third parties, without any exploitation rights being transferred to
+          the user.
+      - heading: Links
+        body: |
+          If the website contains links to third-party sites, Kibarai
+          exercises no control over such sites or their content and assumes
+          no responsibility for any link belonging to an external site.
+      - heading: Disclaimer
+        body: |
+          Kibarai is not liable for any damage of any nature that may arise,
+          by way of example: errors or omissions in the content, lack of
+          availability of the website, or the transmission of viruses or
+          malicious programs, despite having taken all necessary
+          technological measures to prevent it.
+      - heading: Applicable law
+        body: |
+          Relations between Kibarai and the user are governed by the
+          applicable Spanish law. Both parties submit, expressly waiving any
+          other jurisdiction, to the courts of the owner's domicile.
+
+  privacy:
+    title: Privacy policy
+    lede: How we process personal data under GDPR and Spanish LOPDGDD.
+    sections:
+      - heading: Data controller
+        body: |
+          - **Controller:** KIBARAI TECH S.L.U.
+          - **Tax ID:** B25981762
+          - **Registered address:** Paseo de Juan Antonio Vallejo-Nájera Botas 29A 3ºA, 28005 Madrid, Spain
+          - **Email:** [contacto@kibarai.tech](mailto:contacto@kibarai.tech)
+      - heading: Data we process
+        body: |
+          Kibarai processes the personal data that the user voluntarily
+          provides when contacting us via the email address above or via our
+          social profiles. Typical data:
+
+          - First name and surname.
+          - Email address.
+          - Company or organization, where applicable.
+          - Any additional information the user chooses to share in their
+            message.
+      - heading: Purpose of processing
+        body: |
+          - Respond to enquiries, information requests or collaboration
+            proposals.
+          - Manage the commercial and contractual relationship where
+            applicable.
+          - Comply with applicable legal obligations.
+      - heading: Legal basis
+        body: |
+          The legal basis is the consent of the data subject when sending us
+          their communication, and the performance of a contract or
+          pre-contractual measures where applicable (Articles 6.1.a and
+          6.1.b of Regulation (EU) 2016/679 — GDPR).
+      - heading: Retention
+        body: |
+          Data is kept for as long as necessary to address the user's request
+          and, thereafter, for the periods legally required to attend to
+          potential liabilities. When data is no longer necessary it is
+          deleted using appropriate security measures.
+      - heading: Recipients
+        body: |
+          Data is not shared with third parties except by legal obligation.
+          It may be processed by service providers acting as processors
+          (hosting, email, productivity tools) under corresponding
+          agreements.
+
+          The website is hosted by GitHub Pages (GitHub, Inc., 88 Colin P.
+          Kelly Jr. Street, San Francisco, CA 94107, USA).
+      - heading: Your rights
+        body: |
+          You may exercise your rights of access, rectification, erasure,
+          objection, restriction of processing and portability by emailing
+          [contacto@kibarai.tech](mailto:contacto@kibarai.tech), stating
+          your name and attaching a copy of your ID or equivalent document.
+
+          You have the right to lodge a complaint with the **Spanish Data
+          Protection Agency** ([aepd.es](https://www.aepd.es)) if you
+          consider that the processing does not comply with the applicable
+          regulations.
+      - heading: Security
+        body: |
+          Kibarai applies the appropriate technical and organizational
+          measures to guarantee the security of personal data and prevent
+          its alteration, loss, or unauthorized processing or access.
+
+  cookies:
+    title: Cookie policy
+    lede: What cookies this website uses and how to manage them.
+    sections:
+      - heading: What are cookies
+        body: |
+          A cookie is a small text file that a website stores in the user's
+          browser upon visit. Cookies allow the site to recognize the user
+          on later visits and remember preferences, and to collect
+          statistical information about site usage.
+      - heading: Cookies we use
+        body: |
+          This website **only uses strictly necessary technical cookies** for
+          its operation. We do not use analytics, advertising or
+          personalization cookies that require user consent under Article
+          22.2 of Spanish Law 34/2002 (LSSI-CE).
+
+          The hosting provider (GitHub Pages) may set its own technical
+          cookies required to serve pages. These cookies are strictly
+          necessary and do not collect data for profiling purposes.
+      - heading: How to manage cookies
+        body: |
+          Users can allow, block or delete cookies installed on their device
+          via browser settings. Links to the official instructions for the
+          main browsers:
+
+          - [Google Chrome](https://support.google.com/chrome/answer/95647)
+          - [Mozilla Firefox](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop)
+          - [Safari](https://support.apple.com/en-us/guide/safari/sfri11471/mac)
+          - [Microsoft Edge](https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09)
+      - heading: Changes to this policy
+        body: |
+          Kibarai may modify this cookie policy in response to legislative
+          requirements or in order to adapt it to instructions from the
+          Spanish Data Protection Agency. We recommend reviewing this policy
+          each time you access the website.
+
+          For any questions about this policy, please write to
+          [contacto@kibarai.tech](mailto:contacto@kibarai.tech).
+
+i18n:
+  back_label: Back
+  last_updated_label: Last updated
+  skip_link: Skip to content
+  nav_aria: Main
+  open_menu: Open menu
+  close_menu: Close menu
+  lang_dropdown_label: Change language
+  empty_posts_lead: This blog has no entries in your language yet.

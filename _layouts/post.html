@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% assign t = site.data.i18n[page.lang] %}
 <article class="post">
   <div class="post-hero">
     <div class="post-hero-inner">
@@ -27,6 +28,6 @@ layout: default
       {{ content }}
     </div>
 
-    <p style="margin-top:3rem"><a href="{{ '/noticias/' | relative_url }}">← Volver</a></p>
+    <p style="margin-top:3rem"><a href="{{ t.urls.news | relative_url }}">← {{ t.i18n.back_label }}</a></p>
   </div>
 </article>
