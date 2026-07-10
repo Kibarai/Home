@@ -57,22 +57,15 @@ bundle install
 bundle exec jekyll serve --future
 ```
 
-Open <http://localhost:4000/Home/>.
+Open <http://localhost:4000/>.
 
 The `--future` flag is needed while any post has a date in the future.
 
 ## Deployment
 
-GitHub Pages is configured to deploy from `main` / root. Any push (or PagesCMS save) triggers a rebuild.
+Deployed via GitHub Actions (see `.github/workflows/pages.yml`). Any push to `main` triggers a build.
 
-Currently served at **<https://kibarai.github.io/Home/>**.
-
-To switch to the custom domain `kibarai.tech` later:
-
-1. Add a `CNAME` file at the repo root containing `kibarai.tech`
-2. In `_config.yml` set `url: https://kibarai.tech` and remove `baseurl`
-3. Point `kibarai.tech` DNS to GitHub Pages (four `A` records + `CNAME www → kibarai.github.io`)
-4. In GitHub → Settings → Pages, enter the custom domain and enable "Enforce HTTPS"
+Served at **<https://kibarai.tech>**. `kibarai.com` 301-redirects to it at the registrar.
 
 ## Design tokens
 
