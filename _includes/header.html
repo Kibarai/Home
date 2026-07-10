@@ -5,14 +5,26 @@
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ s.brand.name }}">
       <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="{{ s.brand.name }}" height="48">
     </a>
-    <nav aria-label="Principal">
-      {% for item in s.nav %}
-        {% if item.primary %}
-          <a class="btn btn-primary" href="{{ item.url | relative_url }}">{{ item.label }}</a>
-        {% else %}
-          <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
-        {% endif %}
-      {% endfor %}
-    </nav>
+    <div class="nav-right">
+      <nav class="nav-main" id="nav-main" aria-label="Principal">
+        {% for item in s.nav %}{% unless item.primary %}<a href="{{ item.url | relative_url }}">{{ item.label }}</a>{% endunless %}{% endfor %}
+      </nav>
+      {% for item in s.nav %}{% if item.primary %}<a class="btn btn-primary nav-cta" href="{{ item.url | relative_url }}">{{ item.label }}</a>{% endif %}{% endfor %}
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-main" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
+<script>
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var menu = document.getElementById('nav-main');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    btn.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+  });
+})();
+</script>
