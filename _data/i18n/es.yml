@@ -113,10 +113,10 @@ pages:
       - title: Entregas cortas
         body: Cada semana verás algo funcional. Te llevarás demos y avances concretos
           que puedes enseñar a tu equipo o a tu dirección con confianza.
-      - title: Honestidad técnica
-        body: Te contamos qué encaja con tu negocio y qué queda mejor con otro
-          proveedor. La confianza se gana diciendo lo que conviene, aunque no
-          sea lo que más nos convenga a nosotros.
+      - title: Acompañamiento constante
+        body: Si creemos que algo no encaja con tu negocio, te lo decimos, si
+          consideramos que te podemos ayudar mejor con otra propuesta, te la
+          ponemos encima de la mesa.
   contacto:
     title: Hablemos
     subtitle: Cuéntanos en qué estás trabajando. En qué fase estás, qué necesitas y
@@ -127,7 +127,7 @@ pages:
     body: Un correo bien escrito nos vale. Preferimos hablar de lo que necesitas y
       proponer con criterio antes de llenar tu bandeja de entrada.
 contact:
-  email: contacto@kibarai.tech
+  email: carlos.jimenez@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
 cookies_banner:
   enabled: true
