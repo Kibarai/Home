@@ -18,7 +18,7 @@ urls:
   cookies: /es/cookies/
 brand:
   name: Kibarai
-  tagline: Software y soluciones de IA a medida.
+  tagline: Software que funciona. Decisiones que aguantan.
 nav:
   - label: Servicios
     url: /es/servicios/
@@ -33,7 +33,7 @@ nav:
     url: /es/contacto/
     primary: true
 hero:
-  title: Software que funciona. IA que aporta. Decisiones que aguantan.
+  title: Software que funciona. Decisiones que aguantan.
   subtitle: Trabajamos con quienes se juegan la próxima elección tecnológica de su
     empresa. Hacemos software a medida, integramos IA generativa y ayudamos a
     decidir con criterio antes de comprometer presupuesto. Contigo cada semana,
