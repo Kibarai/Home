@@ -1,112 +1,159 @@
 ---
 title: Automatización e IA para empresas de seguridad privada
-description: Cuadrantes de turnos, partes de servicio, rondas, facturación por servicio, gestión documental y cumplimiento normativo automatizados.
+description: Cuadrantes y coberturas, vigencias y subrogaciones, dosier de solvencia para licitaciones, partes y rondas, facturación por servicio y documentación siempre localizable.
 permalink: /es/sectores/seguridad-privada/
 form_sector: Seguridad privada
 blocks:
   - type: hero
     eyebrow: Sector · Seguridad privada
-    title: El cuadrante, el parte y la factura dejan de ser tres trabajos.
+    title: El que debería supervisar se pasa el día tapando huecos.
     subtitle: >-
-      El servicio que se planifica es el que se ejecuta, el que se justifica y
-      el que se factura. Cuando cada uno de esos pasos vive en un sitio
-      distinto, alguien se pasa el mes cuadrándolos a mano.
+      Una baja a las seis de la mañana y el cuadrante entero a rehacer. Un
+      concurso que cierra el viernes y faltan dos certificados. Un servicio que
+      cambia de manos con cinco días para reunir doce meses de nóminas de cada
+      persona. Nada de eso es vigilar. Y nada de eso puede esperar.
     bullets:
-      - Cuadrantes de turnos que se generan y se recalculan solos
-      - Partes de servicio y rondas registrados en el momento, no al final del turno
-      - Facturación por servicio que sale directamente de lo ejecutado
+      - El cuadrante del mes se ha rehecho tres veces y aún falta cubrir el festivo
+      - Las vigencias de las TIP y del reciclaje viven en una hoja aparte
+      - El último concurso se perdió por un certificado caducado, no por precio
+      - Y cuando entra una subrogación, todo lo demás se para
+    illustration: seguridad-privada
     cta_primary_label: Solicitar diagnóstico gratis
     cta_secondary_label: Ver todos los sectores
     cta_secondary_url: /es/sectores/
 
+  - type: dolor
+    title: Cinco cosas que te comen la semana y no ve ningún cliente.
+    items:
+      - title: Tapar huecos no es supervisar
+        body: >-
+          Quien debería estar inspeccionando servicios, formando y previniendo
+          se pasa la jornada resolviendo quién cubre la noche del sábado. Las
+          coberturas difíciles son siempre las mismas: festivos, nocturnos y
+          puestos que solo puede hacer gente concreta.
+        salida: el cuadrante se recalcula solo y propone quién puede cubrir, entre los que de verdad pueden.
+      - title: Una subrogación lo para todo
+        body: >-
+          Los servicios cambian de manos cada dos o tres años, así que con
+          varios contratos en cartera siempre hay uno en marcha. Cinco días
+          para comunicar, cinco días hábiles para entregar la relación de
+          afectados, y por cada persona su antigüedad real en ese servicio,
+          doce meses de nóminas y media docena de certificados más. Y lo que
+          falte hoy es una reclamación dentro de seis meses.
+        salida: el expediente se monta solo con lo que ya está en tus sistemas, incluida la antigüedad real en ese servicio, y te dice qué falta antes de que se acabe el plazo. Tanto si sales como si entras.
+      - title: Los concursos se pierden en la carpeta de los certificados
+        body: >-
+          Sin habilitación vigente, sin inscripción al día o sin el seguro de
+          responsabilidad civil en vigor, la oferta queda excluida. Y el motivo
+          más repetido para no llegar no es el precio: es no tener tiempo de
+          reunir los papeles.
+        salida: el dosier de solvencia vivo, con cada documento vigente y aviso antes de que caduque.
+      - title: El mes no cuadra y nadie sabe por qué
+        body: >-
+          El descuadre casi siempre está en el mismo sitio: rondas, relevos,
+          nocturnidad y fichajes fuera de puesto. Encontrarlo lleva más tiempo
+          que discutirlo.
+        salida: cada hora queda registrada donde se produjo, así que el mes cuadra antes de facturarse.
+      - title: Lo que no puedas demostrar, no ocurrió
+        body: >-
+          Acreditaciones del personal, libro de incidencias, formación, pólizas
+          y contratos. Cuando llega una inspección no se pregunta si lo tienes:
+          se pregunta si lo puedes enseñar ahora.
+        salida: todo archivado por persona y por contrato, localizable en el momento.
+
   - type: antes-despues
     eyebrow: Qué resolvemos
-    title: Lo que cambia en una empresa de seguridad.
+    title: Lo que cambia en tu empresa.
     antes_label: Antes
     items:
-      - antes: El cuadrante se hace en una hoja de cálculo
-        title: Planificación que se recalcula sola
+      - antes: Una baja descoloca el cuadrante entero
+        title: Cobertura propuesta, no improvisada
         body: >-
-          Turnos, descansos, bajas y refuerzos sobre las reglas reales de tu
-          convenio y de cada contrato. Cuando falta alguien, el sistema propone
-          la cobertura en lugar de que alguien llame por teléfono a ciegas.
-      - antes: Los partes llegan en papel o por WhatsApp
-        title: Partes y rondas registrados en el momento
+          El sistema recalcula y ofrece quién puede cubrir ese puesto según
+          habilitaciones, descansos y horas ya hechas.
+      - antes: La subrogación se monta a mano contra reloj
+        title: El expediente, armado solo
         body: >-
-          El vigilante registra el parte y el punto de ronda desde el móvil, con
-          hora y ubicación. Lo que ocurre en el servicio queda documentado
-          cuando ocurre, no reconstruido tres días después.
+          Afectados, antigüedades por servicio, contratos y nóminas salen de lo
+          que ya tienes, con un control de lo que falta.
+      - antes: Los certificados se buscan cuando hace falta
+        title: Dosier de solvencia siempre al día
+        body: >-
+          Cada documento con su vigencia y aviso antes de caducar, listo para
+          adjuntar a una oferta.
       - antes: Facturar obliga a cuadrar el mes a mano
-        title: Facturación por servicio desde lo ejecutado
+        title: La factura sale de lo ejecutado
         body: >-
-          Las horas, los refuerzos y las incidencias ya están registrados, así
-          que la factura se genera a partir de ellos. Cada cliente ve el detalle
-          de lo que se le cobra y por qué.
-      - antes: La documentación se persigue por correo
-        title: Gestión documental con avisos por caducidad
-        body: >-
-          Un repositorio con la documentación de cada persona y cada contrato,
-          con avisos antes de que algo caduque. Cuando toca demostrarlo, está
-          localizable en el momento.
+          Horas, refuerzos, nocturnidad y festivos ya están registrados, con el
+          detalle justificable ante el cliente.
 
   - type: soluciones
-    title: Qué podemos automatizar en tu empresa.
+    title: Qué podemos automatizar, área por área.
     subtitle: >-
-      Cinco áreas, y en cada una el detalle de lo que deja de hacerse a mano.
-      No hace falta empezar por todas: en el diagnóstico decidimos por cuál
-      sale más a cuenta.
+      Seis áreas, y en cada una el detalle de lo que deja de hacerse a mano. No
+      hace falta empezar por todas: en el diagnóstico decidimos por cuál sale
+      más a cuenta.
     items:
-      - title: Cuadrantes y planificación
+      - title: Planificación y coberturas
         body: >-
           El cuadrante deja de rehacerse entero cada vez que algo se mueve.
         bullets:
-          - Turnos y descansos sobre las reglas reales de tu convenio y de cada contrato
-          - Recálculo automático cuando entra una baja, una incidencia o un refuerzo
-          - Propuesta de cobertura entre quienes pueden hacerla, en vez de llamar a ciegas
-          - Horas por persona frente a las pactadas, a la vista durante el mes y no al final
-          - Cuadrante por contrato y cuadrante por persona, construidos del mismo dato
+          - Cuadrante anual y mensual sobre las reglas de tu convenio y de cada contrato
+          - Recálculo automático ante una baja, una incidencia o un refuerzo
+          - Propuesta de cobertura solo entre quienes tienen la habilitación y el descanso
+          - Horas por persona frente a las pactadas, a la vista durante el mes
+          - Aviso antes de llegar al límite de horas extra
+      - title: Personal, vigencias y subrogaciones
+        body: >-
+          Lo que caduca deja de vigilarse en una hoja aparte, y el cambio de
+          contrato deja de ser una carrera.
+        bullets:
+          - TIP, reciclaje anual, habilitaciones y especialidades con su vigencia controlada
+          - Aviso antes de que algo caduque, y comprobación al asignar a alguien a un servicio
+          - Antigüedad real por persona y por servicio, que es lo que decide quién entra en una subrogación
+          - "Expediente montado desde tus propios datos: afectados, contratos, nóminas y seguros sociales"
+          - Control de lo que falta y de los plazos, contados desde el día que conoces la pérdida
+          - Recepción ordenada y verificada cuando el que entra eres tú
+      - title: Licitaciones y dosier de solvencia
+        body: >-
+          Dejas de perder concursos por un papel que no llegó a tiempo.
+        bullets:
+          - Habilitación, inscripciones, pólizas, certificados y clasificación en un solo sitio
+          - Vigencias controladas y aviso con margen, no el día antes
+          - Documentación de cada concurso preparada desde el dosier, sin volver a buscarla
+          - Histórico de lo presentado y a quién
       - title: Partes de servicio y rondas
         body: >-
           Lo que ocurre en el servicio queda documentado cuando ocurre.
         bullets:
           - Parte registrado desde el móvil, con hora y ubicación
-          - Punto de ronda marcado donde y cuando toca, no reconstruido al acabar el turno
+          - Punto de ronda marcado donde y cuando toca
           - Incidencias con foto, asociadas a su servicio y a su cliente
-          - Parte firmado por el responsable sin pasar por papel
-          - Funciona sin cobertura y sube lo pendiente en cuanto la recupera
-      - title: Cumplimiento normativo
-        body: >-
-          Lo que caduca deja de vigilarse en una hoja aparte, y deja de
-          descubrirse tarde.
-        bullets:
-          - La TIP de cada vigilante con su vigencia controlada y aviso antes de que caduque
-          - Formación anual de reciclaje — quién la tiene al día y a quién le toca ya
-          - Habilitaciones y especialidades por persona, para saber quién puede cubrir qué servicio
-          - Comprobación al asignar — si a alguien le falta algo, se avisa antes de que entre al servicio
-          - Cada cosa con su justificante archivado y localizable cuando haya que enseñarlo
-      - title: Gestión documental
-        body: >-
-          La documentación deja de perseguirse por correo y de vivir en
-          carpetas que solo encuentra una persona.
-        bullets:
-          - Documentación por persona, por contrato y de la propia empresa, en un solo sitio
-          - Contratos de servicio y sus modificaciones, con su histórico completo
-          - Vigencias controladas, con aviso antes de que algo venza
-          - Localizable en el momento, sin rebuscar en carpetas ni en el correo
-      - title: Facturación por servicio
+          - Libro de incidencias generado desde lo registrado, sin transcribir nada
+      - title: Facturación y cobro
         body: >-
           La factura sale de lo que se prestó, no de cuadrar el mes a mano.
         bullets:
           - Por horas o por puesto de servicio, según lo que diga cada contrato
-          - Nocturnidad, festivos y arma repercutidos cuando corresponden, sin repasarlo a mano
+          - Nocturnidad, festivos y arma repercutidos cuando corresponden
           - Horas extra, refuerzos y servicios puntuales fuera de cuadrante, facturados y no olvidados
-          - Servicios prestados y no facturados, a la vista en lugar de perderse
-          - Cada cliente ve el detalle de lo que se le cobra y por qué
+          - Depósitos de eventos y servicios puntuales, con su seguimiento
+          - Vencidos a la vista y reclamación que escala sola
+      - title: Documentación y cumplimiento
+        body: >-
+          Todo lo que puede pedirte una inspección, localizable en el momento.
+        bullets:
+          - Documentación por persona, por contrato y de la propia empresa, en un solo sitio
+          - Contratos de servicio con registro de cuándo se comunicaron y custodia durante los cinco años
+          - Aviso antes de que venza cualquier plazo de conservación
+          - Localizable sin rebuscar en carpetas ni en el correo
 
   - type: cta
-    title: ¿Cuántas horas al mes se van en cuadrar el servicio?
+    title: Empecemos por el agujero más grande, no por todos.
     body: >-
-      30 minutos y gratis. Sales sabiendo por dónde empezaríamos en tu caso,
-      cuánto costaría y cuándo estaría funcionando.
+      Cada empresa de seguridad tiene los suyos y nadie los tapa todos a la
+      vez. En 30 minutos vemos cómo lo llevas hoy y salimos con uno: el proceso
+      que más tiempo le devuelve a tu equipo, lo que costaría ponerlo en marcha
+      y cuándo estaría funcionando.
     form: true
 ---

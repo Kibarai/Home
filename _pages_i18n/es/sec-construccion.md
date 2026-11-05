@@ -15,6 +15,7 @@ blocks:
       - Partes de obra registrados en campo, no transcritos en oficina
       - Coste por obra actualizado, no reconstruido al cierre
       - Certificaciones y subcontratas con su documentación controlada
+    illustration: construccion
     cta_primary_label: Solicitar diagnóstico gratis
     cta_secondary_label: Ver todos los sectores
     cta_secondary_url: /es/sectores/

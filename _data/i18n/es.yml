@@ -367,3 +367,8 @@ i18n:
   lang_dropdown_label: Cambiar idioma
   empty_posts_lead: Este blog aún no tiene entradas en tu idioma.
   hero_illustration_alt: Un taco de facturas en papel que entra solo en el sistema y aparece registrado y verificado
+  illustration_alt_seguridad_privada: Un cuadrante en papel con un turno sin cubrir, y el mismo cuadrante ya completo dentro del sistema
+  illustration_alt_restauracion: Una hoja de escandallo con precios tachados y reescritos a mano, y el coste del plato ya recalculado en el sistema
+  illustration_alt_salud: Hojas de honorarios llegando sueltas de varios profesionales, y la liquidación de cada uno ya cuadrada en el sistema
+  illustration_alt_inmobiliario: Una tabla de comisiones hecha a mano con cuentas al margen, y el panel por comercial ya calculado en el sistema
+  illustration_alt_construccion: Un parte de obra escrito a mano con una foto grapada, y el coste de la obra ya al día en el sistema

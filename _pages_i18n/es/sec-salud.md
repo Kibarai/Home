@@ -15,6 +15,7 @@ blocks:
       - Cada colaborador ve su liquidación al día, sin hojas yendo por correo
       - Recordatorios de cita que reducen el hueco que deja un no-show
       - Facturación y mutuas al ritmo de la actividad, no al cierre de mes
+    illustration: salud
     cta_primary_label: Solicitar diagnóstico gratis
     cta_secondary_label: Ver todos los sectores
     cta_secondary_url: /es/sectores/
@@ -58,7 +59,7 @@ blocks:
           El cálculo deja de depender de que cada profesional mande su hoja y
           de que alguien la cuadre.
         bullets:
-          - Condiciones propias por profesional — porcentaje, tarifa por acto o tramos
+          - Condiciones propias por profesional, ya sea porcentaje, tarifa por acto o tramos
           - La actividad se registra una vez y alimenta la liquidación sola
           - Panel por colaborador, consultable al día en vez de al cierre
           - Cierre mensual en lugar de trimestral, porque deja de costar trabajo
@@ -69,7 +70,7 @@ blocks:
           ocupado cada recurso.
         bullets:
           - Disponibilidad por profesional, box, sala o equipo
-          - Reglas reales — duraciones por tipo de visita, preparación y limpieza
+          - Reglas reales de consulta, con duraciones por tipo de visita, preparación y limpieza
           - Aviso de solapes y de huecos muertos antes de que se consoliden
           - Ocupación real frente a la planificada, por profesional y por semana
       - title: Recordatorios y lista de espera

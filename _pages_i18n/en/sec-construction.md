@@ -15,6 +15,7 @@ blocks:
       - Site reports logged on site, not transcribed at the office
       - Cost per site kept current, not rebuilt at closing
       - Certifications and subcontractors with their paperwork tracked
+    illustration: construccion
     cta_primary_label: Book a free diagnostic
     cta_secondary_label: See all sectors
     cta_secondary_url: /en/sectors/
@@ -28,8 +29,8 @@ blocks:
         title: Logged in the field, straight into the system
         body: >-
           Hours, progress, materials and incidents with photos, logged from a
-          phone in the moment. The second transcription job — which also
-          introduces errors — disappears.
+          phone in the moment. The second transcription job disappears, and
+          with it the errors it introduced.
       - antes: The site margin is known at the end
         title: Cost per site kept current
         body: >-

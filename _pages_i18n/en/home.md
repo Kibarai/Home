@@ -13,7 +13,7 @@ blocks:
     cta_primary_label: Book a free diagnostic
     cta_secondary_label: See solutions
     cta_secondary_url: /en/solutions/
-    illustration: true
+    illustration: default
 
   - type: dolor
     title: If any of this sounds familiar, it is not your team. It is the process.
@@ -156,8 +156,8 @@ blocks:
         title: A map of your operation
         body: We go through where the time goes and you leave knowing which processes can be automated.
       - label: min 15–25
-        title: Recoverable hours and euros
-        body: An estimate of the hours per person per week you can win back, and what that is worth over a year. Using your numbers, not averages.
+        title: Recoverable hours
+        body: An estimate of the hours per person per week you can win back. Using your numbers, not averages.
       - label: min 25–30
         title: A plan with a fixed price
         body: Which process to start with, what it costs and when it would be in production.

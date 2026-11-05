@@ -1,6 +1,6 @@
 ---
 title: Automation and AI for real estate agencies
-description: Commission engine, CRM, listing and publishing to portals, and automatic lead follow-up.
+description: Commission engine, CRM, listing and publishing to portals, automatic lead follow-up, deal signing and an owner portal.
 permalink: /en/sectors/real-estate/
 form_sector: Real estate
 blocks:
@@ -15,6 +15,7 @@ blocks:
       - Brackets per person and splits by role, with a monthly close
       - Published to portals without retyping the listing
       - Lead follow-up that does not depend on who is on duty
+    illustration: inmobiliario
     cta_primary_label: Book a free diagnostic
     cta_secondary_label: See all sectors
     cta_secondary_url: /en/sectors/
@@ -50,7 +51,7 @@ blocks:
   - type: soluciones
     title: What we can automate in your agency.
     subtitle: >-
-      Four areas, and in each one the detail of what stops being done by hand.
+      Six areas, and in each one the detail of what stops being done by hand.
       You do not have to start with all of them: the diagnostic decides which
       one pays off soonest.
     items:
@@ -81,6 +82,24 @@ blocks:
           - First reply within minutes, at any hour
           - Follow-up reminders that do not depend on anyone's memory
           - An alert when a lead has sat still for too long
+      - title: Deal paperwork and signing
+        body: >-
+          Contracts stop being rebuilt by hand and living in somebody's folder.
+        bullets:
+          - Viewing sheets, listing agreements, reservation contracts and deposits from your own templates
+          - Data already in the system fills itself in, with nothing retyped
+          - Signed digitally, with nothing printed or scanned
+          - Every document tied to its property and its deal
+          - An alert for whatever is still waiting on a signature
+      - title: Owner portal and reports
+        body: >-
+          The owner stops calling to ask how things are going, because they can
+          see it.
+        bullets:
+          - Viewings held, interest received and offers on the table, checked whenever they like
+          - A periodic report that goes out on its own, with nobody preparing it
+          - Fewer mid-morning calls asking how it is going
+          - An informed owner renews the mandate with far less discussion
       - title: A CRM that feeds itself
         body: >-
           The CRM reflects what happened, not what someone remembered to note.

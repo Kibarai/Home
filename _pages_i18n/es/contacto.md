@@ -34,8 +34,8 @@ blocks:
         title: El mapa de tu operativa
         body: Repasamos dónde se pierde el tiempo y sales sabiendo qué procesos son automatizables.
       - label: min 15–25
-        title: Horas y euros recuperables
-        body: Estimación de las horas por persona y semana que puedes recuperar y su equivalente anual. Con tus números.
+        title: Horas recuperables
+        body: Estimación de las horas por persona y semana que puedes recuperar. Con tus números, no con promedios.
       - label: min 25–30
         title: Un plan con precio cerrado
         body: Por qué proceso empezar, cuánto cuesta y cuándo estaría en producción.

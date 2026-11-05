@@ -15,6 +15,7 @@ blocks:
       - Every collaborator sees their settlement daily, with no spreadsheets going back and forth
       - Appointment reminders that shrink the gap a no-show leaves
       - Billing and insurers keeping pace with the activity, not with the month-end close
+    illustration: salud
     cta_primary_label: Book a free diagnostic
     cta_secondary_label: See all sectors
     cta_secondary_url: /en/sectors/
@@ -58,7 +59,7 @@ blocks:
           The calculation stops depending on each professional sending in their
           sheet and on someone reconciling it.
         bullets:
-          - Individual terms per professional — percentage, fee per act or brackets
+          - Individual terms per professional, whether a percentage, a fee per act or brackets
           - Activity is recorded once and feeds the settlement on its own
           - A panel per collaborator, current rather than only at closing
           - A monthly close instead of a quarterly one, because it stops being work
@@ -69,7 +70,7 @@ blocks:
           every resource is actually being used.
         bullets:
           - Availability per professional, room, suite or piece of equipment
-          - Real rules — durations by visit type, preparation and turnaround
+          - Real consulting-room rules, with durations by visit type, preparation and turnaround
           - Warnings about overlaps and dead gaps before they settle in
           - Actual occupancy against planned, per professional and per week
       - title: Reminders and waiting list

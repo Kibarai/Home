@@ -1,0 +1,96 @@
+{%- comment -%}
+  Sector inmobiliario: una tabla de comisiones hecha a mano con cuentas al margen,
+  y el panel por comercial ya calculado dentro del sistema.
+{%- endcomment -%}
+<svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="{{ site.data.i18n[page.lang].i18n.illustration_alt_inmobiliario }}">
+  <defs>
+    <linearGradient id="imBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6e92ff"/>
+      <stop offset="100%" stop-color="#2d3663"/>
+    </linearGradient>
+    <filter id="imShadow" x="-25%" y="-20%" width="160%" height="150%">
+      <feDropShadow dx="4" dy="8" stdDeviation="9" flood-color="#2d3663" flood-opacity=".16"/>
+    </filter>
+    <marker id="imTip" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M0 1 L8 5 L0 9" fill="none" stroke="#6e92ff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <circle cx="262" cy="210" r="196" fill="#e6eefa"/>
+
+  <!-- La tabla de comisiones, con sus cuentas al lado -->
+  <g transform="rotate(-7 124 196)">
+    <g filter="url(#imShadow)">
+      <path d="M48 92 L200 92 L200 300 L48 300 Z" fill="#eef3fc" transform="rotate(5 124 196)"/>
+    </g>
+    <path d="M48 92 L200 92 L200 300 L48 300 Z" fill="#eef3fc" stroke="#d8e1f0"
+          stroke-width="1.5" transform="rotate(5 124 196)"/>
+    <path d="M48 92 L200 92 L200 300 L48 300 Z" fill="#f8fafe" stroke="#d8e1f0"
+          stroke-width="1.5" transform="rotate(-4 124 196)"/>
+    <g filter="url(#imShadow)">
+      <path d="M48 92 L170 92 L200 122 L200 300 L48 300 Z" fill="#fff"/>
+    </g>
+    <path d="M48 92 L170 92 L200 122 L200 300 L48 300 Z" fill="none" stroke="#d3dcee" stroke-width="1.5"/>
+    <path d="M170 92 L170 122 L200 122 Z" fill="#e6eefa" stroke="#d3dcee" stroke-width="1.5" stroke-linejoin="round"/>
+    <rect x="66" y="114" width="60" height="10" rx="2" fill="#2d3663" opacity=".75"/>
+    <!-- Comerciales, operaciones y porcentajes -->
+    <g fill="#dbe2f0">
+      <rect x="66" y="140" width="40" height="7" rx="1.5"/>
+      <rect x="114" y="140" width="28" height="7" rx="1.5"/>
+      <rect x="150" y="140" width="34" height="7" rx="1.5"/>
+      <rect x="66" y="162" width="40" height="7" rx="1.5"/>
+      <rect x="114" y="162" width="28" height="7" rx="1.5"/>
+      <rect x="150" y="162" width="34" height="7" rx="1.5"/>
+      <rect x="66" y="184" width="40" height="7" rx="1.5"/>
+      <rect x="114" y="184" width="28" height="7" rx="1.5"/>
+      <rect x="150" y="184" width="34" height="7" rx="1.5"/>
+      <rect x="66" y="206" width="40" height="7" rx="1.5"/>
+      <rect x="114" y="206" width="28" height="7" rx="1.5"/>
+      <rect x="150" y="206" width="34" height="7" rx="1.5"/>
+    </g>
+    <line x1="110" y1="132" x2="110" y2="218" stroke="#c3d2ef" stroke-width="1.2"/>
+    <line x1="146" y1="132" x2="146" y2="218" stroke="#c3d2ef" stroke-width="1.2"/>
+    <!-- Cuentas garabateadas al margen -->
+    <g stroke="#9fb3dd" stroke-width="1.6" stroke-linecap="round" opacity=".9">
+      <path d="M70 236 L96 236"/>
+      <path d="M70 248 L110 248"/>
+      <path d="M70 260 L88 260"/>
+    </g>
+    <circle cx="160" cy="250" r="16" fill="none" stroke="#9fb3dd" stroke-width="1.6"/>
+    <rect x="150" y="247" width="20" height="6" rx="1.5" fill="#2d3663" opacity=".55"/>
+  </g>
+
+  <path d="M222 206 L276 206" fill="none" stroke="#6e92ff" stroke-width="3.5"
+        stroke-linecap="round" marker-end="url(#imTip)"/>
+
+  <!-- Lo que le corresponde a cada comercial -->
+  <rect x="292" y="84" width="196" height="244" rx="16" fill="#fff" stroke="#dbe2f0" stroke-width="2"/>
+  <line x1="292" y1="122" x2="488" y2="122" stroke="#dbe2f0" stroke-width="2"/>
+  <g fill="#c3d2ef">
+    <circle cx="312" cy="103" r="5"/>
+    <circle cx="330" cy="103" r="5"/>
+    <circle cx="348" cy="103" r="5"/>
+  </g>
+  <!-- Un comercial por fila, con su comisión -->
+  <g>
+    <rect x="312" y="144" width="48" height="8" rx="4" fill="#c3d2ef"/>
+    <rect x="312" y="158" width="104" height="10" rx="5" fill="#e6eefa"/>
+    <rect x="430" y="150" width="34" height="9" rx="4.5" fill="#dbe2f0"/>
+
+    <rect x="312" y="184" width="40" height="8" rx="4" fill="#c3d2ef"/>
+    <rect x="312" y="198" width="76" height="10" rx="5" fill="#e6eefa"/>
+    <rect x="430" y="190" width="34" height="9" rx="4.5" fill="#dbe2f0"/>
+  </g>
+  <!-- El que ya está cobrado y por tanto devengado -->
+  <rect x="304" y="222" width="172" height="48" rx="10" fill="url(#imBar)"/>
+  <rect x="322" y="234" width="52" height="8" rx="4" fill="#fff" opacity=".95"/>
+  <rect x="322" y="249" width="86" height="9" rx="4.5" fill="#fff" opacity=".45"/>
+  <circle cx="449" cy="246" r="13" fill="#fff"/>
+  <path d="M443 246 l4 4 l8 -9" stroke="#2d3663" stroke-width="2.4" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#eef3fc">
+    <rect x="312" y="284" width="156" height="12" rx="6"/>
+    <rect x="312" y="304" width="118" height="12" rx="6"/>
+  </g>
+</svg>

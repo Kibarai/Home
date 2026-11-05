@@ -42,7 +42,7 @@ content:
               - { name: cta_primary_url, label: Botón principal — URL (vacío = agenda), type: string }
               - { name: cta_secondary_label, label: Botón secundario — texto, type: string }
               - { name: cta_secondary_url, label: Botón secundario — URL, type: string }
-              - { name: illustration, label: Mostrar ilustración, type: boolean, default: false }
+              - { name: illustration, label: Ilustración, type: select, options: { values: [default, seguridad-privada, restauracion, salud, inmobiliario, construccion] } }
               - { name: variant, label: Variante, type: select, options: { values: [claro, dark] }, default: claro }
 
           - name: dolor

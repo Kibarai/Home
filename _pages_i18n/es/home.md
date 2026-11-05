@@ -14,7 +14,7 @@ blocks:
     cta_primary_label: Solicitar diagnóstico gratis
     cta_secondary_label: Ver soluciones
     cta_secondary_url: /es/soluciones/
-    illustration: true
+    illustration: default
 
   - type: dolor
     title: Si algo de esto te suena, no es culpa de tu equipo. Es del proceso.
@@ -155,8 +155,8 @@ blocks:
         title: El mapa de tu operativa
         body: Repasamos contigo dónde se pierde el tiempo y sales sabiendo qué procesos son automatizables.
       - label: min 15–25
-        title: Horas y euros recuperables
-        body: Estimación de las horas por persona y semana que puedes recuperar, y su equivalente en euros al año. Con tus números, no con promedios.
+        title: Horas recuperables
+        body: Estimación de las horas por persona y semana que puedes recuperar. Con tus números, no con promedios.
       - label: min 25–30
         title: Un plan con precio cerrado
         body: Por qué proceso empezar, cuánto cuesta y cuándo estaría en producción.

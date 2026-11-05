@@ -335,3 +335,8 @@ i18n:
   lang_dropdown_label: Change language
   empty_posts_lead: This blog has no entries in your language yet.
   hero_illustration_alt: A stack of paper invoices posting itself into the system and showing up recorded and verified
+  illustration_alt_seguridad_privada: A paper rota with one shift uncovered, and the same rota already complete inside the system
+  illustration_alt_restauracion: A costing sheet with prices crossed out and rewritten by hand, and the dish cost already recalculated in the system
+  illustration_alt_salud: Fee sheets arriving loose from several professionals, and each settlement already reconciled in the system
+  illustration_alt_inmobiliario: A commission table made by hand with workings in the margin, and the panel per agent already calculated in the system
+  illustration_alt_construccion: A site report written by hand with a photo stapled to it, and the site cost already current in the system

@@ -1,6 +1,6 @@
 ---
 title: Automatización e IA para inmobiliarias
-description: Motor de comisiones, CRM, captación y publicación en portales y seguimiento automático de leads.
+description: Motor de comisiones, CRM, captación y publicación en portales, seguimiento automático de leads, firma de la operación y portal del propietario.
 permalink: /es/sectores/inmobiliario/
 form_sector: Inmobiliario
 blocks:
@@ -15,6 +15,7 @@ blocks:
       - Tramos por persona y reparto por roles, con cierre mensual
       - Publicación en portales sin volver a teclear la ficha
       - Seguimiento de leads que no depende de quién esté de guardia
+    illustration: inmobiliario
     cta_primary_label: Solicitar diagnóstico gratis
     cta_secondary_label: Ver todos los sectores
     cta_secondary_url: /es/sectores/
@@ -51,7 +52,7 @@ blocks:
   - type: soluciones
     title: Qué podemos automatizar en tu agencia.
     subtitle: >-
-      Cuatro áreas, y en cada una el detalle de lo que deja de hacerse a mano.
+      Seis áreas, y en cada una el detalle de lo que deja de hacerse a mano.
       No hace falta empezar por todas: en el diagnóstico decidimos por cuál
       sale más a cuenta.
     items:
@@ -81,6 +82,25 @@ blocks:
           - Primera respuesta en minutos, a cualquier hora
           - Recordatorios de seguimiento que no dependen de la memoria de nadie
           - Aviso cuando un lead lleva demasiado tiempo sin movimiento
+      - title: Documentación y firma de la operación
+        body: >-
+          Los contratos dejan de rehacerse a mano y de vivir en la carpeta de
+          alguien.
+        bullets:
+          - Hoja de visita, nota de encargo, contrato de reserva y arras desde tus propias plantillas
+          - Los datos que ya están en el sistema se vuelcan solos, sin volver a teclear nada
+          - Firma digital, sin imprimir ni escanear
+          - Cada documento colgando de su inmueble y de su operación
+          - Aviso de lo que sigue pendiente de firma
+      - title: Portal e informes al propietario
+        body: >-
+          El propietario deja de llamar para saber cómo va lo suyo, porque
+          puede verlo.
+        bullets:
+          - Visitas hechas, interés recibido y ofertas sobre la mesa, consultables cuando quiera
+          - Informe periódico que sale solo, sin que nadie lo prepare
+          - Menos llamadas a mitad de la mañana preguntando cómo va
+          - Un propietario informado renueva el encargo con mucha menos discusión
       - title: CRM que se alimenta solo
         body: >-
           El CRM refleja lo que ha pasado, no lo que alguien recordó apuntar.

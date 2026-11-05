@@ -23,7 +23,18 @@
           </div>
         {% endif %}
       </div>
-      {% if b.illustration %}<div class="b-hero-art">{% include hero-illustration.html %}</div>{% endif %}
+      {% if b.illustration %}
+        <div class="b-hero-art">
+          {% case b.illustration %}
+            {% when 'seguridad-privada' %}{% include illustrations/seguridad-privada.html %}
+            {% when 'restauracion' %}{% include illustrations/restauracion.html %}
+            {% when 'salud' %}{% include illustrations/salud.html %}
+            {% when 'inmobiliario' %}{% include illustrations/inmobiliario.html %}
+            {% when 'construccion' %}{% include illustrations/construccion.html %}
+            {% else %}{% include illustrations/default.html %}
+          {% endcase %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
