@@ -1,12 +1,214 @@
 # PagesCMS config — https://pagescms.org
 # Editar en https://app.pagescms.org tras conectar el repo.
 #
-# Adding a new language from the CMS: create a new file inside "Idiomas del sitio"
-# collection using the existing es/en as reference. Nothing else needs to change.
+# Dos cosas viven aquí:
+#   1. "Páginas": cada página del sitio se monta con bloques reordenables.
+#      Crear una página nueva es crear un fichero en la carpeta del idioma y
+#      elegir sus bloques. No hace falta tocar código.
+#   2. "Idiomas del sitio": navegación, URLs, footer, formulario y legales.
+#      Añadir un idioma = crear aquí un fichero nuevo y una carpeta en Páginas.
 
 media: assets/uploads
 
 content:
+  - name: pages
+    label: Páginas
+    type: collection
+    path: _pages_i18n
+    subfolders: true
+    filename: '{primary}.md'
+    view:
+      fields: [title, permalink]
+    fields:
+      - { name: title, label: Título (pestaña y buscadores), type: string, required: true }
+      - { name: description, label: Descripción para buscadores, type: text }
+      - { name: permalink, label: URL (debe empezar y acabar en /), type: string, required: true, pattern: '^/.*/$' }
+      - { name: form_sector, label: Etiqueta de origen para el formulario, type: string }
+
+      - name: blocks
+        label: Bloques de la página
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: hero
+            label: Cabecera
+            fields:
+              - { name: eyebrow, label: Antetítulo, type: string }
+              - { name: title, label: Titular, type: text, required: true }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - { name: bullets, label: Puntos destacados, type: string, list: true }
+              - { name: cta_primary_label, label: Botón principal — texto, type: string }
+              - { name: cta_primary_url, label: Botón principal — URL (vacío = agenda), type: string }
+              - { name: cta_secondary_label, label: Botón secundario — texto, type: string }
+              - { name: cta_secondary_url, label: Botón secundario — URL, type: string }
+              - { name: illustration, label: Mostrar ilustración, type: boolean, default: false }
+              - { name: variant, label: Variante, type: select, options: { values: [claro, dark] }, default: claro }
+
+          - name: dolor
+            label: Problemas y salidas
+            fields:
+              - { name: title, label: Título, type: text }
+              - { name: intro, label: Entradilla, type: text }
+              - name: items
+                label: Problemas
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Problema, type: string }
+                  - { name: body, label: Descripción, type: text }
+                  - { name: salida_prefix, label: Etiqueta de salida, type: string }
+                  - { name: salida, label: La salida, type: text }
+                  - { name: salida_url, label: Enlace de la salida, type: string }
+
+          - name: cifras
+            label: Cifras
+            fields:
+              - name: items
+                label: Cifras
+                type: object
+                list: true
+                fields:
+                  - { name: value, label: Número, type: string }
+                  - { name: label, label: Etiqueta, type: string }
+                  - { name: body, label: Explicación, type: text }
+
+          - name: soluciones
+            label: Bloques numerados
+            fields:
+              - { name: anchor, label: "Ancla (para enlazar con #)", type: string }
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - name: items
+                label: Elementos
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Título, type: string }
+                  - { name: url, label: Enlace, type: string }
+                  - { name: body, label: Descripción, type: text }
+                  - { name: bullets, label: Puntos, type: string, list: true }
+                  - { name: tags, label: Etiquetas, type: string, list: true }
+
+          - name: tarjetas
+            label: Cuadrícula de tarjetas
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - { name: anchor, label: Ancla, type: string }
+              - name: items
+                label: Tarjetas
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Título, type: string }
+                  - { name: body, label: Descripción, type: text }
+                  - { name: url, label: Enlace, type: string }
+                  - { name: booking, label: Enlazar a la agenda (ignora el enlace de arriba), type: boolean, default: false }
+                  - { name: icon, label: Icono, type: select, options: { values: [search, build, grow, compass, code, spark, mail, linkedin] } }
+
+          - name: antes-despues
+            label: Antes y después
+            fields:
+              - { name: eyebrow, label: Antetítulo, type: string }
+              - { name: title, label: Título, type: string }
+              - { name: antes_label, label: Palabra para "Antes", type: string }
+              - name: items
+                label: Pares antes/después
+                type: object
+                list: true
+                fields:
+                  - { name: antes, label: Situación de partida, type: string }
+                  - { name: title, label: Qué cambia, type: string }
+                  - { name: body, label: Descripción, type: text }
+
+          - name: comparativa
+            label: Tabla comparativa
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: intro, label: Entradilla, type: text }
+              - { name: head, label: Cabeceras de columna, type: string, list: true }
+              - name: rows
+                label: Filas
+                type: object
+                list: true
+                fields:
+                  - { name: cells, label: Celdas (en el mismo orden que las cabeceras), type: string, list: true }
+
+          - name: proceso
+            label: Pasos numerados
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - name: steps
+                label: Pasos
+                type: object
+                list: true
+                fields:
+                  - { name: label, label: Etiqueta (vacío = se numera solo), type: string }
+                  - { name: title, label: Título, type: string }
+                  - { name: body, label: Descripción, type: text }
+              - { name: cta_label, label: Botón — texto, type: string }
+              - { name: cta_url, label: Botón — URL (vacío = agenda), type: string }
+
+          - name: fundador
+            label: Fundador
+            fields:
+              - { name: eyebrow, label: Antetítulo, type: string }
+              - { name: title, label: Título, type: string }
+              - { name: body, label: Texto (Markdown), type: text }
+              - { name: photo, label: Foto, type: image }
+              - { name: signature, label: Solo foto a la derecha y ficha bajo el texto, type: boolean, default: false }
+              - { name: name, label: Nombre, type: string }
+              - { name: role, label: Cargo, type: string }
+              - { name: facts, label: Datos de la ficha, type: string, list: true }
+
+          - name: garantias
+            label: Garantías
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - name: items
+                label: Garantías
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Título, type: string }
+                  - { name: body, label: Descripción, type: text }
+
+          - name: faq
+            label: Preguntas frecuentes
+            fields:
+              - { name: title, label: Título, type: string }
+              - name: items
+                label: Preguntas
+                type: object
+                list: true
+                fields:
+                  - { name: q, label: Pregunta, type: string }
+                  - { name: a, label: Respuesta (Markdown), type: text }
+
+          - name: texto
+            label: Texto libre
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: body, label: Contenido, type: rich-text }
+
+          - name: legal
+            label: Página legal
+            fields:
+              - { name: key, label: Cuál, type: select, options: { values: [legal_notice, privacy, cookies] }, required: true }
+
+          - name: cta
+            label: Llamada a la acción
+            fields:
+              - { name: title, label: Título, type: string }
+              - { name: body, label: Texto, type: text }
+              - { name: button_label, label: Botón — texto (vacío = por defecto), type: string }
+              - { name: button_url, label: Botón — URL (vacío = agenda), type: string }
+              - { name: notes, label: Apuntes con check, type: string, list: true }
+              - { name: form, label: Mostrar formulario, type: boolean, default: false }
+
   - name: i18n
     label: Idiomas del sitio
     type: collection
@@ -22,21 +224,22 @@ content:
         fields:
           - { name: self_name, label: Nombre del idioma (auto-referencial), type: string, required: true }
           - { name: html_lang, label: Código HTML lang (ISO 639-1), type: string, required: true }
-          - { name: browser_codes, label: Códigos que detecta el navegador (para redirect autom.), type: string, list: true }
+          - { name: browser_codes, label: Códigos que detecta el navegador, type: string, list: true }
 
       - name: urls
-        label: URLs por página (deben empezar por /<idioma>/)
+        label: URLs principales (deben empezar por /<idioma>/)
         type: object
         fields:
           - { name: home, label: Home, type: string, required: true }
-          - { name: services, label: Servicios (índice), type: string, required: true }
-          - { name: about, label: Nosotros, type: string, required: true }
+          - { name: solutions, label: Soluciones, type: string, required: true }
+          - { name: sectors, label: Sectores, type: string, required: true }
+          - { name: about, label: Sobre, type: string, required: true }
           - { name: contact, label: Contacto, type: string, required: true }
-          - { name: news, label: Noticias (índice), type: string, required: true }
-          - { name: news_prefix, label: Prefijo de posts (sin trailing slash), type: string, required: true }
           - { name: legal_notice, label: Aviso legal, type: string, required: true }
           - { name: privacy, label: Privacidad, type: string, required: true }
           - { name: cookies, label: Política de cookies, type: string, required: true }
+          - { name: news, label: Blog — índice (desactivado), type: string }
+          - { name: news_prefix, label: Blog — prefijo de posts (desactivado), type: string }
 
       - name: brand
         label: Marca
@@ -53,109 +256,40 @@ content:
           - { name: label, label: Etiqueta, type: string }
           - { name: url, label: URL, type: string }
           - { name: primary, label: Botón destacado, type: boolean, default: false }
-
-      - name: hero
-        label: Portada — Hero
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: subtitle, label: Subtítulo, type: text }
-          - { name: cta_label, label: Botón principal — texto, type: string }
-          - { name: cta_url, label: Botón principal — URL, type: string }
-          - { name: secondary_cta_label, label: Botón secundario — texto, type: string }
-          - { name: secondary_cta_url, label: Botón secundario — URL, type: string }
-
-      - name: home_intro
-        label: Portada — Sección servicios
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: body, label: Cuerpo, type: text }
-          - { name: card_link_label, label: Enlace de card, type: string }
-
-      - name: process
-        label: Portada — Proceso
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: subtitle, label: Subtítulo, type: text }
-          - name: steps
-            label: Pasos
+          - name: children
+            label: Submenú (vacío = sin desplegable)
             type: object
             list: true
             fields:
-              - { name: icon, label: Icono, type: select, options: { values: [search, build, grow, compass, code, spark] } }
-              - { name: title, label: Título, type: string }
-              - { name: body, label: Descripción, type: text }
-
-      - name: blog_section
-        label: Portada — Sección blog
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: featured_label, label: Etiqueta "destacado", type: string }
-          - { name: read_label, label: Botón "leer artículo", type: string }
-          - { name: empty_message, label: Texto si no hay entradas, type: string }
-
-      - name: cta
-        label: CTA global
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: body, label: Cuerpo, type: text }
-          - { name: button_label, label: Botón — texto, type: string }
-          - { name: button_url, label: Botón — URL, type: string }
-
-      - name: pages
-        label: Textos por página
-        type: object
-        fields:
-          - name: blog
-            label: Página Blog
-            type: object
-            fields:
-              - { name: title, label: Título, type: string }
-              - { name: subtitle, label: Subtítulo, type: text }
-          - name: servicios
-            label: Página Servicios
-            type: object
-            fields:
-              - { name: title, label: Título, type: string }
-              - { name: subtitle, label: Subtítulo, type: text }
-              - { name: cta_title, label: CTA — Título, type: string }
-              - { name: cta_body, label: CTA — Cuerpo, type: text }
-              - { name: cta_button_label, label: CTA — Botón texto, type: string }
-              - { name: cta_button_url, label: CTA — Botón URL, type: string }
-          - name: nosotros
-            label: Página Nosotros
-            type: object
-            fields:
-              - { name: title, label: Título, type: string }
-              - { name: subtitle, label: Subtítulo, type: text }
-              - { name: values_title, label: Título de valores, type: string }
-              - name: values
-                label: Valores
-                type: object
-                list: true
-                fields:
-                  - { name: title, label: Título, type: string }
-                  - { name: body, label: Descripción, type: text }
-          - name: contacto
-            label: Página Contacto
-            type: object
-            fields:
-              - { name: title, label: Título, type: string }
-              - { name: subtitle, label: Subtítulo, type: text }
-              - { name: email_label, label: Etiqueta card Email, type: string }
-              - { name: linkedin_label, label: Etiqueta card LinkedIn, type: string }
-              - { name: body, label: Texto extra, type: text }
+              - { name: label, label: Etiqueta, type: string }
+              - { name: url, label: URL, type: string }
 
       - name: contact
-        label: Datos de contacto
+        label: Contacto y agenda
         type: object
         fields:
           - { name: email, label: Email, type: string }
           - { name: linkedin, label: LinkedIn URL, type: string }
+          - { name: booking_url, label: "URL de la agenda (Bookings, Cal.com…)", type: string }
+          - { name: booking_label, label: Texto por defecto del botón de agenda, type: string }
+          - { name: form_endpoint, label: Endpoint del formulario (vacío = no se muestra), type: string }
+
+      - name: form
+        label: Formulario de diagnóstico
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: subtitle, label: Subtítulo, type: text }
+          - { name: subject, label: Asunto del email, type: string }
+          - { name: honeypot, label: Etiqueta del campo trampa, type: string }
+          - { name: name, label: Etiqueta "Nombre", type: string }
+          - { name: company, label: Etiqueta "Empresa", type: string }
+          - { name: email, label: Etiqueta "Email", type: string }
+          - { name: phone, label: Etiqueta "Teléfono", type: string }
+          - { name: submit, label: Texto del botón, type: string }
+          - { name: legal_prefix, label: Texto antes del enlace legal, type: string }
+          - { name: legal_link, label: Texto del enlace legal, type: string }
+          - { name: response, label: Nota de respuesta, type: string }
 
       - name: cookies_banner
         label: Banner de cookies
@@ -171,7 +305,6 @@ content:
         label: Pie de página
         type: object
         fields:
-          - { name: about, label: Texto "sobre", type: text }
           - name: columns
             label: Columnas
             type: object
@@ -185,7 +318,6 @@ content:
                 fields:
                   - { name: label, label: Etiqueta, type: string }
                   - { name: url, label: URL, type: string }
-          - { name: legal_heading, label: Título columna legal, type: string }
           - name: legal_links
             label: Enlaces legales
             type: object
@@ -267,24 +399,12 @@ content:
           - { name: close_menu, label: "Cerrar menú", type: string }
           - { name: lang_dropdown_label, label: "Etiqueta selector idioma", type: string }
           - { name: empty_posts_lead, label: "Mensaje sin posts", type: string }
+          - { name: hero_illustration_alt, label: "Texto alternativo de la ilustración", type: string }
 
-  - name: services
-    label: Servicios
-    type: collection
-    path: _services
-    subfolders: true
-    filename: '{primary}.md'
-    view:
-      fields: [title, order]
-      sort: [order]
-    fields:
-      - { name: title, label: Título, type: string, required: true }
-      - { name: summary, label: Resumen, type: text }
-      - { name: order, label: Orden, type: number }
-      - { name: body, label: Contenido, type: rich-text }
-
+  # Blog desactivado: no hay entradas y no aparece en el menú. La colección se
+  # mantiene para poder reactivarlo creando un post, sin tocar código.
   - name: posts
-    label: Blog
+    label: Blog (desactivado)
     type: collection
     path: _posts
     subfolders: true

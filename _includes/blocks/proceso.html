@@ -1,0 +1,19 @@
+{%- assign b = include.b -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+<section class="b-proceso{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    {% if b.title %}<div class="section-heading"><h2>{{ b.title }}</h2>{% if b.subtitle %}<p class="lede">{{ b.subtitle }}</p>{% endif %}</div>{% endif %}
+    <ol class="b-steps">
+      {% for s in b.steps %}
+        <li class="b-step">
+          <p class="b-step-num">{% if s.label %}{{ s.label }}{% else %}{{ forloop.index | prepend: '0' | slice: -2, 2 }}{% endif %}</p>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.body }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+    {% if b.cta_label %}
+      <p class="b-proceso-cta"><a class="btn btn-primary" href="{{ b.cta_url | default: t.contact.booking_url }}" target="_blank" rel="noopener">{{ b.cta_label }}</a></p>
+    {% endif %}
+  </div>
+</section>

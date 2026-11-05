@@ -1,0 +1,14 @@
+{%- assign b = include.b -%}
+<section class="b-garantias{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    {% if b.title %}<div class="section-heading"><h2>{{ b.title }}</h2>{% if b.subtitle %}<p class="lede">{{ b.subtitle }}</p>{% endif %}</div>{% endif %}
+    <div class="b-gar-grid">
+      {% for item in b.items %}
+        <article class="b-gar">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.body }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

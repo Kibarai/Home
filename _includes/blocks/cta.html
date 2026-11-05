@@ -1,0 +1,15 @@
+{%- assign b = include.b -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+<section class="b-cta{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    <div class="b-cta-inner">
+      <div class="b-cta-copy">
+        <h2>{{ b.title }}</h2>
+        {% if b.body %}<p>{{ b.body }}</p>{% endif %}
+        <a class="btn btn-primary" href="{{ b.button_url | default: t.contact.booking_url }}" target="_blank" rel="noopener">{{ b.button_label | default: t.contact.booking_label }}</a>
+        {% if b.notes %}<ul class="b-cta-notes">{% for n in b.notes %}<li>{{ n }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+      {% if b.form %}<div class="b-cta-form">{% include diagnostic-form.html %}</div>{% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+{%- assign b = include.b -%}
+<section class="b-comp{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    {% if b.title %}<h2>{{ b.title }}</h2>{% endif %}
+    {% if b.intro %}{{ b.intro | markdownify }}{% endif %}
+    <div class="b-comp-scroll">
+      <table class="b-comp-table">
+        <thead><tr>{% for h in b.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for row in b.rows %}<tr>{% for c in row.cells %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

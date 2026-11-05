@@ -3,24 +3,26 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="{{ '/assets/img/logo-dark.svg' | relative_url }}" alt="{{ t.brand.name }}" height="44" style="margin-bottom:1rem">
-        <p>{{ t.footer.about }}</p>
+        <a href="{{ t.urls.home | relative_url }}" aria-label="{{ t.brand.name }}">
+          <img src="{{ '/assets/img/logo-dark.svg' | relative_url }}" alt="{{ t.brand.name }}" height="44">
+        </a>
       </div>
       {% for col in t.footer.columns %}
-        <div>
+        <nav class="footer-col" aria-label="{{ col.heading }}">
           <p class="footer-heading">{{ col.heading }}</p>
           {% for link in col.links %}
-            <p><a href="{{ link.url | relative_url }}">{{ link.label }}</a></p>
+            <a href="{{ link.url | relative_url }}">{{ link.label }}</a>
           {% endfor %}
-        </div>
+        </nav>
       {% endfor %}
-      <div>
-        <p class="footer-heading">{{ t.footer.legal_heading }}</p>
-        {% for link in t.footer.legal_links %}
-          <p><a href="{{ link.url | relative_url }}">{{ link.label }}</a></p>
-        {% endfor %}
-      </div>
     </div>
-    <div class="copyright">© {{ 'now' | date: '%Y' }} {{ t.brand.name }} · {{ t.footer.copyright }}</div>
+    <div class="footer-bottom">
+      <p class="copyright">© {{ 'now' | date: '%Y' }} {{ t.brand.name }} · {{ t.footer.copyright }}</p>
+      <nav class="footer-legal" aria-label="{{ t.footer.legal_heading | default: 'Legal' }}">
+        {% for link in t.footer.legal_links %}
+          <a href="{{ link.url | relative_url }}">{{ link.label }}</a>
+        {% endfor %}
+      </nav>
+    </div>
   </div>
 </footer>

@@ -1,0 +1,21 @@
+{%- assign b = include.b -%}
+<section class="b-soluciones{% if include.alt %} section-alt{% endif %}" {% if b.anchor %}id="{{ b.anchor }}"{% endif %}>
+  <div class="container">
+    {% if b.title %}<div class="section-heading"><h2>{{ b.title }}</h2>{% if b.subtitle %}<p class="lede">{{ b.subtitle }}</p>{% endif %}</div>{% endif %}
+    {% for item in b.items %}
+      <article class="b-sol">
+        <p class="b-sol-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</p>
+        <div class="b-sol-body">
+          <h3>{% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
+          {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+          {% if item.bullets %}
+            <ul class="b-sol-list">{% for li in item.bullets %}<li>{{ li }}</li>{% endfor %}</ul>
+          {% endif %}
+          {% if item.tags %}
+            <p class="b-tags">{% for tag in item.tags %}<span>{{ tag }}</span>{% endfor %}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

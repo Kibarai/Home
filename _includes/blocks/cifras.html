@@ -1,0 +1,14 @@
+{%- assign b = include.b -%}
+<section class="b-cifras{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    <div class="b-cifras-grid">
+      {% for item in b.items %}
+        <div class="b-cifra">
+          <p class="b-cifra-value">{{ item.value }}</p>
+          <p class="b-cifra-label">{{ item.label }}</p>
+          <p class="b-cifra-body">{{ item.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

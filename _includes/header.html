@@ -13,7 +13,22 @@
     </a>
     <div class="nav-right">
       <nav class="nav-main" id="nav-main" aria-label="{{ t.i18n.nav_aria }}">
-        {% for item in t.nav %}{% unless item.primary %}<a href="{{ item.url | relative_url }}">{{ item.label }}</a>{% endunless %}{% endfor %}
+        {%- for item in t.nav -%}
+          {%- unless item.primary -%}
+            {%- if item.children -%}
+              <div class="nav-item has-sub">
+                <a href="{{ item.url | relative_url }}">{{ item.label }}<svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <ul class="nav-sub">
+                  {%- for child in item.children -%}
+                    <li><a href="{{ child.url | relative_url }}">{{ child.label }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- else -%}
+              <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endfor -%}
         {% if site.languages.size > 1 %}
           <div class="nav-main-langs" aria-label="{{ t.i18n.lang_dropdown_label }}">
             {% for lang in site.languages %}

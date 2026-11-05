@@ -1,0 +1,25 @@
+{%- comment -%}
+  Diagnostic request form. Posts to the endpoint in contact.form_endpoint
+  (Formspree or equivalent). With no endpoint configured the form is not
+  rendered at all, so a half-wired form never reaches a visitor.
+  The `sector` hidden field carries the page it was sent from, so a lead
+  arrives already labelled.
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- if t.contact.form_endpoint and t.contact.form_endpoint != '' -%}
+<form class="k-form" action="{{ t.contact.form_endpoint }}" method="POST">
+  <p class="k-form-title">{{ t.form.title }}</p>
+  <p class="k-form-sub">{{ t.form.subtitle }}</p>
+  <input type="hidden" name="sector" value="{{ page.form_sector | default: page.title }}">
+  <input type="hidden" name="_subject" value="{{ t.form.subject }} — {{ page.form_sector | default: page.title }}">
+  <p class="k-form-hp" aria-hidden="true">
+    <label>{{ t.form.honeypot }}<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+  </p>
+  <label>{{ t.form.name }} *<input type="text" name="nombre" required autocomplete="name"></label>
+  <label>{{ t.form.company }} *<input type="text" name="empresa" required autocomplete="organization"></label>
+  <label>{{ t.form.email }} *<input type="email" name="email" required autocomplete="email"></label>
+  <label>{{ t.form.phone }}<input type="tel" name="telefono" autocomplete="tel"></label>
+  <button class="btn btn-primary" type="submit">{{ t.form.submit }}</button>
+  <p class="k-form-legal">{{ t.form.legal_prefix }} <a href="{{ t.urls.privacy | relative_url }}">{{ t.form.legal_link }}</a>. {{ t.form.response }}</p>
+</form>
+{%- endif -%}

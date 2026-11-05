@@ -1,0 +1,43 @@
+{%- assign b = include.b -%}
+{%- comment -%}
+  Dos variantes. Por defecto: ficha en tarjeta oscura a la derecha.
+  Con `signature: true`: la firma va bajo el texto y la derecha es solo la foto,
+  a tamaño grande.
+{%- endcomment -%}
+<section class="b-fundador{% if include.alt %} section-alt{% endif %}{% if b.signature %} b-fundador--plain{% endif %}">
+  <div class="container">
+    <div class="b-fundador-grid">
+      <div class="b-fundador-copy">
+        {% if b.eyebrow %}<p class="eyebrow">{{ b.eyebrow }}</p>{% endif %}
+        {% if b.title %}<h2>{{ b.title }}</h2>{% endif %}
+        {{ b.body | markdownify }}
+        {% if b.signature %}
+          <div class="b-fundador-sign">
+            <p class="b-fundador-name">{{ b.name }}</p>
+            <p class="b-fundador-role">{{ b.role }}</p>
+            {% if b.facts %}<ul>{% for f in b.facts %}<li>{{ f }}</li>{% endfor %}</ul>{% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if b.signature %}
+        <div class="b-fundador-media">
+          {% if b.photo %}
+            <img class="b-fundador-photo" src="{{ b.photo | relative_url }}"
+                 alt="{{ b.name }}" width="860" height="935" loading="lazy" decoding="async">
+          {% endif %}
+        </div>
+      {% else %}
+        <aside class="b-fundador-card">
+          {% if b.photo %}
+            <img class="b-fundador-photo" src="{{ b.photo | relative_url }}"
+                 alt="{{ b.name }}" width="860" height="935" loading="lazy" decoding="async">
+          {% endif %}
+          <p class="b-fundador-name">{{ b.name }}</p>
+          <p class="b-fundador-role">{{ b.role }}</p>
+          {% if b.facts %}<ul>{% for f in b.facts %}<li>{{ f }}</li>{% endfor %}</ul>{% endif %}
+        </aside>
+      {% endif %}
+    </div>
+  </div>
+</section>

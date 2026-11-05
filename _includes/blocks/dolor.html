@@ -1,0 +1,21 @@
+{%- assign b = include.b -%}
+<section class="b-dolor{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    {% if b.title %}<h2 class="b-dolor-title">{{ b.title | markdownify | remove: '<p>' | remove: '</p>' }}</h2>{% endif %}
+    {% if b.intro %}<p class="lede b-dolor-intro">{{ b.intro }}</p>{% endif %}
+    <div class="b-dolor-grid">
+      {% for item in b.items %}
+        <article class="b-dolor-card">
+          <h3>{{ item.title }}</h3>
+          {{ item.body | markdownify }}
+          {% if item.salida %}
+            <p class="b-dolor-salida">
+              <span>{{ item.salida_prefix | default: 'La salida:' }}</span>
+              {% if item.salida_url %}<a href="{{ item.salida_url | relative_url }}">{{ item.salida }}</a>{% else %}{{ item.salida }}{% endif %}
+            </p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

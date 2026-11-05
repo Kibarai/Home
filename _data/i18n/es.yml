@@ -1,3 +1,124 @@
+urls:
+  home: /es/
+  solutions: /es/soluciones/
+  sectors: /es/sectores/
+  about: /es/sobre/
+  contact: /es/contacto/
+  legal_notice: /es/aviso-legal/
+  privacy: /es/privacidad/
+  cookies: /es/cookies/
+  news: /es/noticias/
+  news_prefix: /es/noticias
+brand:
+  name: Kibarai
+  tagline: Automatización de procesos y software a medida con IA
+nav:
+  - label: Soluciones
+    url: /es/soluciones/
+    primary: false
+    children:
+      - label: Back-office
+        url: /es/soluciones/back-office/
+      - label: Ventas y CRM
+        url: /es/soluciones/ventas-crm/
+      - label: Operaciones y soporte
+        url: /es/soluciones/operaciones/
+      - label: IA aplicada
+        url: /es/soluciones/ia-aplicada/
+      - label: Software a medida
+        url: /es/soluciones/software-a-medida/
+      - label: Modernización de legacy
+        url: /es/soluciones/modernizacion-legacy/
+      - label: Consultoría de procesos
+        url: /es/soluciones/consultoria-procesos/
+  - label: Sectores
+    url: /es/sectores/
+    primary: false
+    children:
+      - label: Seguridad privada
+        url: /es/sectores/seguridad-privada/
+      - label: Restauración
+        url: /es/sectores/restauracion/
+      - label: Salud y clínicas
+        url: /es/sectores/salud/
+      - label: Inmobiliario
+        url: /es/sectores/inmobiliario/
+      - label: Construcción
+        url: /es/sectores/construccion/
+  - label: Sobre
+    url: /es/sobre/
+    primary: false
+  - label: Contacto
+    url: /es/contacto/
+    primary: false
+  - label: Diagnóstico →
+    url: "https://bookings.cloud.microsoft/bookwithme/user/548146b897774b0d8681a6302680c9f4@kibarai.tech/meetingtype/SVRwCe7HMUGxuT6WGxi68g2?anonymous&ismsaljsauthenabled"
+    primary: true
+contact:
+  email: contacto@kibarai.tech
+  linkedin: https://www.linkedin.com/company/kibarai
+  booking_url: "https://bookings.cloud.microsoft/bookwithme/user/548146b897774b0d8681a6302680c9f4@kibarai.tech/meetingtype/SVRwCe7HMUGxuT6WGxi68g2?anonymous&ismsaljsauthenabled"
+  booking_label: Solicitar diagnóstico gratis
+  form_endpoint: ""
+form:
+  title: Solicita tu diagnóstico gratis
+  subtitle: 30 minutos. Te decimos si podemos ayudarte, cómo lo haríamos y qué cuesta.
+  subject: Solicitud de diagnóstico
+  honeypot: No rellenar
+  name: Nombre
+  company: Empresa
+  email: Email
+  phone: Teléfono (opcional)
+  submit: Solicitar diagnóstico →
+  legal_prefix: Al enviar aceptas nuestra
+  legal_link: política de privacidad
+  response: Respuesta en menos de 24 h laborables.
+footer:
+  columns:
+    - heading: Soluciones
+      links:
+        - label: Back-office
+          url: /es/soluciones/back-office/
+        - label: Ventas y CRM
+          url: /es/soluciones/ventas-crm/
+        - label: Operaciones y soporte
+          url: /es/soluciones/operaciones/
+        - label: IA aplicada
+          url: /es/soluciones/ia-aplicada/
+        - label: Software a medida
+          url: /es/soluciones/software-a-medida/
+        - label: Modernización de legacy
+          url: /es/soluciones/modernizacion-legacy/
+        - label: Consultoría de procesos
+          url: /es/soluciones/consultoria-procesos/
+    - heading: Sectores
+      links:
+        - label: Seguridad privada
+          url: /es/sectores/seguridad-privada/
+        - label: Restauración
+          url: /es/sectores/restauracion/
+        - label: Salud y clínicas
+          url: /es/sectores/salud/
+        - label: Inmobiliario
+          url: /es/sectores/inmobiliario/
+        - label: Construcción
+          url: /es/sectores/construccion/
+    - heading: Empresa
+      links:
+        - label: Sobre Kibarai
+          url: /es/sobre/
+        - label: Contacto
+          url: /es/contacto/
+        - label: contacto@kibarai.tech
+          url: mailto:contacto@kibarai.tech
+  legal_links:
+    - label: Aviso legal
+      url: /es/aviso-legal/
+    - label: Privacidad
+      url: /es/privacidad/
+    - label: Cookies
+      url: /es/cookies/
+  copyright: KIBARAI TECH S.L.U.
 meta:
   self_name: Español
   html_lang: es
@@ -6,129 +127,6 @@ meta:
     - ca
     - gl
     - eu
-urls:
-  home: /es/
-  services: /es/servicios/
-  about: /es/nosotros/
-  contact: /es/contacto/
-  news: /es/noticias/
-  news_prefix: /es/noticias
-  legal_notice: /es/aviso-legal/
-  privacy: /es/privacidad/
-  cookies: /es/cookies/
-brand:
-  name: Kibarai
-  tagline: Software que funciona. Decisiones que aguantan.
-nav:
-  - label: Servicios
-    url: /es/servicios/
-    primary: false
-  - label: Nosotros
-    url: /es/nosotros/
-    primary: false
-  - label: Noticias
-    url: /es/noticias/
-    primary: false
-  - label: Contacto
-    url: /es/contacto/
-    primary: true
-hero:
-  title: Software que funciona. Decisiones que aguantan.
-  subtitle: Trabajamos con quienes se juegan la próxima elección tecnológica de su
-    empresa. Hacemos software a medida, integramos IA generativa y ayudamos a
-    decidir con criterio antes de comprometer presupuesto. Contigo cada semana,
-    con entregas que puedes enseñar a tu equipo y a tu dirección, y con el
-    código en tus manos desde el primer día.
-  cta_label: Cuéntanos tu proyecto
-  cta_url: /es/contacto/
-  secondary_cta_label: Ver servicios
-  secondary_cta_url: /es/servicios/
-home_intro:
-  title: Hablamos el lenguaje de tu negocio.
-  body: Consultoría tecnológica, software a medida y aplicaciones con IA. Con
-    equipos pequeños, ciclos cortos y decisiones tomadas contigo. Elige por
-    dónde empezar.
-  card_link_label: Descubrir más
-process:
-  title: Un proceso claro y trazable
-  subtitle: Ciclos cortos, reuniones semanales y decisiones basadas en datos.
-    Verás avanzar tu proyecto cada semana y podrás enseñárselo a tu equipo con
-    la tranquilidad de que ya funciona.
-  steps:
-    - icon: search
-      title: Descubrir
-      body: Antes de escribir código, entendemos tu negocio, tu equipo y las
-        restricciones reales. Si hay un camino más corto para llegar a tu
-        objetivo, te lo proponemos con datos delante.
-    - icon: build
-      title: Construir
-      body: Trabajamos en ciclos semanales. Cada semana ves un avance funcional que
-        puedes probar y enseñar internamente. El alcance evoluciona con lo que
-        descubres.
-    - icon: grow
-      title: Evolucionar
-      body: El software que entregamos vive contigo. Medimos, aprendemos y ajustamos
-        con datos de uso real. Lo que aporta se consolida y lo que sobra se
-        retira.
-blog_section:
-  title: Últimas noticias
-  featured_label: Destacado
-  read_label: Leer artículo
-  empty_message: Aún no hay artículos en este idioma.
-cta:
-  title: ¿Hablamos de tu proyecto?
-  body: Cuéntanos en qué estás trabajando. Te responderemos con una primera
-    lectura del reto y, si tiene sentido, con un plan concreto para avanzar
-    contigo.
-  button_label: Escríbenos
-  button_url: /es/contacto/
-pages:
-  blog:
-    title: Noticias
-    subtitle: Notas técnicas del equipo. Aprendizajes del día a día, casos reales y
-      decisiones que hemos tomado por el camino.
-  servicios:
-    title: En qué te podemos ayudar
-    subtitle: Tres formas de trabajar con nosotros, pensadas para donde está tu
-      producto ahora. Si quieres una recomendación antes de decidir, escríbenos
-      y te decimos por dónde empezar.
-    cta_title: ¿Prefieres una recomendación antes de empezar?
-    cta_body: Cuéntanos dónde estás y qué necesitas. Te diremos por dónde empezar y
-      qué tiene sentido para ti, incluso cuando el proveedor adecuado para una
-      parte sea otro.
-    cta_button_label: Escríbenos
-    cta_button_url: /es/contacto/
-  nosotros:
-    title: Somos Kibarai
-    subtitle: Una consultora tecnológica pequeña e independiente. Trabajamos con
-      quienes se juegan la reputación al elegir tecnología — CTOs, directores de
-      producto, founders y responsables de IT que necesitan que la próxima
-      decisión salga bien. Nuestro trabajo es que puedas defenderla con datos.
-    values_title: Cómo pensamos
-    values:
-      - title: Menos es más
-        body: El mejor código es el que resuelve tu problema con la menor complejidad
-          posible. Menos superficie que mantener significa menos riesgo para ti
-          y para tu equipo.
-      - title: Entregas cortas
-        body: Cada semana verás algo funcional. Te llevarás demos y avances concretos
-          que puedes enseñar a tu equipo o a tu dirección con confianza.
-      - title: Acompañamiento constante
-        body: Si creemos que algo no encaja con tu negocio, te lo decimos. Si
-          consideramos que te podemos ayudar mejor con otra propuesta, te la
-          ponemos encima de la mesa.
-  contacto:
-    title: Hablemos
-    subtitle: Cuéntanos en qué estás trabajando. En qué fase estás, qué necesitas y
-      qué plazo manejas. Cuanto más concreto seas, mejor podremos ayudarte. Te
-      responderemos con una primera lectura.
-    email_label: Email
-    linkedin_label: LinkedIn
-    body: Un correo bien escrito nos vale. Preferimos hablar de lo que necesitas y
-      proponer con criterio antes de llenar tu bandeja de entrada.
-contact:
-  email: carlos.jimenez@kibarai.tech
-  linkedin: https://www.linkedin.com/company/kibarai
 cookies_banner:
   enabled: true
   message: Utilizamos cookies técnicas necesarias para el funcionamiento del
@@ -136,34 +134,6 @@ cookies_banner:
   accept_label: Entendido
   learn_more_label: Política de cookies
   learn_more_url: /es/cookies/
-footer:
-  about: Consultora tecnológica independiente y con base en España. Acompañamos a
-    empresas que necesitan software y aplicaciones con IA en las que puedan
-    confiar.
-  columns:
-    - heading: Empresa
-      links:
-        - label: Servicios
-          url: /es/servicios/
-        - label: Nosotros
-          url: /es/nosotros/
-        - label: Noticias
-          url: /es/noticias/
-    - heading: Recursos
-      links:
-        - label: Contacto
-          url: /es/contacto/
-        - label: RSS
-          url: /feed.xml
-  legal_heading: Legal
-  legal_links:
-    - label: Aviso legal
-      url: /es/aviso-legal/
-    - label: Privacidad
-      url: /es/privacidad/
-    - label: Cookies
-      url: /es/cookies/
-  copyright: Todos los derechos reservados
 legal_data:
   owner_name: KIBARAI TECH S.L.U.
   owner_type: empresa
@@ -396,3 +366,4 @@ i18n:
   close_menu: Cerrar menú
   lang_dropdown_label: Cambiar idioma
   empty_posts_lead: Este blog aún no tiene entradas en tu idioma.
+  hero_illustration_alt: Un taco de facturas en papel que entra solo en el sistema y aparece registrado y verificado

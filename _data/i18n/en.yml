@@ -1,155 +1,116 @@
-meta:
-  self_name: English
-  html_lang: en
-  browser_codes:
-    - en
 urls:
   home: /en/
-  services: /en/services/
+  solutions: /en/solutions/
+  sectors: /en/sectors/
   about: /en/about/
   contact: /en/contact/
-  news: /en/news/
-  news_prefix: /en/news
   legal_notice: /en/legal-notice/
   privacy: /en/privacy/
   cookies: /en/cookies/
+  news: /en/news/
+  news_prefix: /en/news
 brand:
   name: Kibarai
-  tagline: Software that works. Decisions that hold up.
+  tagline: Process automation and custom software with AI
 nav:
-  - label: Services
-    url: /en/services/
+  - label: Solutions
+    url: /en/solutions/
     primary: false
+    children:
+      - label: Back office
+        url: /en/solutions/back-office/
+      - label: Sales and CRM
+        url: /en/solutions/sales-crm/
+      - label: Operations and support
+        url: /en/solutions/operations/
+      - label: Applied AI
+        url: /en/solutions/applied-ai/
+      - label: Custom software
+        url: /en/solutions/custom-software/
+      - label: Legacy modernisation
+        url: /en/solutions/legacy-modernisation/
+      - label: Process consulting
+        url: /en/solutions/process-consulting/
+  - label: Sectors
+    url: /en/sectors/
+    primary: false
+    children:
+      - label: Private security
+        url: /en/sectors/private-security/
+      - label: Hospitality
+        url: /en/sectors/hospitality/
+      - label: Health and clinics
+        url: /en/sectors/health/
+      - label: Real estate
+        url: /en/sectors/real-estate/
+      - label: Construction
+        url: /en/sectors/construction/
   - label: About
     url: /en/about/
     primary: false
-  - label: News
-    url: /en/news/
-    primary: false
   - label: Contact
     url: /en/contact/
+    primary: false
+  - label: Diagnostic →
+    url: "https://bookings.cloud.microsoft/bookwithme/user/548146b897774b0d8681a6302680c9f4@kibarai.tech/meetingtype/SVRwCe7HMUGxuT6WGxi68g2?anonymous&ismsaljsauthenabled"
     primary: true
-hero:
-  title: Software that works. Decisions that hold up.
-  subtitle: We work with people whose next technology decision matters. We build
-    custom software, integrate generative AI and help you decide with judgment
-    before you commit budget. Weekly cadence, deliveries you can show your team
-    and your leadership, and the code in your hands from day one.
-  cta_label: Tell us about your project
-  cta_url: /en/contact/
-  secondary_cta_label: See services
-  secondary_cta_url: /en/services/
-home_intro:
-  title: Three things we do here
-  body: Technology consulting, custom software and AI applications. All three with
-    small teams, short cycles and decisions made together with you. Pick where
-    to start.
-  card_link_label: Learn more
-process:
-  title: A clear, traceable process
-  subtitle: Short cycles, weekly meetings and data-driven decisions. You will see
-    your project move forward every week and you will be able to show it to your
-    team knowing it already works.
-  steps:
-    - icon: search
-      title: Discover
-      body: Before writing code we understand your business, your team and your real
-        constraints. If there is a shorter path to your goal we propose it with
-        data on the table.
-    - icon: build
-      title: Build
-      body: We work in weekly cycles. Each week you see a working increment you can
-        try and share internally. Scope evolves with what you learn.
-    - icon: grow
-      title: Evolve
-      body: The software we deliver lives with you. We measure, learn and adjust with
-        real usage data. What adds value stays; what does not, goes.
-blog_section:
-  title: Latest news
-  featured_label: Featured
-  read_label: Read article
-  empty_message: No posts in this language yet.
-cta:
-  title: Want to talk about your project?
-  body: Tell us what you are working on. We will come back with a first read of
-    the challenge and, if it makes sense, a concrete plan to move forward with
-    you.
-  button_label: Get in touch
-  button_url: /en/contact/
-pages:
-  blog:
-    title: News
-    subtitle: Technical notes from the team. Day-to-day learnings, real cases and
-      decisions we have made along the way.
-  servicios:
-    title: How we can help
-    subtitle: Three ways to work with us, matched to where your product is today. If
-      you want a recommendation before deciding, write to us and we will tell
-      you where to start.
-    cta_title: Would you rather get a recommendation first?
-    cta_body: Tell us where you are and what you need. We will tell you where to
-      start and what makes sense for you, even when the right partner for a part
-      is someone else.
-    cta_button_label: Get in touch
-    cta_button_url: /en/contact/
-  nosotros:
-    title: We are Kibarai
-    subtitle: A small, independent tech consultancy. We work with people whose
-      reputation is on the line when they choose technology — CTOs, product
-      leads, founders and IT leaders who need the next decision to land well.
-      Our job is that you can defend it with data.
-    values_title: How we think
-    values:
-      - title: Less is more
-        body: The best code is the one that solves your problem with the least possible
-          complexity. Less surface to maintain means less risk for you and for
-          your team.
-      - title: Short deliveries
-        body: Every week you will see something working. You will take home concrete
-          demos and progress you can share with your team or your leadership
-          with confidence.
-      - title: Technical honesty
-        body: We tell you what fits your business and what fits better with someone
-          else. Trust is earned by saying what suits you, even when it does not
-          suit us.
-  contacto:
-    title: Let's talk
-    subtitle: Tell us what you are working on. What stage you are in, what you need
-      and what timeline you have. The more concrete the better. We will come
-      back with a first read.
-    email_label: Email
-    linkedin_label: LinkedIn
-    body: A well-written email works. We prefer to hear what you need and propose
-      with judgment before filling your inbox.
 contact:
   email: contacto@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
-cookies_banner:
-  enabled: true
-  message: We only use technical cookies required for the site to work. No
-    analytics or advertising cookies.
-  accept_label: Got it
-  learn_more_label: Cookie policy
-  learn_more_url: /en/cookies/
+  booking_url: "https://bookings.cloud.microsoft/bookwithme/user/548146b897774b0d8681a6302680c9f4@kibarai.tech/meetingtype/SVRwCe7HMUGxuT6WGxi68g2?anonymous&ismsaljsauthenabled"
+  booking_label: Book a free diagnostic
+  form_endpoint: ""
+form:
+  title: Book your free diagnostic
+  subtitle: 30 minutes. We tell you whether we can help, how we would do it and what it costs.
+  subject: Diagnostic request
+  honeypot: Leave this empty
+  name: Name
+  company: Company
+  email: Email
+  phone: Phone (optional)
+  submit: Book my diagnostic →
+  legal_prefix: By submitting you accept our
+  legal_link: privacy policy
+  response: We reply within 24 working hours.
 footer:
-  about: Independent tech consultancy based in Spain. We work with companies that
-    need software and AI applications they can trust.
   columns:
+    - heading: Solutions
+      links:
+        - label: Back office
+          url: /en/solutions/back-office/
+        - label: Sales and CRM
+          url: /en/solutions/sales-crm/
+        - label: Operations and support
+          url: /en/solutions/operations/
+        - label: Applied AI
+          url: /en/solutions/applied-ai/
+        - label: Custom software
+          url: /en/solutions/custom-software/
+        - label: Legacy modernisation
+          url: /en/solutions/legacy-modernisation/
+        - label: Process consulting
+          url: /en/solutions/process-consulting/
+    - heading: Sectors
+      links:
+        - label: Private security
+          url: /en/sectors/private-security/
+        - label: Hospitality
+          url: /en/sectors/hospitality/
+        - label: Health and clinics
+          url: /en/sectors/health/
+        - label: Real estate
+          url: /en/sectors/real-estate/
+        - label: Construction
+          url: /en/sectors/construction/
     - heading: Company
       links:
-        - label: Services
-          url: /en/services/
-        - label: About
+        - label: About Kibarai
           url: /en/about/
-        - label: News
-          url: /en/news/
-    - heading: Resources
-      links:
         - label: Contact
           url: /en/contact/
-        - label: RSS
-          url: /feed.xml
-  legal_heading: Legal
+        - label: contacto@kibarai.tech
+          url: mailto:contacto@kibarai.tech
   legal_links:
     - label: Legal notice
       url: /en/legal-notice/
@@ -157,7 +118,19 @@ footer:
       url: /en/privacy/
     - label: Cookies
       url: /en/cookies/
-  copyright: All rights reserved
+  copyright: KIBARAI TECH S.L.U.
+meta:
+  self_name: English
+  html_lang: en
+  browser_codes:
+    - en
+cookies_banner:
+  enabled: true
+  message: We only use technical cookies required for the site to work. No
+    analytics or advertising cookies.
+  accept_label: Got it
+  learn_more_label: Cookie policy
+  learn_more_url: /en/cookies/
 legal_data:
   owner_name: KIBARAI TECH S.L.U.
   owner_type: company
@@ -361,3 +334,4 @@ i18n:
   close_menu: Close menu
   lang_dropdown_label: Change language
   empty_posts_lead: This blog has no entries in your language yet.
+  hero_illustration_alt: A stack of paper invoices posting itself into the system and showing up recorded and verified

@@ -1,0 +1,7 @@
+{%- assign b = include.b -%}
+<section class="b-texto">
+  <div class="container-narrow">
+    {% if b.title %}<h2>{{ b.title }}</h2>{% endif %}
+    <div class="prose">{{ b.body | markdownify }}</div>
+  </div>
+</section>

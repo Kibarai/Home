@@ -1,0 +1,16 @@
+{%- assign b = include.b -%}
+<section class="b-ad{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    {% if b.eyebrow %}<p class="eyebrow">{{ b.eyebrow }}</p>{% endif %}
+    {% if b.title %}<h2>{{ b.title }}</h2>{% endif %}
+    <div class="b-ad-grid">
+      {% for item in b.items %}
+        <article class="b-ad-card">
+          <p class="b-ad-antes">{{ b.antes_label | default: 'Antes' }} · {{ item.antes }}</p>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.body }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

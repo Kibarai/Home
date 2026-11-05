@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{%- comment -%}
+  Renderiza la página a partir de su lista `blocks`. Cada ítem lleva un `type`
+  que nombra el include de _includes/blocks/. Los tipos desconocidos se ignoran,
+  así una página guardada desde el CMS con un bloque más nuevo que este build
+  sigue mostrando el resto.
+
+  El fondo alterna solo: azul claro, blanco, azul claro… Lo decide la posición
+  del bloque, no cada bloque por su cuenta, que es lo que antes dejaba dos
+  azules seguidos. Las páginas de lectura larga (texto y legales) quedan
+  siempre en blanco y no cuentan para la alternancia.
+{%- endcomment -%}
+{%- assign bgi = 0 -%}
+{%- for b in page.blocks -%}
+  {%- assign alt = false -%}
+  {%- unless b.type == 'legal' or b.type == 'texto' -%}
+    {%- assign par = bgi | modulo: 2 -%}
+    {%- if par == 0 -%}{%- assign alt = true -%}{%- endif -%}
+    {%- assign bgi = bgi | plus: 1 -%}
+  {%- endunless -%}
+  {%- case b.type -%}
+  {%- when 'hero' -%}          {%- include blocks/hero.html b=b alt=alt -%}
+  {%- when 'dolor' -%}         {%- include blocks/dolor.html b=b alt=alt -%}
+  {%- when 'cifras' -%}        {%- include blocks/cifras.html b=b alt=alt -%}
+  {%- when 'soluciones' -%}    {%- include blocks/soluciones.html b=b alt=alt -%}
+  {%- when 'tarjetas' -%}      {%- include blocks/tarjetas.html b=b alt=alt -%}
+  {%- when 'antes-despues' -%} {%- include blocks/antes-despues.html b=b alt=alt -%}
+  {%- when 'comparativa' -%}   {%- include blocks/comparativa.html b=b alt=alt -%}
+  {%- when 'proceso' -%}       {%- include blocks/proceso.html b=b alt=alt -%}
+  {%- when 'fundador' -%}      {%- include blocks/fundador.html b=b alt=alt -%}
+  {%- when 'garantias' -%}     {%- include blocks/garantias.html b=b alt=alt -%}
+  {%- when 'faq' -%}           {%- include blocks/faq.html b=b alt=alt -%}
+  {%- when 'legal' -%}         {%- include blocks/legal.html b=b -%}
+  {%- when 'texto' -%}         {%- include blocks/texto.html b=b -%}
+  {%- when 'cta' -%}           {%- include blocks/cta.html b=b alt=alt -%}
+  {%- endcase -%}
+{%- endfor -%}

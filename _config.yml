@@ -1,6 +1,6 @@
 title: Kibarai
-tagline: Consultoría, software a medida y desarrollos con IA
-description: Kibarai — consultora tecnológica, software a medida y soluciones con inteligencia artificial.
+tagline: Automatización de procesos y software a medida con IA
+description: Kibarai — automatización de procesos, software a medida y modernización de sistemas con inteligencia artificial.
 url: https://kibarai.tech
 baseurl: ""
 email: contacto@kibarai.tech
@@ -8,16 +8,14 @@ email: contacto@kibarai.tech
 fallback_lang: en
 
 collections:
-  services:
-    output: true
   pages_i18n:
-    output: false
+    output: true
 
 defaults:
   - scope: { path: "", type: "posts" }
     values: { layout: post }
-  - scope: { path: "", type: "services" }
-    values: { layout: page }
+  - scope: { path: "", type: "pages_i18n" }
+    values: { layout: blocks }
   - scope: { path: "" }
     values: { layout: page }
 

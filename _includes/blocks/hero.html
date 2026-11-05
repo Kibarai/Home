@@ -1,0 +1,29 @@
+{%- assign b = include.b -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+<section class="b-hero{% if include.alt %} section-alt{% endif %}{% if b.variant == 'dark' %} b-hero--dark{% endif %}{% if b.illustration %} b-hero--split{% endif %}">
+  <div class="container">
+    <div class="b-hero-grid">
+      <div class="b-hero-copy">
+        {% if b.eyebrow %}<p class="eyebrow">{{ b.eyebrow }}</p>{% endif %}
+        <h1>{{ b.title }}</h1>
+        {% if b.subtitle %}<p class="lede">{{ b.subtitle | markdownify | remove: '<p>' | remove: '</p>' }}</p>{% endif %}
+        {% if b.bullets %}
+          <ul class="b-hero-bullets">
+            {% for item in b.bullets %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+        {% if b.cta_primary_label or b.cta_secondary_label %}
+          <div class="hero-actions">
+            {% if b.cta_primary_label %}
+              <a class="btn btn-primary" href="{{ b.cta_primary_url | default: t.contact.booking_url }}"{% if b.cta_primary_url == null or b.cta_primary_url contains '//' %} target="_blank" rel="noopener"{% endif %}>{{ b.cta_primary_label }}</a>
+            {% endif %}
+            {% if b.cta_secondary_label %}
+              <a class="btn btn-outline" href="{{ b.cta_secondary_url | relative_url }}">{{ b.cta_secondary_label }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      {% if b.illustration %}<div class="b-hero-art">{% include hero-illustration.html %}</div>{% endif %}
+    </div>
+  </div>
+</section>

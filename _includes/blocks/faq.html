@@ -1,0 +1,12 @@
+{%- assign b = include.b -%}
+<section class="b-faq{% if include.alt %} section-alt{% endif %}">
+  <div class="container-narrow">
+    {% if b.title %}<h2>{{ b.title }}</h2>{% endif %}
+    {% for item in b.items %}
+      <details class="b-faq-item">
+        <summary>{{ item.q }}</summary>
+        <div class="b-faq-answer">{{ item.a | markdownify }}</div>
+      </details>
+    {% endfor %}
+  </div>
+</section>
