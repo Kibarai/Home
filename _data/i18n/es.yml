@@ -52,12 +52,12 @@ nav:
     url: /es/contacto/
     primary: false
   - label: Diagnóstico →
-    url: "https://bookings.cloud.microsoft/bookwithme/user/548146b897774b0d8681a6302680c9f4@kibarai.tech/meetingtype/SVRwCe7HMUGxuT6WGxi68g2?anonymous&ismsaljsauthenabled"
+    url: https://cal.com/carlos-jimenez-kibarai/diagnostico
     primary: true
 contact:
   email: contacto@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
-  booking_url: "https://bookings.cloud.microsoft/bookwithme/user/548146b897774b0d8681a6302680c9f4@kibarai.tech/meetingtype/SVRwCe7HMUGxuT6WGxi68g2?anonymous&ismsaljsauthenabled"
+  booking_url: https://cal.com/carlos-jimenez-kibarai/diagnostico
   booking_label: Solicitar diagnóstico gratis
   form_endpoint: ""
 form:
