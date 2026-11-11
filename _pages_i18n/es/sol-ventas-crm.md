@@ -2,6 +2,7 @@
 title: Automatización de ventas y CRM con IA
 description: Calificación y respuesta automática de leads, reclamación de impagados, agentes de voz y motores de comisiones conectados a tu CRM.
 permalink: /es/soluciones/ventas-crm/
+ref: sales-crm
 form_sector: Ventas y CRM
 blocks:
   - type: hero

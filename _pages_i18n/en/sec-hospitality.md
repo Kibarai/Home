@@ -1,7 +1,8 @@
 ---
-title: Automation and AI for restaurants and hospitality groups
+title: Automation and AI for restaurants and hospitality
 description: Recipe costing updated with every invoice, bookings and WhatsApp notifications, groups and events, purchase invoices, rotas and time-and-attendance records.
 permalink: /en/sectors/hospitality/
+ref: hospitality
 form_sector: Hospitality
 blocks:
   - type: hero

@@ -2,6 +2,7 @@
 title: Automatización de back-office con IA
 description: Facturas de proveedor, conciliación bancaria, cotejo de albaranes y reporting financiero automatizados con IA, dentro del ERP que ya usas.
 permalink: /es/soluciones/back-office/
+ref: back-office
 form_sector: Back-office
 blocks:
   - type: hero

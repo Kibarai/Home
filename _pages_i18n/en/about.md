@@ -1,7 +1,8 @@
 ---
-title: About Kibarai
+title: "About us: process automation team in Madrid"
 description: Kibarai is an automation team led by Carlos Jiménez, who has spent more than 20 years helping companies with technology.
 permalink: /en/about/
+ref: about
 form_sector: About
 blocks:
   - type: hero

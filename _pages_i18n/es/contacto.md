@@ -1,7 +1,8 @@
 ---
-title: Contacto
+title: Contacto y diagnóstico gratuito
 description: Reserva un diagnóstico gratuito de 30 minutos con Carlos Jiménez o escríbenos a contacto@kibarai.tech.
 permalink: /es/contacto/
+ref: contact
 form_sector: Contacto
 blocks:
   - type: hero

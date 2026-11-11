@@ -2,6 +2,7 @@
 title: Automation and AI for private security companies
 description: Rotas and cover, licence validity and staff transfers, a live tender dossier, service reports and rounds, per-service billing and paperwork you can find on the spot.
 permalink: /en/sectors/private-security/
+ref: private-security
 form_sector: Private security
 blocks:
   - type: hero

@@ -1,0 +1,65 @@
+{%- comment -%}
+  Datos estructurados de la empresa, una vez por página.
+
+  jekyll-seo-tag ya describe la página (WebPage, por el `seo.type` de
+  _config.yml). Este bloque añade quién está detrás: sin él Google no tiene
+  forma de saber que Kibarai es una empresa de Madrid y no un blog.
+
+  Todo sale de _data/i18n y de las propias páginas, para que no haya datos
+  escritos a mano que luego se queden viejos.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.fallback_lang -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign legal = t.legal_data -%}
+{%- assign inicio = site.pages_i18n | where: "lang", lang | where: "permalink", t.urls.home | first -%}
+{%- assign etiqueta_sol = "" -%}
+{%- for n in t.nav -%}
+  {%- if n.url == t.urls.solutions -%}{%- assign etiqueta_sol = n.label -%}{%- endif -%}
+{%- endfor -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "{{ site.url }}/#empresa",
+  "name": "Kibarai",
+  "legalName": {{ legal.owner_name | jsonify }},
+  "url": "{{ site.url }}{{ t.urls.home }}",
+  "logo": "{{ site.url }}/assets/img/logo.png",
+  "image": "{{ site.url }}/assets/img/og-{{ lang }}.png",
+  "description": {{ inicio.description | default: site.description | jsonify }},
+  "email": {{ t.contact.email | jsonify }},
+{%- assign tel = legal.phone | remove: "+34" | remove: " " | strip -%}
+  "telephone": "+34{{ tel }}",
+  "vatID": {{ legal.nif | jsonify }},
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madrid",
+    "addressRegion": "Madrid",
+    "addressCountry": "ES"
+  },
+  "areaServed": { "@type": "Country", "name": "España" },
+  "founder": { "@type": "Person", "name": "Carlos Jiménez", "jobTitle": "Fundador" },
+  "sameAs": [{{ t.contact.linkedin | jsonify }}],
+  "knowsLanguage": ["es", "en"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": {{ etiqueta_sol | default: "Servicios" | jsonify }},
+    "itemListElement": [
+      {%- assign primero = true -%}
+      {%- for p in site.pages_i18n -%}
+        {%- if p.lang == lang and p.permalink contains t.urls.solutions and p.permalink != t.urls.solutions -%}
+          {%- unless primero -%},{%- endunless -%}{%- assign primero = false -%}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": {{ p.title | jsonify }},
+          "url": "{{ site.url }}{{ p.permalink }}"
+        }
+      }
+        {%- endif -%}
+      {%- endfor -%}
+    ]
+  }
+}
+</script>

@@ -2,6 +2,7 @@
 title: Automation and AI for real estate agencies
 description: Commission engine, CRM, listing and publishing to portals, automatic lead follow-up, deal signing and an owner portal.
 permalink: /en/sectors/real-estate/
+ref: real-estate
 form_sector: Real estate
 blocks:
   - type: hero

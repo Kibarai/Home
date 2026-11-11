@@ -2,6 +2,7 @@
 title: Process consulting
 description: A full day inside your operation and a report with the roadmap for automating. The plan is yours, whoever ends up executing it.
 permalink: /en/solutions/process-consulting/
+ref: process-consulting
 form_sector: Process consulting
 blocks:
   - type: hero

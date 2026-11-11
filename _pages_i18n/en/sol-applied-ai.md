@@ -2,6 +2,7 @@
 title: Applied AI for business processes
 description: Automatic document reading, internal assistants, AI phone systems and models running on your own infrastructure.
 permalink: /en/solutions/applied-ai/
+ref: applied-ai
 form_sector: Applied AI
 blocks:
   - type: hero

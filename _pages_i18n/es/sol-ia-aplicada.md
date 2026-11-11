@@ -2,6 +2,7 @@
 title: IA aplicada a procesos de empresa
 description: Lectura automática de documentos, asistentes internos, centralitas con IA y modelos propios corriendo en tu infraestructura.
 permalink: /es/soluciones/ia-aplicada/
+ref: applied-ai
 form_sector: IA aplicada
 blocks:
   - type: hero

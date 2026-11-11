@@ -2,6 +2,7 @@
 title: Consultoría de procesos
 description: Una jornada completa dentro de tu operativa y un informe con el plan de ruta para automatizar. El plan es tuyo, lo ejecutes con quien lo ejecutes.
 permalink: /es/soluciones/consultoria-procesos/
+ref: process-consulting
 form_sector: Consultoría de procesos
 blocks:
   - type: hero

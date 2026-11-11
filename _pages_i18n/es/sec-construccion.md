@@ -2,6 +2,7 @@
 title: Automatización e IA para construcción
 description: Control de obra, certificaciones, partes de obra, costes por obra y gestión de subcontratas.
 permalink: /es/sectores/construccion/
+ref: construction
 form_sector: Construcción
 blocks:
   - type: hero

@@ -1,7 +1,8 @@
 ---
-title: Sobre Kibarai
+title: "Quiénes somos: automatización de procesos en Madrid"
 description: Kibarai es un equipo de automatización liderado por Carlos Jiménez, que lleva más de 20 años ayudando a empresas con tecnología.
 permalink: /es/sobre/
+ref: about
 form_sector: Sobre
 blocks:
   - type: hero

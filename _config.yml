@@ -4,8 +4,16 @@ description: Kibarai — automatización de procesos, software a medida y modern
 url: https://kibarai.tech
 baseurl: ""
 email: contacto@kibarai.tech
+# Imagen al compartir en redes (1200×630). Cada idioma usa la suya, ver defaults.
+image: /assets/img/og-es.png
+logo: /assets/img/logo.png
+lang: es_ES
 
 fallback_lang: en
+# Versión que Google enseña cuando no sabe qué idioma usar (hreflang x-default).
+# Va aparte de fallback_lang: un visitante francés que entra por la raíz sigue
+# yendo al inglés, pero en Google manda el español, que es nuestro mercado.
+xdefault_lang: es
 
 collections:
   pages_i18n:
@@ -15,9 +23,24 @@ defaults:
   - scope: { path: "", type: "posts" }
     values: { layout: post }
   - scope: { path: "", type: "pages_i18n" }
-    values: { layout: blocks }
+    values: { layout: blocks, seo: { type: WebPage } }
   - scope: { path: "" }
-    values: { layout: page }
+    values: { layout: page, seo: { type: WebPage } }
+  - scope: { path: "_pages_i18n/es" }
+    values: { image: /assets/img/og-es.png, locale: es_ES }
+  - scope: { path: "_pages_i18n/en" }
+    values: { image: /assets/img/og-en.png, locale: en_GB }
+  # Páginas legales: necesarias, pero no queremos que compitan en Google.
+  - scope: { path: "_pages_i18n/*/aviso-legal.md" }
+    values: { noindex: true, sitemap: false }
+  - scope: { path: "_pages_i18n/*/legal-notice.md" }
+    values: { noindex: true, sitemap: false }
+  - scope: { path: "_pages_i18n/*/privacidad.md" }
+    values: { noindex: true, sitemap: false }
+  - scope: { path: "_pages_i18n/*/privacy.md" }
+    values: { noindex: true, sitemap: false }
+  - scope: { path: "_pages_i18n/*/cookies.md" }
+    values: { noindex: true, sitemap: false }
 
 plugins:
   - jekyll-feed

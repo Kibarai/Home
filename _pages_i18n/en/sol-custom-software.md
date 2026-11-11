@@ -2,6 +2,7 @@
 title: Custom software with AI
 description: Control panels, calculation engines, internal platforms and booking systems built to measure and connected to your ERP. The code is yours.
 permalink: /en/solutions/custom-software/
+ref: custom-software
 form_sector: Custom software
 blocks:
   - type: hero

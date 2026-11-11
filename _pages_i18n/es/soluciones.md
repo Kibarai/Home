@@ -1,7 +1,8 @@
 ---
-title: Soluciones
+title: Soluciones de automatización con IA
 description: Automatización de procesos y software a medida con IA. Back-office, ventas y CRM, operaciones, IA aplicada, software a medida, modernización de legacy y consultoría de procesos.
 permalink: /es/soluciones/
+ref: solutions
 form_sector: Soluciones
 blocks:
   - type: hero

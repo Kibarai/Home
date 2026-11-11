@@ -1,7 +1,8 @@
 ---
-title: Solutions
+title: Process automation solutions with AI
 description: Process automation and custom software with AI. Back office, sales and CRM, operations, applied AI, custom software, legacy modernisation and process consulting.
 permalink: /en/solutions/
+ref: solutions
 form_sector: Solutions
 blocks:
   - type: hero

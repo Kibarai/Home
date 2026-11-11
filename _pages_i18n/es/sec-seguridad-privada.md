@@ -2,6 +2,7 @@
 title: Automatización e IA para empresas de seguridad privada
 description: Cuadrantes y coberturas, vigencias y subrogaciones, dosier de solvencia para licitaciones, partes y rondas, facturación por servicio y documentación siempre localizable.
 permalink: /es/sectores/seguridad-privada/
+ref: private-security
 form_sector: Seguridad privada
 blocks:
   - type: hero

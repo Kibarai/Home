@@ -1,0 +1,21 @@
+{%- comment -%}
+  Enlaces a las traducciones de esta página, para que Google sepa que
+  /es/soluciones/back-office/ y /en/solutions/back-office/ son la misma página
+  en dos idiomas y muestre a cada uno la suya.
+
+  Las traducciones se emparejan por `ref` en el front matter: todas las
+  versiones de una página llevan el mismo valor. Una página sin `ref`, o sin
+  traducción, no saca nada.
+{%- endcomment -%}
+{%- if page.ref -%}
+  {%- assign traducciones = site.pages_i18n | where: "ref", page.ref -%}
+  {%- if traducciones.size > 1 -%}
+    {%- for p in traducciones %}
+  <link rel="alternate" hreflang="{{ site.data.i18n[p.lang].meta.html_lang }}" href="{{ p.url | absolute_url }}">
+    {%- endfor -%}
+    {%- assign por_defecto = traducciones | where: "lang", site.xdefault_lang | first -%}
+    {%- if por_defecto %}
+  <link rel="alternate" hreflang="x-default" href="{{ por_defecto.url | absolute_url }}">
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

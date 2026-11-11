@@ -2,6 +2,7 @@
 title: Automatización de operaciones y soporte con IA
 description: Clasificación de tickets, borradores de respuesta con tu base de conocimiento, vigilancia de SLA y detección de duplicados, sobre el helpdesk que ya usas.
 permalink: /es/soluciones/operaciones/
+ref: operations
 form_sector: Operaciones y soporte
 blocks:
   - type: hero

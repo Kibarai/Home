@@ -2,6 +2,7 @@
 title: Automatización de procesos y software a medida con IA
 description: Automatizamos la operativa de tu empresa y construimos el software que necesita, con IA. Precio cerrado por fases, prototipo antes del presupuesto y el código es tuyo.
 permalink: /es/
+ref: home
 form_sector: Home
 blocks:
   - type: hero

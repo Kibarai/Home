@@ -2,6 +2,7 @@
 title: Back-office automation with AI
 description: Supplier invoices, bank reconciliation, delivery-note matching and financial reporting automated with AI, inside the ERP you already use.
 permalink: /en/solutions/back-office/
+ref: back-office
 form_sector: Back office
 blocks:
   - type: hero

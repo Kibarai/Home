@@ -1,7 +1,8 @@
 ---
-title: Sectors
+title: Automation and AI by sector
 description: Automation and AI for private security, hospitality, clinics, real estate and construction. Five sectors, one method.
 permalink: /en/sectors/
+ref: sectors
 form_sector: Sectors
 blocks:
   - type: hero

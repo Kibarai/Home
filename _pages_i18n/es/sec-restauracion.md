@@ -1,7 +1,8 @@
 ---
-title: Automatización e IA para restaurantes y grupos de restauración
+title: Automatización e IA para restaurantes y hostelería
 description: Escandallos que se actualizan con cada factura, reservas y avisos por WhatsApp, grupos y eventos, facturas de compra, turnos y registro de jornada.
 permalink: /es/sectores/restauracion/
+ref: hospitality
 form_sector: Restauración
 blocks:
   - type: hero

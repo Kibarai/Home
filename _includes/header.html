@@ -1,10 +1,8 @@
 {% assign t = site.data.i18n[page.lang] %}
-{% for lang in site.languages %}
-  {% assign l = site.data.i18n[lang] %}
-  {% unless lang == page.lang %}
-    <link rel="alternate" hreflang="{{ l.meta.html_lang }}" href="{{ l.urls.home | relative_url }}">
-  {% endunless %}
-{% endfor %}
+{%- comment -%}
+  Los enlaces de idioma llevan a la traducción de esta misma página (misma
+  `ref` en el front matter). Si no tiene traducción, a la portada del idioma.
+{%- endcomment -%}
 <a class="skip-link" href="#main">{{ t.i18n.skip_link }}</a>
 <header class="site-header">
   <div class="container nav">
@@ -33,7 +31,8 @@
           <div class="nav-main-langs" aria-label="{{ t.i18n.lang_dropdown_label }}">
             {% for lang in site.languages %}
               {% assign l = site.data.i18n[lang] %}
-              <a href="{{ l.urls.home | relative_url }}" data-lang="{{ lang }}" lang="{{ lang }}" hreflang="{{ lang }}"{% if lang == page.lang %} aria-current="true"{% endif %}>{{ l.meta.self_name }}</a>
+              {% assign destino = l.urls.home %}{% if page.ref %}{% assign trad = site.pages_i18n | where: "ref", page.ref | where: "lang", lang | first %}{% if trad %}{% assign destino = trad.url %}{% endif %}{% endif %}
+              <a href="{{ destino | relative_url }}" data-lang="{{ lang }}" lang="{{ lang }}" hreflang="{{ lang }}"{% if lang == page.lang %} aria-current="true"{% endif %}>{{ l.meta.self_name }}</a>
             {% endfor %}
           </div>
         {% endif %}
@@ -47,8 +46,9 @@
           <ul class="lang-menu" role="listbox" hidden>
             {% for lang in site.languages %}
               {% assign l = site.data.i18n[lang] %}
+              {% assign destino = l.urls.home %}{% if page.ref %}{% assign trad = site.pages_i18n | where: "ref", page.ref | where: "lang", lang | first %}{% if trad %}{% assign destino = trad.url %}{% endif %}{% endif %}
               <li role="option" aria-selected="{% if lang == page.lang %}true{% else %}false{% endif %}">
-                <a href="{{ l.urls.home | relative_url }}" data-lang="{{ lang }}" lang="{{ lang }}" hreflang="{{ lang }}">{{ l.meta.self_name }}</a>
+                <a href="{{ destino | relative_url }}" data-lang="{{ lang }}" lang="{{ lang }}" hreflang="{{ lang }}">{{ l.meta.self_name }}</a>
               </li>
             {% endfor %}
           </ul>

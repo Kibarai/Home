@@ -2,6 +2,7 @@
 title: Sales and CRM automation with AI
 description: Automatic lead scoring and response, overdue invoice chasing, voice agents and commission engines connected to your CRM.
 permalink: /en/solutions/sales-crm/
+ref: sales-crm
 form_sector: Sales and CRM
 blocks:
   - type: hero

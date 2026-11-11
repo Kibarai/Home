@@ -2,6 +2,7 @@
 title: Modernización de sistemas heredados
 description: Refactorización por fases de software legacy sin parar la operación. El sistema antiguo no se toca, los datos se sincronizan en tiempo real y la marcha atrás está garantizada.
 permalink: /es/soluciones/modernizacion-legacy/
+ref: legacy-modernisation
 form_sector: Modernización de legacy
 blocks:
   - type: hero

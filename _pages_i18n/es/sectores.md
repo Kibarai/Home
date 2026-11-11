@@ -1,7 +1,8 @@
 ---
-title: Sectores
+title: Automatización e IA por sectores
 description: Automatización e IA para seguridad privada, restauración, clínicas, inmobiliario y construcción. Cinco sectores, un mismo método.
 permalink: /es/sectores/
+ref: sectors
 form_sector: Sectores
 blocks:
   - type: hero

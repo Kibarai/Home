@@ -2,6 +2,7 @@
 title: Automatización e IA para inmobiliarias
 description: Motor de comisiones, CRM, captación y publicación en portales, seguimiento automático de leads, firma de la operación y portal del propietario.
 permalink: /es/sectores/inmobiliario/
+ref: real-estate
 form_sector: Inmobiliario
 blocks:
   - type: hero

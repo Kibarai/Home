@@ -2,6 +2,7 @@
 title: Automation and AI for clinics and health centres
 description: Fee settlement for collaborators, scheduling and occupancy, billing, appointment reminders and insurer management, automated.
 permalink: /en/sectors/health/
+ref: health
 form_sector: Health and clinics
 blocks:
   - type: hero

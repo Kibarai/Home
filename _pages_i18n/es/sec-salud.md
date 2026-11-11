@@ -2,6 +2,7 @@
 title: Automatización e IA para clínicas y centros de salud
 description: Liquidación de honorarios a colaboradores, agenda y ocupación, facturación, recordatorios de cita y gestión de mutuas, automatizados.
 permalink: /es/sectores/salud/
+ref: health
 form_sector: Salud y clínicas
 blocks:
   - type: hero

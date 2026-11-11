@@ -8,7 +8,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/img/favicon-48.png' | relative_url }}" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex,follow">
+  {%- endif -%}
   {%- seo -%}
+  {%- include hreflang.html -%}
+  {%- include schema.html -%}
   {%- feed_meta -%}
 </head>
 <body>

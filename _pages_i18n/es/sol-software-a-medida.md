@@ -2,6 +2,7 @@
 title: Software a medida con IA
 description: Paneles de control, motores de cálculo, plataformas internas y sistemas de reservas construidos a medida y conectados a tu ERP. El código es tuyo.
 permalink: /es/soluciones/software-a-medida/
+ref: custom-software
 form_sector: Software a medida
 blocks:
   - type: hero

@@ -23,6 +23,7 @@ content:
       - { name: title, label: Título (pestaña y buscadores), type: string, required: true }
       - { name: description, label: Descripción para buscadores, type: text }
       - { name: permalink, label: URL (debe empezar y acabar en /), type: string, required: true, pattern: '^/.*/$' }
+      - { name: ref, label: "Clave de traducción (igual en todas las versiones de esta página, ej. back-office)", type: string }
       - { name: form_sector, label: Etiqueta de origen para el formulario, type: string }
 
       - name: blocks

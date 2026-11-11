@@ -2,6 +2,7 @@
 title: Operations and support automation with AI
 description: Ticket classification, reply drafts from your knowledge base, SLA monitoring and duplicate detection, on the helpdesk you already use.
 permalink: /en/solutions/operations/
+ref: operations
 form_sector: Operations and support
 blocks:
   - type: hero

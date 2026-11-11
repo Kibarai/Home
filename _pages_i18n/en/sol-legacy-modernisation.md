@@ -2,6 +2,7 @@
 title: Legacy system modernisation
 description: Phased refactoring of legacy software without stopping the operation. The old system is never touched, data syncs in real time and the way back is guaranteed.
 permalink: /en/solutions/legacy-modernisation/
+ref: legacy-modernisation
 form_sector: Legacy modernisation
 blocks:
   - type: hero

@@ -2,6 +2,7 @@
 title: Process automation and custom software with AI
 description: We automate your operation and build the software your company needs, with AI. Fixed price per phase, a prototype before the quote, and the code is yours.
 permalink: /en/
+ref: home
 form_sector: Home
 blocks:
   - type: hero

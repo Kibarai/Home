@@ -2,6 +2,7 @@
 title: Automation and AI for construction
 description: Site control, certifications, site reports, cost per site and subcontractor management.
 permalink: /en/sectors/construction/
+ref: construction
 form_sector: Construction
 blocks:
   - type: hero

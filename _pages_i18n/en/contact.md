@@ -1,7 +1,8 @@
 ---
-title: Contact
+title: Contact and free diagnostic
 description: Book a free 30-minute diagnostic with Carlos Jiménez or email contacto@kibarai.tech.
 permalink: /en/contact/
+ref: contact
 form_sector: Contact
 blocks:
   - type: hero
