@@ -9,18 +9,20 @@ blocks:
     eyebrow: Contact
     title: 30 minutes and you know where to start.
     subtitle: >-
-      The quickest way to start is to book the diagnostic straight into my
-      calendar. If you would rather write first, that works too.
-    cta_primary_label: Book in the calendar
-    cta_secondary_label: See solutions
-    cta_secondary_url: /en/solutions/
+      Pick a day and time in the calendar and we talk. If you would rather
+      write first, that works too.
+    bullets:
+      - 30 minutes, at no cost
+      - You leave knowing which process to automate first
+      - You get a confirmation email as soon as you book
+    agenda: true
+    cta_secondary_label: I would rather write
+    cta_secondary_url: '#write'
 
   - type: tarjetas
-    title: Whichever suits you.
+    anchor: write
+    title: If you would rather write first.
     items:
-      - title: Book the diagnostic
-        booking: true
-        body: You pick a slot in my calendar and we talk for 30 minutes. It is the quickest route.
       - title: contacto@kibarai.tech
         body: If you would rather set it out in writing first. I reply within 24 working hours.
         url: mailto:contacto@kibarai.tech

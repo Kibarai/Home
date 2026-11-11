@@ -1,0 +1,17 @@
+{%- comment -%}
+  Bloque con la agenda de Cal.com a lo ancho. En contacto la agenda va en el
+  hero (`agenda: true`); este bloque sirve para ponerla en cualquier otra página.
+{%- endcomment -%}
+{%- assign b = include.b -%}
+<section class="b-agenda{% if include.alt %} section-alt{% endif %}" id="agenda">
+  <div class="container">
+    {% if b.title %}
+      <div class="section-heading">
+        {% if b.eyebrow %}<p class="eyebrow">{{ b.eyebrow }}</p>{% endif %}
+        <h2>{{ b.title }}</h2>
+        {% if b.subtitle %}<p class="lede">{{ b.subtitle }}</p>{% endif %}
+      </div>
+    {% endif %}
+    {% include cal-embed.html %}
+  </div>
+</section>

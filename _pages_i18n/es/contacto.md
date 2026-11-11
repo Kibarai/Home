@@ -9,18 +9,20 @@ blocks:
     eyebrow: Contacto
     title: 30 minutos y sabes por dónde empezar.
     subtitle: >-
-      La forma más rápida de empezar es reservar el diagnóstico directamente en
-      mi agenda. Si prefieres escribir primero, también vale.
-    cta_primary_label: Reservar en la agenda
-    cta_secondary_label: Ver soluciones
-    cta_secondary_url: /es/soluciones/
+      Elige día y hora en la agenda y hablamos. Si prefieres escribir primero,
+      también vale.
+    bullets:
+      - 30 minutos, sin coste
+      - Sales sabiendo qué proceso automatizar primero
+      - Al reservar te llega la confirmación por correo
+    agenda: true
+    cta_secondary_label: Prefiero escribir
+    cta_secondary_url: '#escribir'
 
   - type: tarjetas
-    title: Por dónde quieras.
+    anchor: escribir
+    title: Si prefieres escribir primero.
     items:
-      - title: Reservar el diagnóstico
-        booking: true
-        body: Eliges hueco en mi agenda y hablamos 30 minutos. Es lo más rápido.
       - title: contacto@kibarai.tech
         body: Si prefieres contarlo por escrito antes de vernos. Respondo en menos de 24 h laborables.
         url: mailto:contacto@kibarai.tech

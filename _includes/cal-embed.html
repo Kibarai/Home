@@ -1,0 +1,64 @@
+{%- comment -%}
+  Agenda de Cal.com incrustada. La usan el hero (`agenda: true`) y el bloque
+  agenda. Todos los botones de diagnóstico de la web apuntan a #agenda
+  (t.contact.booking_url).
+
+  El script de Cal.com solo se carga cuando la agenda está a punto de verse.
+  Si no carga (bloqueador, sin JS), queda el enlace a la agenda en cal.com.
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+<div class="cal-embed">
+  <div class="cal-embed-frame" id="cal-diagnostico" data-cal-link="{{ t.contact.cal_link }}" data-cal-lang="{{ page.lang }}"></div>
+  <p class="cal-embed-alt">{{ t.contact.cal_fallback_text }} <a href="{{ t.contact.booking_external }}" target="_blank" rel="noopener">{{ t.contact.cal_fallback_label }}</a></p>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('cal-diagnostico');
+  if (!el) return;
+  var cargada = false;
+  function cargar() {
+    if (cargada) return;
+    cargada = true;
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "diagnostico", { origin: "https://app.cal.com" });
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns.diagnostico("inline", {
+      elementOrSelector: "#cal-diagnostico",
+      config: { layout: "month_view", useSlotsViewOnSmallScreen: "true", theme: "light", locale: el.dataset.calLang },
+      calLink: el.dataset.calLink
+    });
+    Cal.ns.diagnostico("ui", {
+      theme: "light",
+      hideEventTypeDetails: true,
+      layout: "month_view",
+      // Colores de la web (assets/css/main.css) para que no parezca un widget ajeno.
+      cssVarsPerTheme: { light: {
+        "cal-brand": "#6e92ff",
+        "cal-brand-emphasis": "#2d3663",
+        "cal-brand-text": "#ffffff",
+        "cal-bg": "#ffffff",
+        "cal-bg-muted": "#f6f9ff",
+        "cal-bg-subtle": "#f6f9ff",
+        "cal-bg-emphasis": "#e6eefa",
+        "cal-border-booker": "#dbe2f0",
+        "cal-border-subtle": "#dbe2f0",
+        "cal-border": "#dbe2f0",
+        "cal-text": "#162c40",
+        "cal-text-emphasis": "#162c40",
+        "cal-text-subtle": "#445067",
+        "cal-text-muted": "#6b7488"
+      } }
+    });
+    el.classList.add('is-loading');
+  }
+  if (location.hash === '#agenda' || !('IntersectionObserver' in window)) {
+    cargar();
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { io.disconnect(); cargar(); }
+    }, { rootMargin: '600px 0px' });
+    io.observe(el);
+  }
+})();
+</script>

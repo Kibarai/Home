@@ -1,6 +1,6 @@
 {%- assign b = include.b -%}
 {%- assign t = site.data.i18n[page.lang] -%}
-<section class="b-hero{% if include.alt %} section-alt{% endif %}{% if b.variant == 'dark' %} b-hero--dark{% endif %}{% if b.illustration %} b-hero--split{% endif %}">
+<section class="b-hero{% if include.alt %} section-alt{% endif %}{% if b.variant == 'dark' %} b-hero--dark{% endif %}{% if b.illustration %} b-hero--split{% endif %}{% if b.agenda %} b-hero--agenda{% endif %}"{% if b.agenda %} id="agenda"{% endif %}>
   <div class="container">
     <div class="b-hero-grid">
       <div class="b-hero-copy">
@@ -15,15 +15,19 @@
         {% if b.cta_primary_label or b.cta_secondary_label %}
           <div class="hero-actions">
             {% if b.cta_primary_label %}
-              <a class="btn btn-primary" href="{{ b.cta_primary_url | default: t.contact.booking_url }}"{% if b.cta_primary_url == null or b.cta_primary_url contains '//' %} target="_blank" rel="noopener"{% endif %}>{{ b.cta_primary_label }}</a>
+              {%- assign href = b.cta_primary_url | default: t.contact.booking_url -%}
+              <a class="btn btn-primary" href="{% if href contains '//' %}{{ href }}{% else %}{{ href | relative_url }}{% endif %}"{% if href contains '//' %} target="_blank" rel="noopener"{% endif %}>{{ b.cta_primary_label }}</a>
             {% endif %}
             {% if b.cta_secondary_label %}
-              <a class="btn btn-outline" href="{{ b.cta_secondary_url | relative_url }}">{{ b.cta_secondary_label }}</a>
+              {%- assign c0 = b.cta_secondary_url | slice: 0 -%}
+              <a class="btn btn-outline" href="{% if c0 == '#' %}{{ b.cta_secondary_url }}{% else %}{{ b.cta_secondary_url | relative_url }}{% endif %}">{{ b.cta_secondary_label }}</a>
             {% endif %}
           </div>
         {% endif %}
       </div>
-      {% if b.illustration %}
+      {% if b.agenda %}
+        <div class="b-hero-agenda">{% include cal-embed.html %}</div>
+      {% elsif b.illustration %}
         <div class="b-hero-art">
           {% case b.illustration %}
             {% when 'seguridad-privada' %}{% include illustrations/seguridad-privada.html %}

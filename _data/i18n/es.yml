@@ -52,12 +52,16 @@ nav:
     url: /es/contacto/
     primary: false
   - label: Diagnóstico →
-    url: https://cal.com/carlos-jimenez-kibarai/diagnostico
+    url: /es/contacto/#agenda
     primary: true
 contact:
   email: contacto@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
-  booking_url: https://cal.com/carlos-jimenez-kibarai/diagnostico
+  booking_url: /es/contacto/#agenda
+  booking_external: https://cal.com/carlos-jimenez-kibarai/diagnostico
+  cal_link: carlos-jimenez-kibarai/diagnostico
+  cal_fallback_text: ¿No se ve la agenda?
+  cal_fallback_label: Ábrela en cal.com
   booking_label: Solicitar diagnóstico gratis
   form_endpoint: ""
 form:
@@ -288,6 +292,10 @@ legal_pages:
 
           El sitio web está alojado en GitHub Pages (GitHub, Inc., 88 Colin P.
           Kelly Jr. Street, San Francisco, CA 94107, EE. UU.).
+
+          Las reservas del diagnóstico se gestionan con Cal.com (Cal.com,
+          Inc., EE. UU.), que trata el nombre, el correo y los datos que
+          indiques al reservar para gestionar la cita.
       - heading: Derechos
         body: >
           El usuario puede ejercer los derechos de acceso, rectificación,
@@ -336,6 +344,11 @@ legal_pages:
           técnicas propias necesarias para servir las páginas. Estas cookies
           son estrictamente necesarias y no recogen datos con fines de
           perfilado.
+
+          La página de contacto incluye la agenda de reservas de Cal.com
+          (Cal.com, Inc.). Al mostrarla, Cal.com puede usar cookies técnicas
+          propias necesarias para que la reserva funcione. Su uso se rige por
+          la [política de privacidad de Cal.com](https://cal.com/privacy).
       - heading: Cómo gestionar las cookies
         body: |
           El usuario puede permitir, bloquear o eliminar las cookies

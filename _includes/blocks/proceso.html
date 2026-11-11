@@ -13,7 +13,8 @@
       {% endfor %}
     </ol>
     {% if b.cta_label %}
-      <p class="b-proceso-cta"><a class="btn btn-primary" href="{{ b.cta_url | default: t.contact.booking_url }}" target="_blank" rel="noopener">{{ b.cta_label }}</a></p>
+      {%- assign href = b.cta_url | default: t.contact.booking_url -%}
+      <p class="b-proceso-cta"><a class="btn btn-primary" href="{% if href contains '//' %}{{ href }}{% else %}{{ href | relative_url }}{% endif %}"{% if href contains '//' %} target="_blank" rel="noopener"{% endif %}>{{ b.cta_label }}</a></p>
     {% endif %}
   </div>
 </section>

@@ -44,6 +44,7 @@ content:
               - { name: cta_secondary_label, label: Botón secundario — texto, type: string }
               - { name: cta_secondary_url, label: Botón secundario — URL, type: string }
               - { name: illustration, label: Ilustración, type: select, options: { values: [default, seguridad-privada, restauracion, salud, inmobiliario, construccion] } }
+              - { name: agenda, label: Agenda de Cal.com a la derecha (en lugar de la ilustración), type: boolean }
               - { name: variant, label: Variante, type: select, options: { values: [claro, dark] }, default: claro }
 
           - name: dolor
@@ -239,6 +240,13 @@ content:
             label: Página legal
             fields:
               - { name: key, label: Cuál, type: select, options: { values: [legal_notice, privacy, cookies] }, required: true }
+
+          - name: agenda
+            label: Agenda de Cal.com incrustada
+            fields:
+              - { name: eyebrow, label: Antetítulo, type: string }
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
 
           - name: cta
             label: Llamada a la acción

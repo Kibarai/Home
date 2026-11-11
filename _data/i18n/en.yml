@@ -52,12 +52,16 @@ nav:
     url: /en/contact/
     primary: false
   - label: Diagnostic →
-    url: https://cal.com/carlos-jimenez-kibarai/diagnostico
+    url: /en/contact/#agenda
     primary: true
 contact:
   email: contacto@kibarai.tech
   linkedin: https://www.linkedin.com/company/kibarai
-  booking_url: https://cal.com/carlos-jimenez-kibarai/diagnostico
+  booking_url: /en/contact/#agenda
+  booking_external: https://cal.com/carlos-jimenez-kibarai/diagnostico
+  cal_link: carlos-jimenez-kibarai/diagnostico
+  cal_fallback_text: Calendar not showing?
+  cal_fallback_label: Open it on cal.com
   booking_label: Book a free diagnostic
   form_endpoint: ""
 form:
@@ -270,6 +274,10 @@ legal_pages:
 
           The website is hosted by GitHub Pages (GitHub, Inc., 88 Colin P.
           Kelly Jr. Street, San Francisco, CA 94107, USA).
+
+          Diagnostic bookings are handled by Cal.com (Cal.com, Inc., USA),
+          which processes the name, email and details you provide when
+          booking in order to manage the appointment.
       - heading: Your rights
         body: |
           You may exercise your rights of access, rectification, erasure,
@@ -306,6 +314,11 @@ legal_pages:
           The hosting provider (GitHub Pages) may set its own technical
           cookies required to serve pages. These cookies are strictly
           necessary and do not collect data for profiling purposes.
+
+          The contact page includes the Cal.com booking calendar (Cal.com,
+          Inc.). When it is shown, Cal.com may use its own technical cookies
+          needed for booking to work. Their use is governed by the
+          [Cal.com privacy policy](https://cal.com/privacy).
       - heading: How to manage cookies
         body: |
           Users can allow, block or delete cookies installed on their device

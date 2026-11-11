@@ -1010,3 +1010,24 @@ a.b-card:hover { border-color: var(--secondary); transform: translateY(-2px); co
   .b-metodo { padding: 3rem 0; }
   .b-metodo-step { padding: 1.2rem 1.2rem; }
 }
+
+/* Agenda de Cal.com incrustada (_includes/cal-embed.html). La tarjeta la pone
+   la web; dentro, Cal.com usa los colores de la marca (ver cssVarsPerTheme). */
+#agenda { scroll-margin-top: 5rem; }
+.cal-embed-frame {
+  min-height: 520px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px -18px rgba(22, 44, 64, .35);
+  overflow: hidden;
+}
+.cal-embed-alt { margin: .75rem 0 0; font-size: .85rem; color: var(--muted); text-align: center; }
+.cal-embed-alt a { color: var(--tertiary); }
+.b-hero--agenda { padding: 4rem 0; }
+.b-hero--agenda .b-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); align-items: start; }
+.b-hero--agenda .b-hero-copy { padding-top: 1.5rem; }
+@media (max-width: 960px) {
+  .b-hero--agenda .b-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .b-hero--agenda .b-hero-copy { padding-top: 0; }
+}
