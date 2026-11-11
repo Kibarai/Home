@@ -1,0 +1,33 @@
+# Direcciones antiguas → nuevas.
+#
+# Las de la izquierda existieron (sobre todo antes del rediseño de nov. 2026)
+# y Google o alguien puede tenerlas guardadas. Cada una genera una página que
+# redirige al instante a la nueva, ver _plugins/redirects.rb.
+#
+# Al cambiar la URL de una página, añade aquí la antigua.
+
+# Rediseño de noviembre 2026: "nosotros" y "servicios"
+/es/nosotros/: /es/sobre/
+/es/servicios/: /es/soluciones/
+/es/servicios/software-medida/: /es/soluciones/software-a-medida/
+/es/servicios/consultoria/: /es/soluciones/consultoria-procesos/
+/es/servicios/ia/: /es/soluciones/ia-aplicada/
+/en/services/: /en/solutions/
+/en/services/custom-software/: /en/solutions/custom-software/
+/en/services/consultancy/: /en/solutions/process-consulting/
+/en/services/ai/: /en/solutions/applied-ai/
+
+# Rediseño de noviembre 2026: el blog se retiró. Cada artículo va a la
+# página de solución que trata lo mismo.
+/es/noticias/: /es/
+/en/news/: /en/
+/es/noticias/2026/06/agentes-programacion-que-elegir/: /es/soluciones/software-a-medida/
+/es/noticias/2026/06/modelos-open-source-decisiones-tecnicas/: /es/soluciones/ia-aplicada/
+/es/noticias/2026/07/por-que-menos-codigo/: /es/soluciones/software-a-medida/
+/es/noticias/2026/07/centralitas-ia-voz-realtime/: /es/soluciones/ia-aplicada/
+/es/noticias/2026/07/deuda-tecnica-era-vibe-coding/: /es/soluciones/modernizacion-legacy/
+/en/news/2026/06/coding-agents-which-to-choose/: /en/solutions/custom-software/
+/en/news/2026/06/open-source-models-when-to-switch/: /en/solutions/applied-ai/
+/en/news/2026/07/why-we-write-less-code/: /en/solutions/custom-software/
+/en/news/2026/07/ai-phone-agents-realtime-voice/: /en/solutions/applied-ai/
+/en/news/2026/07/technical-debt-in-the-vibe-coding-era/: /en/solutions/legacy-modernisation/
