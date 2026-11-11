@@ -6,7 +6,7 @@ ref: construction
 form_sector: Construcción
 blocks:
   - type: hero
-    eyebrow: Sector · Construcción
+    eyebrow: Software y automatización para constructoras
     title: Saber el margen de la obra antes de que termine.
     subtitle: >-
       Partes, certificaciones, costes y subcontratas en un mismo sitio, al día.
@@ -65,6 +65,7 @@ blocks:
           - Parte firmado por el responsable sin pasar por papel
           - Funciona también sin cobertura, y sube lo pendiente al recuperarla
       - title: Control de obra
+        url: /es/soluciones/software-a-medida/
         body: >-
           El avance real deja de ser una impresión y pasa a ser un dato.
         bullets:
@@ -73,6 +74,7 @@ blocks:
           - Materiales recibidos y consumidos, imputados a su obra
           - Panel por obra y panel del conjunto, para dirección
       - title: Costes por obra
+        url: /es/soluciones/back-office/
         body: >-
           Saber lo que gana una obra deja de costar días de administración.
         bullets:

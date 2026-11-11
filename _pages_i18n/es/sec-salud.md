@@ -6,7 +6,7 @@ ref: health
 form_sector: Salud y clínicas
 blocks:
   - type: hero
-    eyebrow: Sector · Salud y clínicas
+    eyebrow: Software y automatización para clínicas y centros de salud
     title: Que la administración deje de robarle horas a la consulta.
     subtitle: >-
       Honorarios, agenda, facturación, recordatorios y mutuas. La parte
@@ -66,6 +66,7 @@ blocks:
           - Cierre mensual en lugar de trimestral, porque deja de costar trabajo
           - Histórico de lo liquidado y lo pendiente, sin rehacer los números
       - title: Agenda y ocupación
+        url: /es/soluciones/software-a-medida/
         body: >-
           La agenda deja de ser solo un calendario y pasa a decirte cómo va
           ocupado cada recurso.
@@ -83,6 +84,7 @@ blocks:
           - Lista de espera a la que se ofrece ese hueco por orden
           - Registro de qué citas se confirman y cuáles no, para ajustar la pauta
       - title: Facturación
+        url: /es/soluciones/back-office/
         body: >-
           La factura sale de lo que se hizo, no de una reconstrucción a final
           de mes.

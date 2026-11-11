@@ -6,7 +6,7 @@ ref: construction
 form_sector: Construction
 blocks:
   - type: hero
-    eyebrow: Sector · Construction
+    eyebrow: Software and automation for construction companies
     title: Knowing a site's margin before it finishes.
     subtitle: >-
       Reports, certifications, costs and subcontractors in one place, kept
@@ -65,6 +65,7 @@ blocks:
           - Signed off by the supervisor without passing through paper
           - Works without signal too, and uploads what is pending once it returns
       - title: Site control
+        url: /en/solutions/custom-software/
         body: >-
           Actual progress stops being an impression and becomes a figure.
         bullets:
@@ -73,6 +74,7 @@ blocks:
           - Materials received and consumed, allocated to their site
           - A panel per site and a panel for the whole portfolio
       - title: Cost per site
+        url: /en/solutions/back-office/
         body: >-
           Knowing what a site earns stops costing days of admin work.
         bullets:

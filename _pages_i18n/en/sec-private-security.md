@@ -6,7 +6,7 @@ ref: private-security
 form_sector: Private security
 blocks:
   - type: hero
-    eyebrow: Sector · Private security
+    eyebrow: Software and automation for private security companies
     title: The person who should be supervising spends the day plugging gaps.
     subtitle: >-
       Someone calls in sick at six in the morning and the whole rota has to be
@@ -95,17 +95,18 @@ blocks:
           with the detail you can justify to the client.
 
   - type: soluciones
-    title: What we can automate, area by area.
+    title: What we can automate in your security company, area by area.
     subtitle: >-
       Six areas, and in each one the detail of what stops being done by hand.
       You do not have to start with all of them: the diagnostic decides which
       one pays off soonest.
     items:
       - title: Planning and cover
+        url: /en/solutions/custom-software/
         body: >-
           The rota stops being rebuilt from scratch every time something moves.
         bullets:
-          - Annual and monthly rotas against the rules of your agreement and each contract
+          - Annual and monthly security guard rotas against the rules of your agreement and each contract
           - Automatic recalculation when an absence, an incident or extra cover comes in
           - Cover proposed only from those with the right clearance and rest period
           - Hours per person against those contracted, visible during the month
@@ -138,6 +139,7 @@ blocks:
           - Incidents with photos, tied to their site and their client
           - The incident log generated from what is already recorded, with nothing transcribed
       - title: Billing and collection
+        url: /en/solutions/back-office/
         body: >-
           The invoice comes out of what was delivered, not out of reconciling
           the month by hand.

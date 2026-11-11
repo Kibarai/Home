@@ -6,7 +6,7 @@ ref: real-estate
 form_sector: Real estate
 blocks:
   - type: hero
-    eyebrow: Sector · Real estate
+    eyebrow: Software and automation for real estate agencies
     title: Commissions that calculate themselves and leads that do not wait.
     subtitle: >-
       The commission engine pays once the invoice is collected, each agent sees
@@ -57,6 +57,7 @@ blocks:
       one pays off soonest.
     items:
       - title: Commission engine
+        url: /en/solutions/custom-software/
         body: >-
           The calculation stops living in a spreadsheet only its author
           understands.
@@ -75,6 +76,7 @@ blocks:
           - Price or status changes propagated everywhere at the same time
           - A record of what is published where, without checking by hand
       - title: Lead follow-up
+        url: /en/solutions/sales-crm/
         body: >-
           No enquiry is left waiting for someone to check the inbox.
         bullets:

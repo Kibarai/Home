@@ -6,7 +6,7 @@ ref: hospitality
 form_sector: Hospitality
 blocks:
   - type: hero
-    eyebrow: Sector · Hospitality
+    eyebrow: Software and automation for restaurants and hospitality
     title: You opened a restaurant, not a back office.
     subtitle: >-
       But the week goes on balancing the till, chasing paperwork, rebuilding
@@ -94,7 +94,7 @@ blocks:
           accounts and posted by company and by site.
 
   - type: soluciones
-    title: What we can automate in your business.
+    title: What we can automate in your restaurant, area by area.
     subtitle: >-
       Six areas, and in each one the detail of what stops being done by hand.
       You do not have to start with all of them: the diagnostic decides which
@@ -132,6 +132,7 @@ blocks:
           - Billing details collected at booking, so the company invoice is not a separate errand
           - A reminder of what is still owed once the event has passed
       - title: Voice agent
+        url: /en/solutions/applied-ai/
         body: >-
           The phone stops competing with the floor during service.
         bullets:
@@ -140,6 +141,7 @@ blocks:
           - "Answers what is always asked: opening hours, allergens and directions"
           - Hands the call to a person when it goes off script
       - title: Purchase invoices and suppliers
+        url: /en/solutions/back-office/
         body: >-
           Supplier invoices stop being keyed in one by one.
         bullets:

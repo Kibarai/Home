@@ -6,7 +6,7 @@ ref: real-estate
 form_sector: Inmobiliario
 blocks:
   - type: hero
-    eyebrow: Sector · Inmobiliario
+    eyebrow: Software y automatización para inmobiliarias
     title: Comisiones que se calculan solas y leads que no esperan.
     subtitle: >-
       El motor de comisiones paga cuando la factura está cobrada, cada comercial
@@ -58,6 +58,7 @@ blocks:
       sale más a cuenta.
     items:
       - title: Motor de comisiones
+        url: /es/soluciones/software-a-medida/
         body: >-
           El cálculo deja de vivir en una hoja que solo entiende quien la hizo.
         bullets:
@@ -75,6 +76,7 @@ blocks:
           - Cambios de precio o de estado propagados a la vez en todos
           - Control de qué está publicado dónde, sin tener que comprobarlo a mano
       - title: Seguimiento de leads
+        url: /es/soluciones/ventas-crm/
         body: >-
           Ningún contacto se queda esperando a que alguien mire el buzón.
         bullets:

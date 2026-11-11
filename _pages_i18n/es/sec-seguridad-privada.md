@@ -6,7 +6,7 @@ ref: private-security
 form_sector: Seguridad privada
 blocks:
   - type: hero
-    eyebrow: Sector · Seguridad privada
+    eyebrow: Software y automatización para empresas de seguridad privada
     title: El que debería supervisar se pasa el día tapando huecos.
     subtitle: >-
       Una baja a las seis de la mañana y el cuadrante entero a rehacer. Un
@@ -89,17 +89,18 @@ blocks:
           detalle justificable ante el cliente.
 
   - type: soluciones
-    title: Qué podemos automatizar, área por área.
+    title: Qué podemos automatizar en tu empresa de seguridad, área por área.
     subtitle: >-
       Seis áreas, y en cada una el detalle de lo que deja de hacerse a mano. No
       hace falta empezar por todas: en el diagnóstico decidimos por cuál sale
       más a cuenta.
     items:
       - title: Planificación y coberturas
+        url: /es/soluciones/software-a-medida/
         body: >-
           El cuadrante deja de rehacerse entero cada vez que algo se mueve.
         bullets:
-          - Cuadrante anual y mensual sobre las reglas de tu convenio y de cada contrato
+          - Cuadrante anual y mensual de vigilantes sobre las reglas de tu convenio y de cada contrato
           - Recálculo automático ante una baja, una incidencia o un refuerzo
           - Propuesta de cobertura solo entre quienes tienen la habilitación y el descanso
           - Horas por persona frente a las pactadas, a la vista durante el mes
@@ -109,7 +110,7 @@ blocks:
           Lo que caduca deja de vigilarse en una hoja aparte, y el cambio de
           contrato deja de ser una carrera.
         bullets:
-          - TIP, reciclaje anual, habilitaciones y especialidades con su vigencia controlada
+          - TIP de cada vigilante, reciclaje anual, habilitaciones y especialidades con su vigencia controlada
           - Aviso antes de que algo caduque, y comprobación al asignar a alguien a un servicio
           - Antigüedad real por persona y por servicio, que es lo que decide quién entra en una subrogación
           - "Expediente montado desde tus propios datos: afectados, contratos, nóminas y seguros sociales"
@@ -132,6 +133,7 @@ blocks:
           - Incidencias con foto, asociadas a su servicio y a su cliente
           - Libro de incidencias generado desde lo registrado, sin transcribir nada
       - title: Facturación y cobro
+        url: /es/soluciones/back-office/
         body: >-
           La factura sale de lo que se prestó, no de cuadrar el mes a mano.
         bullets:

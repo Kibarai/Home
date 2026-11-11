@@ -6,7 +6,7 @@ ref: health
 form_sector: Health and clinics
 blocks:
   - type: hero
-    eyebrow: Sector · Health and clinics
+    eyebrow: Software and automation for clinics and health centres
     title: Stop letting admin eat hours that belong to the clinic.
     subtitle: >-
       Fees, scheduling, billing, reminders and insurers. The administrative
@@ -66,6 +66,7 @@ blocks:
           - A monthly close instead of a quarterly one, because it stops being work
           - A history of what is settled and what is outstanding, without redoing the numbers
       - title: Scheduling and occupancy
+        url: /en/solutions/custom-software/
         body: >-
           The diary stops being only a calendar and starts telling you how
           every resource is actually being used.
@@ -83,6 +84,7 @@ blocks:
           - A waiting list that slot is offered to, in order
           - A record of which appointments get confirmed, so the pattern can be tuned
       - title: Billing
+        url: /en/solutions/back-office/
         body: >-
           The invoice comes out of what was done, not out of a reconstruction
           at the end of the month.

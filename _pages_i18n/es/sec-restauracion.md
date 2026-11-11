@@ -6,7 +6,7 @@ ref: hospitality
 form_sector: Restauración
 blocks:
   - type: hero
-    eyebrow: Sector · Restauración
+    eyebrow: Software y automatización para restaurantes y hostelería
     title: Montaste un restaurante, no una gestoría.
     subtitle: >-
       Pero la semana se va en cuadrar la caja, perseguir papeles, rehacer el
@@ -89,7 +89,7 @@ blocks:
           registran por sociedad y por local.
 
   - type: soluciones
-    title: Qué podemos automatizar, área por área.
+    title: Qué podemos automatizar en tu restaurante, área por área.
     subtitle: >-
       Seis áreas, y en cada una el detalle de lo que deja de hacerse a mano. No
       hace falta empezar por todas: en el diagnóstico decidimos por cuál sale
@@ -127,6 +127,7 @@ blocks:
           - Datos fiscales recogidos al reservar, para que la factura a la empresa no sea una gestión aparte
           - Aviso de lo pendiente de cobro cuando el evento ya ha pasado
       - title: Agente de voz
+        url: /es/soluciones/ia-aplicada/
         body: >-
           El teléfono deja de competir con la sala en pleno servicio.
         bullets:
@@ -135,6 +136,7 @@ blocks:
           - "Responde a lo que siempre se pregunta: horarios, alérgenos y cómo llegar"
           - Pasa la llamada a una persona cuando se sale del guion
       - title: Facturas de compra y proveedores
+        url: /es/soluciones/back-office/
         body: >-
           Las facturas de proveedor dejan de picarse una a una.
         bullets:
