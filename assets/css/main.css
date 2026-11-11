@@ -914,3 +914,99 @@ a.b-card:hover { border-color: var(--secondary); transform: translateY(-2px); co
   .b-fundador--plain .b-fundador-media { min-height: 0; }
   .b-fundador--plain .b-fundador-photo { height: auto; aspect-ratio: 3 / 2; object-position: center 22%; }
 }
+
+/* Método (cómo trabajamos) --------------------------------------------
+   Pasos agrupados con una franja lateral ("Sin coste", "Implantación") y
+   una raya de decisión entre grupos. En móvil la franja pasa a etiqueta
+   horizontal encima del grupo. */
+.b-metodo { padding: 5rem 0; }
+.b-metodo .section-heading { margin-bottom: 2.5rem; }
+.b-metodo-group { display: grid; grid-template-columns: 2.6rem 1fr; gap: 1.25rem; }
+.b-metodo-rail {
+  margin: 0; border-radius: 999px; background: var(--bg-accent); color: var(--primary);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem 0;
+}
+.b-metodo-group--first .b-metodo-rail { background: var(--secondary); color: #fff; }
+.b-metodo-rail span {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+}
+.b-metodo-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.b-metodo-step {
+  background: var(--raised); border: 1px solid var(--rule);
+  border-radius: var(--radius-lg); padding: 1.4rem 1.6rem;
+}
+.b-metodo-head { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; }
+.b-metodo-num {
+  font-family: var(--serif-heading); font-weight: 700; font-size: .95rem;
+  color: var(--secondary); min-width: 1.6rem;
+}
+.b-metodo-head h3 { font-size: 1.2rem; margin: 0; flex: 1 1 auto; }
+.b-metodo-tag {
+  font-size: .8rem; font-weight: 500; color: var(--primary); background: var(--bg-accent);
+  border-radius: 999px; padding: .2rem .8rem; white-space: nowrap;
+}
+.b-metodo-tag--on { background: var(--secondary); color: #fff; }
+.b-metodo-step > p { margin: .45rem 0 0 2.5rem; color: var(--ink-soft); }
+
+.b-metodo-decision {
+  display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0 1.5rem 3.85rem;
+}
+.b-metodo-decision::before, .b-metodo-decision::after {
+  content: ""; flex: 1; height: 1px; background: var(--rule);
+}
+.b-metodo-decision span {
+  background: var(--primary); color: #fff; border-radius: 999px;
+  padding: .45rem 1.3rem; font-size: .92rem; font-weight: 500;
+}
+
+/* Fases dentro del paso de construcción */
+.b-fases {
+  display: flex; align-items: center; gap: 1rem; margin: 1.4rem 0 .2rem 2.5rem;
+}
+.b-fase {
+  flex: 1 1 0; border: 1px solid var(--rule); border-radius: var(--radius);
+  background: var(--surface); overflow: hidden;
+}
+.b-fase-head {
+  margin: 0; padding: .55rem 1rem; background: var(--bg-accent); text-align: center;
+  display: flex; flex-direction: column; line-height: 1.35;
+}
+.b-fase-head strong { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); font-size: .95rem; }
+.b-fase-head span { font-size: .78rem; color: var(--secondary); }
+.b-fase-hitos {
+  list-style: none; margin: 0; padding: .9rem .6rem .8rem;
+  display: grid; grid-template-columns: 1fr 1fr .6fr; text-align: center;
+}
+.b-fase-hitos li { font-size: .8rem; color: var(--ink-soft); line-height: 1.3; display: flex; flex-direction: column; align-items: center; }
+.b-fase-hitos li::before {
+  content: ""; width: .6rem; height: .6rem; border-radius: 50%;
+  background: var(--secondary); margin-bottom: .45rem;
+}
+.b-fase-hitos li.b-fase-mas::before { background: var(--rule); }
+.b-fase-hitos strong { font-weight: 600; color: var(--primary); }
+.b-fases-loop {
+  flex: 0 0 7.5rem; display: flex; flex-direction: column; align-items: center; gap: .45rem;
+  text-align: center; font-size: .8rem; line-height: 1.3; color: var(--ink);
+}
+.b-fases-loop-icon {
+  width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.b-fases-mas { color: var(--muted); letter-spacing: .1em; }
+
+@media (max-width: 760px) {
+  .b-metodo-group { grid-template-columns: 1fr; gap: .75rem; }
+  .b-metodo-rail { justify-self: start; padding: .3rem .9rem; }
+  .b-metodo-rail span { writing-mode: horizontal-tb; transform: none; }
+  .b-metodo-decision { margin-left: 0; }
+  .b-metodo-step > p, .b-fases { margin-left: 0; }
+  .b-fases { flex-direction: column; align-items: stretch; }
+  .b-fase { flex: none; }
+  .b-fases-loop { flex: none; flex-direction: row; justify-content: center; text-align: left; }
+  .b-fases-mas { text-align: center; }
+}
+@media (max-width: 620px) {
+  .b-metodo { padding: 3rem 0; }
+  .b-metodo-step { padding: 1.2rem 1.2rem; }
+}

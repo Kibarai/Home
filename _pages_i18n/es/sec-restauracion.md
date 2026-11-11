@@ -162,7 +162,7 @@ blocks:
     body: >-
       Ningún restaurante tiene los cinco problemas a la vez, y ninguno los
       arregla todos de golpe. En 30 minutos miramos cómo lo llevas hoy y
-      salimos con uno: el proceso que más tiempo te devuelve, lo que costaría
-      ponerlo en marcha y cuándo estaría funcionando.
+      salimos con uno: el proceso que más tiempo te devuelve. En una o dos
+      semanas lo ves en un prototipo, con su precio cerrado.
     form: true
 ---

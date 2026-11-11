@@ -167,7 +167,7 @@ blocks:
     body: >-
       No restaurant has all five problems at once, and none of them get fixed
       in one go. In 30 minutes we look at how you run things today and come out
-      with one: the process that gives you back the most time, what it would
-      cost to set up and when it would be running.
+      with one: the process that gives you back the most time. In one or two
+      weeks you see it in a prototype, with its fixed price.
     form: true
 ---

@@ -152,6 +152,46 @@ content:
               - { name: cta_label, label: Botón — texto, type: string }
               - { name: cta_url, label: Botón — URL (vacío = agenda), type: string }
 
+          - name: metodo
+            label: Cómo trabajamos (pasos por grupos)
+            fields:
+              - { name: eyebrow, label: Antetítulo, type: string }
+              - { name: title, label: Título, type: string }
+              - { name: subtitle, label: Subtítulo, type: text }
+              - { name: decision, label: Texto entre grupos (ej. Tú decides si seguir), type: string }
+              - name: groups
+                label: Grupos
+                type: object
+                list: true
+                fields:
+                  - { name: label, label: Nombre del grupo (franja lateral), type: string }
+                  - name: steps
+                    label: Pasos (se numeran solos, seguidos entre grupos)
+                    type: object
+                    list: true
+                    fields:
+                      - { name: title, label: Título, type: string }
+                      - { name: tag, label: Etiqueta de plazo, type: string }
+                      - { name: highlight, label: Resaltar la etiqueta, type: boolean }
+                      - { name: body, label: Descripción, type: text }
+                      - { name: fases_loop, label: Texto entre fases, type: string }
+                      - name: fases
+                        label: Esquema de fases (opcional)
+                        type: object
+                        list: true
+                        fields:
+                          - { name: title, label: Fase, type: string }
+                          - { name: note, label: Nota, type: string }
+                          - name: hitos
+                            label: Hitos
+                            type: object
+                            list: true
+                            fields:
+                              - { name: label, label: Hito, type: string }
+                              - { name: note, label: Nota, type: string }
+              - { name: cta_label, label: Botón — texto, type: string }
+              - { name: cta_url, label: Botón — URL (vacío = agenda), type: string }
+
           - name: fundador
             label: Fundador
             fields:

@@ -68,6 +68,7 @@ blocks:
     title: ¿No sabes por cuál empezar?
     body: >-
       Para eso está el diagnóstico. 30 minutos y sales sabiendo qué proceso
-      tiene más retorno en tu caso y qué costaría ponerlo en marcha.
+      tiene más retorno en tu caso, y en una o dos semanas lo ves en un
+      prototipo con su precio cerrado.
     form: true
 ---

@@ -103,21 +103,44 @@ blocks:
         body: Control de obra, certificaciones, costes y subcontratas.
         url: /es/sectores/construccion/
 
-  - type: proceso
+  - type: metodo
+    eyebrow: Cómo trabajamos
     title: Ves cómo funciona antes de aprobar nada.
-    subtitle: >-
-      Cinco pasos, en este orden. El prototipo va antes que el presupuesto.
-    steps:
-      - title: Diagnóstico
-        body: 30 minutos y gratis. Miramos tu operativa y salimos con los procesos que se pueden automatizar.
-      - title: Prototipo
-        body: Construimos una maqueta navegable de lo que tendrías. La ves y la tocas antes de aprobar ningún presupuesto.
-      - title: Precio cerrado
-        body: Presupuesto por fases con el alcance escrito. Sabes lo que cuesta cada fase antes de empezarla.
-      - title: Construcción
-        body: Entregas parciales, y una demo contigo en cada entrega para que compruebes el avance en pantalla.
-      - title: Estabilización
-        body: Acompañamiento hasta que el proceso corre solo y tu equipo lo maneja sin nosotros.
+    subtitle: Cinco pasos, en este orden. Los tres primeros no tienen coste para ti.
+    decision: Tú decides si seguir
+    groups:
+      - label: Sin coste
+        steps:
+          - title: Diagnóstico
+            tag: Día 1 · 30 min
+            highlight: true
+            body: Miramos tu operativa y detectamos qué procesos se pueden automatizar.
+          - title: Prototipo
+            tag: 1–2 semanas después
+            body: Maqueta navegable de lo que tendrías. La ves y la pruebas antes de aprobar nada.
+          - title: Plan con precio cerrado
+            tag: Junto al prototipo
+            body: Presupuesto de la primera fase con el alcance, los plazos y todos los costes por escrito.
+      - label: Implantación
+        steps:
+          - title: Construcción por fases
+            tag: Entrega cada 2 semanas
+            body: Cada fase tiene su propio presupuesto. Al terminar una, puede hacerse un nuevo diagnóstico para plantear la siguiente.
+            fases_loop: Diagnóstico y presupuesto de la siguiente
+            fases:
+              - title: Fase 1
+                note: Presupuesto propio
+                hitos:
+                  - { label: Sem 2, note: Entrega }
+                  - { label: Sem 4, note: Entrega }
+              - title: Fase 2
+                note: Presupuesto propio
+                hitos:
+                  - { label: Sem 2, note: Entrega }
+                  - { label: Sem 4, note: Entrega }
+          - title: Estabilización
+            tag: Tras la última fase
+            body: Acompañamiento hasta que el proceso corre solo. El código y la infraestructura son tuyos.
 
   - type: fundador
     title: Primero el proceso. La herramienta, después.
@@ -159,15 +182,15 @@ blocks:
         title: Horas recuperables
         body: Estimación de las horas por persona y semana que puedes recuperar. Con tus números, no con promedios.
       - label: min 25–30
-        title: Un plan con precio cerrado
-        body: Por qué proceso empezar, cuánto cuesta y cuándo estaría en producción.
+        title: Por dónde empezar
+        body: El proceso con más retorno y lo que verás en el prototipo, que te llega en una o dos semanas con su precio cerrado.
     cta_label: Reservar mi diagnóstico
 
   - type: cta
-    title: 30 minutos y sales con un plan.
+    title: 30 minutos y sabes por dónde empezar.
     body: >-
-      Diagnóstico gratuito. Identificamos el proceso con mayor retorno y te
-      damos el plan, con su precio y su plazo.
+      Diagnóstico gratuito. Identificamos el proceso con mayor retorno y en
+      una o dos semanas te enseñamos el prototipo, con su precio cerrado.
     notes:
       - Respuesta en 24 h laborables
       - Precio cerrado por fases

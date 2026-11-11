@@ -1,0 +1,71 @@
+{%- comment -%}
+  Cómo trabajamos: los pasos en grupos ("Sin coste", "Implantación") con una
+  raya de decisión entre grupo y grupo. La numeración sigue de un grupo a otro.
+
+  Un paso puede llevar `fases`: el esquema de fases con sus entregas y, entre
+  fase y fase, el texto de `fases_loop` (el diagnóstico de la siguiente).
+  Todo es texto real, no imagen: Google lo lee y se traduce desde el CMS.
+{%- endcomment -%}
+{%- assign b = include.b -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign n = 0 -%}
+<section class="b-metodo{% if include.alt %} section-alt{% endif %}">
+  <div class="container">
+    {% if b.title %}
+      <div class="section-heading">
+        {% if b.eyebrow %}<p class="eyebrow">{{ b.eyebrow }}</p>{% endif %}
+        <h2>{{ b.title }}</h2>
+        {% if b.subtitle %}<p class="lede">{{ b.subtitle }}</p>{% endif %}
+      </div>
+    {% endif %}
+
+    {% for g in b.groups %}
+      {% unless forloop.first %}
+        {% if b.decision %}<p class="b-metodo-decision"><span>{{ b.decision }}</span></p>{% endif %}
+      {% endunless %}
+      <div class="b-metodo-group{% if forloop.first %} b-metodo-group--first{% endif %}">
+        <p class="b-metodo-rail"><span>{{ g.label }}</span></p>
+        <ol class="b-metodo-steps" start="{{ n | plus: 1 }}">
+          {% for s in g.steps %}
+            {%- assign n = n | plus: 1 -%}
+            <li class="b-metodo-step">
+              <div class="b-metodo-head">
+                <span class="b-metodo-num">{{ n | prepend: '0' | slice: -2, 2 }}</span>
+                <h3>{{ s.title }}</h3>
+                {% if s.tag %}<span class="b-metodo-tag{% if s.highlight %} b-metodo-tag--on{% endif %}">{{ s.tag }}</span>{% endif %}
+              </div>
+              <p>{{ s.body }}</p>
+
+              {% if s.fases %}
+                <div class="b-fases">
+                  {% for f in s.fases %}
+                    {% unless forloop.first %}
+                      <div class="b-fases-loop">
+                        <span class="b-fases-loop-icon" aria-hidden="true">
+                          <svg width="16" height="16" viewBox="0 0 16 16"><path d="M13 8a5 5 0 1 1-1.6-3.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M11.6 1.6v3h-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span>{{ s.fases_loop }}</span>
+                      </div>
+                    {% endunless %}
+                    <div class="b-fase">
+                      <p class="b-fase-head"><strong>{{ f.title }}</strong>{% if f.note %}<span>{{ f.note }}</span>{% endif %}</p>
+                      <ul class="b-fase-hitos">
+                        {% for h in f.hitos %}<li><strong>{{ h.label }}</strong>{{ h.note }}</li>{% endfor %}
+                        <li class="b-fase-mas" aria-hidden="true"><strong>…</strong></li>
+                      </ul>
+                    </div>
+                  {% endfor %}
+                  <span class="b-fases-mas" aria-hidden="true">…</span>
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    {% endfor %}
+
+    {% if b.cta_label %}
+      <p class="b-proceso-cta"><a class="btn btn-primary" href="{{ b.cta_url | default: t.contact.booking_url }}" target="_blank" rel="noopener">{{ b.cta_label }}</a></p>
+    {% endif %}
+  </div>
+</section>

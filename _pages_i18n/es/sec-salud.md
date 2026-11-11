@@ -107,6 +107,6 @@ blocks:
     title: ¿Cuánto tarda en cerrarse el mes?
     body: >-
       Si la respuesta se mide en semanas, hay margen. 30 minutos y sales
-      sabiendo cuánto se puede recortar y qué costaría.
+      sabiendo cuánto se puede recortar.
     form: true
 ---

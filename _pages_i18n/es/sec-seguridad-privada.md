@@ -156,7 +156,7 @@ blocks:
     body: >-
       Cada empresa de seguridad tiene los suyos y nadie los tapa todos a la
       vez. En 30 minutos vemos cómo lo llevas hoy y salimos con uno: el proceso
-      que más tiempo le devuelve a tu equipo, lo que costaría ponerlo en marcha
-      y cuándo estaría funcionando.
+      que más tiempo le devuelve a tu equipo. En una o dos semanas lo ves en un
+      prototipo, con su precio cerrado.
     form: true
 ---

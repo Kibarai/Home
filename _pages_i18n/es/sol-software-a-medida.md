@@ -51,7 +51,7 @@ blocks:
     items:
       - title: Prototipo primero
         body: Una maqueta navegable que ves y tocas antes de aprobar ningún presupuesto.
-      - title: Entregas parciales
+      - title: Entregas cada dos semanas
         body: Y una demo contigo en cada entrega, para que compruebes el avance en pantalla y corrijas por el camino.
       - title: Precio cerrado por fases
         body: Sabes lo que cuesta cada fase antes de empezarla.
@@ -61,7 +61,7 @@ blocks:
   - type: cta
     title: Cuéntanos qué Excel te quita el sueño.
     body: >-
-      En 30 minutos sales con el alcance de lo que habría que construir, el
-      plazo y el precio.
+      En 30 minutos vemos qué habría que construir. En una o dos semanas
+      tienes el prototipo navegable y el precio cerrado, sin coste.
     form: true
 ---

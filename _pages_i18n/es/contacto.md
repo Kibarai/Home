@@ -7,7 +7,7 @@ form_sector: Contacto
 blocks:
   - type: hero
     eyebrow: Contacto
-    title: 30 minutos y sales con un plan.
+    title: 30 minutos y sabes por dónde empezar.
     subtitle: >-
       La forma más rápida de empezar es reservar el diagnóstico directamente en
       mi agenda. Si prefieres escribir primero, también vale.
@@ -38,13 +38,13 @@ blocks:
         title: Horas recuperables
         body: Estimación de las horas por persona y semana que puedes recuperar. Con tus números, no con promedios.
       - label: min 25–30
-        title: Un plan con precio cerrado
-        body: Por qué proceso empezar, cuánto cuesta y cuándo estaría en producción.
+        title: Por dónde empezar
+        body: El proceso con más retorno y lo que verás en el prototipo, que te llega en una o dos semanas con su precio cerrado.
 
   - type: cta
     title: Cuéntame qué te está costando tiempo.
     body: >-
-      30 minutos y sales con el proceso por el que empezar y con lo que
-      cuesta.
+      30 minutos y sales con el proceso por el que empezar. El prototipo y el
+      precio cerrado llegan en una o dos semanas, sin coste.
     form: true
 ---

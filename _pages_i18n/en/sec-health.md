@@ -107,6 +107,6 @@ blocks:
     title: How long does the month take to close?
     body: >-
       If the answer is measured in weeks, there is room. 30 minutes and you
-      leave knowing how much can be cut and what it would cost.
+      leave knowing how much can be cut.
     form: true
 ---

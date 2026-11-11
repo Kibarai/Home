@@ -78,7 +78,7 @@ blocks:
   - type: cta
     title: How many hours a month go into this?
     body: >-
-      In 30 minutes we estimate it with you and you leave with the figure, the
-      process to start with and what it costs.
+      In 30 minutes we estimate it with you and you leave with the figure and
+      the process to start with.
     form: true
 ---

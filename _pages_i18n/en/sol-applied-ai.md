@@ -50,6 +50,6 @@ blocks:
     title: Where does AI fit in your case?
     body: >-
       In 30 minutes we look at your volumes and you leave with the specific
-      processes where it pays, in what order and what it costs.
+      processes where it pays and in what order.
     form: true
 ---

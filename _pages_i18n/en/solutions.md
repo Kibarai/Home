@@ -67,7 +67,7 @@ blocks:
     title: Not sure which one to start with?
     body: >-
       That is what the diagnostic is for. 30 minutes and you leave knowing
-      which process has the highest return in your case and what it would cost
-      to get it running.
+      which process has the highest return in your case, and in one or two
+      weeks you see it in a prototype with its fixed price.
     form: true
 ---

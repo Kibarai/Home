@@ -50,6 +50,6 @@ blocks:
     title: ¿Dónde encaja la IA en tu caso?
     body: >-
       En 30 minutos miramos tus volúmenes y sales con los procesos concretos
-      donde aporta, en qué orden y qué cuesta.
+      donde aporta y en qué orden.
     form: true
 ---

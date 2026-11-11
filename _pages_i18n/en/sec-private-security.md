@@ -163,7 +163,7 @@ blocks:
     body: >-
       Every security company has its own, and nobody closes them all at once.
       In 30 minutes we look at how you run things today and come out with one:
-      the process that gives your team back the most time, what it would cost
-      to set up and when it would be running.
+      the process that gives your team back the most time. In one or two weeks
+      you see it in a prototype, with its fixed price.
     form: true
 ---

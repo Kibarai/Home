@@ -104,21 +104,44 @@ blocks:
         body: Site control, certifications, costs and subcontractors.
         url: /en/sectors/construction/
 
-  - type: proceso
+  - type: metodo
+    eyebrow: How we work
     title: You see it working before you approve anything.
-    subtitle: >-
-      Five steps, in this order. The prototype comes before the quote.
-    steps:
-      - title: Diagnostic
-        body: 30 minutes, free. We look at your operation and come out with the processes that can be automated.
-      - title: Prototype
-        body: We build a clickable mock-up of what you would get. You see it and use it before approving any quote.
-      - title: Fixed price
-        body: A quote per phase with the scope in writing. You know what each phase costs before it starts.
-      - title: Build
-        body: Partial deliveries, with a demo for you at each one so you can see the progress on screen.
-      - title: Stabilisation
-        body: We stay with you until the process runs on its own and your team handles it without us.
+    subtitle: Five steps, in this order. The first three cost you nothing.
+    decision: You decide whether to continue
+    groups:
+      - label: No cost
+        steps:
+          - title: Diagnostic
+            tag: Day 1 · 30 min
+            highlight: true
+            body: We look at your operation and identify which processes can be automated.
+          - title: Prototype
+            tag: 1–2 weeks later
+            body: A clickable mock-up of what you would get. You see it and try it before approving anything.
+          - title: Fixed-price plan
+            tag: With the prototype
+            body: A quote for the first phase with the scope, the timeline and every cost in writing.
+      - label: Implementation
+        steps:
+          - title: Build in phases
+            tag: Delivery every 2 weeks
+            body: Each phase has its own quote. When one ends, a new diagnostic can be run to plan the next.
+            fases_loop: Diagnostic and quote for the next one
+            fases:
+              - title: Phase 1
+                note: Its own quote
+                hitos:
+                  - { label: Week 2, note: Delivery }
+                  - { label: Week 4, note: Delivery }
+              - title: Phase 2
+                note: Its own quote
+                hitos:
+                  - { label: Week 2, note: Delivery }
+                  - { label: Week 4, note: Delivery }
+          - title: Stabilisation
+            tag: After the last phase
+            body: We stay with you until the process runs on its own. The code and the infrastructure are yours.
 
   - type: fundador
     title: The process first. The tool after.
@@ -160,15 +183,15 @@ blocks:
         title: Recoverable hours
         body: An estimate of the hours per person per week you can win back. Using your numbers, not averages.
       - label: min 25–30
-        title: A plan with a fixed price
-        body: Which process to start with, what it costs and when it would be in production.
+        title: Where to start
+        body: The process with the highest return and what you will see in the prototype, which reaches you in one or two weeks with its fixed price.
     cta_label: Book my diagnostic
 
   - type: cta
-    title: 30 minutes and you leave with a plan.
+    title: 30 minutes and you know where to start.
     body: >-
-      A free diagnostic. We identify the process with the highest return and
-      give you the plan, with its price and its timeline.
+      A free diagnostic. We identify the process with the highest return and,
+      in one or two weeks, show you the prototype with its fixed price.
     notes:
       - Reply within 24 working hours
       - Fixed price per phase

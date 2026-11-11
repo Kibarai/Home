@@ -7,7 +7,7 @@ form_sector: Contact
 blocks:
   - type: hero
     eyebrow: Contact
-    title: 30 minutes and you leave with a plan.
+    title: 30 minutes and you know where to start.
     subtitle: >-
       The quickest way to start is to book the diagnostic straight into my
       calendar. If you would rather write first, that works too.
@@ -38,13 +38,13 @@ blocks:
         title: Recoverable hours
         body: An estimate of the hours per person per week you can win back. Using your numbers, not averages.
       - label: min 25–30
-        title: A plan with a fixed price
-        body: Which process to start with, what it costs and when it would be in production.
+        title: Where to start
+        body: The process with the highest return and what you will see in the prototype, which reaches you in one or two weeks with its fixed price.
 
   - type: cta
     title: Tell me what is costing you time.
     body: >-
-      30 minutes and you leave with the process to start with and what it
-      costs.
+      30 minutes and you leave with the process to start with. The prototype
+      and the fixed price follow in one or two weeks, at no cost.
     form: true
 ---

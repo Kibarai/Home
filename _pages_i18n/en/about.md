@@ -49,8 +49,8 @@ blocks:
           responsibility never changes hands.
       - title: Fixed price per phase
         body: >-
-          The diagnostic is free and produces a proposal with the scope in
-          writing. You know what each phase costs before it starts, and
+          The diagnostic, the prototype and the proposal with the scope in
+          writing cost you nothing. You know what each phase costs before it starts, and
           everything runs on your infrastructure and under your accounts.
       - title: The code and the data are yours
         body: >-
@@ -86,7 +86,7 @@ blocks:
   - type: cta
     title: Let's talk for 30 minutes.
     body: >-
-      A free diagnostic, directly with me. I tell you how I would do it and
-      for how much.
+      A free diagnostic, directly with me. I tell you how I would do it, and in
+      one or two weeks I show you the prototype with its fixed price.
     form: true
 ---

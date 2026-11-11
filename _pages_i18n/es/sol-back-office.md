@@ -79,7 +79,7 @@ blocks:
   - type: cta
     title: ¿Cuántas horas al mes se van en esto?
     body: >-
-      En 30 minutos lo estimamos contigo y sales con la cifra, el proceso por
-      el que empezar y lo que cuesta.
+      En 30 minutos lo estimamos contigo y sales con la cifra y el proceso por
+      el que empezar.
     form: true
 ---

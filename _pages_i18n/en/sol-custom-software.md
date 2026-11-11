@@ -51,7 +51,7 @@ blocks:
     items:
       - title: Prototype first
         body: A clickable mock-up you see and use before approving any quote.
-      - title: Partial deliveries
+      - title: Deliveries every two weeks
         body: With a demo for you at each one, so you can check the progress on screen and correct course along the way.
       - title: Fixed price per phase
         body: You know what each phase costs before it starts.
@@ -61,7 +61,7 @@ blocks:
   - type: cta
     title: Tell us which spreadsheet keeps you up at night.
     body: >-
-      In 30 minutes you leave with the scope of what would need building, the
-      timeline and the price.
+      In 30 minutes we see what would need building. In one or two weeks you
+      have the clickable prototype and the fixed price, at no cost.
     form: true
 ---

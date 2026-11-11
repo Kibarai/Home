@@ -62,7 +62,7 @@ contact:
   form_endpoint: ""
 form:
   title: Book your free diagnostic
-  subtitle: 30 minutes. We tell you whether we can help, how we would do it and what it costs.
+  subtitle: 30 minutes. We tell you whether we can help and how we would do it. The prototype and the fixed price come next, at no cost.
   subject: Diagnostic request
   honeypot: Leave this empty
   name: Name

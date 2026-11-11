@@ -48,8 +48,8 @@ blocks:
           responsabilidad no cambia de manos.
       - title: Precio cerrado por fases
         body: >-
-          El diagnóstico es gratuito y de ahí sale una propuesta con el alcance
-          escrito. Sabes lo que cuesta cada fase antes de empezarla, y todo
+          Diagnóstico, prototipo y propuesta con el alcance escrito no te
+          cuestan nada. Sabes lo que cuesta cada fase antes de empezarla, y todo
           corre en tu infraestructura y con tus cuentas.
       - title: El código y los datos son tuyos
         body: >-
@@ -86,7 +86,7 @@ blocks:
   - type: cta
     title: Hablemos 30 minutos.
     body: >-
-      Diagnóstico gratuito directamente conmigo. Te digo cómo lo haría y por
-      cuánto.
+      Diagnóstico gratuito directamente conmigo. Te digo cómo lo haría, y en
+      una o dos semanas te enseño el prototipo con su precio cerrado.
     form: true
 ---
