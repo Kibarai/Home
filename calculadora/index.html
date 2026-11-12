@@ -18,11 +18,11 @@ sitemap: false
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora de horas recuperables · Kibarai</title>
+<title>Carlos Jiménez · El automatizador</title>
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Calcula cuántas horas y cuánto dinero recupera tu equipo al año automatizando sus procesos repetitivos, y descárgate el cálculo en PDF.">
-<meta property="og:title" content="¿Cuántas horas te devuelve automatizar?">
-<meta property="og:description" content="Calculadora gratuita de horas recuperables. Te llevas el cálculo en PDF.">
+<meta name="description" content="La newsletter de Carlos Jiménez, el automatizador: qué quitar primero, cómo usar la IA de verdad y cuánto podrías ahorrarte en tiempo y en dinero. De regalo, la calculadora de horas recuperables.">
+<meta property="og:title" content="Ahora mismo, alguien en tu empresa está copiando datos de un Excel a otro">
+<meta property="og:description" content="Y le pagas por ello. Apúntate a la newsletter de Carlos Jiménez y llévate de regalo la calculadora de horas recuperables.">
 <meta property="og:image" content="{{ '/assets/img/og-es.png' | absolute_url }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:type" content="website">
@@ -44,17 +44,13 @@ body { font-family: var(--sans); font-weight: 300; font-size: 16px; line-height:
 h1,h2,h3 { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); line-height: 1.2; letter-spacing: -0.01em; }
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-header.top { border-bottom: 1px solid var(--rule); background: #fff; }
-header.top .container { display: flex; justify-content: space-between; align-items: center; height: 76px; }
-header.top svg { height: 40px; width: auto; display: block; }
-header.top a { font-size: .9rem; font-weight: 500; color: var(--primary); text-decoration: none; border: 2px solid var(--secondary); border-radius: 999px; padding: 8px 20px; }
 
 .hero { background: var(--bg-soft); padding: 56px 0 48px; }
 .eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--secondary); display: block; margin-bottom: 10px; }
 .hero h1 { font-size: clamp(2rem, 4vw, 2.9rem); max-width: 18ch; margin-bottom: 14px; }
 .hero p { font-size: 1.12rem; color: var(--ink-soft); max-width: 44rem; }
 
-main { padding: 48px 0 80px; }
+.calc-body { padding: 48px 0 80px; }
 .grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; align-items: start; }
 
 .card { background: var(--bg-soft); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 28px; }
@@ -116,26 +112,73 @@ input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
 .status { font-size: .82rem; margin-top: 10px; min-height: 1.2em; color: #c7d2ea; }
 .note { font-size: .8rem; color: var(--muted); margin-top: 14px; line-height: 1.55; }
 
-footer { background: var(--primary); color: rgba(255,255,255,.85); padding: 40px 0; font-size: .9rem; }
-footer .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-footer svg { height: 34px; width: auto; display: block; }
 
-/* Acceso: nombre y email antes de usar la calculadora */
-.gate { max-width: 560px; margin: 0 auto; }
-.gate .card { background: #fff; box-shadow: 0 18px 40px -28px rgba(22,44,64,.45); }
-.gate form { display: grid; gap: 16px; margin-top: 18px; }
-.gate input[type=email] { width: 100%; font: 400 .95rem var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); padding: 11px 14px; outline: none; }
-.gate input[type=email]:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px var(--bg-accent); }
-.gate .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: .85rem; color: var(--ink-soft); line-height: 1.5; margin: 0; }
-.gate .check input { margin-top: 3px; flex: none; width: 16px; height: 16px; accent-color: var(--secondary); }
-.gate .check a, .gate .legal a { color: var(--tertiary); }
-.gate .btn { width: 100%; text-align: center; }
-.gate .legal { font-size: .78rem; color: var(--muted); line-height: 1.55; }
-.gate .err { font-size: .85rem; color: #b42318; min-height: 1.2em; }
-.gate-iframe { display: none; }
+/* ---------- Página de la newsletter (antes de suscribirse) ----------
+   Formato carta: una columna, texto que se lee de arriba abajo y el
+   formulario dentro del texto, no flotando. */
+.carta { max-width: 660px; margin: 0 auto; padding: 64px 24px 88px; }
+.autor-top { display: flex; align-items: center; gap: 18px; margin-bottom: 40px; }
+.autor-top img { width: 96px; height: 104px; object-fit: cover; object-position: center 20%; border-radius: var(--radius-lg); flex: none; }
+.carta .autor-top p { margin: 0; }
+.carta .autor-nombre { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); font-size: 1.35rem; line-height: 1.2; }
+.carta .autor-sub { font-size: 1rem; color: var(--secondary); font-weight: 500; letter-spacing: .02em; margin-top: 4px; }
+.carta h1 { font-size: clamp(2rem, 4.4vw, 2.9rem); margin-bottom: 18px; }
+.carta h2 { font-size: 1.45rem; margin: 48px 0 14px; }
+.carta p, .carta li { font-size: 1.12rem; color: var(--ink-soft); }
+.carta p + p { margin-top: 14px; }
+.carta .golpe { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); font-size: 1.3rem; }
+.carta strong { font-weight: 600; color: var(--ink); }
+.carta ul { list-style: none; display: grid; gap: 14px; margin-top: 16px; }
+.carta ul li { position: relative; padding-left: 26px; }
+.carta ul li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 10px; height: 2px; background: var(--secondary); }
+.carta .no li::before { content: "×"; width: auto; height: auto; background: none; top: 0; left: 3px; color: var(--muted); font-weight: 500; }
+.carta .firma { display: flex; gap: 18px; align-items: center; margin-top: 22px; }
+.carta .firma img { width: 72px; height: 80px; object-fit: cover; object-position: center 20%; border-radius: var(--radius); flex: none; }
+.carta .firma p { font-size: .95rem; margin: 0; }
+.carta .firma b { color: var(--primary); font-weight: 600; }
+.carta ul + p { margin-top: 20px; }
+.carta em { font-style: normal; font-weight: 500; color: var(--ink); }
+.cta-in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 30px 0 6px; }
+.cta-in span { font-size: .9rem; color: var(--muted); }
+.cuenta { margin: 22px 0; padding: 22px 24px; background: var(--primary); border-radius: var(--radius); }
+.cuenta p { color: rgba(255,255,255,.85) !important; margin: 0 !important; }
+.cuenta p + p { margin-top: 8px !important; }
+.cuenta strong { color: #fff; font-family: var(--serif-heading); font-weight: 600; }
+.cuenta .tag { display: inline-block; margin-bottom: 10px; font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #c7d2ea; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 2px 9px; }
+.carta .pd2 { margin-top: 14px; font-size: 1rem; }
+.carta .pd2 a { color: var(--tertiary); }
+
+.carta .pd { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 1rem; }
+.carta .final { margin-top: 30px; }
+
+/* Formulario dentro de la carta */
+.alta { margin: 36px 0 8px; padding: 28px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 4px solid var(--secondary); border-radius: var(--radius); scroll-margin-top: 24px; }
+.alta h2 { margin: 0 0 6px; font-size: 1.3rem; }
+.alta .hint { font-size: .98rem !important; color: var(--ink-soft); margin: 0; }
+.alta form { display: grid; gap: 14px; margin-top: 18px; }
+.alta .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.alta input[type=email] { width: 100%; font: 400 .95rem var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); padding: 11px 14px; outline: none; }
+.alta input[type=email]:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px var(--bg-accent); }
+.alta .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: .85rem; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+.alta .check input { margin-top: 3px; flex: none; width: 16px; height: 16px; accent-color: var(--secondary); }
+.alta a { color: var(--tertiary); }
+.alta .btn { justify-self: start; }
+.alta .legal { font-size: .76rem !important; color: var(--muted); line-height: 1.55; margin: 0; }
+.alta .err { font-size: .85rem !important; color: #b42318; min-height: 1.2em; margin: -4px 0 -6px; }
+.alta .link { background: none; border: 0; padding: 0; font: inherit; color: var(--tertiary); text-decoration: underline; cursor: pointer; }
 .gate-sent strong { color: var(--primary); font-weight: 600; }
-.gate .link { background: none; border: 0; padding: 0; font: inherit; color: var(--tertiary); text-decoration: underline; cursor: pointer; }
-.calc[hidden], .gate[hidden] { display: none; }
+.gate-sent .legal { margin-top: 12px !important; }
+.gate-iframe { display: none; }
+[hidden] { display: none !important; }
+
+@media (max-width: 600px) {
+  .carta { padding: 40px 20px 64px; }
+  .cta-in .btn { width: 100%; text-align: center; }
+  .carta p, .carta li { font-size: 1.05rem; }
+  .alta { padding: 20px; }
+  .alta .dos { grid-template-columns: 1fr; }
+  .alta .btn { justify-self: stretch; text-align: center; }
+}
 
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
@@ -150,13 +193,160 @@ footer svg { height: 34px; width: auto; display: block; }
 </head>
 <body>
 
-<header class="top">
-  <div class="container">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 350" role="img" aria-label="Kibarai"><path fill="#000" d="M396 305c-1-1-3-1-4-1c-5 0-7 0-8-1c-1 0-2-1-3-1c0 0-2-1-3-1c0 0-2-1-2-1c-1 0-2 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-1-1-1-1c-1 0-4-2-5-3c-2-2-6-6-6-7c-1 0-2-1-3-1c0 0 0 0 0 7l-1 7 0 0l-1 1-26 0c-21 0-26 0-27 0c0-1 0-245 0-247c0 0 0-1 1-1l0-1 26 0c27 0 26 0 27 1c0 1 0 2 0 54c0 35 1 52 1 53c0 1 2 0 5-3c1-1 2-2 3-2c0 0 1-1 1-1c0 0 1 0 2-1c1 0 2-1 2-1c0 0 1-1 2-1c1-1 2-1 2-1c3-2 5-3 7-3c0 0 2-1 2-1c1 0 3-1 4-1c1 0 3-1 4-1c7-2 24-2 30 0c1 1 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 3 1 4 1c0 0 2 1 2 1c1 0 2 1 2 1c0 0 1 1 2 1c2 1 4 2 4 3c1 0 2 1 2 1c3 1 12 10 15 14c1 0 1 1 2 2c0 0 1 2 2 3c1 1 2 2 2 3c1 0 1 1 1 1c0 0 0 1 1 1c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 3c0 1 1 3 1 3c0 1 1 3 1 4c0 1 1 2 1 3c1 2 1 3 1 8c1 2 1 5 1 7c1 4 1 6 0 11c0 2-1 5-1 7c0 5 0 6-1 8c0 1-1 2-1 3c0 1-1 3-1 3c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 0-1 1-1 2c0 1-1 2-1 2c-1 1-1 2-2 3c-1 1-2 2-2 3c-1 1-1 2-3 4c-2 3-12 13-15 14c0 0-1 1-1 1c0 0-1 1-1 1c-1 0-2 1-3 1c0 0-1 1-2 1c0 1-2 1-3 2c0 0-1 1-2 1c0 0-2 1-3 1c-1 1-2 1-2 1c-1 0-2 1-3 1c-2 0-4 1-4 1c-2 1-3 1-9 1c-3 0-6 1-8 1c-4 0-5 0-8 0zM570 305c-1 0-4-1-7-1c-6 0-7 0-9-1c-1 0-2-1-4-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2 0-2-1c0 0-1 0-2-1c-1 0-2-1-2-1c-1 0-1-1-2-1c-3-2-5-3-5-3c0 0-1-1-2-1c0 0-1-1-1-1c0 0-1-1-3-3c-2-1-4-3-4-4c-1-1-2-2-3-2c-1-1-2-2-2-3c-1 0-1-1-2-2c-1-1-3-4-4-5c0-1-1-2-1-2c-1-1-1-1-1-2c0 0 0 0-1-1c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-1-3c0-1-1-2-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c0-1-1-3-1-4c0-1-1-3-1-4c-1-1-1-3-1-13c-1-6 0-18 1-20c0 0 1-2 1-3c0-2 1-3 1-4c0-1 1-2 1-4c0-1 1-2 1-3c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c1-1 1-2 3-4c0 0 1-1 1-2c2-3 3-4 3-4c0 0 1-1 2-2c1-1 2-2 3-3c1-1 3-3 4-4c2-2 5-4 7-5c0 0 1-1 1-1c1-1 3-2 5-3c1 0 2-1 2-1c0 0 1-1 2-1c1 0 2-1 3-1c0 0 1-1 3-1c1 0 2-1 3-1c0 0 2-1 3-1c1 0 2 0 3-1c6-2 25-2 32 0c1 0 3 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 1 2 1 2 1c0 0 1 0 2 1c0 0 1 1 2 1c5 3 7 4 10 7c3 3 3 3 4 3c0-1 0-2 0-7c0-5 0-6 1-6c0-1 1-1 26-1c28 0 27 0 28 1c0 1 0 31 0 76c0 45 0 75 0 76c-1 1 0 1-28 1c-25 0-26 0-26-1c-1 0-1-1-1-7c0-4 0-7 0-7c-1-1-1-1-2 0c-3 4-5 7-9 9c0 1-1 1-1 1c-2 2-4 3-5 3c0 0-1 1-2 1c0 0-1 1-2 1c-1 0-3 1-3 1c-1 0-2 1-4 1c-1 0-2 1-3 1c-1 0-3 1-5 1c-2 0-4 0-4 1c-2 0-7 0-10 0zM911 305c-1 0-5-1-7-1c-7 0-7 0-9-1c-1 0-3-1-4-1c-1 0-3-1-3-1c-1 0-2 0-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-1c-3-2-4-3-5-3c0 0-1-1-1-1c-1 0-2-1-3-2c-1-1-3-3-4-4c-3-3-6-6-7-7c0-1-1-2-2-3c-1-1-2-2-2-3c-1-1-2-2-2-3c-1 0-2-2-2-2c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c-3-8-4-28-2-38c1-1 1-3 1-3c0-1 1-2 1-3c0-1 1-3 1-4c0-1 1-2 1-3c0-1 1-3 1-3c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 2-4 3-5c2-2 3-3 4-5c2-3 3-4 9-10c3-3 6-5 10-7c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 2-1 2-1c1 0 2-1 3-1c1 0 3-1 3-1c1 0 2-1 3-1c1 0 3 0 3-1c4-1 19-2 26-1c2 0 4 1 6 1c1 0 3 1 4 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 1 1 2 1c1 1 4 3 6 5c3 3 3 3 4 2c0 0 0 0 0-6c1-3 1-6 1-6c0-1 2-1 27-1c27 0 27 0 27 1c1 1 1 151 0 152c0 0 0 1-1 1c-1 0-51 0-52 0c-1-1-2-1-2-8c0-5 0-6 0-7c-1-1-1 0-2 1c-1 1-4 5-6 6c0 1-1 2-2 2c-1 1-2 2-3 2c-1 0-1 1-1 1c-1 0-6 3-7 3c-1 0-2 1-3 1c-1 0-2 1-2 1c-1 0-3 1-4 1c-1 0-3 1-5 1c-3 0-5 1-5 1c-2 0-6 0-9 0zM21 300l-1 0 0-124l0-124 1 0c1-1 1-1 22-1c21 0 21 0 22 1l1 0 0 124c0 98 0 124-1 124c0 0-43 0-44 0zM212 299l0 0 0-76l0-76 0 0c1-1 1-1 27-1l26 0 0 1l1 0 0 76l0 76-1 0l0 1-26 0c-26 0-26 0-27-1zM712 300c0 0 0 0 0-1c-1 0-1-4-1-76l0-76 1 0c1-1 53-1 53 0c1 0 1 2 1 10c0 11 0 13 1 13c0 0 1-1 2-2c2-4 6-8 8-10c1 0 2-1 3-2c0-1 2-2 2-2c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 1-1 2-1c1 0 2-1 3-1c2-1 3-1 6-1c1 0 4-1 5-1c5-1 17-1 18 0c1 0 1 49 0 50c-1 1-1 1-3 0c-1 0-2-1-3-1c-1 0-3-1-4-1c-3-1-6-1-13-1c-7 0-10 0-12 1c0 0-2 1-3 1c-2 0-5 2-7 3c0 0-1 1-1 1c-1 0-4 2-4 3c0 0 0 0-1 1c0 1-2 3-3 4c-2 5-2 6-2 6c0 1-1 2-1 3c0 1-1 2-1 3c0 1-1 4-1 5c-1 5-1 9-1 45c0 26 0 31-1 31c0 1-1 1-26 1c-14 0-26 0-27 0zM1053 300c-1 0-1-1-1-1c0 0 0-34 0-76c0-42 0-76 0-76c0-1 1-1 27-1c23 0 26 0 26 0l1 1 0 76l0 76-1 1c0 0-51 0-52 0zM397 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 2-1c0 0 1-1 1-1c1 0 1-1 2-1c1 0 7-6 7-7c0 0 0 0 1-1c0 0 1-1 1-2c1-1 1-2 1-2c1 0 1-1 1-1c0-1 0-2 1-3c1-2 2-6 2-11c0-3-1-12-2-13c0-1-1-2-1-3c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-4-5c-1-2-5-5-6-6c-1 0-2-1-2-1c0 0-5-3-6-3c0 0-2 0-4-1c-6-1-15 0-23 3c-1 0-2 1-3 1c0 0-1 1-2 1c-1 1-8 7-8 8c0 0 0 0-1 1c0 0-1 1-1 2c0 1-1 1-1 2c0 0-2 3-2 5c-1 1-1 3-2 9c0 4 1 14 2 15c0 0 1 1 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c1 1 1 1 1 1c0 1 1 2 2 3c3 3 5 4 8 6c1 0 2 1 3 1c0 0 1 1 2 1c1 0 2 1 3 1c4 1 16 1 19 0zM596 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 1-1c3-1 9-5 11-9c1-1 1-2 2-3c0 0 1-1 1-2c0 0 1-1 1-2c0-1 1-2 1-3c0-1 1-3 1-3c1-3 1-13 0-17c0-1-1-3-1-3c0-1-1-2-1-3c0-1-1-2-1-2c-2-4-8-11-12-14c-4-2-6-3-12-4c-6-1-18 0-24 4c-1 0-2 1-3 1c0 0-1 1-1 1c-4 3-4 4-5 5c-1 0-2 1-2 2c-1 0-1 1-1 2c-1 0-1 1-1 1c0 0-1 1-1 1c0 1-1 2-1 3c0 0-1 1-1 2c0 1-1 2-1 3l-1 3 0 7l0 6 1 3c0 1 1 2 1 3c0 1 1 2 1 2c0 1 1 2 1 3c0 0 1 1 1 1c0 1 1 2 2 3c2 3 5 6 7 7c1 1 2 1 2 1c0 0 5 3 6 3c1 0 2 1 3 1c3 1 16 1 19 0zM937 257c2-1 3-1 4-1c0 0 1 0 1-1c1 0 2-1 3-1c1 0 2-1 2-1c1-1 1-1 1-1c1 0 5-4 7-6c4-5 7-12 7-18c0-6 0-12-1-15c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-2c0 0-1-1-1-1c-4-6-12-12-17-13c-1 0-2 0-3-1c-4-1-14 0-20 1c-4 2-6 2-6 3c-1 0-2 1-2 1c-2 1-6 4-9 8c-2 2-5 8-5 10c0 1 0 3-1 4c-1 4-1 11 0 15c0 1 1 3 1 3c0 1 1 3 1 4c1 0 1 1 1 2c0 0 1 1 1 1c0 1 1 1 1 2c2 4 6 8 9 9c1 1 1 1 1 1c0 0 6 3 7 3c1 0 2 1 3 1c2 1 5 1 11 1c6 0 6 0 8-1zM234 118c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-2c-2-2-6-7-7-8c0-1-1-2-1-2c0-1-1-2-1-3c0 0-1-2-1-2c-1-3-1-14 0-16c0-1 1-2 1-3c0-1 1-3 1-3c0 0 1-1 1-2c2-4 9-11 13-12c0 0 1-1 2-1c5-3 13-3 19-2c2 1 6 3 8 4c1 1 2 1 2 2c1 0 2 1 2 1c2 1 5 4 6 6c0 1 1 2 1 2c2 2 4 10 4 15c0 4-1 10-2 12c-1 1-1 2-1 2c-1 3-9 11-12 13c-1 0-2 1-2 1c-1 0-2 1-3 1c-1 0-2 1-3 1c-2 1-7 1-12 1zM1074 118c-1 0-2-1-4-1c-1-1-2-1-2-1c-1 0-1 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-2-1-2-2c-5-4-9-9-10-14c0-1-1-3-1-4c-1-2-1-10 0-13c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 1-2c1-3 7-10 9-11c1 0 1-1 2-1c0 0 1-1 2-1c0 0 2-1 2-1c5-3 13-3 19-2c3 1 7 3 8 4c1 0 1 1 2 1c3 2 7 5 8 8c0 0 1 1 1 1c0 1 1 1 1 2c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 2 1 3c1 2 1 10 0 12c0 1-1 3-1 3c0 2-3 7-3 7c0 0 0 1-1 1c-1 3-7 8-10 10c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1c-3 1-9 1-13 1z"/><path fill="#00b6ff" d="M148 330c0-1-1-1-1-1c-1 0-2-1-2-1c-1 0-2-1-3-1c0 0-1-1-1-1c-2-1-8-7-10-8c0-1-1-2-2-3c-1-1-2-3-2-3c-1-1-3-5-3-5c0 0 0-1-1-2c0-1-1-3-1-3c0-1-1-3-1-4c-1-3-1-2-1-49l0-44-1-3c-1-2-1-4-2-4c-1-2-5-5-7-6c-1 0-2-1-2-1c-2 0-3-1-6-1c-4 0-4 2-4-15c0-8 0-14 0-15c1-1 2-1 5-1c3 0 8-1 9-2c0 0 1-1 2-1c1-1 4-4 4-6c2-5 2-2 2-49c0-45 0-44 1-48c0-1 1-3 1-3c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 2-5c1 0 1-1 2-1c0-1 1-2 2-3c3-4 9-10 13-12c4-2 6-2 21-3c5 0 10 0 12 0c5 0 5 0 6 1c0 1 0 2 0 17l0 16 0 1l-1 1-3 0c-3 0-7 1-10 1c-2 1-4 2-5 5c-2 3-2 1-2 45c0 34 0 39 0 40c-1 1-1 3-1 4c0 2 0 3-1 3c0 1-1 2-1 3c-1 3-7 8-14 13c-1 0-2 1-2 1c0 0-6 2-6 3c-1 0 0 1 1 1c2 0 9 2 9 3c1 0 1 1 2 1c4 2 9 9 10 12c0 1 1 2 1 2c1 1 1 3 1 6c1 8 1 9 1 43c0 41 0 43 3 47c1 1 3 3 5 4c1 0 3 0 7 0c5 0 5 0 6 0c0 1 0 1 0 18l0 18 0 0c-1 0-32 0-34 0zM1136 330c-1 0-1-1-1-1c0 0 0-33 0-34c1-1 1-1 7-1l6 0 2-1c2-1 3-3 4-4c1-2 2-4 2-5c0-1 0-14 0-42c0-35 0-40 1-41c0-1 0-3 1-5c0-1 1-3 1-4c0-1 1-2 1-2c1-2 7-9 10-10c3-2 6-3 11-4c3-1 3-1 0-2c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-4-2-7-5c-1 0-2-1-3-2c-3-3-6-7-7-11c-1-2-1-3-1-4c-1-2-1-4-1-42c0-42 0-41-1-43c0 0-1-2-1-2c-1-2-1-2-2-3c-2-2-3-2-8-2c-7-1-7-1-8-2l-1-1 0-16l0-16 1-1l1-1 13 0c7 0 14 0 14 0c4 1 7 2 8 2c0 0 1 1 2 1c0 0 1 1 2 1c0 0 1 1 1 1c2 1 8 6 9 8c0 1 1 2 1 2c1 1 2 2 2 2c1 1 1 2 2 2c0 1 1 2 1 3c0 0 1 1 1 1c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 3 1 4c1 1 1 3 1 5l1 1 0 44c0 32 0 44 0 45c1 3 5 8 6 8c0 0 1 0 1 1c2 1 7 2 10 2c2 0 3 0 4 2c0 1 0 27 0 28c0 0-2 1-3 1c-2 0-4 0-6 1c-1 0-3 1-3 1c-3 1-6 4-7 7c-2 4-2 3-2 47c0 43 0 46-1 50c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 3c0 1-1 2-1 2c0 1-1 1-1 2c-1 2-3 5-3 5c0 0-1 1-1 1c-1 2-9 10-11 11c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1l-1 1-16 0c-9 0-17 0-17 0z"/></svg>
-    <a href="https://kibarai.tech">kibarai.tech</a>
-  </div>
-</header>
 
+<div class="nl" id="gate">
+<article class="carta">
+  <div class="autor-top">
+    <img src="{{ '/assets/img/carlos-jimenez-sm.jpg' | relative_url }}" alt="" width="96" height="104">
+    <div>
+      <p class="autor-nombre">Carlos Jiménez</p>
+      <p class="autor-sub">El automatizador</p>
+    </div>
+  </div>
+  <h1>Ahora mismo, alguien en tu empresa está copiando datos de un Excel a otro.</h1>
+  <p class="golpe">Y le pagas por ello. Todos los meses. Sin falta.</p>
+  <p>Míralo bien. No está vendiendo. No está atendiendo a un cliente. No está pensando en cómo hacer crecer tu negocio.</p>
+  <p>Está haciendo de máquina.</p>
+  <p>Y lo peor no es eso. Lo peor es que tú lo sabes. Lo sabes desde hace tiempo. Y sigues sin hacer nada porque <em>ahora no es el momento</em>.</p>
+  <p class="golpe">Nunca es el momento.</p>
+
+  <h2>Viernes, 19:40.</h2>
+  <p>La oficina está vacía. Todos se han ido.</p>
+  <p>Tú no.</p>
+  <p>Tú estás cuadrando el mes. Buscando una factura que alguien guardó donde no tocaba. Rehaciendo un cuadrante porque el lunes falta uno. Contestando el correo que nadie más sabe contestar.</p>
+  <p>No montaste una empresa para esto. La montaste para construir algo. Para tener más libertad, no menos.</p>
+  <p>Y aquí estás. Haciendo papeleo un viernes por la noche mientras tu familia cena sin ti.</p>
+  <p>¿Te suena? Ya. A casi todos los que dirigen una pyme les suena.</p>
+  <div class="cta-in">
+    <a class="btn btn-primary" href="#suscribirse">Quiero dejar de hacer de máquina</a>
+    <span>Gratis. Y de regalo, la calculadora.</span>
+  </div>
+
+  <h2>Haz la cuenta. Duele.</h2>
+  <p>Dos personas de tu equipo. Seis horas a la semana cada una pasando facturas a mano. Ni siquiera es mucho. Seguro que en tu empresa hay más.</p>
+  <div class="cuenta">
+    <span class="tag">Ejemplo</span>
+    <p>2 personas × 6 horas × 46 semanas = <strong>552 horas al año</strong></p>
+    <p>552 horas × 22 € la hora = <strong>12.144 € al año</strong></p>
+    <p>Solo en una tarea. Solo en una.</p>
+  </div>
+  <p>Ahora súmale la conciliación. Los informes de fin de mes. Los partes. Los cuadrantes. El correo de ida y vuelta para aprobar algo que se podría aprobar solo.</p>
+  <p>No es un gasto que veas en la cuenta de resultados. Está escondido en las nóminas. Por eso nadie lo toca.</p>
+  <p class="golpe">Pero lo estás pagando. Cada mes. Desde hace años.</p>
+
+  <h2>Y hay un coste que no sale en ninguna cuenta.</h2>
+  <p>Esa persona buena que contrataste para hacer cosas buenas. La que tenía ideas. La que tiraba del carro.</p>
+  <p>Lleva dos años copiando y pegando.</p>
+  <p>Se aburre. Se equivoca, porque nadie aguanta concentrado haciendo lo mismo cuarenta veces al día. Y un día entra en tu despacho y te dice que se va.</p>
+  <p>No se va por el sueldo. Se va porque está harta de hacer de máquina.</p>
+  <p>Y con ella se va todo lo que sabía. Ese proceso que solo ella entendía. Esa hoja de cálculo que solo ella sabía tocar.</p>
+  <p class="golpe">Eso sí que sale caro.</p>
+
+  <h2>La mentira que nos contamos todos.</h2>
+  <p>«Lo que necesito es contratar a otra persona.»</p>
+  <p>No. Lo que necesitas es que la gente que ya tienes deje de hacer trabajo que no debería existir.</p>
+  <p>Si contratas a otro para que haga lo mismo, ahora tienes dos personas haciendo de máquina. El problema no se arregla. Se duplica. Y encima lo pagas dos veces.</p>
+  <p>El orden bueno es otro. Primero, mira qué trabajo sobra y quítalo. Luego, lo que quede repetitivo, que lo haga una máquina.</p>
+  <p>Y si después de eso sigues sin dar abasto, entonces sí: contrata. Pero no antes.</p>
+
+  <div class="alta" id="suscribirse">
+    <div id="gate-sent" class="gate-sent" hidden>
+      <h2>Mira tu correo.</h2>
+      <p class="hint">Te acabo de mandar un email a <strong id="gate-sent-email"></strong>. Pulsa el botón de confirmar y vuelves aquí con la calculadora abierta.</p>
+      <p class="legal">¿No llega? Mira en spam o en promociones. Si ya te apuntaste antes, usa el enlace de aquel correo o <button type="button" class="link" id="gate-retry">prueba con otro email</button>.</p>
+    </div>
+    <div id="gate-ask">
+      <h2>Apúntate. Tarda diez segundos.</h2>
+      <p class="hint">Y de regalo te llevas la calculadora que te pone delante, en horas y en euros, lo que se te escapa cada año en tareas que podría hacer una máquina.</p>
+      <form id="gate-form" action="{{ site.data.secrets.calculadora_form }}" method="POST" target="gate-iframe" novalidate>
+<div class="dos"><div><label for="g-nombre">Nombre</label><input type="text" id="g-nombre" name="{{ ac.field_name }}" autocomplete="given-name" required></div>
+            <div><label for="g-email">Email</label><input type="email" id="g-email" name="{{ ac.field_email }}" autocomplete="email" required></div></div>
+            {%- comment -%} Campos trampa de Acumbamail contra bots: fuera de la vista y vacíos. {%- endcomment -%}
+            {%- for h in ac.honeypots %}
+            <input type="{{ h.type }}" name="{{ h.name }}" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px">
+            {%- endfor %}
+            <label class="check"><input type="checkbox" id="g-ok"{% if ac.field_consent != "" %} name="{{ ac.field_consent }}" value="1"{% endif %} required>
+              <span>He leído la <a href="{{ '/es/privacidad/' | relative_url }}" target="_blank" rel="noopener">política de privacidad</a> y acepto recibir la newsletter de Carlos Jiménez. Puedo darme de baja cuando quiera.</span></label>
+            <p class="err" id="g-err" role="alert"></p>
+            <button class="btn btn-primary" type="submit">Quiero los correos y la calculadora</button>
+            <p class="legal">Responsable: KIBARAI TECH S.L.U. Finalidad: enviarte la newsletter y darte acceso a la calculadora. Los datos se guardan en Acumbamail (España). Puedes ejercer tus derechos en contacto@kibarai.tech.</p>
+          </form>
+    </div>
+    <iframe class="gate-iframe" name="gate-iframe" title="Envío del formulario" tabindex="-1" aria-hidden="true"></iframe>
+  </div>
+
+  <h2>Vale, ¿y tú quién eres?</h2>
+  <p>Me llamo Carlos Jiménez. Llevo más de 20 años metido en tecnología para empresas.</p>
+  <p>He visto procesos que daban miedo. Empresas que funcionaban de milagro, sostenidas por tres hojas de cálculo y la memoria de una persona. Y he visto a gente muy buena perdiendo el día en ellos.</p>
+  <p>Eso me cabrea. Mucho.</p>
+  <p>Por eso fundé Kibarai: para quitar de en medio el trabajo que no aporta nada y devolverle a la gente el tiempo para lo que sí aporta.</p>
+  <p>Y por eso escribo esta newsletter. Para contarte, sin rodeos, dónde se te está yendo el dinero y qué puedes hacer para pararlo.</p>
+
+  <h2>Qué te vas a encontrar.</h2>
+  <ul>
+    <li><strong>Qué quitar primero.</strong> No todo merece la pena automatizar. Casi nada, de hecho. Lo difícil es saber qué sí. Y en qué orden.</li>
+    <li><strong>Cuánto se puede llegar a ahorrar.</strong> Ejemplos con horas y euros. Tú haces la cuenta con lo tuyo.</li>
+    <li><strong>Cuellos de botella.</strong> Esos sitios donde todo se para esperando a una persona. Cómo verlos y cómo romperlos.</li>
+    <li><strong>Cómo usar la IA de verdad.</strong> No para escribir posts en LinkedIn. Para que lea facturas, conteste los correos de siempre o rellene lo que hoy rellena una persona a mano.</li>
+    <li><strong>Truquillos del día a día.</strong> Atajos pequeños que puedes aplicar esa misma mañana. Sin reuniones, sin proyectos y muchas veces sin gastar un euro.</li>
+    <li><strong>Historias.</strong> Porque si es aburrido no lo vas a leer. Y si no lo lees, no sirve de nada.</li>
+  </ul>
+  <p>Nada de teoría de escuela de negocios. Nada de palabras raras. Nada de «transformación digital».</p>
+  <p class="golpe">Cosas que puedes aplicar el lunes.</p>
+  <div class="cta-in">
+    <a class="btn btn-primary" href="#suscribirse">Apúntame</a>
+    <span>Diez segundos. Te das de baja cuando quieras.</span>
+  </div>
+
+  <h2>El regalo. Prepárate para el número.</h2>
+  <p>Cuando te apuntes, te llevas la calculadora de horas recuperables.</p>
+  <p>Apuntas tus tareas repetitivas. Cuánta gente las hace. Cuánto tardan. Qué parte podría hacerse sola.</p>
+  <p>Y te dice, sin anestesia, cuántas horas al año te estás comiendo y cuánto te cuestan.</p>
+  <p>Te lo da en PDF. Para que lo imprimas. Para que se lo enseñes a tu socio. Para que lo pegues en la nevera si hace falta.</p>
+  <p>Y cuando ves el número, ya no puedes hacer como que no lo has visto.</p>
+  <div class="cta-in">
+    <a class="btn btn-primary" href="#suscribirse">Dame la calculadora</a>
+    <span>Gratis al apuntarte a la newsletter.</span>
+  </div>
+
+  <h2>Aviso: te voy a vender.</h2>
+  <p>No te voy a engañar.</p>
+  <p>En los correos te diré, una y otra vez, que reserves 30 minutos conmigo para ver tu caso. Es gratis. Miramos tu operativa y sales sabiendo por dónde empezar.</p>
+  <p>Si no te interesa, no reservas y ya está. Sigues leyendo, sigues aprendiendo y sigues sin pagar nada.</p>
+  <p>Pero que conste que te lo avisé. Aquí no hay letra pequeña.</p>
+
+  <h2>Esto no es para ti si…</h2>
+  <ul class="no">
+    <li>Buscas trucos de ChatGPT para escribir posts en LinkedIn.</li>
+    <li>Crees que lo que te falta es contratar a otra persona.</li>
+    <li>Te encanta tu Excel de 47 pestañas. A alguien le tiene que gustar.</li>
+    <li>Prefieres seguir quejándote de que no te da la vida a cambiar algo.</li>
+  </ul>
+  <p>Sí es para ti si diriges una pyme, ves a tu equipo ahogado en papeleo y sospechas que hay otra forma de hacerlo.</p>
+  <p class="golpe">La hay.</p>
+
+  <h2>Ahora imagina otro viernes.</h2>
+  <p>Las facturas han entrado solas. El mes se ha cuadrado solo. El cuadrante se ha rehecho solo cuando alguien ha avisado de que falta.</p>
+  <p>Tu equipo ha pasado la semana haciendo lo que sabe hacer. Lo que les gusta. Lo que hace crecer tu empresa.</p>
+  <p>Son las seis de la tarde. Apagas el ordenador.</p>
+  <p>Y te vas a casa.</p>
+  <p class="golpe">No es magia. Es quitar de en medio lo que sobra.</p>
+
+  <div class="final">
+    <p>Tú decides. Puedes cerrar esta pestaña y seguir pagando horas de copiar y pegar. Mañana, y pasado, y el mes que viene.</p>
+    <p>O puedes apuntarte ahora y empezar a quitártelas.</p>
+    <div class="cta-in">
+    <a class="btn btn-primary" href="#suscribirse">Quiero los correos y la calculadora</a>
+    <span>Gratis. Sin compromiso. Sin rollos.</span>
+  </div>
+  </div>
+
+  <p class="pd"><strong>P. D.:</strong> Te das de baja con un clic cuando quieras. No me voy a ofender. Bueno, un poco sí.</p>
+  <p class="pd2"><strong>P. P. D.:</strong> Cada semana que lo dejas para más adelante es otra semana pagando horas que no tendrías que pagar. La calculadora te dice cuántas. <a href="#suscribirse">Apúntate y míralo</a>.</p>
+</article>
+</div>
+
+<main class="calc" id="calc" hidden>
 <section class="hero">
   <div class="container">
     <span class="eyebrow">Calculadora</span>
@@ -164,37 +354,7 @@ footer svg { height: 34px; width: auto; display: block; }
     <p>Apunta los procesos repetitivos de tu equipo, cuántas personas los hacen y cuánto tiempo les llevan. Te decimos cuántas horas y cuánto dinero puedes recuperar al año, y te llevas el cálculo en PDF.</p>
   </div>
 </section>
-
-<main>
-  <div class="container gate" id="gate">
-    <div class="card">
-      <div id="gate-sent" class="gate-sent" hidden>
-        <h2>Revisa tu correo</h2>
-        <p class="hint">Te hemos mandado un email a <strong id="gate-sent-email"></strong>. Pulsa el botón de confirmación y te traerá aquí con la calculadora abierta.</p>
-        <p class="legal">¿No te llega? Mira en spam o promociones. Si ya te suscribiste antes, usa el enlace de aquel correo de confirmación o <button type="button" class="link" id="gate-retry">vuelve a intentarlo con otro email</button>.</p>
-      </div>
-      <div id="gate-ask">
-      <h2>Antes de empezar</h2>
-      <p class="hint">Dinos tu nombre y tu email. Te mandamos un correo para confirmarlo y desde él entras a la calculadora. Es gratis.</p>
-      <form id="gate-form" action="{{ site.data.secrets.calculadora_form }}" method="POST" target="gate-iframe" novalidate>
-        <div><label for="g-nombre">Nombre</label><input type="text" id="g-nombre" name="{{ ac.field_name }}" autocomplete="given-name" required></div>
-        <div><label for="g-email">Email</label><input type="email" id="g-email" name="{{ ac.field_email }}" autocomplete="email" required></div>
-        {%- comment -%} Campos trampa de Acumbamail contra bots: fuera de la vista y vacíos. {%- endcomment -%}
-        {%- for h in ac.honeypots %}
-        <input type="{{ h.type }}" name="{{ h.name }}" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px">
-        {%- endfor %}
-        <label class="check"><input type="checkbox" id="g-ok"{% if ac.field_consent != "" %} name="{{ ac.field_consent }}" value="1"{% endif %} required>
-          <span>He leído la <a href="{{ '/es/privacidad/' | relative_url }}" target="_blank" rel="noopener">política de privacidad</a> y acepto recibir la newsletter de Kibarai. Puedo darme de baja cuando quiera.</span></label>
-        <p class="err" id="g-err" role="alert"></p>
-        <button class="btn btn-primary" type="submit">Usar la calculadora</button>
-        <p class="legal">Responsable: KIBARAI TECH S.L.U. Finalidad: darte acceso a la calculadora y enviarte la newsletter. Los datos se guardan en Acumbamail (España). Puedes ejercer tus derechos en contacto@kibarai.tech.</p>
-      </form>
-      </div>
-      <iframe class="gate-iframe" name="gate-iframe" title="Envío del formulario" tabindex="-1" aria-hidden="true"></iframe>
-    </div>
-  </div>
-
-  <div class="calc" id="calc" hidden>
+  <div class="calc-body">
   <div class="container grid">
     <div>
       <div class="card">
@@ -231,13 +391,6 @@ footer svg { height: 34px; width: auto; display: block; }
   <div class="container"><p class="note">Estimación orientativa calculada con los datos que introduces. Jornadas completas sobre una jornada anual de referencia de 1.720 horas. No es un presupuesto.</p></div>
   </div>
 </main>
-
-<footer>
-  <div class="container">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 350" role="img" aria-label="Kibarai"><path fill="#fff" d="M396 305c-1-1-3-1-4-1c-5 0-7 0-8-1c-1 0-2-1-3-1c0 0-2-1-3-1c0 0-2-1-2-1c-1 0-2 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-1-1-1-1c-1 0-4-2-5-3c-2-2-6-6-6-7c-1 0-2-1-3-1c0 0 0 0 0 7l-1 7 0 0l-1 1-26 0c-21 0-26 0-27 0c0-1 0-245 0-247c0 0 0-1 1-1l0-1 26 0c27 0 26 0 27 1c0 1 0 2 0 54c0 35 1 52 1 53c0 1 2 0 5-3c1-1 2-2 3-2c0 0 1-1 1-1c0 0 1 0 2-1c1 0 2-1 2-1c0 0 1-1 2-1c1-1 2-1 2-1c3-2 5-3 7-3c0 0 2-1 2-1c1 0 3-1 4-1c1 0 3-1 4-1c7-2 24-2 30 0c1 1 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 3 1 4 1c0 0 2 1 2 1c1 0 2 1 2 1c0 0 1 1 2 1c2 1 4 2 4 3c1 0 2 1 2 1c3 1 12 10 15 14c1 0 1 1 2 2c0 0 1 2 2 3c1 1 2 2 2 3c1 0 1 1 1 1c0 0 0 1 1 1c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 3c0 1 1 3 1 3c0 1 1 3 1 4c0 1 1 2 1 3c1 2 1 3 1 8c1 2 1 5 1 7c1 4 1 6 0 11c0 2-1 5-1 7c0 5 0 6-1 8c0 1-1 2-1 3c0 1-1 3-1 3c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 0-1 1-1 2c0 1-1 2-1 2c-1 1-1 2-2 3c-1 1-2 2-2 3c-1 1-1 2-3 4c-2 3-12 13-15 14c0 0-1 1-1 1c0 0-1 1-1 1c-1 0-2 1-3 1c0 0-1 1-2 1c0 1-2 1-3 2c0 0-1 1-2 1c0 0-2 1-3 1c-1 1-2 1-2 1c-1 0-2 1-3 1c-2 0-4 1-4 1c-2 1-3 1-9 1c-3 0-6 1-8 1c-4 0-5 0-8 0zM570 305c-1 0-4-1-7-1c-6 0-7 0-9-1c-1 0-2-1-4-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2 0-2-1c0 0-1 0-2-1c-1 0-2-1-2-1c-1 0-1-1-2-1c-3-2-5-3-5-3c0 0-1-1-2-1c0 0-1-1-1-1c0 0-1-1-3-3c-2-1-4-3-4-4c-1-1-2-2-3-2c-1-1-2-2-2-3c-1 0-1-1-2-2c-1-1-3-4-4-5c0-1-1-2-1-2c-1-1-1-1-1-2c0 0 0 0-1-1c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-1-3c0-1-1-2-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c0-1-1-3-1-4c0-1-1-3-1-4c-1-1-1-3-1-13c-1-6 0-18 1-20c0 0 1-2 1-3c0-2 1-3 1-4c0-1 1-2 1-4c0-1 1-2 1-3c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c1-1 1-2 3-4c0 0 1-1 1-2c2-3 3-4 3-4c0 0 1-1 2-2c1-1 2-2 3-3c1-1 3-3 4-4c2-2 5-4 7-5c0 0 1-1 1-1c1-1 3-2 5-3c1 0 2-1 2-1c0 0 1-1 2-1c1 0 2-1 3-1c0 0 1-1 3-1c1 0 2-1 3-1c0 0 2-1 3-1c1 0 2 0 3-1c6-2 25-2 32 0c1 0 3 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 1 2 1 2 1c0 0 1 0 2 1c0 0 1 1 2 1c5 3 7 4 10 7c3 3 3 3 4 3c0-1 0-2 0-7c0-5 0-6 1-6c0-1 1-1 26-1c28 0 27 0 28 1c0 1 0 31 0 76c0 45 0 75 0 76c-1 1 0 1-28 1c-25 0-26 0-26-1c-1 0-1-1-1-7c0-4 0-7 0-7c-1-1-1-1-2 0c-3 4-5 7-9 9c0 1-1 1-1 1c-2 2-4 3-5 3c0 0-1 1-2 1c0 0-1 1-2 1c-1 0-3 1-3 1c-1 0-2 1-4 1c-1 0-2 1-3 1c-1 0-3 1-5 1c-2 0-4 0-4 1c-2 0-7 0-10 0zM911 305c-1 0-5-1-7-1c-7 0-7 0-9-1c-1 0-3-1-4-1c-1 0-3-1-3-1c-1 0-2 0-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-1c-3-2-4-3-5-3c0 0-1-1-1-1c-1 0-2-1-3-2c-1-1-3-3-4-4c-3-3-6-6-7-7c0-1-1-2-2-3c-1-1-2-2-2-3c-1-1-2-2-2-3c-1 0-2-2-2-2c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c-3-8-4-28-2-38c1-1 1-3 1-3c0-1 1-2 1-3c0-1 1-3 1-4c0-1 1-2 1-3c0-1 1-3 1-3c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 2-4 3-5c2-2 3-3 4-5c2-3 3-4 9-10c3-3 6-5 10-7c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 2-1 2-1c1 0 2-1 3-1c1 0 3-1 3-1c1 0 2-1 3-1c1 0 3 0 3-1c4-1 19-2 26-1c2 0 4 1 6 1c1 0 3 1 4 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 1 1 2 1c1 1 4 3 6 5c3 3 3 3 4 2c0 0 0 0 0-6c1-3 1-6 1-6c0-1 2-1 27-1c27 0 27 0 27 1c1 1 1 151 0 152c0 0 0 1-1 1c-1 0-51 0-52 0c-1-1-2-1-2-8c0-5 0-6 0-7c-1-1-1 0-2 1c-1 1-4 5-6 6c0 1-1 2-2 2c-1 1-2 2-3 2c-1 0-1 1-1 1c-1 0-6 3-7 3c-1 0-2 1-3 1c-1 0-2 1-2 1c-1 0-3 1-4 1c-1 0-3 1-5 1c-3 0-5 1-5 1c-2 0-6 0-9 0zM21 300l-1 0 0-124l0-124 1 0c1-1 1-1 22-1c21 0 21 0 22 1l1 0 0 124c0 98 0 124-1 124c0 0-43 0-44 0zM212 299l0 0 0-76l0-76 0 0c1-1 1-1 27-1l26 0 0 1l1 0 0 76l0 76-1 0l0 1-26 0c-26 0-26 0-27-1zM712 300c0 0 0 0 0-1c-1 0-1-4-1-76l0-76 1 0c1-1 53-1 53 0c1 0 1 2 1 10c0 11 0 13 1 13c0 0 1-1 2-2c2-4 6-8 8-10c1 0 2-1 3-2c0-1 2-2 2-2c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 1-1 2-1c1 0 2-1 3-1c2-1 3-1 6-1c1 0 4-1 5-1c5-1 17-1 18 0c1 0 1 49 0 50c-1 1-1 1-3 0c-1 0-2-1-3-1c-1 0-3-1-4-1c-3-1-6-1-13-1c-7 0-10 0-12 1c0 0-2 1-3 1c-2 0-5 2-7 3c0 0-1 1-1 1c-1 0-4 2-4 3c0 0 0 0-1 1c0 1-2 3-3 4c-2 5-2 6-2 6c0 1-1 2-1 3c0 1-1 2-1 3c0 1-1 4-1 5c-1 5-1 9-1 45c0 26 0 31-1 31c0 1-1 1-26 1c-14 0-26 0-27 0zM1053 300c-1 0-1-1-1-1c0 0 0-34 0-76c0-42 0-76 0-76c0-1 1-1 27-1c23 0 26 0 26 0l1 1 0 76l0 76-1 1c0 0-51 0-52 0zM397 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 2-1c0 0 1-1 1-1c1 0 1-1 2-1c1 0 7-6 7-7c0 0 0 0 1-1c0 0 1-1 1-2c1-1 1-2 1-2c1 0 1-1 1-1c0-1 0-2 1-3c1-2 2-6 2-11c0-3-1-12-2-13c0-1-1-2-1-3c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-4-5c-1-2-5-5-6-6c-1 0-2-1-2-1c0 0-5-3-6-3c0 0-2 0-4-1c-6-1-15 0-23 3c-1 0-2 1-3 1c0 0-1 1-2 1c-1 1-8 7-8 8c0 0 0 0-1 1c0 0-1 1-1 2c0 1-1 1-1 2c0 0-2 3-2 5c-1 1-1 3-2 9c0 4 1 14 2 15c0 0 1 1 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c1 1 1 1 1 1c0 1 1 2 2 3c3 3 5 4 8 6c1 0 2 1 3 1c0 0 1 1 2 1c1 0 2 1 3 1c4 1 16 1 19 0zM596 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 1-1c3-1 9-5 11-9c1-1 1-2 2-3c0 0 1-1 1-2c0 0 1-1 1-2c0-1 1-2 1-3c0-1 1-3 1-3c1-3 1-13 0-17c0-1-1-3-1-3c0-1-1-2-1-3c0-1-1-2-1-2c-2-4-8-11-12-14c-4-2-6-3-12-4c-6-1-18 0-24 4c-1 0-2 1-3 1c0 0-1 1-1 1c-4 3-4 4-5 5c-1 0-2 1-2 2c-1 0-1 1-1 2c-1 0-1 1-1 1c0 0-1 1-1 1c0 1-1 2-1 3c0 0-1 1-1 2c0 1-1 2-1 3l-1 3 0 7l0 6 1 3c0 1 1 2 1 3c0 1 1 2 1 2c0 1 1 2 1 3c0 0 1 1 1 1c0 1 1 2 2 3c2 3 5 6 7 7c1 1 2 1 2 1c0 0 5 3 6 3c1 0 2 1 3 1c3 1 16 1 19 0zM937 257c2-1 3-1 4-1c0 0 1 0 1-1c1 0 2-1 3-1c1 0 2-1 2-1c1-1 1-1 1-1c1 0 5-4 7-6c4-5 7-12 7-18c0-6 0-12-1-15c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-2c0 0-1-1-1-1c-4-6-12-12-17-13c-1 0-2 0-3-1c-4-1-14 0-20 1c-4 2-6 2-6 3c-1 0-2 1-2 1c-2 1-6 4-9 8c-2 2-5 8-5 10c0 1 0 3-1 4c-1 4-1 11 0 15c0 1 1 3 1 3c0 1 1 3 1 4c1 0 1 1 1 2c0 0 1 1 1 1c0 1 1 1 1 2c2 4 6 8 9 9c1 1 1 1 1 1c0 0 6 3 7 3c1 0 2 1 3 1c2 1 5 1 11 1c6 0 6 0 8-1zM234 118c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-2c-2-2-6-7-7-8c0-1-1-2-1-2c0-1-1-2-1-3c0 0-1-2-1-2c-1-3-1-14 0-16c0-1 1-2 1-3c0-1 1-3 1-3c0 0 1-1 1-2c2-4 9-11 13-12c0 0 1-1 2-1c5-3 13-3 19-2c2 1 6 3 8 4c1 1 2 1 2 2c1 0 2 1 2 1c2 1 5 4 6 6c0 1 1 2 1 2c2 2 4 10 4 15c0 4-1 10-2 12c-1 1-1 2-1 2c-1 3-9 11-12 13c-1 0-2 1-2 1c-1 0-2 1-3 1c-1 0-2 1-3 1c-2 1-7 1-12 1zM1074 118c-1 0-2-1-4-1c-1-1-2-1-2-1c-1 0-1 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-2-1-2-2c-5-4-9-9-10-14c0-1-1-3-1-4c-1-2-1-10 0-13c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 1-2c1-3 7-10 9-11c1 0 1-1 2-1c0 0 1-1 2-1c0 0 2-1 2-1c5-3 13-3 19-2c3 1 7 3 8 4c1 0 1 1 2 1c3 2 7 5 8 8c0 0 1 1 1 1c0 1 1 1 1 2c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 2 1 3c1 2 1 10 0 12c0 1-1 3-1 3c0 2-3 7-3 7c0 0 0 1-1 1c-1 3-7 8-10 10c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1c-3 1-9 1-13 1z"/><path fill="#00b6ff" d="M148 330c0-1-1-1-1-1c-1 0-2-1-2-1c-1 0-2-1-3-1c0 0-1-1-1-1c-2-1-8-7-10-8c0-1-1-2-2-3c-1-1-2-3-2-3c-1-1-3-5-3-5c0 0 0-1-1-2c0-1-1-3-1-3c0-1-1-3-1-4c-1-3-1-2-1-49l0-44-1-3c-1-2-1-4-2-4c-1-2-5-5-7-6c-1 0-2-1-2-1c-2 0-3-1-6-1c-4 0-4 2-4-15c0-8 0-14 0-15c1-1 2-1 5-1c3 0 8-1 9-2c0 0 1-1 2-1c1-1 4-4 4-6c2-5 2-2 2-49c0-45 0-44 1-48c0-1 1-3 1-3c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 2-5c1 0 1-1 2-1c0-1 1-2 2-3c3-4 9-10 13-12c4-2 6-2 21-3c5 0 10 0 12 0c5 0 5 0 6 1c0 1 0 2 0 17l0 16 0 1l-1 1-3 0c-3 0-7 1-10 1c-2 1-4 2-5 5c-2 3-2 1-2 45c0 34 0 39 0 40c-1 1-1 3-1 4c0 2 0 3-1 3c0 1-1 2-1 3c-1 3-7 8-14 13c-1 0-2 1-2 1c0 0-6 2-6 3c-1 0 0 1 1 1c2 0 9 2 9 3c1 0 1 1 2 1c4 2 9 9 10 12c0 1 1 2 1 2c1 1 1 3 1 6c1 8 1 9 1 43c0 41 0 43 3 47c1 1 3 3 5 4c1 0 3 0 7 0c5 0 5 0 6 0c0 1 0 1 0 18l0 18 0 0c-1 0-32 0-34 0zM1136 330c-1 0-1-1-1-1c0 0 0-33 0-34c1-1 1-1 7-1l6 0 2-1c2-1 3-3 4-4c1-2 2-4 2-5c0-1 0-14 0-42c0-35 0-40 1-41c0-1 0-3 1-5c0-1 1-3 1-4c0-1 1-2 1-2c1-2 7-9 10-10c3-2 6-3 11-4c3-1 3-1 0-2c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-4-2-7-5c-1 0-2-1-3-2c-3-3-6-7-7-11c-1-2-1-3-1-4c-1-2-1-4-1-42c0-42 0-41-1-43c0 0-1-2-1-2c-1-2-1-2-2-3c-2-2-3-2-8-2c-7-1-7-1-8-2l-1-1 0-16l0-16 1-1l1-1 13 0c7 0 14 0 14 0c4 1 7 2 8 2c0 0 1 1 2 1c0 0 1 1 2 1c0 0 1 1 1 1c2 1 8 6 9 8c0 1 1 2 1 2c1 1 2 2 2 2c1 1 1 2 2 2c0 1 1 2 1 3c0 0 1 1 1 1c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 3 1 4c1 1 1 3 1 5l1 1 0 44c0 32 0 44 0 45c1 3 5 8 6 8c0 0 1 0 1 1c2 1 7 2 10 2c2 0 3 0 4 2c0 1 0 27 0 28c0 0-2 1-3 1c-2 0-4 0-6 1c-1 0-3 1-3 1c-3 1-6 4-7 7c-2 4-2 3-2 47c0 43 0 46-1 50c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 3c0 1-1 2-1 2c0 1-1 1-1 2c-1 2-3 5-3 5c0 0-1 1-1 1c-1 2-9 10-11 11c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1l-1 1-16 0c-9 0-17 0-17 0z"/></svg>
-    <span>Software que funciona, decisiones que aguantan.</span>
-  </div>
-</footer>
 
 <script>
 let ASSETS = null;
@@ -501,6 +654,7 @@ $("gate-form").addEventListener("submit", e => {
   try { localStorage.setItem(ORIGEN, location.pathname); } catch (e2) {}
   $("gate-sent-email").textContent = email;
   $("gate-ask").hidden = true; $("gate-sent").hidden = false;
+  $("suscribirse").scrollIntoView({ block: "start", behavior: "smooth" });
 });
 $("gate-retry").addEventListener("click", () => {
   $("gate-sent").hidden = true; $("gate-ask").hidden = false; $("g-email").value = ""; $("g-email").focus();
