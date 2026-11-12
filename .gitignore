@@ -6,3 +6,6 @@ vendor/
 .bundle/
 .DS_Store
 .claude/settings.local.json
+
+# Secretos locales (en GitHub van en Settings > Secrets). Ver _plugins/secrets.rb
+_secrets.yml

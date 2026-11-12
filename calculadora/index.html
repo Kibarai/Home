@@ -1,0 +1,512 @@
+---
+layout: null
+permalink: /calculadora/
+sitemap: false
+---
+{%- comment -%}
+  Lead magnet: calculadora de horas recuperables. Landing suelta como
+  /demo/reservas/: sin layout de la web, fuera del sitemap y sin indexar; se
+  llega por enlaces en correos y redes.
+
+  Para usarla se pide nombre y email, que se envían a la lista de Acumbamail
+  configurada en _data/acumbamail.yml. Quien ya se registró en este navegador
+  entra directo (localStorage).
+{%- endcomment -%}
+{%- assign ac = site.data.acumbamail.calculadora -%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de horas recuperables · Kibarai</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Calcula cuántas horas y cuánto dinero recupera tu equipo al año automatizando sus procesos repetitivos, y descárgate el cálculo en PDF.">
+<meta property="og:title" content="¿Cuántas horas te devuelve automatizar?">
+<meta property="og:description" content="Calculadora gratuita de horas recuperables. Te llevas el cálculo en PDF.">
+<meta property="og:image" content="{{ '/assets/img/og-es.png' | absolute_url }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="icon" href="{{ '/assets/img/favicon-48.png' | relative_url }}" type="image/png" sizes="48x48">
+{% include fonts.html %}
+<style>
+:root {
+  --bg:#ffffff; --bg-soft:#f6f9ff; --bg-accent:#e6eefa;
+  --ink:#162c40; --ink-soft:#445067; --muted:#6b7488; --rule:#dbe2f0;
+  --primary:#2d3663; --primary-dark:#1a2145; --secondary:#6e92ff; --tertiary:#00398f;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --serif-heading:"Poppins","Inter",system-ui,sans-serif;
+  --radius:12px; --radius-lg:20px; --maxw:1180px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.7; color: var(--ink); background: var(--bg); }
+h1,h2,h3 { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); line-height: 1.2; letter-spacing: -0.01em; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+header.top { border-bottom: 1px solid var(--rule); background: #fff; }
+header.top .container { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+header.top svg { height: 40px; width: auto; display: block; }
+header.top a { font-size: .9rem; font-weight: 500; color: var(--primary); text-decoration: none; border: 2px solid var(--secondary); border-radius: 999px; padding: 8px 20px; }
+
+.hero { background: var(--bg-soft); padding: 56px 0 48px; }
+.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--secondary); display: block; margin-bottom: 10px; }
+.hero h1 { font-size: clamp(2rem, 4vw, 2.9rem); max-width: 18ch; margin-bottom: 14px; }
+.hero p { font-size: 1.12rem; color: var(--ink-soft); max-width: 44rem; }
+
+main { padding: 48px 0 80px; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; align-items: start; }
+
+.card { background: var(--bg-soft); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 28px; }
+.card + .card { margin-top: 20px; }
+.card h2 { font-size: 1.25rem; margin-bottom: 4px; }
+.card .hint { font-size: .9rem; color: var(--muted); margin-bottom: 18px; }
+
+label { display: block; font-size: .85rem; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+input[type=text], input[type=number], select {
+  width: 100%; font: 400 .95rem var(--sans); color: var(--ink); background: #fff;
+  border: 1px solid var(--rule); border-radius: var(--radius); padding: 11px 14px; outline: none; transition: border-color .15s, box-shadow .15s;
+}
+input:focus, select:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px var(--bg-accent); }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.unit { position: relative; }
+.unit span { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: .85rem; color: var(--muted); pointer-events: none; }
+.unit input { padding-right: 74px; }
+
+.proc { background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; margin-bottom: 12px; }
+.proc-head { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; }
+.proc-head .n { font-family: var(--serif-heading); font-weight: 600; color: var(--secondary); font-size: 1rem; width: 26px; flex: none; }
+.proc-head input { flex: 1; }
+.proc-head button { flex: none; background: none; border: 1px solid var(--rule); border-radius: 999px; color: var(--muted); font: 500 .8rem var(--sans); padding: 6px 12px; cursor: pointer; }
+.proc-head button:hover { border-color: var(--secondary); color: var(--primary); }
+.proc-body { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 14px; align-items: end; }
+.range-wrap { display: flex; align-items: center; gap: 12px; height: 45px; }
+input[type=range] { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; outline: none; background: linear-gradient(to right, var(--secondary) 0 var(--p, 50%), var(--bg-accent) var(--p, 50%) 100%); }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--secondary); border: 3px solid #fff; box-shadow: 0 0 0 1px var(--rule); cursor: pointer; }
+input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--secondary); border: 3px solid #fff; cursor: pointer; }
+input[type=range]::-moz-range-track { height: 6px; border-radius: 999px; background: var(--bg-accent); }
+input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
+.range-wrap output { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); width: 44px; text-align: right; }
+
+.btn { display: inline-block; font: 500 .95rem/1.2 var(--sans); padding: 13.6px 28px; border-radius: 999px; border: 2px solid transparent; cursor: pointer; transition: background .15s, color .15s; text-decoration: none; }
+.btn-primary { background: var(--secondary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--primary); border-color: var(--secondary); }
+.btn-ghost:hover { background: var(--bg-accent); }
+
+/* Resultado */
+.result { position: sticky; top: 24px; background: var(--primary); color: rgba(255,255,255,.85); border-radius: var(--radius-lg); padding: 28px; }
+.result .eyebrow { color: var(--secondary); }
+.big { font-family: var(--serif-heading); font-weight: 600; color: #fff; font-size: 3.2rem; line-height: 1.05; }
+.big-sub { font-size: .95rem; margin-bottom: 22px; }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+.kpi { border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius); padding: 12px 14px; }
+.kpi span { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #c7d2ea; }
+.kpi strong { font-family: var(--serif-heading); font-weight: 600; color: #fff; font-size: 1.25rem; }
+.bars { border-top: 1px solid rgba(255,255,255,.15); padding-top: 16px; margin-bottom: 22px; }
+.bars h3 { font-size: .95rem; color: #fff; margin-bottom: 10px; }
+.bar { margin-bottom: 10px; }
+.bar .lbl { display: flex; justify-content: space-between; font-size: .82rem; gap: 10px; }
+.bar .lbl span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar .lbl span:last-child { color: #fff; font-weight: 500; flex: none; }
+.bar .track { height: 6px; background: rgba(255,255,255,.12); border-radius: 999px; margin-top: 4px; }
+.bar .fill { height: 6px; background: var(--secondary); border-radius: 999px; transition: width .25s; }
+.result .btn { width: 100%; text-align: center; }
+.status { font-size: .82rem; margin-top: 10px; min-height: 1.2em; color: #c7d2ea; }
+.note { font-size: .8rem; color: var(--muted); margin-top: 14px; line-height: 1.55; }
+
+footer { background: var(--primary); color: rgba(255,255,255,.85); padding: 40px 0; font-size: .9rem; }
+footer .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+footer svg { height: 34px; width: auto; display: block; }
+
+/* Acceso: nombre y email antes de usar la calculadora */
+.gate { max-width: 560px; margin: 0 auto; }
+.gate .card { background: #fff; box-shadow: 0 18px 40px -28px rgba(22,44,64,.45); }
+.gate form { display: grid; gap: 16px; margin-top: 18px; }
+.gate input[type=email] { width: 100%; font: 400 .95rem var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); padding: 11px 14px; outline: none; }
+.gate input[type=email]:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px var(--bg-accent); }
+.gate .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: .85rem; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+.gate .check input { margin-top: 3px; flex: none; width: 16px; height: 16px; accent-color: var(--secondary); }
+.gate .check a, .gate .legal a { color: var(--tertiary); }
+.gate .btn { width: 100%; text-align: center; }
+.gate .legal { font-size: .78rem; color: var(--muted); line-height: 1.55; }
+.gate .err { font-size: .85rem; color: #b42318; min-height: 1.2em; }
+.gate-iframe { display: none; }
+.gate-sent strong { color: var(--primary); font-weight: 600; }
+.gate .link { background: none; border: 0; padding: 0; font: inherit; color: var(--tertiary); text-decoration: underline; cursor: pointer; }
+.calc[hidden], .gate[hidden] { display: none; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .result { position: static; }
+}
+@media (max-width: 600px) {
+  .fields, .proc-body { grid-template-columns: 1fr; }
+  .hero { padding: 40px 0 36px; }
+  .big { font-size: 2.6rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 350" role="img" aria-label="Kibarai"><path fill="#000" d="M396 305c-1-1-3-1-4-1c-5 0-7 0-8-1c-1 0-2-1-3-1c0 0-2-1-3-1c0 0-2-1-2-1c-1 0-2 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-1-1-1-1c-1 0-4-2-5-3c-2-2-6-6-6-7c-1 0-2-1-3-1c0 0 0 0 0 7l-1 7 0 0l-1 1-26 0c-21 0-26 0-27 0c0-1 0-245 0-247c0 0 0-1 1-1l0-1 26 0c27 0 26 0 27 1c0 1 0 2 0 54c0 35 1 52 1 53c0 1 2 0 5-3c1-1 2-2 3-2c0 0 1-1 1-1c0 0 1 0 2-1c1 0 2-1 2-1c0 0 1-1 2-1c1-1 2-1 2-1c3-2 5-3 7-3c0 0 2-1 2-1c1 0 3-1 4-1c1 0 3-1 4-1c7-2 24-2 30 0c1 1 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 3 1 4 1c0 0 2 1 2 1c1 0 2 1 2 1c0 0 1 1 2 1c2 1 4 2 4 3c1 0 2 1 2 1c3 1 12 10 15 14c1 0 1 1 2 2c0 0 1 2 2 3c1 1 2 2 2 3c1 0 1 1 1 1c0 0 0 1 1 1c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 3c0 1 1 3 1 3c0 1 1 3 1 4c0 1 1 2 1 3c1 2 1 3 1 8c1 2 1 5 1 7c1 4 1 6 0 11c0 2-1 5-1 7c0 5 0 6-1 8c0 1-1 2-1 3c0 1-1 3-1 3c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 0-1 1-1 2c0 1-1 2-1 2c-1 1-1 2-2 3c-1 1-2 2-2 3c-1 1-1 2-3 4c-2 3-12 13-15 14c0 0-1 1-1 1c0 0-1 1-1 1c-1 0-2 1-3 1c0 0-1 1-2 1c0 1-2 1-3 2c0 0-1 1-2 1c0 0-2 1-3 1c-1 1-2 1-2 1c-1 0-2 1-3 1c-2 0-4 1-4 1c-2 1-3 1-9 1c-3 0-6 1-8 1c-4 0-5 0-8 0zM570 305c-1 0-4-1-7-1c-6 0-7 0-9-1c-1 0-2-1-4-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2 0-2-1c0 0-1 0-2-1c-1 0-2-1-2-1c-1 0-1-1-2-1c-3-2-5-3-5-3c0 0-1-1-2-1c0 0-1-1-1-1c0 0-1-1-3-3c-2-1-4-3-4-4c-1-1-2-2-3-2c-1-1-2-2-2-3c-1 0-1-1-2-2c-1-1-3-4-4-5c0-1-1-2-1-2c-1-1-1-1-1-2c0 0 0 0-1-1c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-1-3c0-1-1-2-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c0-1-1-3-1-4c0-1-1-3-1-4c-1-1-1-3-1-13c-1-6 0-18 1-20c0 0 1-2 1-3c0-2 1-3 1-4c0-1 1-2 1-4c0-1 1-2 1-3c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c1-1 1-2 3-4c0 0 1-1 1-2c2-3 3-4 3-4c0 0 1-1 2-2c1-1 2-2 3-3c1-1 3-3 4-4c2-2 5-4 7-5c0 0 1-1 1-1c1-1 3-2 5-3c1 0 2-1 2-1c0 0 1-1 2-1c1 0 2-1 3-1c0 0 1-1 3-1c1 0 2-1 3-1c0 0 2-1 3-1c1 0 2 0 3-1c6-2 25-2 32 0c1 0 3 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 1 2 1 2 1c0 0 1 0 2 1c0 0 1 1 2 1c5 3 7 4 10 7c3 3 3 3 4 3c0-1 0-2 0-7c0-5 0-6 1-6c0-1 1-1 26-1c28 0 27 0 28 1c0 1 0 31 0 76c0 45 0 75 0 76c-1 1 0 1-28 1c-25 0-26 0-26-1c-1 0-1-1-1-7c0-4 0-7 0-7c-1-1-1-1-2 0c-3 4-5 7-9 9c0 1-1 1-1 1c-2 2-4 3-5 3c0 0-1 1-2 1c0 0-1 1-2 1c-1 0-3 1-3 1c-1 0-2 1-4 1c-1 0-2 1-3 1c-1 0-3 1-5 1c-2 0-4 0-4 1c-2 0-7 0-10 0zM911 305c-1 0-5-1-7-1c-7 0-7 0-9-1c-1 0-3-1-4-1c-1 0-3-1-3-1c-1 0-2 0-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-1c-3-2-4-3-5-3c0 0-1-1-1-1c-1 0-2-1-3-2c-1-1-3-3-4-4c-3-3-6-6-7-7c0-1-1-2-2-3c-1-1-2-2-2-3c-1-1-2-2-2-3c-1 0-2-2-2-2c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c-3-8-4-28-2-38c1-1 1-3 1-3c0-1 1-2 1-3c0-1 1-3 1-4c0-1 1-2 1-3c0-1 1-3 1-3c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 2-4 3-5c2-2 3-3 4-5c2-3 3-4 9-10c3-3 6-5 10-7c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 2-1 2-1c1 0 2-1 3-1c1 0 3-1 3-1c1 0 2-1 3-1c1 0 3 0 3-1c4-1 19-2 26-1c2 0 4 1 6 1c1 0 3 1 4 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 1 1 2 1c1 1 4 3 6 5c3 3 3 3 4 2c0 0 0 0 0-6c1-3 1-6 1-6c0-1 2-1 27-1c27 0 27 0 27 1c1 1 1 151 0 152c0 0 0 1-1 1c-1 0-51 0-52 0c-1-1-2-1-2-8c0-5 0-6 0-7c-1-1-1 0-2 1c-1 1-4 5-6 6c0 1-1 2-2 2c-1 1-2 2-3 2c-1 0-1 1-1 1c-1 0-6 3-7 3c-1 0-2 1-3 1c-1 0-2 1-2 1c-1 0-3 1-4 1c-1 0-3 1-5 1c-3 0-5 1-5 1c-2 0-6 0-9 0zM21 300l-1 0 0-124l0-124 1 0c1-1 1-1 22-1c21 0 21 0 22 1l1 0 0 124c0 98 0 124-1 124c0 0-43 0-44 0zM212 299l0 0 0-76l0-76 0 0c1-1 1-1 27-1l26 0 0 1l1 0 0 76l0 76-1 0l0 1-26 0c-26 0-26 0-27-1zM712 300c0 0 0 0 0-1c-1 0-1-4-1-76l0-76 1 0c1-1 53-1 53 0c1 0 1 2 1 10c0 11 0 13 1 13c0 0 1-1 2-2c2-4 6-8 8-10c1 0 2-1 3-2c0-1 2-2 2-2c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 1-1 2-1c1 0 2-1 3-1c2-1 3-1 6-1c1 0 4-1 5-1c5-1 17-1 18 0c1 0 1 49 0 50c-1 1-1 1-3 0c-1 0-2-1-3-1c-1 0-3-1-4-1c-3-1-6-1-13-1c-7 0-10 0-12 1c0 0-2 1-3 1c-2 0-5 2-7 3c0 0-1 1-1 1c-1 0-4 2-4 3c0 0 0 0-1 1c0 1-2 3-3 4c-2 5-2 6-2 6c0 1-1 2-1 3c0 1-1 2-1 3c0 1-1 4-1 5c-1 5-1 9-1 45c0 26 0 31-1 31c0 1-1 1-26 1c-14 0-26 0-27 0zM1053 300c-1 0-1-1-1-1c0 0 0-34 0-76c0-42 0-76 0-76c0-1 1-1 27-1c23 0 26 0 26 0l1 1 0 76l0 76-1 1c0 0-51 0-52 0zM397 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 2-1c0 0 1-1 1-1c1 0 1-1 2-1c1 0 7-6 7-7c0 0 0 0 1-1c0 0 1-1 1-2c1-1 1-2 1-2c1 0 1-1 1-1c0-1 0-2 1-3c1-2 2-6 2-11c0-3-1-12-2-13c0-1-1-2-1-3c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-4-5c-1-2-5-5-6-6c-1 0-2-1-2-1c0 0-5-3-6-3c0 0-2 0-4-1c-6-1-15 0-23 3c-1 0-2 1-3 1c0 0-1 1-2 1c-1 1-8 7-8 8c0 0 0 0-1 1c0 0-1 1-1 2c0 1-1 1-1 2c0 0-2 3-2 5c-1 1-1 3-2 9c0 4 1 14 2 15c0 0 1 1 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c1 1 1 1 1 1c0 1 1 2 2 3c3 3 5 4 8 6c1 0 2 1 3 1c0 0 1 1 2 1c1 0 2 1 3 1c4 1 16 1 19 0zM596 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 1-1c3-1 9-5 11-9c1-1 1-2 2-3c0 0 1-1 1-2c0 0 1-1 1-2c0-1 1-2 1-3c0-1 1-3 1-3c1-3 1-13 0-17c0-1-1-3-1-3c0-1-1-2-1-3c0-1-1-2-1-2c-2-4-8-11-12-14c-4-2-6-3-12-4c-6-1-18 0-24 4c-1 0-2 1-3 1c0 0-1 1-1 1c-4 3-4 4-5 5c-1 0-2 1-2 2c-1 0-1 1-1 2c-1 0-1 1-1 1c0 0-1 1-1 1c0 1-1 2-1 3c0 0-1 1-1 2c0 1-1 2-1 3l-1 3 0 7l0 6 1 3c0 1 1 2 1 3c0 1 1 2 1 2c0 1 1 2 1 3c0 0 1 1 1 1c0 1 1 2 2 3c2 3 5 6 7 7c1 1 2 1 2 1c0 0 5 3 6 3c1 0 2 1 3 1c3 1 16 1 19 0zM937 257c2-1 3-1 4-1c0 0 1 0 1-1c1 0 2-1 3-1c1 0 2-1 2-1c1-1 1-1 1-1c1 0 5-4 7-6c4-5 7-12 7-18c0-6 0-12-1-15c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-2c0 0-1-1-1-1c-4-6-12-12-17-13c-1 0-2 0-3-1c-4-1-14 0-20 1c-4 2-6 2-6 3c-1 0-2 1-2 1c-2 1-6 4-9 8c-2 2-5 8-5 10c0 1 0 3-1 4c-1 4-1 11 0 15c0 1 1 3 1 3c0 1 1 3 1 4c1 0 1 1 1 2c0 0 1 1 1 1c0 1 1 1 1 2c2 4 6 8 9 9c1 1 1 1 1 1c0 0 6 3 7 3c1 0 2 1 3 1c2 1 5 1 11 1c6 0 6 0 8-1zM234 118c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-2c-2-2-6-7-7-8c0-1-1-2-1-2c0-1-1-2-1-3c0 0-1-2-1-2c-1-3-1-14 0-16c0-1 1-2 1-3c0-1 1-3 1-3c0 0 1-1 1-2c2-4 9-11 13-12c0 0 1-1 2-1c5-3 13-3 19-2c2 1 6 3 8 4c1 1 2 1 2 2c1 0 2 1 2 1c2 1 5 4 6 6c0 1 1 2 1 2c2 2 4 10 4 15c0 4-1 10-2 12c-1 1-1 2-1 2c-1 3-9 11-12 13c-1 0-2 1-2 1c-1 0-2 1-3 1c-1 0-2 1-3 1c-2 1-7 1-12 1zM1074 118c-1 0-2-1-4-1c-1-1-2-1-2-1c-1 0-1 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-2-1-2-2c-5-4-9-9-10-14c0-1-1-3-1-4c-1-2-1-10 0-13c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 1-2c1-3 7-10 9-11c1 0 1-1 2-1c0 0 1-1 2-1c0 0 2-1 2-1c5-3 13-3 19-2c3 1 7 3 8 4c1 0 1 1 2 1c3 2 7 5 8 8c0 0 1 1 1 1c0 1 1 1 1 2c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 2 1 3c1 2 1 10 0 12c0 1-1 3-1 3c0 2-3 7-3 7c0 0 0 1-1 1c-1 3-7 8-10 10c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1c-3 1-9 1-13 1z"/><path fill="#00b6ff" d="M148 330c0-1-1-1-1-1c-1 0-2-1-2-1c-1 0-2-1-3-1c0 0-1-1-1-1c-2-1-8-7-10-8c0-1-1-2-2-3c-1-1-2-3-2-3c-1-1-3-5-3-5c0 0 0-1-1-2c0-1-1-3-1-3c0-1-1-3-1-4c-1-3-1-2-1-49l0-44-1-3c-1-2-1-4-2-4c-1-2-5-5-7-6c-1 0-2-1-2-1c-2 0-3-1-6-1c-4 0-4 2-4-15c0-8 0-14 0-15c1-1 2-1 5-1c3 0 8-1 9-2c0 0 1-1 2-1c1-1 4-4 4-6c2-5 2-2 2-49c0-45 0-44 1-48c0-1 1-3 1-3c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 2-5c1 0 1-1 2-1c0-1 1-2 2-3c3-4 9-10 13-12c4-2 6-2 21-3c5 0 10 0 12 0c5 0 5 0 6 1c0 1 0 2 0 17l0 16 0 1l-1 1-3 0c-3 0-7 1-10 1c-2 1-4 2-5 5c-2 3-2 1-2 45c0 34 0 39 0 40c-1 1-1 3-1 4c0 2 0 3-1 3c0 1-1 2-1 3c-1 3-7 8-14 13c-1 0-2 1-2 1c0 0-6 2-6 3c-1 0 0 1 1 1c2 0 9 2 9 3c1 0 1 1 2 1c4 2 9 9 10 12c0 1 1 2 1 2c1 1 1 3 1 6c1 8 1 9 1 43c0 41 0 43 3 47c1 1 3 3 5 4c1 0 3 0 7 0c5 0 5 0 6 0c0 1 0 1 0 18l0 18 0 0c-1 0-32 0-34 0zM1136 330c-1 0-1-1-1-1c0 0 0-33 0-34c1-1 1-1 7-1l6 0 2-1c2-1 3-3 4-4c1-2 2-4 2-5c0-1 0-14 0-42c0-35 0-40 1-41c0-1 0-3 1-5c0-1 1-3 1-4c0-1 1-2 1-2c1-2 7-9 10-10c3-2 6-3 11-4c3-1 3-1 0-2c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-4-2-7-5c-1 0-2-1-3-2c-3-3-6-7-7-11c-1-2-1-3-1-4c-1-2-1-4-1-42c0-42 0-41-1-43c0 0-1-2-1-2c-1-2-1-2-2-3c-2-2-3-2-8-2c-7-1-7-1-8-2l-1-1 0-16l0-16 1-1l1-1 13 0c7 0 14 0 14 0c4 1 7 2 8 2c0 0 1 1 2 1c0 0 1 1 2 1c0 0 1 1 1 1c2 1 8 6 9 8c0 1 1 2 1 2c1 1 2 2 2 2c1 1 1 2 2 2c0 1 1 2 1 3c0 0 1 1 1 1c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 3 1 4c1 1 1 3 1 5l1 1 0 44c0 32 0 44 0 45c1 3 5 8 6 8c0 0 1 0 1 1c2 1 7 2 10 2c2 0 3 0 4 2c0 1 0 27 0 28c0 0-2 1-3 1c-2 0-4 0-6 1c-1 0-3 1-3 1c-3 1-6 4-7 7c-2 4-2 3-2 47c0 43 0 46-1 50c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 3c0 1-1 2-1 2c0 1-1 1-1 2c-1 2-3 5-3 5c0 0-1 1-1 1c-1 2-9 10-11 11c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1l-1 1-16 0c-9 0-17 0-17 0z"/></svg>
+    <a href="https://kibarai.tech">kibarai.tech</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Calculadora</span>
+    <h1>¿Cuántas horas te devuelve automatizar?</h1>
+    <p>Apunta los procesos repetitivos de tu equipo, cuántas personas los hacen y cuánto tiempo les llevan. Te decimos cuántas horas y cuánto dinero puedes recuperar al año, y te llevas el cálculo en PDF.</p>
+  </div>
+</section>
+
+<main>
+  <div class="container gate" id="gate">
+    <div class="card">
+      <div id="gate-sent" class="gate-sent" hidden>
+        <h2>Revisa tu correo</h2>
+        <p class="hint">Te hemos mandado un email a <strong id="gate-sent-email"></strong>. Pulsa el botón de confirmación y te traerá aquí con la calculadora abierta.</p>
+        <p class="legal">¿No te llega? Mira en spam o promociones. Si ya te suscribiste antes, usa el enlace de aquel correo de confirmación o <button type="button" class="link" id="gate-retry">vuelve a intentarlo con otro email</button>.</p>
+      </div>
+      <div id="gate-ask">
+      <h2>Antes de empezar</h2>
+      <p class="hint">Dinos tu nombre y tu email. Te mandamos un correo para confirmarlo y desde él entras a la calculadora. Es gratis.</p>
+      <form id="gate-form" action="{{ site.data.secrets.calculadora_form }}" method="POST" target="gate-iframe" novalidate>
+        <div><label for="g-nombre">Nombre</label><input type="text" id="g-nombre" name="{{ ac.field_name }}" autocomplete="given-name" required></div>
+        <div><label for="g-email">Email</label><input type="email" id="g-email" name="{{ ac.field_email }}" autocomplete="email" required></div>
+        {%- comment -%} Campos trampa de Acumbamail contra bots: fuera de la vista y vacíos. {%- endcomment -%}
+        {%- for h in ac.honeypots %}
+        <input type="{{ h.type }}" name="{{ h.name }}" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px">
+        {%- endfor %}
+        <label class="check"><input type="checkbox" id="g-ok"{% if ac.field_consent != "" %} name="{{ ac.field_consent }}" value="1"{% endif %} required>
+          <span>He leído la <a href="{{ '/es/privacidad/' | relative_url }}" target="_blank" rel="noopener">política de privacidad</a> y acepto recibir la newsletter de Kibarai. Puedo darme de baja cuando quiera.</span></label>
+        <p class="err" id="g-err" role="alert"></p>
+        <button class="btn btn-primary" type="submit">Usar la calculadora</button>
+        <p class="legal">Responsable: KIBARAI TECH S.L.U. Finalidad: darte acceso a la calculadora y enviarte la newsletter. Los datos se guardan en Acumbamail (España). Puedes ejercer tus derechos en contacto@kibarai.tech.</p>
+      </form>
+      </div>
+      <iframe class="gate-iframe" name="gate-iframe" title="Envío del formulario" tabindex="-1" aria-hidden="true"></iframe>
+    </div>
+  </div>
+
+  <div class="calc" id="calc" hidden>
+  <div class="container grid">
+    <div>
+      <div class="card">
+        <h2>Tu equipo</h2>
+        <p class="hint">Con esto calculamos cuánto vale el tiempo que recuperas. Lo que escribes en la calculadora no se guarda ni se envía a ningún sitio.</p>
+        <div class="fields">
+          <div><label for="coste">Coste por hora de tu equipo</label><div class="unit"><input type="number" id="coste" min="0" step="1" placeholder="Ej. 22" inputmode="decimal"><span>€ / hora</span></div></div>
+          <div><label for="semanas">Semanas de trabajo al año</label><div class="unit"><input type="number" id="semanas" min="1" max="52" step="1" placeholder="Ej. 46" inputmode="numeric"><span>semanas</span></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Procesos repetitivos</h2>
+        <p class="hint">El porcentaje automatizable es la parte del trabajo que puede hacerse sola. Si dudas, deja el 60 %: en el diagnóstico lo afinamos.</p>
+        <div id="procs"></div>
+        <button class="btn btn-ghost" id="add" type="button">Añadir proceso</button>
+      </div>
+    </div>
+
+    <aside class="result" aria-live="polite">
+      <span class="eyebrow">Tu resultado</span>
+      <div class="big" id="r-anual">0 h</div>
+      <div class="big-sub">recuperables al año</div>
+      <div class="kpis">
+        <div class="kpi"><span>Por semana</span><strong id="r-sem">0 h</strong></div>
+        <div class="kpi"><span>Jornadas completas</span><strong id="r-fte">0</strong></div>
+        <div class="kpi" style="grid-column: span 2"><span>Coste anual recuperable</span><strong id="r-eur">0 €</strong></div>
+      </div>
+      <div class="bars"><h3>Dónde están las horas</h3><div id="r-bars"></div></div>
+      <button class="btn btn-primary" id="pdf" type="button">Descargar el cálculo en PDF</button>
+      <div class="status" id="status"></div>
+    </aside>
+  </div>
+  <div class="container"><p class="note">Estimación orientativa calculada con los datos que introduces. Jornadas completas sobre una jornada anual de referencia de 1.720 horas. No es un presupuesto.</p></div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 350" role="img" aria-label="Kibarai"><path fill="#fff" d="M396 305c-1-1-3-1-4-1c-5 0-7 0-8-1c-1 0-2-1-3-1c0 0-2-1-3-1c0 0-2-1-2-1c-1 0-2 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-1-1-1-1c-1 0-4-2-5-3c-2-2-6-6-6-7c-1 0-2-1-3-1c0 0 0 0 0 7l-1 7 0 0l-1 1-26 0c-21 0-26 0-27 0c0-1 0-245 0-247c0 0 0-1 1-1l0-1 26 0c27 0 26 0 27 1c0 1 0 2 0 54c0 35 1 52 1 53c0 1 2 0 5-3c1-1 2-2 3-2c0 0 1-1 1-1c0 0 1 0 2-1c1 0 2-1 2-1c0 0 1-1 2-1c1-1 2-1 2-1c3-2 5-3 7-3c0 0 2-1 2-1c1 0 3-1 4-1c1 0 3-1 4-1c7-2 24-2 30 0c1 1 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 3 1 4 1c0 0 2 1 2 1c1 0 2 1 2 1c0 0 1 1 2 1c2 1 4 2 4 3c1 0 2 1 2 1c3 1 12 10 15 14c1 0 1 1 2 2c0 0 1 2 2 3c1 1 2 2 2 3c1 0 1 1 1 1c0 0 0 1 1 1c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 3c0 1 1 3 1 3c0 1 1 3 1 4c0 1 1 2 1 3c1 2 1 3 1 8c1 2 1 5 1 7c1 4 1 6 0 11c0 2-1 5-1 7c0 5 0 6-1 8c0 1-1 2-1 3c0 1-1 3-1 3c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 1-1 2-1 2c0 0-1 1-1 2c0 1-1 2-1 2c-1 1-1 2-2 3c-1 1-2 2-2 3c-1 1-1 2-3 4c-2 3-12 13-15 14c0 0-1 1-1 1c0 0-1 1-1 1c-1 0-2 1-3 1c0 0-1 1-2 1c0 1-2 1-3 2c0 0-1 1-2 1c0 0-2 1-3 1c-1 1-2 1-2 1c-1 0-2 1-3 1c-2 0-4 1-4 1c-2 1-3 1-9 1c-3 0-6 1-8 1c-4 0-5 0-8 0zM570 305c-1 0-4-1-7-1c-6 0-7 0-9-1c-1 0-2-1-4-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2 0-2-1c0 0-1 0-2-1c-1 0-2-1-2-1c-1 0-1-1-2-1c-3-2-5-3-5-3c0 0-1-1-2-1c0 0-1-1-1-1c0 0-1-1-3-3c-2-1-4-3-4-4c-1-1-2-2-3-2c-1-1-2-2-2-3c-1 0-1-1-2-2c-1-1-3-4-4-5c0-1-1-2-1-2c-1-1-1-1-1-2c0 0 0 0-1-1c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-1-3c0-1-1-2-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c0-1-1-3-1-4c0-1-1-3-1-4c-1-1-1-3-1-13c-1-6 0-18 1-20c0 0 1-2 1-3c0-2 1-3 1-4c0-1 1-2 1-4c0-1 1-2 1-3c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0 0 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c1-1 1-2 3-4c0 0 1-1 1-2c2-3 3-4 3-4c0 0 1-1 2-2c1-1 2-2 3-3c1-1 3-3 4-4c2-2 5-4 7-5c0 0 1-1 1-1c1-1 3-2 5-3c1 0 2-1 2-1c0 0 1-1 2-1c1 0 2-1 3-1c0 0 1-1 3-1c1 0 2-1 3-1c0 0 2-1 3-1c1 0 2 0 3-1c6-2 25-2 32 0c1 0 3 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 3 1c1 1 2 1 2 1c0 0 1 0 2 1c0 0 1 1 2 1c5 3 7 4 10 7c3 3 3 3 4 3c0-1 0-2 0-7c0-5 0-6 1-6c0-1 1-1 26-1c28 0 27 0 28 1c0 1 0 31 0 76c0 45 0 75 0 76c-1 1 0 1-28 1c-25 0-26 0-26-1c-1 0-1-1-1-7c0-4 0-7 0-7c-1-1-1-1-2 0c-3 4-5 7-9 9c0 1-1 1-1 1c-2 2-4 3-5 3c0 0-1 1-2 1c0 0-1 1-2 1c-1 0-3 1-3 1c-1 0-2 1-4 1c-1 0-2 1-3 1c-1 0-3 1-5 1c-2 0-4 0-4 1c-2 0-7 0-10 0zM911 305c-1 0-5-1-7-1c-7 0-7 0-9-1c-1 0-3-1-4-1c-1 0-3-1-3-1c-1 0-2 0-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-1c-3-2-4-3-5-3c0 0-1-1-1-1c-1 0-2-1-3-2c-1-1-3-3-4-4c-3-3-6-6-7-7c0-1-1-2-2-3c-1-1-2-2-2-3c-1-1-2-2-2-3c-1 0-2-2-2-2c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-1c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-3c0-1-1-2-1-3c0-1-1-3-1-4c-3-8-4-28-2-38c1-1 1-3 1-3c0-1 1-2 1-3c0-1 1-3 1-4c0-1 1-2 1-3c0-1 1-3 1-3c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 1-2 1-2c0-1 1-1 1-2c0-1 2-4 3-5c2-2 3-3 4-5c2-3 3-4 9-10c3-3 6-5 10-7c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 2-1 2-1c1 0 2-1 3-1c1 0 3-1 3-1c1 0 2-1 3-1c1 0 3 0 3-1c4-1 19-2 26-1c2 0 4 1 6 1c1 0 3 1 4 1c1 0 2 1 3 1c1 0 2 1 3 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 2 1 2 1c1 0 1 1 2 1c1 1 4 3 6 5c3 3 3 3 4 2c0 0 0 0 0-6c1-3 1-6 1-6c0-1 2-1 27-1c27 0 27 0 27 1c1 1 1 151 0 152c0 0 0 1-1 1c-1 0-51 0-52 0c-1-1-2-1-2-8c0-5 0-6 0-7c-1-1-1 0-2 1c-1 1-4 5-6 6c0 1-1 2-2 2c-1 1-2 2-3 2c-1 0-1 1-1 1c-1 0-6 3-7 3c-1 0-2 1-3 1c-1 0-2 1-2 1c-1 0-3 1-4 1c-1 0-3 1-5 1c-3 0-5 1-5 1c-2 0-6 0-9 0zM21 300l-1 0 0-124l0-124 1 0c1-1 1-1 22-1c21 0 21 0 22 1l1 0 0 124c0 98 0 124-1 124c0 0-43 0-44 0zM212 299l0 0 0-76l0-76 0 0c1-1 1-1 27-1l26 0 0 1l1 0 0 76l0 76-1 0l0 1-26 0c-26 0-26 0-27-1zM712 300c0 0 0 0 0-1c-1 0-1-4-1-76l0-76 1 0c1-1 53-1 53 0c1 0 1 2 1 10c0 11 0 13 1 13c0 0 1-1 2-2c2-4 6-8 8-10c1 0 2-1 3-2c0-1 2-2 2-2c1 0 2-1 2-1c0 0 1-1 1-1c1 0 2-1 2-1c1 0 2-1 2-1c1 0 2-1 3-1c0 0 1-1 2-1c1 0 2-1 3-1c2-1 3-1 6-1c1 0 4-1 5-1c5-1 17-1 18 0c1 0 1 49 0 50c-1 1-1 1-3 0c-1 0-2-1-3-1c-1 0-3-1-4-1c-3-1-6-1-13-1c-7 0-10 0-12 1c0 0-2 1-3 1c-2 0-5 2-7 3c0 0-1 1-1 1c-1 0-4 2-4 3c0 0 0 0-1 1c0 1-2 3-3 4c-2 5-2 6-2 6c0 1-1 2-1 3c0 1-1 2-1 3c0 1-1 4-1 5c-1 5-1 9-1 45c0 26 0 31-1 31c0 1-1 1-26 1c-14 0-26 0-27 0zM1053 300c-1 0-1-1-1-1c0 0 0-34 0-76c0-42 0-76 0-76c0-1 1-1 27-1c23 0 26 0 26 0l1 1 0 76l0 76-1 1c0 0-51 0-52 0zM397 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 2-1c0 0 1-1 1-1c1 0 1-1 2-1c1 0 7-6 7-7c0 0 0 0 1-1c0 0 1-1 1-2c1-1 1-2 1-2c1 0 1-1 1-1c0-1 0-2 1-3c1-2 2-6 2-11c0-3-1-12-2-13c0-1-1-2-1-3c0-1-1-2-1-2c0-1-1-2-1-2c0-1-1-2-4-5c-1-2-5-5-6-6c-1 0-2-1-2-1c0 0-5-3-6-3c0 0-2 0-4-1c-6-1-15 0-23 3c-1 0-2 1-3 1c0 0-1 1-2 1c-1 1-8 7-8 8c0 0 0 0-1 1c0 0-1 1-1 2c0 1-1 1-1 2c0 0-2 3-2 5c-1 1-1 3-2 9c0 4 1 14 2 15c0 0 1 1 1 2c0 1 1 2 1 2c0 1 1 2 1 2c0 1 1 2 1 2c1 1 1 1 1 1c0 1 1 2 2 3c3 3 5 4 8 6c1 0 2 1 3 1c0 0 1 1 2 1c1 0 2 1 3 1c4 1 16 1 19 0zM596 257c2 0 3-1 4-1c1 0 2-1 3-1c0 0 1-1 1-1c3-1 9-5 11-9c1-1 1-2 2-3c0 0 1-1 1-2c0 0 1-1 1-2c0-1 1-2 1-3c0-1 1-3 1-3c1-3 1-13 0-17c0-1-1-3-1-3c0-1-1-2-1-3c0-1-1-2-1-2c-2-4-8-11-12-14c-4-2-6-3-12-4c-6-1-18 0-24 4c-1 0-2 1-3 1c0 0-1 1-1 1c-4 3-4 4-5 5c-1 0-2 1-2 2c-1 0-1 1-1 2c-1 0-1 1-1 1c0 0-1 1-1 1c0 1-1 2-1 3c0 0-1 1-1 2c0 1-1 2-1 3l-1 3 0 7l0 6 1 3c0 1 1 2 1 3c0 1 1 2 1 2c0 1 1 2 1 3c0 0 1 1 1 1c0 1 1 2 2 3c2 3 5 6 7 7c1 1 2 1 2 1c0 0 5 3 6 3c1 0 2 1 3 1c3 1 16 1 19 0zM937 257c2-1 3-1 4-1c0 0 1 0 1-1c1 0 2-1 3-1c1 0 2-1 2-1c1-1 1-1 1-1c1 0 5-4 7-6c4-5 7-12 7-18c0-6 0-12-1-15c0-1-1-2-1-3c0 0-1-1-1-2c0 0-1-1-1-2c0-1-1-2-1-2c0 0-1-1-1-1c-4-6-12-12-17-13c-1 0-2 0-3-1c-4-1-14 0-20 1c-4 2-6 2-6 3c-1 0-2 1-2 1c-2 1-6 4-9 8c-2 2-5 8-5 10c0 1 0 3-1 4c-1 4-1 11 0 15c0 1 1 3 1 3c0 1 1 3 1 4c1 0 1 1 1 2c0 0 1 1 1 1c0 1 1 1 1 2c2 4 6 8 9 9c1 1 1 1 1 1c0 0 6 3 7 3c1 0 2 1 3 1c2 1 5 1 11 1c6 0 6 0 8-1zM234 118c-1 0-2-1-3-1c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-1-1-2-1c0 0 0 0-1-1c-1 0-2-1-3-2c-2-2-6-7-7-8c0-1-1-2-1-2c0-1-1-2-1-3c0 0-1-2-1-2c-1-3-1-14 0-16c0-1 1-2 1-3c0-1 1-3 1-3c0 0 1-1 1-2c2-4 9-11 13-12c0 0 1-1 2-1c5-3 13-3 19-2c2 1 6 3 8 4c1 1 2 1 2 2c1 0 2 1 2 1c2 1 5 4 6 6c0 1 1 2 1 2c2 2 4 10 4 15c0 4-1 10-2 12c-1 1-1 2-1 2c-1 3-9 11-12 13c-1 0-2 1-2 1c-1 0-2 1-3 1c-1 0-2 1-3 1c-2 1-7 1-12 1zM1074 118c-1 0-2-1-4-1c-1-1-2-1-2-1c-1 0-1 0-2-1c-1 0-2-1-2-1c-1 0-2-1-2-1c-1-1-2-1-2-2c-5-4-9-9-10-14c0-1-1-3-1-4c-1-2-1-10 0-13c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 1-2c1-3 7-10 9-11c1 0 1-1 2-1c0 0 1-1 2-1c0 0 2-1 2-1c5-3 13-3 19-2c3 1 7 3 8 4c1 0 1 1 2 1c3 2 7 5 8 8c0 0 1 1 1 1c0 1 1 1 1 2c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 2 1 3c1 2 1 10 0 12c0 1-1 3-1 3c0 2-3 7-3 7c0 0 0 1-1 1c-1 3-7 8-10 10c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1c-3 1-9 1-13 1z"/><path fill="#00b6ff" d="M148 330c0-1-1-1-1-1c-1 0-2-1-2-1c-1 0-2-1-3-1c0 0-1-1-1-1c-2-1-8-7-10-8c0-1-1-2-2-3c-1-1-2-3-2-3c-1-1-3-5-3-5c0 0 0-1-1-2c0-1-1-3-1-3c0-1-1-3-1-4c-1-3-1-2-1-49l0-44-1-3c-1-2-1-4-2-4c-1-2-5-5-7-6c-1 0-2-1-2-1c-2 0-3-1-6-1c-4 0-4 2-4-15c0-8 0-14 0-15c1-1 2-1 5-1c3 0 8-1 9-2c0 0 1-1 2-1c1-1 4-4 4-6c2-5 2-2 2-49c0-45 0-44 1-48c0-1 1-3 1-3c0-1 1-2 1-3c0-1 1-2 1-2c0-1 1-2 2-5c1 0 1-1 2-1c0-1 1-2 2-3c3-4 9-10 13-12c4-2 6-2 21-3c5 0 10 0 12 0c5 0 5 0 6 1c0 1 0 2 0 17l0 16 0 1l-1 1-3 0c-3 0-7 1-10 1c-2 1-4 2-5 5c-2 3-2 1-2 45c0 34 0 39 0 40c-1 1-1 3-1 4c0 2 0 3-1 3c0 1-1 2-1 3c-1 3-7 8-14 13c-1 0-2 1-2 1c0 0-6 2-6 3c-1 0 0 1 1 1c2 0 9 2 9 3c1 0 1 1 2 1c4 2 9 9 10 12c0 1 1 2 1 2c1 1 1 3 1 6c1 8 1 9 1 43c0 41 0 43 3 47c1 1 3 3 5 4c1 0 3 0 7 0c5 0 5 0 6 0c0 1 0 1 0 18l0 18 0 0c-1 0-32 0-34 0zM1136 330c-1 0-1-1-1-1c0 0 0-33 0-34c1-1 1-1 7-1l6 0 2-1c2-1 3-3 4-4c1-2 2-4 2-5c0-1 0-14 0-42c0-35 0-40 1-41c0-1 0-3 1-5c0-1 1-3 1-4c0-1 1-2 1-2c1-2 7-9 10-10c3-2 6-3 11-4c3-1 3-1 0-2c-1 0-2-1-3-1c-1 0-2-1-3-1c-1-1-4-2-7-5c-1 0-2-1-3-2c-3-3-6-7-7-11c-1-2-1-3-1-4c-1-2-1-4-1-42c0-42 0-41-1-43c0 0-1-2-1-2c-1-2-1-2-2-3c-2-2-3-2-8-2c-7-1-7-1-8-2l-1-1 0-16l0-16 1-1l1-1 13 0c7 0 14 0 14 0c4 1 7 2 8 2c0 0 1 1 2 1c0 0 1 1 2 1c0 0 1 1 1 1c2 1 8 6 9 8c0 1 1 2 1 2c1 1 2 2 2 2c1 1 1 2 2 2c0 1 1 2 1 3c0 0 1 1 1 1c0 0 1 1 1 2c0 1 1 2 1 3c0 1 1 3 1 4c1 1 1 3 1 5l1 1 0 44c0 32 0 44 0 45c1 3 5 8 6 8c0 0 1 0 1 1c2 1 7 2 10 2c2 0 3 0 4 2c0 1 0 27 0 28c0 0-2 1-3 1c-2 0-4 0-6 1c-1 0-3 1-3 1c-3 1-6 4-7 7c-2 4-2 3-2 47c0 43 0 46-1 50c0 1-1 3-1 4c0 0-1 2-1 2c0 1-1 2-1 3c0 1-1 2-1 2c0 1-1 1-1 2c-1 2-3 5-3 5c0 0-1 1-1 1c-1 2-9 10-11 11c-1 0-1 1-2 1c0 0-1 1-2 1c-1 0-2 1-3 1l-1 1-16 0c-9 0-17 0-17 0z"/></svg>
+    <span>Software que funciona, decisiones que aguantan.</span>
+  </div>
+</footer>
+
+<script>
+let ASSETS = null;
+const JORNADA = 1720, MAX_PROCS = 6;
+const C = { primary:[45,54,99], secondary:[110,146,255], tertiary:[0,57,143], ink:[22,44,64], inkSoft:[68,80,103], muted:[107,116,136], rule:[219,226,240], bgSoft:[246,249,255], bgAccent:[230,238,250], onDark:[199,210,234] };
+
+let procs = [{ nombre: "", personas: "", horas: "", pct: 60 }];
+
+// ---------- utilidades ----------
+const $ = id => document.getElementById(id);
+function num(v, d = 0) {
+  const n = Number(v); if (!isFinite(n)) return "0";
+  const s = Math.abs(n).toFixed(d).split(".");
+  s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return (n < 0 ? "-" : "") + s.join(",");
+}
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const clamp = (v, a, b) => Math.min(b, Math.max(a, Number(v) || 0));
+
+function calc() {
+  const coste = clamp($("coste").value, 0, 1000), semanas = $("semanas").value === "" ? 0 : clamp($("semanas").value, 1, 52);
+  const rows = procs.map((p, i) => {
+    const sem = clamp(p.personas, 0, 999) * clamp(p.horas, 0, 80) * clamp(p.pct, 0, 100) / 100;
+    return { ...p, nombre: (p.nombre || "").trim() || `Proceso ${i + 1}`, sem, anual: sem * semanas, eur: sem * semanas * coste };
+  });
+  const sem = rows.reduce((a, r) => a + r.sem, 0);
+  const anual = sem * semanas;
+  return { rows, sem, anual, fte: anual / JORNADA, eur: anual * coste, coste, semanas,
+           personas: rows.reduce((a, r) => a + clamp(r.personas, 0, 999), 0) };
+}
+
+// ---------- interfaz ----------
+function renderProcs() {
+  $("procs").innerHTML = procs.map((p, i) => `
+    <div class="proc">
+      <div class="proc-head">
+        <span class="n">${String(i + 1).padStart(2, "0")}</span>
+        <input type="text" data-i="${i}" data-k="nombre" value="${esc(p.nombre)}" placeholder="Ej. Pasar facturas de proveedor al programa" aria-label="Nombre del proceso ${i + 1}">
+        ${procs.length > 1 ? `<button type="button" data-del="${i}">Quitar</button>` : ""}
+      </div>
+      <div class="proc-body">
+        <div><label>Personas que lo hacen</label><div class="unit"><input type="number" min="0" step="1" data-i="${i}" data-k="personas" value="${p.personas}"><span>pers.</span></div></div>
+        <div><label>Horas por persona</label><div class="unit"><input type="number" min="0" step="0.5" data-i="${i}" data-k="horas" value="${p.horas}"><span>h / sem.</span></div></div>
+        <div><label>Parte automatizable</label><div class="range-wrap"><input type="range" min="0" max="100" step="5" data-i="${i}" data-k="pct" value="${p.pct}" style="--p:${p.pct}%" aria-label="Porcentaje automatizable"><output>${p.pct} %</output></div></div>
+      </div>
+    </div>`).join("");
+  $("add").style.display = procs.length >= MAX_PROCS ? "none" : "";
+}
+
+function renderResult() {
+  const r = calc();
+  $("status").textContent = "";
+  $("r-anual").textContent = num(r.anual) + " h";
+  $("r-sem").textContent = num(r.sem, r.sem % 1 ? 1 : 0) + " h";
+  $("r-fte").textContent = num(r.fte, 1);
+  $("r-eur").textContent = num(r.eur) + " €";
+  const max = Math.max(...r.rows.map(x => x.anual), 1);
+  $("r-bars").innerHTML = r.rows.map(x => `
+    <div class="bar"><div class="lbl"><span>${esc(x.nombre)}</span><span>${num(x.anual)} h</span></div>
+    <div class="track"><div class="fill" style="width:${(x.anual / max * 100).toFixed(1)}%"></div></div></div>`).join("");
+}
+
+$("procs").addEventListener("input", e => {
+  const t = e.target, i = +t.dataset.i, k = t.dataset.k;
+  if (k === undefined || isNaN(i)) return;
+  procs[i][k] = k === "nombre" || t.value === "" ? t.value : Number(t.value);
+  if (k === "pct") { t.nextElementSibling.textContent = t.value + " %"; t.style.setProperty("--p", t.value + "%"); }
+  renderResult();
+});
+$("procs").addEventListener("click", e => {
+  const d = e.target.dataset.del; if (d === undefined) return;
+  procs.splice(+d, 1); renderProcs(); renderResult();
+});
+$("add").addEventListener("click", () => {
+  if (procs.length >= MAX_PROCS) return;
+  procs.push({ nombre: "", personas: "", horas: "", pct: 60 }); renderProcs(); renderResult();
+  const inputs = document.querySelectorAll('#procs input[data-k="nombre"]'); inputs[inputs.length - 1].focus();
+});
+["coste", "semanas"].forEach(id => $(id).addEventListener("input", renderResult));
+
+// ---------- PDF ----------
+function buildPdf() {
+  const r = calc();
+  r.rows = r.rows.filter(x => x.sem > 0);  // los procesos sin rellenar no salen en el PDF
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: "pt", format: "a4" });
+  for (const [name, b64] of Object.entries(ASSETS.fonts)) {
+    doc.addFileToVFS(name + ".ttf", b64);
+    const [fam, w] = name.split("-");
+    doc.addFont(name + ".ttf", fam, w.toLowerCase());
+  }
+  const W = 595.28, M = 40, CW = W - 2 * M;
+  const fill = c => doc.setFillColor(...c), stroke = c => doc.setDrawColor(...c), color = c => doc.setTextColor(...c);
+  const font = (f, s, sz) => { doc.setFont(f, s); doc.setFontSize(sz); };
+  const caps = (t, x, y, opts = {}) => { doc.setCharSpace(opts.cs ?? 1.2); doc.text(t.toUpperCase(), x, y, opts); doc.setCharSpace(0); };
+
+  // Cabecera
+  doc.addImage(ASSETS.logo, "PNG", M, 34, 27 * 1240 / 350, 27);
+  font("Inter", "medium", 7.5); color(C.secondary);
+  caps("Cálculo · Horas recuperables", W - M, 51, { align: "right" });
+  stroke(C.rule); doc.setLineWidth(1.2); doc.line(M, 76, W - M, 76);
+
+  // Titular y entradilla
+  let y = 112;
+  font("Poppins", "semibold", 21); color(C.primary);
+  const h1 = doc.splitTextToSize(`Puedes recuperar ${num(r.anual)} horas al año.`, CW * 0.8);
+  doc.text(h1, M, y, { lineHeightFactor: 1.2 }); y += h1.length * 25.2 + 4;
+  font("Inter", "regular", 10); color(C.inkSoft);
+  const lead = `Estimación para tu empresa, calculada con los datos que has introducido: ${r.rows.length} ${r.rows.length === 1 ? "proceso" : "procesos"}, ${num(r.personas)} ${r.personas === 1 ? "persona implicada" : "personas implicadas"} y un coste de ${num(r.coste)} € por hora. Son horas que hoy se van en tareas repetitivas y que, automatizadas, tu equipo puede dedicar a lo que de verdad aporta.`;
+  const leadL = doc.splitTextToSize(lead, CW);
+  doc.text(leadL, M, y, { lineHeightFactor: 1.55 }); y += leadL.length * 15.5 + 14;
+
+  // KPIs
+  const kpis = [["Horas por semana", num(r.sem, r.sem % 1 ? 1 : 0) + " h"], ["Horas al año", num(r.anual) + " h"],
+                ["Jornadas completas", num(r.fte, 1)], ["Coste al año", num(r.eur) + " €"]];
+  const gap = 10, kw = (CW - gap * 3) / 4, kh = 58;
+  kpis.forEach(([l, v], i) => {
+    const x = M + i * (kw + gap);
+    if (i === 3) { fill(C.primary); doc.roundedRect(x, y, kw, kh, 8, 8, "F"); }
+    else { fill(C.bgSoft); stroke(C.rule); doc.setLineWidth(.8); doc.roundedRect(x, y, kw, kh, 8, 8, "FD"); }
+    font("Inter", "medium", 6.8); color(i === 3 ? C.onDark : C.muted); caps(l, x + 11, y + 19, { cs: .9 });
+    font("Poppins", "semibold", 16); color(i === 3 ? [255, 255, 255] : C.primary); doc.text(v, x + 11, y + 43);
+  });
+  y += kh + 30;
+
+  // Desglose
+  const h2 = t => { font("Poppins", "bold", 13); color(C.primary); doc.text(t, M, y); y += 9; stroke(C.rule); doc.setLineWidth(1); doc.line(M, y, W - M, y); y += 16; };
+  h2("Desglose por proceso");
+  const NW = 152;
+  const cols = [{ t: "Proceso", x: M }, { t: "Personas", x: M + 205, a: "right" }, { t: "h / semana", x: M + 280, a: "right" },
+                { t: "Automatizable", x: M + 365, a: "right" }, { t: "h recup. / sem", x: M + 445, a: "right" }, { t: "€ / año", x: W - M, a: "right" }];
+  font("Inter", "medium", 6.8); color(C.muted);
+  cols.forEach(c => caps(c.t, c.x, y, { align: c.a || "left", cs: .7 }));
+  y += 8; stroke(C.rule); doc.setLineWidth(.8); doc.line(M, y, W - M, y);
+  const maxA = Math.max(...r.rows.map(x => x.anual), 1);
+  r.rows.forEach(row => {
+    font("Inter", "regular", 9.5); color(C.ink);
+    const name = doc.splitTextToSize(row.nombre, NW);
+    const rh = Math.max(1, name.length) * 12.5 + 16;
+    const ty = y + 15;
+    doc.text(name, M, ty, { lineHeightFactor: 1.3 });
+    color(C.inkSoft);
+    doc.text(num(row.personas), cols[1].x + 0, ty, { align: "right" });
+    doc.text(num(row.horas, row.horas % 1 ? 1 : 0), cols[2].x, ty, { align: "right" });
+    doc.text(num(row.pct) + " %", cols[3].x, ty, { align: "right" });
+    font("Poppins", "semibold", 9.5); color(C.primary);
+    doc.text(num(row.sem, row.sem % 1 ? 1 : 0), cols[4].x, ty, { align: "right" });
+    doc.text(num(row.eur) + " €", cols[5].x, ty, { align: "right" });
+    // barra proporcional a las horas anuales
+    const by = y + rh - 8;
+    fill(C.bgAccent); doc.roundedRect(M, by, NW, 3, 1.5, 1.5, "F");
+    fill(C.secondary); doc.roundedRect(M, by, Math.max(3, NW * row.anual / maxA), 3, 1.5, 1.5, "F");
+    y += rh + 4; stroke(C.rule); doc.setLineWidth(.8); doc.line(M, y, W - M, y);
+  });
+  // total
+  y += 15;
+  font("Poppins", "semibold", 9.5); color(C.primary);
+  doc.text("Total", M, y);
+  doc.text(num(r.sem, r.sem % 1 ? 1 : 0), cols[4].x, y, { align: "right" });
+  doc.text(num(r.eur) + " €", cols[5].x, y, { align: "right" });
+  y += 30;
+
+  // Hipótesis
+  h2("Cómo se ha calculado");
+  font("Inter", "regular", 8.8); color(C.inkSoft);
+  const hip = [
+    `Horas recuperables por semana = personas × horas por persona y semana × parte automatizable.`,
+    `Horas al año = horas por semana × ${num(r.semanas)} semanas de trabajo. Jornadas completas sobre una jornada anual de referencia de ${num(JORNADA)} horas.`,
+    `Coste recuperable = horas al año × ${num(r.coste)} € por hora. Es el valor del tiempo que se libera, no un ahorro en nómina.`,
+  ];
+  hip.forEach(t => {
+    const l = doc.splitTextToSize(t, CW - 12);
+    fill(C.secondary); doc.circle(M + 2.5, y - 3, 1.6, "F");
+    doc.text(l, M + 12, y, { lineHeightFactor: 1.5 }); y += l.length * 13.2 + 5;
+  });
+
+  // Tarjeta de contacto (anclada abajo, altura según contenido)
+  const top = r.rows.reduce((a, b) => (b.anual > a.anual ? b : a), r.rows[0]);
+  const pw = 80, ph = 97, tx = M + 20 + pw + 20, tw = W - M - 22 - tx;
+  const corto = top.nombre.length > 48 ? top.nombre.slice(0, 46) + "…" : top.nombre;
+  font("Poppins", "bold", 14);
+  const headL = doc.splitTextToSize(r.anual > 0 ? `Empecemos por «${corto}».` : "Empecemos por el proceso que más tiempo te devuelve.", tw);
+  font("Inter", "regular", 9.5);
+  const subL = doc.splitTextToSize(r.anual > 0 ? "Es el proceso que más horas te devuelve. Treinta minutos de diagnóstico para afinar el cálculo y saber por dónde empezar." : "Treinta minutos para saber cuál es.", tw);
+  const inner = 9 + 18 + headL.length * 16.8 + 4 + subL.length * 14 + 14 + 22 + 16;
+  const ch = Math.max(ph + 44, inner + 44), cy = 842 - 40 - ch - 14;
+  fill(C.primary); doc.roundedRect(M, cy, CW, ch, 11, 11, "F");
+  const px = M + 20, py = cy + (ch - ph) / 2;
+  doc.saveGraphicsState();
+  doc.roundedRect(px, py, pw, ph, 6, 6, null); doc.clip(); doc.discardPath();
+  doc.addImage(ASSETS.photo, "JPEG", px, py, pw, pw * 359 / 330);
+  doc.restoreGraphicsState();
+  let ty = cy + (ch - inner) / 2 + 9;
+  font("Poppins", "semibold", 9); color([255, 255, 255]); doc.text("Carlos Jiménez", tx, ty);
+  const nw = doc.getTextWidth("Carlos Jiménez");
+  font("Inter", "regular", 9); doc.text(" · Fundador de Kibarai", tx + nw, ty);
+  ty += 22;
+  font("Poppins", "bold", 14); doc.text(headL, tx, ty, { lineHeightFactor: 1.2 }); ty += (headL.length - 1) * 16.8 + 18;
+  font("Inter", "regular", 9.5); color(C.onDark); doc.text(subL, tx, ty, { lineHeightFactor: 1.45 }); ty += (subL.length - 1) * 14 + 14;
+  doc.setDrawColor(255, 255, 255); doc.setGState(new doc.GState({ "stroke-opacity": 0.15 }));
+  doc.setLineWidth(1); doc.line(tx, ty, W - M - 20, ty);
+  doc.setGState(new doc.GState({ "stroke-opacity": 1 }));
+  ty += 20;
+  font("Inter", "medium", 7.5); color(C.secondary);
+  caps("Teléfono", tx, ty); caps("Email", tx + 110, ty);
+  ty += 17;
+  font("Poppins", "semibold", 12); color([255, 255, 255]);
+  doc.text("619 80 25 80", tx, ty); doc.text("carlos.jimenez@kibarai.tech", tx + 110, ty);
+
+  // Pie
+  const d = new Date();
+  font("Inter", "regular", 7.5); color(C.muted);
+  doc.text(`Estimación orientativa generada el ${d.toLocaleDateString("es-ES")} con la calculadora de kibarai.tech. No es un presupuesto.`, M, 842 - 26);
+
+  doc.setProperties({ title: "Horas recuperables · Kibarai", author: "Kibarai", subject: "Cálculo de horas recuperables" });
+  return doc;
+}
+
+// ---------- descarga ----------
+// jsPDF y las fuentes del PDF se cargan al pulsar el botón, no al abrir la página.
+const btn = $("pdf"), status = $("status");
+function loadScript(src) {
+  return new Promise((ok, ko) => { const el = document.createElement("script"); el.src = src; el.onload = ok; el.onerror = ko; document.head.appendChild(el); });
+}
+async function ensurePdfLibs() {
+  if (!window.jspdf) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
+  if (!window.KIBARAI_PDF_ASSETS) await loadScript("{{ '/calculadora/pdf-assets.js' | relative_url }}");
+  ASSETS = window.KIBARAI_PDF_ASSETS;
+}
+btn.addEventListener("click", async () => {
+  const r0 = calc();
+  if (!r0.coste || !r0.semanas) { status.textContent = "Rellena el coste por hora y las semanas de trabajo para descargar el PDF."; return; }
+  if (!r0.anual) { status.textContent = "Rellena al menos un proceso: personas, horas y parte automatizable."; return; }
+  btn.disabled = true; status.textContent = "Generando el PDF…";
+  try {
+    await ensurePdfLibs();
+    const r = calc();
+    buildPdf().save("kibarai-horas-recuperables.pdf");
+    status.textContent = "PDF descargado.";
+  } catch (e) {
+    status.textContent = "No se ha podido generar el PDF. Prueba de nuevo en unos segundos.";
+  } finally { btn.disabled = false; }
+});
+
+// ---------- acceso ----------
+// El formulario se envía a Acumbamail dentro de un iframe oculto, así la
+// persona no sale de la página. La calculadora NO se abre al enviarlo: se abre
+// cuando la persona confirma desde el correo. Acumbamail la devuelve a
+// /confirmado/, que marca la suscripción en el navegador y la trae aquí
+// porque al enviar se anotó este origen (ver _data/acumbamail.yml).
+const SUSCRITO = "kibarai-suscrito", ORIGEN = "kibarai-origen";
+function unlock() { $("gate").hidden = true; $("calc").hidden = false; }
+try { if (localStorage.getItem(SUSCRITO)) unlock(); } catch (e) {}
+$("gate-form").addEventListener("submit", e => {
+  const f = e.target, nombre = $("g-nombre").value.trim(), email = $("g-email").value.trim(), err = $("g-err");
+  if (!nombre) { e.preventDefault(); err.textContent = "Escribe tu nombre."; $("g-nombre").focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { e.preventDefault(); err.textContent = "Revisa el email: parece que falta algo."; $("g-email").focus(); return; }
+  if (!$("g-ok").checked) { e.preventDefault(); err.textContent = "Para continuar, acepta la política de privacidad."; return; }
+  err.textContent = "";
+  if (!f.getAttribute("action")) { e.preventDefault(); console.warn("Calculadora: falta el secreto ACUMBAMAIL_CALCULADORA_FORM (ver _plugins/secrets.rb)"); }
+  try { localStorage.setItem(ORIGEN, location.pathname); } catch (e2) {}
+  $("gate-sent-email").textContent = email;
+  $("gate-ask").hidden = true; $("gate-sent").hidden = false;
+});
+$("gate-retry").addEventListener("click", () => {
+  $("gate-sent").hidden = true; $("gate-ask").hidden = false; $("g-email").value = ""; $("g-email").focus();
+});
+
+renderProcs(); renderResult();
+</script>
+</body>
+</html>

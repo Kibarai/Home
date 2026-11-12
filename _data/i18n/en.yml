@@ -239,7 +239,9 @@ legal_pages:
         body: |
           Kibarai processes the personal data that the user voluntarily
           provides when contacting us via the email address above or via our
-          social profiles. Typical data:
+          social profiles, when booking a diagnostic or when signing up to use
+          our free tools, such as the recoverable hours calculator. Typical
+          data:
 
           - First name and surname.
           - Email address.
@@ -252,6 +254,9 @@ legal_pages:
             proposals.
           - Manage the commercial and contractual relationship where
             applicable.
+          - Give access to the free tools and send the Kibarai newsletter to
+            those who have agreed to it. You can unsubscribe at any time
+            using the link included in every email.
           - Comply with applicable legal obligations.
       - heading: Legal basis
         body: |
@@ -261,7 +266,8 @@ legal_pages:
           6.1.b of Regulation (EU) 2016/679 — GDPR).
       - heading: Retention
         body: |
-          Data is kept for as long as necessary to address the user's request
+          Newsletter data is kept for as long as you remain subscribed.
+          Other data is kept for as long as necessary to address the user's request
           and, thereafter, for the periods legally required to attend to
           potential liabilities. When data is no longer necessary it is
           deleted using appropriate security measures.
@@ -278,6 +284,10 @@ legal_pages:
           Diagnostic bookings are handled by Cal.com (Cal.com, Inc., USA),
           which processes the name, email and details you provide when
           booking in order to manage the appointment.
+
+          The newsletter list is managed with Acumbamail (a Spanish
+          company), which processes your name and email to send the
+          newsletters.
       - heading: Your rights
         body: |
           You may exercise your rights of access, rectification, erasure,

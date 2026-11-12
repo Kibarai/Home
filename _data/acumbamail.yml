@@ -1,0 +1,39 @@
+# Formularios de Acumbamail que usa la web.
+#
+# calculadora: el acceso a /calculadora/. Lista "Newsletter Kibarai",
+# formulario "Calculadora horas recuperables" (id 64923). Los datos salen de
+# Acumbamail > Listas > Newsletter Kibarai > Formularios > Integración >
+# "Insertar el HTML con el aspecto de tu página web":
+#   el action del <form> NO va aquí: es el secreto ACUMBAMAIL_CALCULADORA_FORM
+#   (ver _plugins/secrets.rb)
+#   field_name    -> el name del campo Nombre
+#   field_email   -> el name del campo Email
+#   field_consent -> el name de una casilla de privacidad en la lista (no hay:
+#                    la casilla es solo de la web; la doble confirmación por
+#                    correo de Acumbamail deja constancia del alta)
+#   honeypots     -> los campos trampa contra bots ("No borres los siguientes
+#                    campos"); se envían vacíos
+calculadora:
+  field_name: char_01
+  field_email: email_1
+  field_consent: ""
+  honeypots:
+    - { name: a1622705c, type: text }
+    - { name: b1622705c, type: email }
+
+# Vuelta tras confirmar la suscripción (doble confirmación por correo).
+# Acumbamail solo admite una dirección de vuelta por lista, así que siempre
+# devuelve a /confirmado/ (Listas > Newsletter Kibarai > Notificaciones >
+# Página de confirmación > Enlace):
+#   https://kibarai.tech/confirmado/?acceso=<clave>
+# La clave es el secreto KIBARAI_ACCESO (ver _plugins/secrets.rb); en la web
+# solo se publica su SHA-256.
+# Cada formulario de la web anota en el navegador desde qué recurso se
+# registró la persona; /confirmado/ la devuelve ahí. Si confirma en otro
+# dispositivo, ve la lista de recursos. Para añadir un lead magnet nuevo,
+# súmalo a `recursos` y haz que su formulario anote su `path` al enviarse.
+confirmacion:
+  recursos:
+    - path: /calculadora/
+      title: Calculadora de horas recuperables
+      description: Cuántas horas y cuánto dinero recupera tu equipo al año automatizando sus procesos repetitivos.

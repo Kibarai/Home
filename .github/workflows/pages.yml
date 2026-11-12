@@ -27,6 +27,9 @@ jobs:
       - run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+          # Ver _plugins/secrets.rb. Si falta alguno, el build falla.
+          ACUMBAMAIL_CALCULADORA_FORM: ${{ secrets.ACUMBAMAIL_CALCULADORA_FORM }}
+          KIBARAI_ACCESO: ${{ secrets.KIBARAI_ACCESO }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

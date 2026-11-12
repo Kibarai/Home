@@ -1,0 +1,119 @@
+---
+layout: null
+permalink: /confirmado/
+sitemap: false
+---
+{%- comment -%}
+  Vuelta tras confirmar la suscripción en Acumbamail. Acumbamail solo admite
+  una dirección de vuelta por lista, así que todas las confirmaciones llegan
+  aquí con ?acceso=<clave> (ver _data/acumbamail.yml, `confirmacion`).
+
+  Con la clave correcta marca la suscripción en el navegador y devuelve a la
+  persona al recurso desde el que se registró (lo anotó su formulario). Si
+  confirma en otro dispositivo y no hay nada anotado, le enseña los recursos.
+{%- endcomment -%}
+{%- assign cf = site.data.acumbamail.confirmacion -%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suscripción confirmada · Kibarai</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="icon" href="{{ '/assets/img/favicon-48.png' | relative_url }}" type="image/png" sizes="48x48">
+{% include fonts.html %}
+<style>
+:root {
+  --bg:#ffffff; --bg-soft:#f6f9ff; --bg-accent:#e6eefa;
+  --ink:#162c40; --ink-soft:#445067; --muted:#6b7488; --rule:#dbe2f0;
+  --primary:#2d3663; --secondary:#6e92ff; --tertiary:#00398f;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --serif-heading:"Poppins","Inter",system-ui,sans-serif;
+  --radius:12px; --radius-lg:20px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.7; color: var(--ink); background: var(--bg-soft); min-height: 100vh; display: flex; flex-direction: column; }
+header { border-bottom: 1px solid var(--rule); background: #fff; }
+header .container { display: flex; align-items: center; height: 76px; }
+header img { height: 40px; width: auto; display: block; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; width: 100%; }
+main { flex: 1; padding: 64px 0 80px; }
+.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--secondary); display: block; margin-bottom: 10px; }
+h1 { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); line-height: 1.2; letter-spacing: -0.01em; font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 12px; }
+p.lede { font-size: 1.08rem; color: var(--ink-soft); margin-bottom: 28px; }
+.recursos { display: grid; gap: 14px; list-style: none; }
+.recursos a { display: block; background: #fff; border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 22px 24px; text-decoration: none; color: inherit; transition: border-color .15s, box-shadow .15s; }
+.recursos a:hover { border-color: var(--secondary); box-shadow: 0 0 0 3px var(--bg-accent); }
+.recursos strong { display: block; font-family: var(--serif-heading); font-weight: 600; color: var(--primary); font-size: 1.1rem; margin-bottom: 4px; }
+.recursos span { color: var(--ink-soft); font-size: .95rem; }
+.mas { margin-top: 28px; font-size: .9rem; color: var(--muted); }
+.mas a { color: var(--tertiary); }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="{{ '/' | relative_url }}"><img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="Kibarai" width="142" height="40"></a></div></header>
+
+<main>
+  <div class="container">
+    <div id="ok" hidden>
+      <span class="eyebrow">Suscripción confirmada</span>
+      <h1>Ya estás dentro.</h1>
+      <p class="lede" id="ok-lede">Gracias por confirmar. Elige por dónde quieres empezar:</p>
+      <ul class="recursos">
+        {%- for r in cf.recursos %}
+        <li><a href="{{ r.path | relative_url }}"><strong>{{ r.title }}</strong><span>{{ r.description }}</span></a></li>
+        {%- endfor %}
+      </ul>
+      <p class="mas">También puedes ver <a href="{{ '/es/' | relative_url }}">qué hacemos en Kibarai</a>.</p>
+    </div>
+
+    <div id="ko">
+      <span class="eyebrow">Suscripción</span>
+      <h1>Falta confirmar tu email.</h1>
+      <p class="lede">Para entrar, pulsa el botón del correo de confirmación que te hemos enviado. Si no lo encuentras, mira en spam o promociones.</p>
+      <p class="mas"><a href="{{ '/es/' | relative_url }}">Ir a kibarai.tech</a></p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  // Solo la huella SHA-256 de la clave: la clave en sí no se publica.
+  var HUELLA = "{{ site.data.secrets.acceso_sha256 }}";
+  var RECURSOS = [{% for r in cf.recursos %}"{{ r.path | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+  var q = new URLSearchParams(location.search);
+  var ls = function (fn) { try { return fn(); } catch (e) { return null; } };
+  var acceso = q.get("acceso");
+  sha256(acceso).then(function (h) { seguir(!!acceso && !!HUELLA && h === HUELLA); });
+  function sha256(t) {
+    if (!t || !window.crypto || !crypto.subtle) return Promise.resolve("");
+    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function (b) {
+      return Array.prototype.map.call(new Uint8Array(b), function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
+    });
+  }
+  function seguir(confirmado) {
+  if (confirmado) {
+    ls(function () { localStorage.setItem("kibarai-suscrito", "1"); });
+    history.replaceState(null, "", location.pathname);  // quita la clave de la barra de direcciones
+  }
+  var suscrito = confirmado || ls(function () { return localStorage.getItem("kibarai-suscrito"); });
+  if (!suscrito) return;  // se queda el aviso de "falta confirmar"
+
+  // Vuelve al recurso desde el que se registró, si lo anotó este navegador
+  // y es uno de los conocidos (nunca a una dirección cualquiera).
+  var origen = ls(function () { return localStorage.getItem("kibarai-origen"); });
+  if (confirmado && origen && RECURSOS.indexOf(origen) !== -1) {
+    ls(function () { localStorage.removeItem("kibarai-origen"); });
+    location.replace(origen);
+    return;
+  }
+  if (RECURSOS.length === 1) document.getElementById("ok-lede").textContent = "Gracias por confirmar. Ya tienes acceso:";
+  document.getElementById("ko").hidden = true;
+  document.getElementById("ok").hidden = false;
+  }
+})();
+</script>
+</body>
+</html>

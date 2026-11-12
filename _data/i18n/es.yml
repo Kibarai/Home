@@ -254,7 +254,9 @@ legal_pages:
           Kibarai trata los datos personales que el usuario nos facilita
           voluntariamente al ponerse en contacto con nosotros a través del
           correo electrónico indicado o de nuestros perfiles en redes
-          sociales. Los datos habituales son:
+          sociales, al reservar un diagnóstico o al registrarse para usar
+          nuestras herramientas gratuitas, como la calculadora de horas
+          recuperables. Los datos habituales son:
 
           - Nombre y apellidos.
           - Dirección de correo electrónico.
@@ -268,6 +270,9 @@ legal_pages:
           - Responder a consultas, solicitudes de información o propuestas de
             colaboración.
           - Gestionar la relación comercial y contractual cuando proceda.
+          - Dar acceso a las herramientas gratuitas y enviar la newsletter de
+            Kibarai a quien lo haya aceptado. Puedes darte de baja en
+            cualquier momento con el enlace que incluye cada envío.
           - Cumplir con las obligaciones legales aplicables.
       - heading: Base legal
         body: |
@@ -278,7 +283,8 @@ legal_pages:
           RGPD).
       - heading: Conservación
         body: |
-          Los datos se conservarán durante el tiempo necesario para atender la
+          Los datos de la newsletter se conservan mientras sigas suscrito.
+          El resto se conservará durante el tiempo necesario para atender la
           solicitud del usuario y, posteriormente, durante los plazos
           legalmente exigidos para atender posibles responsabilidades. Cuando
           los datos ya no sean necesarios se suprimirán con medidas de
@@ -296,6 +302,10 @@ legal_pages:
           Las reservas del diagnóstico se gestionan con Cal.com (Cal.com,
           Inc., EE. UU.), que trata el nombre, el correo y los datos que
           indiques al reservar para gestionar la cita.
+
+          La lista de la newsletter se gestiona con Acumbamail (empresa
+          española), que trata el nombre y el correo para enviar los
+          boletines.
       - heading: Derechos
         body: >
           El usuario puede ejercer los derechos de acceso, rectificación,
