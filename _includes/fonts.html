@@ -1,0 +1,15 @@
+{%- comment -%}
+  Inter y Poppins servidas desde la propia web (assets/fonts/), en vez de
+  desde Google Fonts: son los mismos archivos, pero no bloquean la primera
+  pintada esperando a otro servidor y el visitante no hace peticiones a Google.
+  Solo el subconjunto latino (español, inglés, €, comillas tipográficas).
+  Licencia SIL Open Font License.
+{%- endcomment -%}
+<link rel="preload" href="{{ '/assets/fonts/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/poppins-600-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:300 600;font-display:swap;src:url({{ '/assets/fonts/inter-latin.woff2' | relative_url }}) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+{%- for w in (4..7) %}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:{{ w }}00;font-display:swap;src:url({{ '/assets/fonts/poppins-' | append: w | append: '00-latin.woff2' | relative_url }}) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+{%- endfor %}
+</style>

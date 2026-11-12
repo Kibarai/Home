@@ -14,9 +14,10 @@ sitemap: false
   enlaces entrantes desde el sitio, fuera del sitemap y sin indexar.
 {%- endcomment -%}
 <meta name="robots" content="noindex,nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap">
+<meta name="description" content="Demo de un agente de voz que atiende el teléfono del restaurante, toma la reserva y la deja registrada.">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="icon" href="{{ '/assets/img/favicon-48.png' | relative_url }}" type="image/png" sizes="48x48">
+{% include fonts.html %}
 <style>
 :root{
   --primary:#2d3663; --secondary:#6e92ff; --tertiary:#00398f;
@@ -100,7 +101,7 @@ video{display:block;width:100%;height:auto;
 <div class="envoltura">
 
   <div class="marca">
-    <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="Kibarai">
+    <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="Kibarai" width="120" height="34">
   </div>
 
   <h1>Una reserva que entra por teléfono sin que nadie coja el teléfono.</h1>
@@ -125,7 +126,7 @@ video{display:block;width:100%;height:auto;
     var b = document.createElement('button');
     b.type = 'button';
     b.className = 'velo';
-    b.setAttribute('aria-label', 'Reproducir el vídeo. Tiene sonido.');
+    b.setAttribute('aria-label', 'Reproducir el vídeo. Con sonido.');
     b.innerHTML =
       '<span class="velo-boton"><svg viewBox="0 0 24 24" aria-hidden="true">' +
       '<path d="M8 5v14l11-7z"/></svg></span>' +
@@ -139,7 +140,7 @@ video{display:block;width:100%;height:auto;
   </script>
 
   <div class="cierre">
-    <img src="{{ '/assets/img/carlos-jimenez.jpg' | relative_url }}" alt="Carlos Jiménez">
+    <img src="{{ '/assets/img/carlos-jimenez-sm.jpg' | relative_url }}" alt="Carlos Jiménez" width="92" height="112" loading="lazy">
     <div class="texto">
       <p class="quien"><b>Carlos Jiménez</b> · Fundador de Kibarai<br>
         Más de 20 años ayudando a empresas con tecnología</p>

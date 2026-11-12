@@ -7,7 +7,7 @@
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="{{ t.urls.home | relative_url }}" aria-label="{{ t.brand.name }}">
-      <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="{{ t.brand.name }}" height="48">
+      <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="{{ t.brand.name }}" width="170" height="48">
     </a>
     <div class="nav-right">
       <nav class="nav-main" id="nav-main" aria-label="{{ t.i18n.nav_aria }}">
@@ -39,7 +39,7 @@
       </nav>
       {% if site.languages.size > 1 %}
         <div class="lang-picker">
-          <button type="button" class="lang-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="{{ t.i18n.lang_dropdown_label }}">
+          <button type="button" class="lang-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="{{ t.meta.self_name }}, {{ t.i18n.lang_dropdown_label | downcase }}">
             <span class="lang-toggle-text">{{ t.meta.self_name }}</span>
             <svg class="lang-toggle-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>

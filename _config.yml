@@ -48,3 +48,8 @@ plugins:
   - jekyll-sitemap
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor, .pages.yml, .github]
+
+# CSS comprimido en la salida (assets/css/main.scss -> main.css).
+sass:
+  style: compressed
+  sourcemap: never
