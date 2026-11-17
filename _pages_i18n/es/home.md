@@ -6,86 +6,86 @@ ref: home
 form_sector: Home
 blocks:
   - type: hero
-    title: El trabajo manual no se arregla contratando a más gente.
+    title: Parte de los sueldos que pagas se va en copiar y pegar.
     subtitle: >-
-      Automatizamos tu operativa y construimos el software que tu empresa
-      necesita, con IA. Con precio cerrado por fases, con un prototipo que
-      apruebas antes de construir nada y con el código en tus manos desde el
-      primer día.
+      Facturas a mano. Excels que no cuadran. Partes que nadie manda. Y tú,
+      un viernes por la noche, apagando fuegos que no deberían existir. Eso se
+      acaba. Automatizamos ese trabajo y construimos el software que te falta,
+      con IA. Lo ves funcionar antes de pagar nada. Y el código es tuyo.
     cta_primary_label: Solicitar diagnóstico gratis
     cta_secondary_label: Ver soluciones
     cta_secondary_url: /es/soluciones/
     illustration: default
 
   - type: dolor
-    title: Si algo de esto te suena, no es culpa de tu equipo. Es del proceso.
+    title: Tu equipo vale más que el trabajo que le está tocando hacer.
     intro: >-
-      Cambia el sector y cambia el ERP, pero los mismos tres problemas aparecen
-      una y otra vez en la primera reunión.
+      Da igual el sector. Da igual el ERP. En la primera reunión salen siempre
+      los mismos tres problemas. Y siempre, siempre, llevan años ahí.
     items:
-      - title: Horas que se van en teclear lo que ya está escrito
+      - title: Gente buena tecleando lo que ya estaba escrito
         body: >-
-          Las facturas entran por correo y alguien las pasa al ERP una a una.
-          Los albaranes se cotejan a mano. La conciliación bancaria bloquea los
-          primeros días de cada mes. Los leads esperan respuesta y las llamadas
-          fuera de horario se pierden.
+          Las facturas llegan por correo y alguien las pasa al ERP. Una a una.
+          Todos los días. Los albaranes se cotejan a mano. La conciliación se
+          come la primera semana del mes. Y el cliente que llama a las ocho de
+          la tarde no espera: llama a tu competencia.
         salida: automatización de procesos dentro de los sistemas que ya usas.
         salida_url: /es/soluciones/#automatizacion
-      - title: Nadie sabe el margen real hasta que ya es tarde
+      - title: Vas a ciegas y te enteras del margen cuando ya duele
         body: >-
-          La operativa vive en Excels artesanales que solo entiende quien los
-          hizo, con doble registro y enlaces manuales entre pestañas. Saber lo
-          que gana de verdad una obra, un centro o un servicio cuesta días de
-          trabajo a alguien.
+          Tu empresa funciona sobre Excels que solo entiende quien los hizo.
+          Datos metidos dos veces. Pestañas enlazadas a mano. Saber lo que gana
+          de verdad una obra, un centro o un servicio le cuesta días a alguien.
+          Y cuando por fin lo sabes, el dinero ya se ha ido.
         salida: software a medida conectado a tu ERP, con los números al día en lugar de al cierre.
         salida_url: /es/soluciones/software-a-medida/
-      - title: El sistema que te sostiene ya no aguanta
+      - title: Un sistema viejo sujetando toda tu empresa
         body: >-
-          Cada cambio cuesta más tiempo que el anterior. El despliegue es manual
-          y obliga a parar producción varias horas. El sistema va lento y se cae.
-          Y la base sobre la que está construido ya no recibe actualizaciones.
+          Cada cambio tarda más que el anterior. Para actualizar hay que parar
+          producción varias horas. Va lento, se cae, y nadie se atreve a
+          tocarlo. Funciona. Hasta el día que no. Y ese día lo pagas todo junto.
         salida: modernización por fases, sin tocar lo que hoy funciona.
         salida_url: /es/soluciones/modernizacion-legacy/
 
   - type: soluciones
     anchor: automatizacion
-    title: Dos formas de quitarte trabajo de encima.
+    title: Dos maneras de quitarte el trabajo que sobra.
     subtitle: >-
-      Primero entendemos cómo se trabaja hoy y dónde se van las horas. La
-      tecnología se elige después, nunca al revés.
+      Primero miramos cómo se trabaja de verdad y por dónde se escapan las
+      horas. La tecnología viene después. Al revés sale caro. Carísimo.
     items:
       - title: Automatización de procesos
         url: /es/soluciones/
         body: >-
-          El trabajo repetitivo que hoy hace una persona pasa a hacerse solo,
-          dentro de las herramientas que ya tienes. Con validación humana donde
-          equivocarse cuesta dinero.
+          Lo que hoy hace una persona a mano pasa a hacerse solo.
+          Dentro de las herramientas que ya usas, sin cambiar de programa. Y
+          donde un error cuesta dinero, una persona sigue dando el visto bueno.
         bullets:
-          - Facturas de proveedor que entran solas en el ERP, con control de duplicados
-          - Conciliación bancaria a diario en vez de bloquear el cierre de mes
-          - Leads que se califican, se asignan y se contestan en minutos
-          - Tickets clasificados y priorizados por riesgo de incumplir el SLA
-          - Agentes de voz que atienden el teléfono fuera de horario
+          - Facturas de proveedor que entran solas en el ERP, sin duplicados
+          - Conciliación bancaria cada día, no un atasco a final de mes
+          - Leads que se califican, se asignan y se contestan en minutos, no en días
+          - Incidencias ordenadas por urgencia antes de que se pase el plazo
+          - Un agente de voz que coge el teléfono cuando ya no queda nadie
         tags: [Back-office, Ventas y CRM, Operaciones, IA aplicada]
       - title: Software a medida con IA
         url: /es/soluciones/software-a-medida/
         body: >-
-          Cuando no hay herramienta en el mercado que encaje, la construimos.
-          Tuya, conectada a tu ERP y con los números en tiempo real en lugar de
-          al cierre.
+          Cuando no hay nada en el mercado que encaje, no te conformas con un
+          parche. Lo construimos. A tu medida, conectado a tu ERP y con los
+          números al día, no a final de mes.
         bullets:
           - Paneles de control por obra, centro o servicio
           - Motores de cálculo para comisiones, liquidaciones y escandallos
-          - Plataformas internas que sustituyen Excels críticos
-          - Reservas, agendas y disponibilidad con reglas reales de negocio
+          - Plataformas internas que jubilan por fin los Excels críticos
+          - Reservas, agendas y disponibilidad con las reglas reales de tu negocio
           - Modernización de sistemas heredados sin parar la operación
         tags: [Software a medida, Modernización de legacy, Consultoría de procesos]
 
   - type: tarjetas
-    title: Cinco sectores, un mismo método.
+    title: Cinco sectores. Los mismos problemas.
     subtitle: >-
-      Cada sector tiene sus documentos, sus plazos y su ERP. El problema de
-      fondo se parece mucho más de lo que parece.
+      Cada sector cree que lo suyo es especial. Sus papeles, sus plazos, su
+      ERP. Y en el fondo, todos se ahogan en lo mismo.
     items:
       - title: Seguridad privada
         body: Cuadrantes, partes de servicio, rondas y facturación por servicio.
@@ -105,8 +105,8 @@ blocks:
 
   - type: metodo
     eyebrow: Cómo trabajamos
-    title: Ves cómo funciona antes de aprobar nada.
-    subtitle: Cinco pasos, en este orden. Los tres primeros no tienen coste para ti.
+    title: Primero lo ves funcionar. Después decides si avanzamos.
+    subtitle: Cinco pasos, en este orden. Los tres primeros no te cuestan ni un euro. Y en cualquiera puedes decir que no.
     decision: Tú decides si seguir
     groups:
       - label: Sin coste
@@ -114,18 +114,18 @@ blocks:
           - title: Diagnóstico
             tag: Día 1 · 30 min
             highlight: true
-            body: Miramos tu operativa y detectamos qué procesos se pueden automatizar.
+            body: Me cuentas cómo trabajáis y dónde se os va el tiempo. Yo escucho. Sin compromiso.
           - title: Prototipo
             tag: 1–2 semanas después
-            body: Maqueta navegable de lo que tendrías. La ves y la pruebas antes de aprobar nada.
+            body: Una maqueta navegable de lo que tendrías. La tocas, la pruebas y la destrozas antes de aprobar nada.
           - title: Plan con precio cerrado
             tag: Junto al prototipo
-            body: Presupuesto de la primera fase con el alcance, los plazos y todos los costes por escrito.
+            body: El presupuesto de la primera fase, con el alcance, los plazos y todos los costes por escrito. Sin letra pequeña.
       - label: Implantación
         steps:
           - title: Construcción por fases
             tag: Entrega cada 2 semanas
-            body: Cada fase tiene su propio presupuesto. Al terminar una, puede hacerse un nuevo diagnóstico para plantear la siguiente.
+            body: Cada fase tiene su propio presupuesto. Cada dos semanas ves algo nuevo funcionando. Al acabar una fase, se puede hacer un nuevo diagnóstico para plantear la siguiente.
             fases_loop: Diagnóstico y presupuesto de la siguiente
             fases:
               - title: Fase 1
@@ -140,19 +140,23 @@ blocks:
                   - { label: Sem 4, note: Entrega }
           - title: Estabilización
             tag: Tras la última fase
-            body: Acompañamiento hasta que el proceso corre solo. El código y la infraestructura son tuyos.
+            body: Te acompañamos hasta que el proceso corre solo. Y el código y la infraestructura son tuyos. Para siempre.
 
   - type: fundador
-    title: Primero el proceso. La herramienta, después.
+    title: Estoy harto de ver programas que nadie usa.
     body: >-
-      Primero miramos cómo trabaja tu equipo. Después buscamos una solución que
-      le facilite la vida. Ese orden no es un matiz: es la diferencia entre un
-      sistema que se usa y software de poca utilidad.
+      Casi todo el mundo lo hace al revés. Se compra un programa carísimo y
+      luego se obliga al equipo a adaptarse a él. Seis meses después, todos
+      siguen en el Excel de siempre. Y el programa, criando polvo.
 
 
-      Trabajamos con pocos clientes a la vez y con un solo interlocutor. Cuando
-      hace falta, se activan colaboradores especialistas, pero la cuenta y la
-      responsabilidad no cambian de manos.
+      Yo empiezo por mirar cómo trabaja tu gente. Después busco lo que le hace
+      la vida más fácil. En ese orden. Siempre.
+
+
+      Trabajo con pocos clientes a la vez y hablas siempre conmigo. Nada de
+      comerciales, ni de juniors que aprenden con tu dinero. Si hace falta un
+      especialista, lo traigo yo, pero la responsabilidad sigue siendo mía.
     signature: true
     photo: /assets/img/carlos-jimenez.jpg
     name: Carlos Jiménez
@@ -161,39 +165,37 @@ blocks:
       - Más de 20 años ayudando a empresas con tecnología
 
   - type: garantias
-    title: Cuatro cosas que te garantizamos por escrito.
+    title: Cuatro cosas que te firmo. Por escrito.
     items:
       - title: Un solo interlocutor
-        body: Hablas siempre con la misma persona, la que diseña y construye tu sistema.
+        body: Hablas siempre con la misma persona, la que diseña y construye tu sistema. Nada de contar tu historia cinco veces a cinco personas distintas.
       - title: Precio cerrado por fases
-        body: El alcance y el precio de cada fase se firman antes de arrancarla.
+        body: Sabes lo que cuesta cada fase antes de empezarla, y lo firmamos. Ni sorpresas en la factura ni «esto no estaba incluido».
       - title: El código es tuyo
-        body: Corre en tu infraestructura y con tus cuentas, y la propiedad del código es tuya. Cualquier equipo puede mantenerlo y hacerlo crecer.
-      - title: Te decimos que no
-        body: Si lo que necesitas se resuelve con algo que ya existe, te lo decimos aunque perdamos el proyecto.
+        body: Corre en tu infraestructura, con tus cuentas, y es tuyo. Si mañana quieres cambiar de proveedor, te lo llevas. Aquí no hay rehenes.
+      - title: Te digo que no
+        body: Si lo tuyo se arregla con algo que ya existe, te lo digo. Aunque pierda el proyecto. Prefiero perder un proyecto que un cliente.
 
   - type: proceso
-    title: 30 minutos. Te llevas tres cosas, pidas o no presupuesto.
+    title: 30 minutos para escucharte. El resto es cosa mía.
     steps:
-      - label: min 0–15
-        title: El mapa de tu operativa
-        body: Repasamos contigo dónde se pierde el tiempo y sales sabiendo qué procesos son automatizables.
-      - label: min 15–25
-        title: Horas recuperables
-        body: Estimación de las horas por persona y semana que puedes recuperar. Con tus números, no con promedios.
-      - label: min 25–30
-        title: Por dónde empezar
-        body: El proceso con más retorno y lo que verás en el prototipo, que te llega en una o dos semanas con su precio cerrado.
+      - label: En la llamada · 30 min
+        title: Me cuentas cómo trabajáis
+        body: Qué se hace a mano, quién lo hace y dónde se atasca. Yo pregunto y escucho. No hace falta que prepares nada.
+      - label: Después
+        title: Lo analizo
+        body: Con lo que me has contado, busco qué se puede automatizar y qué proceso te devuelve más horas.
+      - label: En 1–2 semanas
+        title: Te enseño la propuesta
+        body: Un prototipo que puedes tocar y el plan de la primera fase con su precio cerrado. Sin coste. Y tú decides si avanzamos.
     cta_label: Reservar mi diagnóstico
 
   - type: cta
-    title: 30 minutos y sabes por dónde empezar.
+    title: ¿Cuántas horas se te están yendo por el desagüe?
     body: >-
-      Diagnóstico gratuito. Identificamos el proceso con mayor retorno y en
-      una o dos semanas te enseñamos el prototipo, con su precio cerrado.
-    notes:
-      - Respuesta en 24 h laborables
-      - Precio cerrado por fases
-      - Todo corre en tu infraestructura
+      Empieza con 30 minutos de llamada. Gratis. Me cuentas cómo trabajáis y
+      en una o dos semanas te enseño el prototipo del proceso que más te
+      devuelve, con su precio cerrado. Lo peor que te puede pasar es acabar
+      sabiendo lo que pierdes cada mes.
     form: true
 ---
