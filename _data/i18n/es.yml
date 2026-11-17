@@ -66,7 +66,7 @@ contact:
   form_endpoint: ""
 form:
   title: Solicita tu diagnóstico gratis
-  subtitle: 30 minutos. Te decimos si podemos ayudarte y cómo lo haríamos. El prototipo y el precio cerrado llegan después, sin coste.
+  subtitle: 30 minutos para escucharte. En una o dos semanas te enseño qué haría, con un prototipo y su precio cerrado, sin coste.
   subject: Solicitud de diagnóstico
   honeypot: No rellenar
   name: Nombre

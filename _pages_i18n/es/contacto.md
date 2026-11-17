@@ -7,46 +7,46 @@ form_sector: Contacto
 blocks:
   - type: hero
     eyebrow: Contacto
-    title: 30 minutos y sabes por dónde empezar.
+    title: ¿Qué tarea odia más tu equipo? Empecemos por ahí.
     subtitle: >-
-      Elige día y hora en la agenda y hablamos. Si prefieres escribir primero,
-      también vale.
+      Elige día y hora y hablamos 30 minutos. Tú me cuentas cómo trabajáis y
+      yo escucho. En una o dos semanas te enseño qué haría, con un prototipo
+      que puedes tocar y su precio cerrado.
     bullets:
-      - 30 minutos, sin coste
-      - Sales sabiendo qué proceso automatizar primero
-      - Al reservar te llega la confirmación por correo
+      - 30 minutos. Gratis. Sin compromiso.
+      - No hace falta que prepares nada
+      - Hablas conmigo, no con un comercial
     agenda: true
-    cta_secondary_label: Prefiero escribir
-    cta_secondary_url: '#escribir'
 
   - type: tarjetas
     anchor: escribir
-    title: Si prefieres escribir primero.
+    title: ¿Prefieres escribir primero? También vale.
     items:
       - title: contacto@kibarai.tech
-        body: Si prefieres contarlo por escrito antes de vernos. Respondo en menos de 24 h laborables.
+        body: Cuéntamelo por escrito y te respondo en menos de 24 h laborables. Lo leo yo.
         url: mailto:contacto@kibarai.tech
       - title: LinkedIn
-        body: Si quieres ver antes con quién vas a hablar.
+        body: Por si antes quieres saber con quién vas a hablar. Normal.
         url: https://www.linkedin.com/company/kibarai
 
   - type: proceso
-    title: Qué pasa en esos 30 minutos.
+    title: Qué pasa después de reservar.
     steps:
-      - label: min 0–15
-        title: El mapa de tu operativa
-        body: Repasamos dónde se pierde el tiempo y sales sabiendo qué procesos son automatizables.
-      - label: min 15–25
-        title: Horas recuperables
-        body: Estimación de las horas por persona y semana que puedes recuperar. Con tus números, no con promedios.
-      - label: min 25–30
-        title: Por dónde empezar
-        body: El proceso con más retorno y lo que verás en el prototipo, que te llega en una o dos semanas con su precio cerrado.
+      - label: En la llamada · 30 min
+        title: Me cuentas cómo trabajáis
+        body: Qué se hace a mano, quién lo hace y dónde se atasca. Yo pregunto y escucho. No hace falta que prepares nada.
+      - label: Después
+        title: Lo analizo
+        body: Con lo que me has contado, busco qué se puede automatizar y qué proceso te devuelve más horas.
+      - label: En 1–2 semanas
+        title: Te enseño la propuesta
+        body: Un prototipo que puedes tocar y el plan de la primera fase con su precio cerrado. Sin coste. Y tú decides si avanzamos.
 
   - type: cta
-    title: Cuéntame qué te está costando tiempo.
+    title: ¿Lo dejas para la semana que viene? Eso dijiste la semana pasada.
     body: >-
-      30 minutos y sales con el proceso por el que empezar. El prototipo y el
-      precio cerrado llegan en una o dos semanas, sin coste.
+      Treinta minutos. Gratis. Me cuentas cómo trabajáis y en una o dos
+      semanas te enseño qué haría. Lo peor que te puede pasar es acabar
+      sabiendo lo que pierdes cada mes.
     form: true
 ---

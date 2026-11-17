@@ -1029,8 +1029,7 @@ a.b-card:hover { border-color: var(--secondary); transform: translateY(-2px); co
 .cal-embed-alt { margin: .75rem 0 0; font-size: .85rem; color: var(--muted); text-align: center; }
 .cal-embed-alt a { color: var(--tertiary); }
 .b-hero--agenda { padding: 4rem 0; }
-.b-hero--agenda .b-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); align-items: start; }
-.b-hero--agenda .b-hero-copy { padding-top: 1.5rem; }
+.b-hero--agenda .b-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); align-items: center; }
 @media (max-width: 960px) {
   .b-hero--agenda .b-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
   .b-hero--agenda .b-hero-copy { padding-top: 0; }
