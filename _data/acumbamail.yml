@@ -1,7 +1,8 @@
 # Formularios de Acumbamail que usa la web.
 #
-# calculadora: el acceso a /calculadora/. Lista "Newsletter Kibarai",
-# formulario "Calculadora horas recuperables" (id 64923). Los datos salen de
+# newsletter: el alta en /newsletter/ (regalo: la calculadora de horas
+# recuperables). Lista "Newsletter Kibarai", formulario "Calculadora horas
+# recuperables" (id 64923). Los datos salen de
 # Acumbamail > Listas > Newsletter Kibarai > Formularios > Integración >
 # "Insertar el HTML con el aspecto de tu página web":
 #   el action del <form> NO va aquí: es el secreto ACUMBAMAIL_CALCULADORA_FORM
@@ -13,7 +14,7 @@
 #                    correo de Acumbamail deja constancia del alta)
 #   honeypots     -> los campos trampa contra bots ("No borres los siguientes
 #                    campos"); se envían vacíos
-calculadora:
+newsletter:
   field_name: char_01
   field_email: email_1
   field_consent: ""
@@ -34,6 +35,6 @@ calculadora:
 # súmalo a `recursos` y haz que su formulario anote su `path` al enviarse.
 confirmacion:
   recursos:
-    - path: /calculadora/
+    - path: /newsletter/
       title: Calculadora de horas recuperables
       description: Cuántas horas y cuánto dinero recupera tu equipo al año automatizando sus procesos repetitivos.

@@ -104,6 +104,7 @@ p.lede { font-size: 1.08rem; color: var(--ink-soft); margin-bottom: 28px; }
   // Vuelve al recurso desde el que se registró, si lo anotó este navegador
   // y es uno de los conocidos (nunca a una dirección cualquiera).
   var origen = ls(function () { return localStorage.getItem("kibarai-origen"); });
+  if (origen === "{{ '/calculadora/' | relative_url }}") origen = "{{ '/newsletter/' | relative_url }}";  // altas hechas antes del cambio de dirección
   if (confirmado && origen && RECURSOS.indexOf(origen) !== -1) {
     ls(function () { localStorage.removeItem("kibarai-origen"); });
     location.replace(origen);
