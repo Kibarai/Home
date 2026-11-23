@@ -1,0 +1,62 @@
+---
+layout: null
+permalink: /newsletter/mira-tu-correo/
+sitemap: false
+---
+{%- comment -%}
+  Llega aquí quien acaba de enviar el formulario de /newsletter/. Todavía no
+  está suscrito: le falta pulsar el botón del correo de confirmación de
+  Acumbamail. El email que escribió lo deja la carta en sessionStorage.
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mira tu correo · Carlos Jiménez</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="icon" href="{{ '/assets/img/favicon-48.png' | relative_url }}" type="image/png" sizes="48x48">
+{% include fonts.html %}
+{% include carta-corta.html %}
+</head>
+<body>
+<article class="carta">
+  <div class="autor-top">
+    <img src="{{ '/assets/img/carlos-jimenez-sm.jpg' | relative_url }}" alt="" width="96" height="104">
+    <div>
+      <p class="autor-nombre">Carlos Jiménez</p>
+      <p class="autor-sub">El automatizador</p>
+    </div>
+  </div>
+
+  <h1>Todavía no estás dentro.</h1>
+  <p id="con-email" hidden>Te acabo de mandar un email a <strong id="email"></strong>.</p>
+  <p id="sin-email">Te acabo de mandar un email.</p>
+  <p>Ábrelo y pulsa el botón de confirmar.</p>
+  <p>En cuanto confirmes, te llegará otro correo. Ese ya trae la calculadora.</p>
+
+  <h2>¿No te llega?</h2>
+  <ul>
+    <li><strong>Mira en spam y en promociones.</strong> A veces se esconde ahí.</li>
+    <li><strong>Dale un par de minutos.</strong> Hay correos que van sin prisa.</li>
+    <li><strong>Revisa el email que escribiste.</strong> Si se coló una letra, <a href="{{ '/newsletter/#suscribirse' | relative_url }}">vuelve a apuntarte</a> con el bueno.</li>
+  </ul>
+
+  <p class="golpe" style="margin-top:36px">Te espero dentro.</p>
+
+  <p class="pd"><strong>P. D.:</strong> Si ya te habías apuntado antes y no llegaste a confirmar, busca también aquel primer correo.</p>
+</article>
+
+<script>
+(function () {
+  var email = null;
+  try { email = sessionStorage.getItem("kibarai-alta-email"); } catch (e) {}
+  if (!email) return;
+  document.getElementById("email").textContent = email;
+  document.getElementById("con-email").hidden = false;
+  document.getElementById("sin-email").hidden = true;
+})();
+</script>
+</body>
+</html>

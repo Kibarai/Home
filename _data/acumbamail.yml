@@ -29,12 +29,10 @@ newsletter:
 #   https://kibarai.tech/confirmado/?acceso=<clave>
 # La clave es el secreto KIBARAI_ACCESO (ver _plugins/secrets.rb); en la web
 # solo se publica su SHA-256.
-# Cada formulario de la web anota en el navegador desde qué recurso se
-# registró la persona; /confirmado/ la devuelve ahí. Si confirma en otro
-# dispositivo, ve la lista de recursos. Para añadir un lead magnet nuevo,
-# súmalo a `recursos` y haz que su formulario anote su `path` al enviarse.
-confirmacion:
-  recursos:
-    - path: /newsletter/
-      title: Calculadora de horas recuperables
-      description: Cuántas horas y cuánto dinero recupera tu equipo al año automatizando sus procesos repetitivos.
+#
+# Recorrido completo del alta:
+#   /newsletter/                 carta con el formulario
+#   /newsletter/mira-tu-correo/  tras enviarlo: falta confirmar desde el correo
+#   /confirmado/                 tras confirmar: bienvenida, la calculadora va por correo
+#   /calculadora-horas/          la calculadora; se enlaza desde el correo de
+#                                bienvenida que manda Acumbamail al confirmar

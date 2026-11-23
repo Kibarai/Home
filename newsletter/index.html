@@ -9,11 +9,12 @@ sitemap: false
   layout de la web, fuera del sitemap y sin indexar; se llega por enlaces en
   correos y redes.
 
-  El regalo por suscribirse es la calculadora de horas recuperables, que se
-  abre en esta misma página al confirmar el alta desde el correo. Nombre y
-  email van a la lista de Acumbamail configurada en _data/acumbamail.yml.
-  Quien ya se registró en este navegador ve directamente la calculadora
-  (localStorage). /calculadora/ redirige aquí.
+  Nombre y email van a la lista de Acumbamail configurada en
+  _data/acumbamail.yml. Al enviar, la persona pasa a
+  /newsletter/mira-tu-correo/ (aún no está dentro: falta confirmar). Al
+  confirmar vuelve a /confirmado/ y Acumbamail le manda por correo el regalo,
+  la calculadora de horas recuperables (/calculadora-horas/).
+  /calculadora/ redirige aquí.
 {%- endcomment -%}
 {%- assign ac = site.data.acumbamail.newsletter -%}
 <!DOCTYPE html>
@@ -48,19 +49,6 @@ h1,h2,h3 { font-family: var(--serif-heading); font-weight: 600; color: var(--pri
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
 
-.hero { background: var(--bg-soft); padding: 56px 0 48px; }
-.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--secondary); display: block; margin-bottom: 10px; }
-.hero h1 { font-size: clamp(2rem, 4vw, 2.9rem); max-width: 18ch; margin-bottom: 14px; }
-.hero p { font-size: 1.12rem; color: var(--ink-soft); max-width: 44rem; }
-.hero p.regalo { font-size: 1rem; color: var(--primary); background: var(--bg-accent); border-radius: var(--radius); padding: 12px 16px; margin-bottom: 16px; }
-
-.calc-body { padding: 48px 0 80px; }
-.grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; align-items: start; }
-
-.card { background: var(--bg-soft); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 28px; }
-.card + .card { margin-top: 20px; }
-.card h2 { font-size: 1.25rem; margin-bottom: 4px; }
-.card .hint { font-size: .9rem; color: var(--muted); margin-bottom: 18px; }
 
 label { display: block; font-size: .85rem; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
 input[type=text], input[type=number], select {
@@ -68,25 +56,6 @@ input[type=text], input[type=number], select {
   border: 1px solid var(--rule); border-radius: var(--radius); padding: 11px 14px; outline: none; transition: border-color .15s, box-shadow .15s;
 }
 input:focus, select:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px var(--bg-accent); }
-.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.unit { position: relative; }
-.unit span { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: .85rem; color: var(--muted); pointer-events: none; }
-.unit input { padding-right: 74px; }
-
-.proc { background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; margin-bottom: 12px; }
-.proc-head { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; }
-.proc-head .n { font-family: var(--serif-heading); font-weight: 600; color: var(--secondary); font-size: 1rem; width: 26px; flex: none; }
-.proc-head input { flex: 1; }
-.proc-head button { flex: none; background: none; border: 1px solid var(--rule); border-radius: 999px; color: var(--muted); font: 500 .8rem var(--sans); padding: 6px 12px; cursor: pointer; }
-.proc-head button:hover { border-color: var(--secondary); color: var(--primary); }
-.proc-body { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 14px; align-items: end; }
-.range-wrap { display: flex; align-items: center; gap: 12px; height: 45px; }
-input[type=range] { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; outline: none; background: linear-gradient(to right, var(--secondary) 0 var(--p, 50%), var(--bg-accent) var(--p, 50%) 100%); }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--secondary); border: 3px solid #fff; box-shadow: 0 0 0 1px var(--rule); cursor: pointer; }
-input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--secondary); border: 3px solid #fff; cursor: pointer; }
-input[type=range]::-moz-range-track { height: 6px; border-radius: 999px; background: var(--bg-accent); }
-input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
-.range-wrap output { font-family: var(--serif-heading); font-weight: 600; color: var(--primary); width: 44px; text-align: right; }
 
 .btn { display: inline-block; font: 500 .95rem/1.2 var(--sans); padding: 13.6px 28px; border-radius: 999px; border: 2px solid transparent; cursor: pointer; transition: background .15s, color .15s; text-decoration: none; }
 .btn-primary { background: var(--secondary); color: #fff; }
@@ -95,26 +64,6 @@ input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
 .btn-ghost { background: transparent; color: var(--primary); border-color: var(--secondary); }
 .btn-ghost:hover { background: var(--bg-accent); }
 
-/* Resultado */
-.result { position: sticky; top: 24px; background: var(--primary); color: rgba(255,255,255,.85); border-radius: var(--radius-lg); padding: 28px; }
-.result .eyebrow { color: var(--secondary); }
-.big { font-family: var(--serif-heading); font-weight: 600; color: #fff; font-size: 3.2rem; line-height: 1.05; }
-.big-sub { font-size: .95rem; margin-bottom: 22px; }
-.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; }
-.kpi { border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius); padding: 12px 14px; }
-.kpi span { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #c7d2ea; }
-.kpi strong { font-family: var(--serif-heading); font-weight: 600; color: #fff; font-size: 1.25rem; }
-.bars { border-top: 1px solid rgba(255,255,255,.15); padding-top: 16px; margin-bottom: 22px; }
-.bars h3 { font-size: .95rem; color: #fff; margin-bottom: 10px; }
-.bar { margin-bottom: 10px; }
-.bar .lbl { display: flex; justify-content: space-between; font-size: .82rem; gap: 10px; }
-.bar .lbl span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.bar .lbl span:last-child { color: #fff; font-weight: 500; flex: none; }
-.bar .track { height: 6px; background: rgba(255,255,255,.12); border-radius: 999px; margin-top: 4px; }
-.bar .fill { height: 6px; background: var(--secondary); border-radius: 999px; transition: width .25s; }
-.result .btn { width: 100%; text-align: center; }
-.status { font-size: .82rem; margin-top: 10px; min-height: 1.2em; color: #c7d2ea; }
-.note { font-size: .8rem; color: var(--muted); margin-top: 14px; line-height: 1.55; }
 
 
 /* ---------- Página de la newsletter (antes de suscribirse) ----------
@@ -169,9 +118,6 @@ input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
 .alta .btn { justify-self: start; }
 .alta .legal { font-size: .76rem !important; color: var(--muted); line-height: 1.55; margin: 0; }
 .alta .err { font-size: .85rem !important; color: #b42318; min-height: 1.2em; margin: -4px 0 -6px; }
-.alta .link { background: none; border: 0; padding: 0; font: inherit; color: var(--tertiary); text-decoration: underline; cursor: pointer; }
-.gate-sent strong { color: var(--primary); font-weight: 600; }
-.gate-sent .legal { margin-top: 12px !important; }
 .gate-iframe { display: none; }
 [hidden] { display: none !important; }
 
@@ -184,15 +130,6 @@ input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
   .alta .btn { justify-self: stretch; text-align: center; }
 }
 
-@media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; }
-  .result { position: static; }
-}
-@media (max-width: 600px) {
-  .fields, .proc-body { grid-template-columns: 1fr; }
-  .hero { padding: 40px 0 36px; }
-  .big { font-size: 2.6rem; }
-}
 </style>
 </head>
 <body>
@@ -251,11 +188,6 @@ input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
   <p>Historias de las que aprendes algo sin darte cuenta.</p>
   <p class="golpe">Te enteras de lo que importa. Y sin que se te haga pesado.</p>
   <div class="alta" id="suscribirse">
-    <div id="gate-sent" class="gate-sent" hidden>
-      <h2>Mira tu correo.</h2>
-      <p class="hint">Te acabo de mandar un email a <strong id="gate-sent-email"></strong>. Pulsa el botón de confirmar y vuelves aquí con tu regalo: la calculadora, ya abierta.</p>
-      <p class="legal">¿No llega? Mira en spam o en promociones. Si ya te apuntaste antes, usa el enlace de aquel correo o <button type="button" class="link" id="gate-retry">prueba con otro email</button>.</p>
-    </div>
     <div id="gate-ask">
       <h2>Apúntate. Tarda diez segundos.</h2>
       <p class="hint">Y de regalo te llevas la calculadora que te pone delante, en horas y en euros, lo que se te escapa cada año en tareas que podría hacer una máquina.</p>
@@ -284,7 +216,7 @@ input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
   <p>Y por eso escribo esta newsletter. Para que lo que he aprendido en veinte años te sirva a ti.</p>
 
   <h2>El regalo. Prepárate para el número.</h2>
-  <p>Cuando te apuntes, te llevas la calculadora de horas recuperables.</p>
+  <p>Cuando confirmes el alta, te mando por correo la calculadora de horas recuperables.</p>
   <p>Apuntas tus tareas repetitivas. Cuánta gente las hace. Cuánto tardan. Qué parte podría hacerse sola.</p>
   <p>Y te dice, sin anestesia, cuántas horas al año se van en ellas y cuánto te cuestan.</p>
   <div class="cuenta">
@@ -329,322 +261,48 @@ input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--bg-accent); }
 </article>
 </div>
 
-<main class="calc" id="calc" hidden>
-<section class="hero">
-  <div class="container">
-    <span class="eyebrow">Tu regalo por suscribirte a la newsletter</span>
-    <h1>¿Cuántas horas te devuelve automatizar?</h1>
-    <p class="regalo">Gracias por apuntarte a la newsletter. Te prometí la calculadora y aquí la tienes. Haz la cuenta con lo tuyo.</p>
-    <p>Apunta los procesos repetitivos de tu equipo, cuántas personas los hacen y cuánto tiempo les llevan. Te decimos cuántas horas y cuánto dinero puedes recuperar al año, y te llevas el cálculo en PDF.</p>
-  </div>
-</section>
-  <div class="calc-body">
-  <div class="container grid">
-    <div>
-      <div class="card">
-        <h2>Tu equipo</h2>
-        <p class="hint">Con esto calculamos cuánto vale el tiempo que recuperas. Lo que escribes en la calculadora no se guarda ni se envía a ningún sitio.</p>
-        <div class="fields">
-          <div><label for="coste">Coste por hora de tu equipo</label><div class="unit"><input type="number" id="coste" min="0" step="1" placeholder="Ej. 22" inputmode="decimal"><span>€ / hora</span></div></div>
-          <div><label for="semanas">Semanas de trabajo al año</label><div class="unit"><input type="number" id="semanas" min="1" max="52" step="1" placeholder="Ej. 46" inputmode="numeric"><span>semanas</span></div></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Procesos repetitivos</h2>
-        <p class="hint">El porcentaje automatizable es la parte del trabajo que puede hacerse sola. Si dudas, deja el 60 %: en el diagnóstico lo afinamos.</p>
-        <div id="procs"></div>
-        <button class="btn btn-ghost" id="add" type="button">Añadir proceso</button>
-      </div>
-    </div>
-
-    <aside class="result" aria-live="polite">
-      <span class="eyebrow">Tu resultado</span>
-      <div class="big" id="r-anual">0 h</div>
-      <div class="big-sub">recuperables al año</div>
-      <div class="kpis">
-        <div class="kpi"><span>Por semana</span><strong id="r-sem">0 h</strong></div>
-        <div class="kpi"><span>Jornadas completas</span><strong id="r-fte">0</strong></div>
-        <div class="kpi" style="grid-column: span 2"><span>Coste anual recuperable</span><strong id="r-eur">0 €</strong></div>
-      </div>
-      <div class="bars"><h3>Dónde están las horas</h3><div id="r-bars"></div></div>
-      <button class="btn btn-primary" id="pdf" type="button">Descargar el cálculo en PDF</button>
-      <div class="status" id="status"></div>
-    </aside>
-  </div>
-  <div class="container"><p class="note">Estimación orientativa calculada con los datos que introduces. Jornadas completas sobre una jornada anual de referencia de 1.720 horas. No es un presupuesto.</p></div>
-  </div>
-</main>
 
 <script>
-let ASSETS = null;
-const JORNADA = 1720, MAX_PROCS = 6;
-const C = { primary:[45,54,99], secondary:[110,146,255], tertiary:[0,57,143], ink:[22,44,64], inkSoft:[68,80,103], muted:[107,116,136], rule:[219,226,240], bgSoft:[246,249,255], bgAccent:[230,238,250], onDark:[199,210,234] };
-
-let procs = [{ nombre: "", personas: "", horas: "", pct: 60 }];
-
-// ---------- utilidades ----------
+// El formulario se envía a Acumbamail dentro de un iframe oculto. Cuando
+// Acumbamail responde, la persona pasa a /newsletter/mira-tu-correo/, que le
+// dice que aún no está dentro hasta que confirme desde el correo. Al
+// confirmar, Acumbamail la devuelve a /confirmado/ y le manda la calculadora
+// por correo (ver _data/acumbamail.yml).
 const $ = id => document.getElementById(id);
-function num(v, d = 0) {
-  const n = Number(v); if (!isFinite(n)) return "0";
-  const s = Math.abs(n).toFixed(d).split(".");
-  s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return (n < 0 ? "-" : "") + s.join(",");
-}
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
-const clamp = (v, a, b) => Math.min(b, Math.max(a, Number(v) || 0));
-
-function calc() {
-  const coste = clamp($("coste").value, 0, 1000), semanas = $("semanas").value === "" ? 0 : clamp($("semanas").value, 1, 52);
-  const rows = procs.map((p, i) => {
-    const sem = clamp(p.personas, 0, 999) * clamp(p.horas, 0, 80) * clamp(p.pct, 0, 100) / 100;
-    return { ...p, nombre: (p.nombre || "").trim() || `Proceso ${i + 1}`, sem, anual: sem * semanas, eur: sem * semanas * coste };
-  });
-  const sem = rows.reduce((a, r) => a + r.sem, 0);
-  const anual = sem * semanas;
-  return { rows, sem, anual, fte: anual / JORNADA, eur: anual * coste, coste, semanas,
-           personas: rows.reduce((a, r) => a + clamp(r.personas, 0, 999), 0) };
-}
-
-// ---------- interfaz ----------
-function renderProcs() {
-  $("procs").innerHTML = procs.map((p, i) => `
-    <div class="proc">
-      <div class="proc-head">
-        <span class="n">${String(i + 1).padStart(2, "0")}</span>
-        <input type="text" data-i="${i}" data-k="nombre" value="${esc(p.nombre)}" placeholder="Ej. Pasar facturas de proveedor al programa" aria-label="Nombre del proceso ${i + 1}">
-        ${procs.length > 1 ? `<button type="button" data-del="${i}">Quitar</button>` : ""}
-      </div>
-      <div class="proc-body">
-        <div><label>Personas que lo hacen</label><div class="unit"><input type="number" min="0" step="1" data-i="${i}" data-k="personas" value="${p.personas}"><span>pers.</span></div></div>
-        <div><label>Horas por persona</label><div class="unit"><input type="number" min="0" step="0.5" data-i="${i}" data-k="horas" value="${p.horas}"><span>h / sem.</span></div></div>
-        <div><label>Parte automatizable</label><div class="range-wrap"><input type="range" min="0" max="100" step="5" data-i="${i}" data-k="pct" value="${p.pct}" style="--p:${p.pct}%" aria-label="Porcentaje automatizable"><output>${p.pct} %</output></div></div>
-      </div>
-    </div>`).join("");
-  $("add").style.display = procs.length >= MAX_PROCS ? "none" : "";
-}
-
-function renderResult() {
-  const r = calc();
-  $("status").textContent = "";
-  $("r-anual").textContent = num(r.anual) + " h";
-  $("r-sem").textContent = num(r.sem, r.sem % 1 ? 1 : 0) + " h";
-  $("r-fte").textContent = num(r.fte, 1);
-  $("r-eur").textContent = num(r.eur) + " €";
-  const max = Math.max(...r.rows.map(x => x.anual), 1);
-  $("r-bars").innerHTML = r.rows.map(x => `
-    <div class="bar"><div class="lbl"><span>${esc(x.nombre)}</span><span>${num(x.anual)} h</span></div>
-    <div class="track"><div class="fill" style="width:${(x.anual / max * 100).toFixed(1)}%"></div></div></div>`).join("");
-}
-
-$("procs").addEventListener("input", e => {
-  const t = e.target, i = +t.dataset.i, k = t.dataset.k;
-  if (k === undefined || isNaN(i)) return;
-  procs[i][k] = k === "nombre" || t.value === "" ? t.value : Number(t.value);
-  if (k === "pct") { t.nextElementSibling.textContent = t.value + " %"; t.style.setProperty("--p", t.value + "%"); }
-  renderResult();
+const DESTINO = "{{ '/newsletter/mira-tu-correo/' | relative_url }}";
+const TEXTO_BOTON = $("gate-form").querySelector("button[type=submit]").textContent;
+let enviado = false;
+// Al volver atrás desde la página siguiente, el navegador puede restaurar
+// esta tal cual quedó (botón desactivado): se deja lista para otro intento.
+window.addEventListener("pageshow", ev => {
+  if (!ev.persisted) return;
+  enviado = false;
+  const b = $("gate-form").querySelector("button[type=submit]");
+  b.disabled = false; b.textContent = TEXTO_BOTON;
 });
-$("procs").addEventListener("click", e => {
-  const d = e.target.dataset.del; if (d === undefined) return;
-  procs.splice(+d, 1); renderProcs(); renderResult();
-});
-$("add").addEventListener("click", () => {
-  if (procs.length >= MAX_PROCS) return;
-  procs.push({ nombre: "", personas: "", horas: "", pct: 60 }); renderProcs(); renderResult();
-  const inputs = document.querySelectorAll('#procs input[data-k="nombre"]'); inputs[inputs.length - 1].focus();
-});
-["coste", "semanas"].forEach(id => $(id).addEventListener("input", renderResult));
-
-// ---------- PDF ----------
-function buildPdf() {
-  const r = calc();
-  r.rows = r.rows.filter(x => x.sem > 0);  // los procesos sin rellenar no salen en el PDF
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ unit: "pt", format: "a4" });
-  for (const [name, b64] of Object.entries(ASSETS.fonts)) {
-    doc.addFileToVFS(name + ".ttf", b64);
-    const [fam, w] = name.split("-");
-    doc.addFont(name + ".ttf", fam, w.toLowerCase());
-  }
-  const W = 595.28, M = 40, CW = W - 2 * M;
-  const fill = c => doc.setFillColor(...c), stroke = c => doc.setDrawColor(...c), color = c => doc.setTextColor(...c);
-  const font = (f, s, sz) => { doc.setFont(f, s); doc.setFontSize(sz); };
-  const caps = (t, x, y, opts = {}) => { doc.setCharSpace(opts.cs ?? 1.2); doc.text(t.toUpperCase(), x, y, opts); doc.setCharSpace(0); };
-
-  // Cabecera
-  doc.addImage(ASSETS.logo, "PNG", M, 34, 27 * 1240 / 350, 27);
-  font("Inter", "medium", 7.5); color(C.secondary);
-  caps("Cálculo · Horas recuperables", W - M, 51, { align: "right" });
-  stroke(C.rule); doc.setLineWidth(1.2); doc.line(M, 76, W - M, 76);
-
-  // Titular y entradilla
-  let y = 112;
-  font("Poppins", "semibold", 21); color(C.primary);
-  const h1 = doc.splitTextToSize(`Puedes recuperar ${num(r.anual)} horas al año.`, CW * 0.8);
-  doc.text(h1, M, y, { lineHeightFactor: 1.2 }); y += h1.length * 25.2 + 4;
-  font("Inter", "regular", 10); color(C.inkSoft);
-  const lead = `Estimación para tu empresa, calculada con los datos que has introducido: ${r.rows.length} ${r.rows.length === 1 ? "proceso" : "procesos"}, ${num(r.personas)} ${r.personas === 1 ? "persona implicada" : "personas implicadas"} y un coste de ${num(r.coste)} € por hora. Son horas que hoy se van en tareas repetitivas y que, automatizadas, tu equipo puede dedicar a lo que de verdad aporta.`;
-  const leadL = doc.splitTextToSize(lead, CW);
-  doc.text(leadL, M, y, { lineHeightFactor: 1.55 }); y += leadL.length * 15.5 + 14;
-
-  // KPIs
-  const kpis = [["Horas por semana", num(r.sem, r.sem % 1 ? 1 : 0) + " h"], ["Horas al año", num(r.anual) + " h"],
-                ["Jornadas completas", num(r.fte, 1)], ["Coste al año", num(r.eur) + " €"]];
-  const gap = 10, kw = (CW - gap * 3) / 4, kh = 58;
-  kpis.forEach(([l, v], i) => {
-    const x = M + i * (kw + gap);
-    if (i === 3) { fill(C.primary); doc.roundedRect(x, y, kw, kh, 8, 8, "F"); }
-    else { fill(C.bgSoft); stroke(C.rule); doc.setLineWidth(.8); doc.roundedRect(x, y, kw, kh, 8, 8, "FD"); }
-    font("Inter", "medium", 6.8); color(i === 3 ? C.onDark : C.muted); caps(l, x + 11, y + 19, { cs: .9 });
-    font("Poppins", "semibold", 16); color(i === 3 ? [255, 255, 255] : C.primary); doc.text(v, x + 11, y + 43);
-  });
-  y += kh + 30;
-
-  // Desglose
-  const h2 = t => { font("Poppins", "bold", 13); color(C.primary); doc.text(t, M, y); y += 9; stroke(C.rule); doc.setLineWidth(1); doc.line(M, y, W - M, y); y += 16; };
-  h2("Desglose por proceso");
-  const NW = 152;
-  const cols = [{ t: "Proceso", x: M }, { t: "Personas", x: M + 205, a: "right" }, { t: "h / semana", x: M + 280, a: "right" },
-                { t: "Automatizable", x: M + 365, a: "right" }, { t: "h recup. / sem", x: M + 445, a: "right" }, { t: "€ / año", x: W - M, a: "right" }];
-  font("Inter", "medium", 6.8); color(C.muted);
-  cols.forEach(c => caps(c.t, c.x, y, { align: c.a || "left", cs: .7 }));
-  y += 8; stroke(C.rule); doc.setLineWidth(.8); doc.line(M, y, W - M, y);
-  const maxA = Math.max(...r.rows.map(x => x.anual), 1);
-  r.rows.forEach(row => {
-    font("Inter", "regular", 9.5); color(C.ink);
-    const name = doc.splitTextToSize(row.nombre, NW);
-    const rh = Math.max(1, name.length) * 12.5 + 16;
-    const ty = y + 15;
-    doc.text(name, M, ty, { lineHeightFactor: 1.3 });
-    color(C.inkSoft);
-    doc.text(num(row.personas), cols[1].x + 0, ty, { align: "right" });
-    doc.text(num(row.horas, row.horas % 1 ? 1 : 0), cols[2].x, ty, { align: "right" });
-    doc.text(num(row.pct) + " %", cols[3].x, ty, { align: "right" });
-    font("Poppins", "semibold", 9.5); color(C.primary);
-    doc.text(num(row.sem, row.sem % 1 ? 1 : 0), cols[4].x, ty, { align: "right" });
-    doc.text(num(row.eur) + " €", cols[5].x, ty, { align: "right" });
-    // barra proporcional a las horas anuales
-    const by = y + rh - 8;
-    fill(C.bgAccent); doc.roundedRect(M, by, NW, 3, 1.5, 1.5, "F");
-    fill(C.secondary); doc.roundedRect(M, by, Math.max(3, NW * row.anual / maxA), 3, 1.5, 1.5, "F");
-    y += rh + 4; stroke(C.rule); doc.setLineWidth(.8); doc.line(M, y, W - M, y);
-  });
-  // total
-  y += 15;
-  font("Poppins", "semibold", 9.5); color(C.primary);
-  doc.text("Total", M, y);
-  doc.text(num(r.sem, r.sem % 1 ? 1 : 0), cols[4].x, y, { align: "right" });
-  doc.text(num(r.eur) + " €", cols[5].x, y, { align: "right" });
-  y += 30;
-
-  // Hipótesis
-  h2("Cómo se ha calculado");
-  font("Inter", "regular", 8.8); color(C.inkSoft);
-  const hip = [
-    `Horas recuperables por semana = personas × horas por persona y semana × parte automatizable.`,
-    `Horas al año = horas por semana × ${num(r.semanas)} semanas de trabajo. Jornadas completas sobre una jornada anual de referencia de ${num(JORNADA)} horas.`,
-    `Coste recuperable = horas al año × ${num(r.coste)} € por hora. Es el valor del tiempo que se libera, no un ahorro en nómina.`,
-  ];
-  hip.forEach(t => {
-    const l = doc.splitTextToSize(t, CW - 12);
-    fill(C.secondary); doc.circle(M + 2.5, y - 3, 1.6, "F");
-    doc.text(l, M + 12, y, { lineHeightFactor: 1.5 }); y += l.length * 13.2 + 5;
-  });
-
-  // Tarjeta de contacto (anclada abajo, altura según contenido)
-  const top = r.rows.reduce((a, b) => (b.anual > a.anual ? b : a), r.rows[0]);
-  const pw = 80, ph = 97, tx = M + 20 + pw + 20, tw = W - M - 22 - tx;
-  const corto = top.nombre.length > 48 ? top.nombre.slice(0, 46) + "…" : top.nombre;
-  font("Poppins", "bold", 14);
-  const headL = doc.splitTextToSize(r.anual > 0 ? `Empecemos por «${corto}».` : "Empecemos por el proceso que más tiempo te devuelve.", tw);
-  font("Inter", "regular", 9.5);
-  const subL = doc.splitTextToSize(r.anual > 0 ? "Es el proceso que más horas te devuelve. Treinta minutos de diagnóstico para afinar el cálculo y saber por dónde empezar." : "Treinta minutos para saber cuál es.", tw);
-  const inner = 9 + 18 + headL.length * 16.8 + 4 + subL.length * 14 + 14 + 22 + 16;
-  const ch = Math.max(ph + 44, inner + 44), cy = 842 - 40 - ch - 14;
-  fill(C.primary); doc.roundedRect(M, cy, CW, ch, 11, 11, "F");
-  const px = M + 20, py = cy + (ch - ph) / 2;
-  doc.saveGraphicsState();
-  doc.roundedRect(px, py, pw, ph, 6, 6, null); doc.clip(); doc.discardPath();
-  doc.addImage(ASSETS.photo, "JPEG", px, py, pw, pw * 359 / 330);
-  doc.restoreGraphicsState();
-  let ty = cy + (ch - inner) / 2 + 9;
-  font("Poppins", "semibold", 9); color([255, 255, 255]); doc.text("Carlos Jiménez", tx, ty);
-  const nw = doc.getTextWidth("Carlos Jiménez");
-  font("Inter", "regular", 9); doc.text(" · Fundador de Kibarai", tx + nw, ty);
-  ty += 22;
-  font("Poppins", "bold", 14); doc.text(headL, tx, ty, { lineHeightFactor: 1.2 }); ty += (headL.length - 1) * 16.8 + 18;
-  font("Inter", "regular", 9.5); color(C.onDark); doc.text(subL, tx, ty, { lineHeightFactor: 1.45 }); ty += (subL.length - 1) * 14 + 14;
-  doc.setDrawColor(255, 255, 255); doc.setGState(new doc.GState({ "stroke-opacity": 0.15 }));
-  doc.setLineWidth(1); doc.line(tx, ty, W - M - 20, ty);
-  doc.setGState(new doc.GState({ "stroke-opacity": 1 }));
-  ty += 20;
-  font("Inter", "medium", 7.5); color(C.secondary);
-  caps("Teléfono", tx, ty); caps("Email", tx + 110, ty);
-  ty += 17;
-  font("Poppins", "semibold", 12); color([255, 255, 255]);
-  doc.text("619 80 25 80", tx, ty); doc.text("carlos.jimenez@kibarai.tech", tx + 110, ty);
-
-  // Pie
-  const d = new Date();
-  font("Inter", "regular", 7.5); color(C.muted);
-  doc.text(`Estimación orientativa generada el ${d.toLocaleDateString("es-ES")} con la calculadora de kibarai.tech. No es un presupuesto.`, M, 842 - 26);
-
-  doc.setProperties({ title: "Horas recuperables · Kibarai", author: "Kibarai", subject: "Cálculo de horas recuperables" });
-  return doc;
-}
-
-// ---------- descarga ----------
-// jsPDF y las fuentes del PDF se cargan al pulsar el botón, no al abrir la página.
-const btn = $("pdf"), status = $("status");
-function loadScript(src) {
-  return new Promise((ok, ko) => { const el = document.createElement("script"); el.src = src; el.onload = ok; el.onerror = ko; document.head.appendChild(el); });
-}
-async function ensurePdfLibs() {
-  if (!window.jspdf) await loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
-  if (!window.KIBARAI_PDF_ASSETS) await loadScript("{{ '/newsletter/pdf-assets.js' | relative_url }}");
-  ASSETS = window.KIBARAI_PDF_ASSETS;
-}
-btn.addEventListener("click", async () => {
-  const r0 = calc();
-  if (!r0.coste || !r0.semanas) { status.textContent = "Rellena el coste por hora y las semanas de trabajo para descargar el PDF."; return; }
-  if (!r0.anual) { status.textContent = "Rellena al menos un proceso: personas, horas y parte automatizable."; return; }
-  btn.disabled = true; status.textContent = "Generando el PDF…";
-  try {
-    await ensurePdfLibs();
-    const r = calc();
-    buildPdf().save("kibarai-horas-recuperables.pdf");
-    status.textContent = "PDF descargado.";
-  } catch (e) {
-    status.textContent = "No se ha podido generar el PDF. Prueba de nuevo en unos segundos.";
-  } finally { btn.disabled = false; }
-});
-
-// ---------- acceso ----------
-// El formulario se envía a Acumbamail dentro de un iframe oculto, así la
-// persona no sale de la página. La calculadora NO se abre al enviarlo: se abre
-// cuando la persona confirma desde el correo. Acumbamail la devuelve a
-// /confirmado/, que marca la suscripción en el navegador y la trae aquí
-// porque al enviar se anotó este origen (ver _data/acumbamail.yml).
-const SUSCRITO = "kibarai-suscrito", ORIGEN = "kibarai-origen";
-function unlock() { $("gate").hidden = true; $("calc").hidden = false; }
-try { if (localStorage.getItem(SUSCRITO)) unlock(); } catch (e) {}
 $("gate-form").addEventListener("submit", e => {
   const f = e.target, nombre = $("g-nombre").value.trim(), email = $("g-email").value.trim(), err = $("g-err");
+  if (enviado) { e.preventDefault(); return; }
   if (!nombre) { e.preventDefault(); err.textContent = "Escribe tu nombre."; $("g-nombre").focus(); return; }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { e.preventDefault(); err.textContent = "Revisa el email: parece que falta algo."; $("g-email").focus(); return; }
   if (!$("g-ok").checked) { e.preventDefault(); err.textContent = "Para continuar, acepta la política de privacidad."; return; }
   err.textContent = "";
-  if (!f.getAttribute("action")) { e.preventDefault(); console.warn("Calculadora: falta el secreto ACUMBAMAIL_CALCULADORA_FORM (ver _plugins/secrets.rb)"); }
-  try { localStorage.setItem(ORIGEN, location.pathname); } catch (e2) {}
-  $("gate-sent-email").textContent = email;
-  $("gate-ask").hidden = true; $("gate-sent").hidden = false;
-  $("suscribirse").scrollIntoView({ block: "start", behavior: "smooth" });
+  enviado = true;
+  try { sessionStorage.setItem("kibarai-alta-email", email); } catch (e2) {}
+  const boton = f.querySelector("button[type=submit]");
+  boton.disabled = true; boton.textContent = "Enviando…";
+  const seguir = () => location.assign(DESTINO);
+  if (!f.getAttribute("action")) {
+    e.preventDefault();
+    console.warn("Newsletter: falta el secreto ACUMBAMAIL_CALCULADORA_FORM (ver _plugins/secrets.rb)");
+    seguir();
+    return;
+  }
+  // Se espera a que Acumbamail conteste para no cortar el envío al cambiar
+  // de página; si tarda demasiado, se sigue igualmente.
+  document.querySelector(".gate-iframe").addEventListener("load", seguir, { once: true });
+  setTimeout(seguir, 8000);
 });
-$("gate-retry").addEventListener("click", () => {
-  $("gate-sent").hidden = true; $("gate-ask").hidden = false; $("g-email").value = ""; $("g-email").focus();
-});
-
-renderProcs(); renderResult();
 </script>
 </body>
 </html>
