@@ -170,7 +170,7 @@ blocks:
       - title: Un solo interlocutor
         body: Hablas siempre con la misma persona, la que diseña y construye tu sistema. Nada de contar tu historia cinco veces a cinco personas distintas.
       - title: Precio cerrado por fases
-        body: Sabes lo que cuesta cada fase antes de empezarla, y lo firmamos. Ni sorpresas en la factura ni «esto no estaba incluido».
+        body: Sabes lo que cuesta cada fase antes de empezarla, y lo firmamos. Ni sorpresas en la factura ni "esto no estaba incluido".
       - title: El código es tuyo
         body: Corre en tu infraestructura, con tus cuentas, y es tuyo. Si mañana quieres cambiar de proveedor, te lo llevas. Aquí no hay rehenes.
       - title: Te digo que no

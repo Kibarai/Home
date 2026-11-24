@@ -175,7 +175,7 @@ blocks:
       - title: A single point of contact
         body: You always talk to the same person, the one who designs and builds your system. No telling your story five times to five different people.
       - title: Fixed price per phase
-        body: You know what each phase costs before it starts, and we sign it. No surprises on the invoice and no «that was not included».
+        body: You know what each phase costs before it starts, and we sign it. No surprises on the invoice and no "that was not included".
       - title: The code is yours
         body: It runs on your infrastructure, under your accounts, and it is yours. If tomorrow you want to change supplier, you take it with you. Nobody is held hostage here.
       - title: I tell you no

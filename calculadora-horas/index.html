@@ -346,7 +346,7 @@ function buildPdf() {
   const pw = 80, ph = 97, tx = M + 20 + pw + 20, tw = W - M - 22 - tx;
   const corto = top.nombre.length > 48 ? top.nombre.slice(0, 46) + "…" : top.nombre;
   font("Poppins", "bold", 14);
-  const headL = doc.splitTextToSize(r.anual > 0 ? `Empecemos por «${corto}».` : "Empecemos por el proceso que más tiempo te devuelve.", tw);
+  const headL = doc.splitTextToSize(r.anual > 0 ? `Empecemos por "${corto}".` : "Empecemos por el proceso que más tiempo te devuelve.", tw);
   font("Inter", "regular", 9.5);
   const subL = doc.splitTextToSize(r.anual > 0 ? "Es el proceso que más horas te devuelve. Treinta minutos de diagnóstico para afinar el cálculo y saber por dónde empezar." : "Treinta minutos para saber cuál es.", tw);
   const inner = 9 + 18 + headL.length * 16.8 + 4 + subL.length * 14 + 14 + 22 + 16;
